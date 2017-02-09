@@ -1,0 +1,14 @@
+# -*- org -*-
+
+#+OPTIONS: ^:{}
+
+#+STYLE: <style type="text/css">
+#+STYLE: html {background: #555555; color: white;}
+#+STYLE: a:link { color: orange; }
+#+STYLE: a:visited { color: #aa6500; }
+#+STYLE: table { border-color: white; }
+#+STYLE: </style>
+
+#+MACRO: line-table #+ATTR_HTML: border="2" rules="all" frame="all"
+
+#+INCLUDE: ../header.hrg

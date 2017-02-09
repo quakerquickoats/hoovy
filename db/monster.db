@@ -1,0 +1,72 @@
+% -*- erlang -*-
+{races,
+ [
+  % any element
+  {formless, []},
+  {elemental, []},
+
+  % earth and air (and water)
+  {insect, []},
+  {plant, []},
+           
+  % water and wood
+  {reptile, []},
+  {fish, []},
+           
+  % metal
+  {robot, []},
+           
+  % fire and air
+  {undead, []},
+  {demon, []},
+  {ghost, []}
+ ]}.
+
+{attributes,
+ [
+  {'Fire', []},
+  {'Ice', []},
+  {'Wood', []},
+  {'Iron', []}
+ ]}.
+
+{jobs,
+ [
+  {'Knight', []},
+  {'Archer', []},
+  {'Mage', []},
+  {'Shaman', []},
+  {'Bezerker', []},
+  {'Soldier', []},
+  {'Healer', []}
+ ]}.
+
+{families,
+ [
+  {'Ant', [{string, "a"}]},
+  {'Slime', [
+             {string, 'b'},
+             {max_health, 10},
+             {str, 1}
+             ]},
+  {'Centaur', [{string, 'c'}]},
+  {'Cyclops', [{string, 'C'}]},
+  {'Elemental', [{string, 'e'}]},
+  {'Dwarf', [{string, 'h'}]},
+  {'Dragon', [{string, 'D'}]},
+  {'Goblin', [{string, 'g'}]},
+  {'Gnome', [{string, 'G'}]},
+  {'Giant', [{string, 'H'}]},
+  {'Imp', [{string, 'i'}]},
+  {'Kobold', [{string, 'k'}]},
+  {'Mushroom', [{string, 'm'}]},
+  {'Minotaur', [{string, 'M'}]},
+  {'Orc', [{string, 'o'}]},
+  {'Ogre', [{string, 'O'}]},
+  {'Spider', [{string, 's'}]},
+  {'Serpent', [{string, 'S'}]},
+  {'Troll', [{string, 'T'}]},
+  {'Skeleton', [{string, 'z'}]},
+  {'Worm', [{string, 'w'}]},
+  {'Demon', [{string, '&'}]}
+ ]}.

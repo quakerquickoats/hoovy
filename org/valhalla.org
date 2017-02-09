@@ -1,0 +1,291 @@
+#+TITLE: /Gamelike/
+
+# character
+
+* Alignment
+  - Karma(chaotic)
+  - Dharma(lawful)
+
+* Jobs
+  - Starting job is "wanderer" or "adventurer"
+  - Player can select a profession later in game,
+    to specialise in weapons and skills and game outcome.
+| Job       | Tag | Element | Equip Weapon | Item Weapon | Bonuses      |
+|-----------+-----+---------+--------------+-------------+--------------|
+| Ninja     | N   | Metal   | Sword        | Knife       | AGI+5 STR+10 |
+| Magician  | M   | Earth   | Staff        | Gem         | DEX+5 INT+10 |
+| Hunter    | H   | Wood    | Bow          | Trap        | LUK+5 DEX+10 |
+| Alchemist | A   | Fire    | Gun          | Tool        | INT+5 LUX+10 |
+| Monk/Sage | *   | Void    | N/A          | N/A         | STR+5 AGI+10 |
+
+* Profile
+| Name | Use                 | Note |
+|------+---------------------+------|
+| STR  | Physical ATK and HP |      |
+| INT  | Fromless ATK and SP |      |
+| AGI  |                     |      |
+
+* Status Effects
+
+{{{line-table}}}
+| Type      | Effect                                       | Note | Duration |
+|-----------+----------------------------------------------+------+----------|
+| Poison    | Loss of HP at each turn                      |      | 20 turns |
+| Mute      | Cannot use skills                            |      | 20 turns |
+| Confused  | Walk and Attack direction are random         |      | 20 turns |
+| Paralyze  | Automatic 'Wait' action taken                |      | 20 turns |
+| Blindness | Lose map, item, char location. Gain hearing. |      | ?        |
+
+
+# items
+
+* All Items
+  Item actions listed here are 1 turn.
+
+** Actions
+   + An item has a chance to break if it is thrown and hits an actor.
+   + Two items cannot be on the same part of floor.
+
+{{{line-table}}}
+| Action  | Effect                                    | State                |
+|---------+-------------------------------------------+----------------------|
+| Throw   | /Throw the item in the facing directionl/ |                      |
+| Drop    | /Put item on the ground/                  | if no item on ground |
+| Explain | /Display description screen for item/     |                      |
+
+** Properties
+   - Items share some common properties
+
+{{{line-table}}}
+| Property       | Use                              | Type                  |
+|----------------+----------------------------------+-----------------------|
+| amount/charges | /How many charges left in item/  | pos_integer           |
+| status         | /The status of the item/         | blessed,cursed,normal |
+| cost           | /The full price in zeny at .../  | uinteger              |
+| charge_cost    | /The price for each item charge/ | uinteger              |
+| weight         | /The weight of the item/         | uinteger              |
+|                |                                  |                       |
+
+** Status
+*** ???
+    Cannot be taken off if worn.
+    Cannot be used unless already equipped.
+*** ???
+    Extra damage.
+    Does not become destroyed when used, but has a change to become unblessed when used
+
+* Consumables
+** Herbs
+   - Herbs can be eaten or thrown to an actor to cause the effect.
+   - Eating a herb replenishes 5% fullness.
+
+{{{line-table}}}
+| Name                | Effect           | Note |
+|---------------------+------------------+------|
+| Weak Healing Herb   | Replenish 6% HP  |      |
+| Healing Herb        | Replenish 12% HP |      |
+| Strong Healing Herb | Replenish 24% HP |      |
+
+** Food
+   - Food is used to replenish SP and sometimes HP.
+
+{{{line-table}}}
+| Name       | Effect        | Note                        |
+|------------+---------------+-----------------------------|
+| Cherry     | 5% SP         | Stacking item (cherry[ 3 ]) |
+| Strawberry | 5% SP         | Stacking                    |
+| Grape      | 5% SP         | Stacking                    |
+| Apple      | 25% SP        |                             |
+| Orange     | 50% SP        |                             |
+| Lemon      | 50% SP        |                             |
+| Peach      | 50% SP        |                             |
+| Banana     | 25% SP 25% HP | Changes to 'Banana Peel'    |
+| Avocado    | 25% SP 25% HP |                             |
+| Coconut    | 25% SP 25% HP |                             |
+| Mango      | 50% SP 25% HP |                             |
+
+** Potions
+   [[/val/potion2.svg]]
+   - Potion can be mixed
+
+{{{line-table}}}
+| Name         | Effect                                    | Note                           |
+|--------------+-------------------------------------------+--------------------------------|
+| Empty Bottle | None                                      | Can be used to collect liquids |
+| Alcohol      | Confusion and Provoke state when consumed |                                |
+| Water        | None                                      |                                |
+| Poison       | Poison effect                             |                                |
+
+* Bags
+** Bag of Holding
+    - Used for holding other items except bags.
+
+{{{line-table}}}
+| Action   | Effect                             | State                |
+|----------+------------------------------------+----------------------|
+| Contents | /Look inside, show inventory menu/ |                      |
+| Put In   | /Request an item to be entered/    | when there are slots |
+
+* Scrolls
+  - Scrolls are single-charge items
+
+{{{line-table}}}
+| Name            | Effect                                         | Note              |
+|-----------------+------------------------------------------------+-------------------|
+| Teleport Scroll | Warp user to random unoccupied location of map |                   |
+| Blank Scroll    | Takes the effect of what is written            | Write Name action |
+|                 |                                                |                   |
+
+* Staffs
+  - Holds charges. Swing to fire a charge in direction of facing.
+  - A staff can be thrown for the effect if it hits, even when there are no charges.
+
+{{{line-table}}}
+| Name           | Effect                                           | Note          |
+|----------------+--------------------------------------------------+---------------|
+| Transfer Staff | Swap places with the actor the shot hits, if any |               |
+| n/a         | A fire element shot for MATK*1.25                | Fire element  |
+| n/a   | A water element shot for MATK*1.25               | Water element |
+
+* Equipment
+** Weapons
+   Can be equipped to left or right hand.
+** Armor
+   Can be equipped to left or right hand.
+** Accessories
+   Can be equipped to one of two accessory slots.
+   - Hats
+   - Armbands
+   - Rings
+   - Necklace
+   - Shoes
+** Ammunition
+   Arrows, knives, rocks, traps
+
+
+# battle
+
+* Attack
+  One turn uses two hands. Two swords is two attacks, Two shields is two defends.
+  Sword then shield is attack then defend, shield then sword is defend then attack.
+
+  Damage = (Item VAL * Dest STR) / Target DEF
+
+* Defense
+
+  Damage = (Item VAL * Source STR) / Dest DEF
+
+# world
+
+* Humble Town
+  The hub town of the world which beginning players start and where existing players respawn.
+** Layman's Dungeon
+   - The place where a beginning player will start to learn the game
+   - Existing players can return here to gain some levels on respawn.
+** Shop
+   - Buy items.
+   - Sell items.
+   - Tag items.
+   - Untag items.
+   - Retrieve tagged items.
+** Storage
+   - Holds up to 80 items, organized by type. See [[file:item.org]].
+   - Give item
+   - Take item
+   - Give all items
+** Smith
+   - Upgrade items.
+   - Combine items.
+   - Deconstruct items into materials.
+   - Construct items from materials.
+** Fortune Teller (better name)
+   - Skills.
+   - Jobs.
+
+* Dungeons
+  - Dungeons are like entering a portal to a parallel realm or dream world.
+
+* Ideas
+  - "An oubliette (from the French oubliette - literally "forgotten place") was
+    a form of dungeon which was accessible only from a hatch in a high ceiling.
+    The word comes from the same root as the French oublier, "to forget,"
+    as it was used for those prisoners the captors wished to forget."
+    [[http://en.wikipedia.org/wiki/Dungeon][Wikipedia]]
+  - Seattle Underground
+    [[http://en.wikipedia.org/wiki/Seattle_Underground][Wikipedia]]
+  - Portland Underground
+  - Labyrinth
+  - Doors which open to different areas with the same door.
+  - The cleaner(s): Cave Drill!
+  - Hedge Race
+  - Side View maps, of climbing and so on. Battletoads, Zelda GB.
+  - Jars are Warps?
+  - All indoor areas, with indoor forests.
+  - Many things should be person or character,
+    - Goblins control machines, (eg. Cave Drill and Door Knight),
+    - Objects with faces
+    - Eyes, Hands, Mouths.
+  - Lots of knights. Different colors -- And knights riding stuff.
+  - City of Miniature things!!!!!!!!
+  - Moving/alive rocks. And trees.
+  - Cannons
+  - Broken apart pieces of ground and architecture floating about,
+    like Alice area that goes through the door
+  - Owls.
+
+
+** The Middle Areas
+
+*** Field of Patience
+    - Movement
+    - 3 floors
+*** Circle Cave
+    - Stillness
+    - 3 floors
+*** Revolving Tower
+    - Movement
+    - 5 floors
+*** Castle of the In-Between
+    - Stillness
+    - 5 floors
+    - Completion opens Heaven areas and Hell areas
+
+** Heaven Continent Areas
+
+*** Lake of Reflections
+*** Cave of Harmony
+*** Field of Compassion and Equanimity
+*** Joy and Happiness Plateau
+    - Buddha resides here.
+
+** Hell Continent Areas
+
+*** Nightmare Island
+    The entrance to Hell.
+*** Sea of Tears
+*** Labyrinth of Delirium
+*** Maze of Horrors
+*** Tower of Lost Souls
+    - Mara resides here.
+
+* Special Characters
+
+** Player
+   A homeless wanderer with no posessions.
+   - Alignment varies by play
+
+** Spirit of Phenomena, Spirit of Nature, Spirit of Life and Death
+   - Neutral alignment
+   - Appears in deer form during the day
+   - Appears in formless spirit during the night
+   [[keiths.png]] [[mononoke1.png]] [[mononoke2.png]] [[mononoke3.png]] [[mononoke4.png]]
+
+** God of Entropy
+
+** Mara
+   - Strong Chaotic alignment
+
+** Buhhda
+   - Strong Lawful alignment
+
+#+INCLUDE: ../footer.hrg

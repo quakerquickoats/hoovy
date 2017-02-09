@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="256" height="256">
+
+  <defs>
+    <circle id="dot"
+            fill="#00ffff"
+            stroke="white" stroke-width="2"
+            cx="0" cy="0" r="6"/>
+  </defs>
+
+  <g id="layer1" transform="scale(4,4)">
+    <rect id="blue"
+          fill="#0000ff"
+          stroke="none"
+          width="64" height="64" x="0" y="0"/>
+
+    <path id="corrugate"
+          fill="#ff8800"
+          stroke="#ffff00" stroke-width="3"
+          d="M 0,32 L 8,40 L 16,32 L 24,40 L 32,32 L 40,40 L 48,32 L 56,40 L 64,32
+             L 64,0 L 0,0 z"/>
+
+    <use xlink:href="#dot" transform="translate(8,52)" />
+    <use xlink:href="#dot" transform="translate(24,52)" />
+    <use xlink:href="#dot" transform="translate(40,52)" />
+    <use xlink:href="#dot" transform="translate(56,52)" />
+  </g>
+</svg>

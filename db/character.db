@@ -1,0 +1,31 @@
+%% -*- erlang -*-
+
+{attributes,
+ [
+  'Friendly',
+  {'Neutral', []},
+  {'Hostile', []},
+  {'Crazy', []},
+  {'Annoying', []},
+  {'Mysterious', []},
+  {'Sane', []}
+ ]}.
+
+{jobs,
+ [
+  'Homeless','Blacksmith','Merchant'
+ ]}.
+
+{families,
+ [
+  {'Player', [
+              {string, "@"},
+              {max_health, 100},
+              {max_magic, 10},
+              {str, 1},
+              {agi, 1},
+              {dex, 1},
+              {int, 1},
+              {luk, 1}
+             ]}
+ ]}.

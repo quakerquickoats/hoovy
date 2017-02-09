@@ -1,0 +1,8 @@
+% -*- erlang -*-
+
+{no_text, "<無テクスト>"}.
+{no_such_user, "ユーザがありません。"}.
+{wrong_password, "パスワードが間違います。"}.
+{bad_credentials, "証明書は間違います。"}.
+
+{person_01, "おはよう。"}.
