@@ -63,12 +63,13 @@
 	     (slime-style-init-command
 	      x y `(:style ,style :dont-close t))))))
 
-(setq inferior-lisp-program "nova")
+(setq inferior-lisp-program "sbcl")
 (setq slime-lisp-implementations
-      '((ecl ("c:\\msys32\\mingw32\\ecl.exe"))
-	(nova ("c:\\Users\\Quaker\\nova\\nova.exe"))
-	(sbcl ("C:\\Program Files\\Steel Bank Common Lisp\\1.3.9\\sbcl.exe"
-	    "--core" "C:\\Program Files\\Steel Bank Common Lisp\\1.3.9\\sbcl.core"))))
+      '((sbcl ("C:\\Program Files\\Steel Bank Common Lisp\\1.3.9\\sbcl.exe"
+	       "--core"
+	       "C:\\Program Files\\Steel Bank Common Lisp\\1.3.9\\sbcl.core"))
+	(ecl ("c:\\msys32\\mingw32\\ecl.exe"))
+	(nova ("c:\\Users\\Quaker\\nova\\nova.exe"))))
 
 ;(add-to-list 'load-path "/users/quaker/quicklisp/dists/quicklisp/software/slime-v2.18")
 ;(require 'slime-autoloads)

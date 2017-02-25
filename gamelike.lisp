@@ -1,7 +1,7 @@
-(defpackage :hoovy
+(defpackage :gamelike
   (:use :common-lisp)
   (:export :otiyot))
-(in-package :hoovy)
+(in-package :gamelike)
 
 ;; don't forget -- time vs. space
 ;; and -- mind vs. body
@@ -35,3 +35,11 @@
 
 (defun make-object ()
   (list (random-word *descs*) (random-word *names*)))
+
+;;
+;;
+;;
+
+(defstruct world
+  (seed (random 1000)))
+

@@ -18,6 +18,12 @@
   (gl:clear-color 0.0 0.0 1.0 1.0)
   (gl:clear :color-buffer))
 
+(defun handle-key (keysym)
+  (let ((scancode (sdl2:scancode-value keysym))
+	(sym (sdl2:sym-value keysym))
+	(mod-value (sdl2:mod-value keysym)))
+    (format t "Key: ~a - ~a - ~a~%" sym scancode mod-value)))
+
 (defun nova-test ()
   (sdl2:with-init (:video)
     (sdl2:with-window (win :flags '(:shown :opengl))
@@ -26,11 +32,7 @@
 	(nova-init)
 	(sdl2:with-event-loop (:method :poll)
 	  (:keydown (:keysym keysym)
-		    (let ((scancode (sdl2:scancode-value keysym))
-			  (sym (sdl2:sym-value keysym))
-			  (mod-value (sdl2:mod-value keysym)))
-		      (format t "Key: ~a - ~a - ~a~%"
-			      sym scancode mod-value)))
+		    (handle-key keysym))
 	  (:keyup (:keysym keysym))
 	  (:idle ()
 		 (gl:clear :color-buffer)

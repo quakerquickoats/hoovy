@@ -4,9 +4,6 @@
 
 ;; ?? begin saving old scratch.
 
-(defstruct world
-  actors
-  seed)
 
 (defun go ()
   (ceramic:show (ceramic:make-window :url "https://www.h.com"
