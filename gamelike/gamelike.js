@@ -1,2 +1,0 @@
-let game = undefined
-
