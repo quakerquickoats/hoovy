@@ -1,45 +1,18 @@
-(defpackage :gamelike
-  (:use :common-lisp)
-  (:export :otiyot))
-(in-package :gamelike)
-
-;; don't forget -- time vs. space
-;; and -- mind vs. body
-
-(defparameter *descs*
-  '(
-    big
-    small
-    large
-    heavy
-    full
-    open
-    ugly
-    fast
-    slow
-    ))
-
-(defparameter *names*
-  '(
-    rabbit
-    box
-    hole
-    truck
-    book
-    pencil
-    chair
-    ))
-
-(defun random-word (seq)
-  (elt seq (random (length seq))))
-
-(defun make-object ()
-  (list (random-word *descs*) (random-word *names*)))
-
+;; Gamelike
 ;;
-;;
+;; (c) 2017 Lyndon Tremblay
 ;;
 
-(defstruct world
-  (seed (random 1000)))
+(defpackage gamelike (:use :cl))
+
+;; (asdf:defsystem gamelike
+;;   :description "Gamelike"
+;;   :author "Lyndon Tremblay"
+;;   :version "0.1.0"
+;;   :depends-on (:cffi :cffi-grovel)
+;;   :components
+;;   ((:file "game-sdl")
+;;    (:file "gamelike" :depends-on ("game-sdl"))))
+
+(format t "Loaded Gamelike.~%")
 
