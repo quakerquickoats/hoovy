@@ -3,16 +3,8 @@
 ;;
 ;;
 
-(defpackage wanderman (:use :cl))
-(in-package :wanderman)
+(in-package :gamelike)
 
 (defstruct wanderer
   level inventory equipment status shkel)
 
-(defstruct world
-  actors)
-
-(defstruct actor)
-
-(defun render (world)
-  )

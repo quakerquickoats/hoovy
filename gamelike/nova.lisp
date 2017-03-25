@@ -3,8 +3,7 @@
 ;;
 ;;
 
-(defpackage :nova (:use :cl))
-(in-package :nova)
+(in-package :gamelike)
 
 (require :sdl2)
 (require :cl-opengl)
