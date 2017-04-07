@@ -1,5 +1,25 @@
 (in-package :gamelike)
 
+;; islands!!
+
+;;
+;; THE CITY
+;;
+;; main area
+
+(defstruct city
+  (roads nil))
+
+;;
+;; THE DUNGEON
+;;
+;; underground sewers
+;; mine shafts
+;; caves
+
+;;
+;; ROOMS - inside buildings
+;;
 
 ;;
 ;; WORLD

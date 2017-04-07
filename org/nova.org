@@ -1,0 +1,38 @@
+#+TITLE: Nova Computer (NVC)
+
+* Terminal
+** Display
+512x512 1bit (262144 pixels, 32kb)
+
+0,0 is lower left
+511,511 is top right
+
+** Characters
+8x16 8bit (1024 bytes)
+
+coordinates can be specified as char:
+101 - 3264
+or fine coords:
+1,1 - 32,64
+
+** Processor
+locally executes instruction codes. (lisp vm)
+
+** Input
+
+
+* Session
+persistent user sessions
+** Memory Tree
+shared symbols organized as a list of lists.
+symbols can be remote pointers (message passing).
+namespaces (branches) can be associated to and resolved from physical or virtual places.
+
+* Filesystem
+* Network
+clients use HTTP.
+
+* Drawing
+draw, lift pen, stroke, path, bitops, etc.
+
+* Polygons
