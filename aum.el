@@ -22,11 +22,11 @@
 ;; Erlang config
 ;;
 
-;; (flet ((erlpath (x) (concatenate 'string x "/Program Files/erl8.2/")))
-;;   (add-to-list 'load-path (erlpath "/lib/tools-2.9/emacs"))
-;;   (setq erlang-root-dir (erlpath "/erts-8.2"))
-;;   (add-to-list 'exec-path (erlpath "/erts-8.2/bin"))
-;;   (setq erlang-man-root-dir (erlpath "/erts-8.2/man")))
+;; (cl-flet ((erlpath (x) (concat x "/Program Files/erl9.0/")))
+;;   (add-to-list 'load-path (erlpath "/lib/tools-2.10/emacs"))
+;;   (setq erlang-root-dir (erlpath "/erts-9.0"))
+;;   (add-to-list 'exec-path (erlpath "/erts-9.0/bin"))
+;;   (setq erlang-man-root-dir (erlpath "/erts-9.0/man")))
 
 ;; (require 'erlang-start)
 
@@ -65,9 +65,12 @@
 
 (setq inferior-lisp-program "sbcl")
 (setq slime-lisp-implementations
-      '((sbcl ("C:\\Program Files\\Steel Bank Common Lisp\\1.3.9\\sbcl.exe"
+      '((sbcl ("C:\\msys32\\mingw32\\bin\\sbcl.exe"
 	       "--core"
-	       "C:\\Program Files\\Steel Bank Common Lisp\\1.3.9\\sbcl.core"))
+	       "C:\\msys32\\mingw32\\lib\\sbcl\\sbcl.core"))
+	(sbcl-old ("C:\\Program Files\\Steel Bank Common Lisp\\1.3.12\\sbcl.exe"
+	       "--core"
+	       "C:\\Program Files\\Steel Bank Common Lisp\\1.3.12\\sbcl.core"))
 	(ecl ("c:\\msys32\\mingw32\\ecl.exe"))
 	(nova ("c:\\Users\\Quaker\\nova\\nova.exe"))))
 

@@ -1,17 +1,16 @@
-(defpackage :hoovy.qbl
-  (:use :cl)
-  (:export :otiyot))
-(in-package :hoovy.qbl)
-
 ;;
-;; some hebrew
 ;;
 
-(defparameter otiyot
+
+;;
+;; ivr
+;;
+
+(defconst *qb-otiyot*
   '(Alf Bet Gml Dal Heh Waw Zay Xet Tet Yod
     Kaf Lam Mem Nun Sam Iyn Peh Tza Qof Rsh Sin Tau))
 
-(defvar sephirot
+(defconst *qb-sephirot*
   '(keter hokma bina
     hesed ))
 
@@ -19,7 +18,17 @@
 ;; some english
 ;;
 
-(defparameter alphabet "abcdefghijklmnopqrstuvwxyz")
+(defconst *qb-alphabet* "abcdefghijklmnopqrstuvwxyz")
+(defconst *qb-alephbet* "abgdewzxtiklmnoypcqrsx")
 
 (defun random-three ()
   (loop repeat 3 collect (nth (random (length alphabet)) alphabet)))
+
+;;
+;;
+;;
+
+(defvar *es-aleph* [])
+
+(defun es-aleph-image ()
+  (create-image ))
