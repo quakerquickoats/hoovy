@@ -5,6 +5,8 @@
 
 (in-package :gamelike)
 
+
+
 (defstruct wanderer
-  level inventory equipment status shkel)
+  char-status house)
 

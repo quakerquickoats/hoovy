@@ -78,6 +78,8 @@
 ;(require 'slime-autoloads)
 (load "/users/quaker/quicklisp/slime-helper.el")
 (setq slime-auto-connect 'ask)
+(setq slime-contribs '(slime-fancy slime-xref-browser
+				   slime-sprof slime-asdf slime-company))
 
 (setq common-lisp-hyperspec-root "file:///Users/Quaker/Downloads/HyperSpec/")
 (setq browse-url-browser-function 'eww-browse-url)

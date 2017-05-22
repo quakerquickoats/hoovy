@@ -20,6 +20,10 @@
 ;;
 ;; ROOMS - inside buildings
 ;;
+(defstruct room
+  actors
+  blocks
+  environment 'plain)
 
 ;;
 ;; WORLD
@@ -42,7 +46,7 @@
 (defun generate-actors () '())
 (defun generate-zones () '())
 
-(defstruct world
+(defclass world
   (seed (random 1000))
   (actors (generate-actors))
   (zones (generate-zones)))

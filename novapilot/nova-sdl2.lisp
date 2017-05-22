@@ -3,7 +3,7 @@
 ;;
 ;;
 
-(in-package :gamelike)
+(in-package :novapilot)
 
 (require :sdl2)
 (require :cl-opengl)
@@ -27,6 +27,8 @@
 ;; SDL testing code
 
 (defun nova-init ()
+  (format t "Initialize Nova.~%")
+  (finish-output)
   (gl:viewport 0 0 640 480)
   (gl:matrix-mode :projection)
   (gl:ortho -1 1 -1 1 -1 1)
@@ -39,10 +41,11 @@
   (let ((scancode (sdl2:scancode-value keysym))
 	(sym (sdl2:sym-value keysym))
 	(mod-value (sdl2:mod-value keysym)))
-    (format t "Key: ~a - ~a - ~a~%" sym scancode mod-value)))
+    (format t "Key: ~a - ~a - ~a~%" sym scancode mod-value)
+    (finish-output)))
 
 (defun nova-test ()
-  (sdl2:with-init (:video)
+  (sdl2:with-init (:everything)			; (:video :event)
     (sdl2:with-window (win :flags '(:shown :opengl))
       (sdl2:with-gl-context (gl-context win)
 	(sdl2:gl-make-current win gl-context)
@@ -50,7 +53,10 @@
 	(sdl2:with-event-loop (:method :poll)
 	  (:keydown (:keysym keysym)
 		    (handle-key keysym))
-	  (:keyup (:keysym keysym))
+	  (:keyup (:keysym keysym)
+		  (when (sdl2:scancode= (sdl2:scancode-value keysym)
+					:scancode-escape)
+		    (sdl2:push-event :quit)))
 	  (:idle ()
 		 (gl:clear :color-buffer)
 		 (gl:begin :triangles)

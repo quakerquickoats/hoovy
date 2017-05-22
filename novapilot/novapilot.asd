@@ -1,22 +1,17 @@
-(asdf:defsystem gamelike
-  :description "Gamelike"
+(asdf:defsystem novapilot
+  :description "Novapilot"
   :author "Lyndon Tremblay"
   :version "0.1.0"
-  :depends-on (:cffi :cffi-grovel)
+  :depends-on (:sdl2)
   :components
-  ((:file "gamelike")
+  ((:file "nova")
    ;;(:file "game-sdl")
    ;;(:file "window")
-   (:file "namegen")
-   (:file "char")
-   (:file "world")
-   (:file "wanderman")
-   (:file "monster")
    ))
 
-(defpackage :gamelike
+(defpackage :novapilot
   (:use :common-lisp)
   (:export :nothing-special))
 
-(in-package :gamelike)
+(in-package :novapilot)
 
