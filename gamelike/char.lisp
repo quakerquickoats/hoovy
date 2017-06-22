@@ -1,3 +1,8 @@
+;; Gamelike
+;;
+;; (c) 2017 Lyndon Tremblay
+;;
+
 (in-package :gamelike)
 
 ;;
@@ -68,18 +73,6 @@
 ;; ACTOR
 ;;
 
-(defparameter *personalities*
-  '(angry depressed sketchy aloof asleep frantic hostile calm flaming))
-
-(defparameter *statuses*
-  '(normal confused fast slow stunned asleep beserk))
-
-(defclass storage ()
-  ((%contents :initarg :contents :initform nil)
-   (%capacity :initarg :capacity :initform 1)))
-(defgeneric take-out (storage item))
-(defgeneric put-in (storage item))
-
 (defclass thing ()
   ((%name :initarg :name :initform "no name")
    (%desc :initarg :description :initform "no description")))
@@ -97,13 +90,13 @@
 (defclass weapon (equipment) ())
 (defclass armor (equipment) ())
 
-(defclass entity (thing)
-  ((%x :initarg :x :initform 0)
-   (%y :initarg :y :initform 0)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defclass actor (thing storage) ())
-(defclass monster (actor) ())
-(defclass player (actor) ())
+(defparameter *personalities*
+  '(angry depressed sketchy aloof asleep frantic hostile calm flaming))
+
+(defparameter *statuses*
+  '(normal confused fast slow stunned asleep beserk))
 
 
 

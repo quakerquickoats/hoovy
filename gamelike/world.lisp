@@ -1,3 +1,8 @@
+;; Gamelike
+;;
+;; (c) 2017 Lyndon Tremblay
+;;
+
 (in-package :gamelike)
 
 ;; islands!!
@@ -7,8 +12,8 @@
 ;;
 ;; main area
 
-(defstruct city
-  (roads nil))
+;; (defstruct city
+;;   (roads nil))
 
 ;;
 ;; THE DUNGEON
@@ -17,41 +22,31 @@
 ;; mine shafts
 ;; caves
 
-;;
-;; ROOMS - inside buildings
-;;
-(defstruct room
-  actors
-  blocks
-  environment 'plain)
+;; (deftype tile (&optional n)
+;;   `'(floor (damage . ,n) water wall stairs (exit . n) (warp . n) pit))
+
+(defparameter *map-tiles*
+  '(floor damage water wall stairs exit warp pit))
 
 ;;
 ;; WORLD
 ;;
 
 
-
 (defparameter *land*
   '(field desert mountain forest temple cave city))
-
-;; (deftype tile (&optional n)
-;;   `'(floor (damage . ,n) water wall stairs (exit . n) (warp . n) pit))
-
-(defparameter *tiles*
-  '(floor damage water wall stairs exit warp pit))
 
 (defparameter *shops*
   '(armor weapon medicine material fabric service tool))
 
-(defun generate-actors () '())
-(defun generate-zones () '())
+
 
 (defclass world
   (seed (random 1000))
   (actors (generate-actors))
   (zones (generate-zones)))
 
-(defun world-turn (world)
+(defmethod world-turn ((world))
   world)
 
 (defun world-display (world)

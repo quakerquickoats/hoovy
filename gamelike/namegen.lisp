@@ -39,9 +39,6 @@
 (defun random-word (seq)
   (elt seq (random (length seq))))
 
-;; (defun make-object ()
-;;   (list (random-word *adjectives*) (random-word *objects*)))
+(defun make-object ()
+  (list (random-word *adjectives*) (random-word *objects*)))
 
-(defstruct object
-  (adjective (random-word *adjectives*))
-  (name (random-word *objects*)))
