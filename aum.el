@@ -9,7 +9,7 @@
 
 (package-initialize)
 ;(add-to-list 'package-archives '("elpa" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 ;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/))"))
 
 ;; (if (eq system-type 'windows-nt)
@@ -64,19 +64,20 @@
 	      x y `(:style ,style :dont-close t))))))
 
 (setq inferior-lisp-program "sbcl")
-(setq slime-lisp-implementations
-      '((sbcl ("C:\\msys32\\mingw32\\bin\\sbcl.exe"
-	       "--core"
-	       "C:\\msys32\\mingw32\\lib\\sbcl\\sbcl.core"))
-	(sbcl-old ("C:\\Program Files\\Steel Bank Common Lisp\\1.3.12\\sbcl.exe"
-	       "--core"
-	       "C:\\Program Files\\Steel Bank Common Lisp\\1.3.12\\sbcl.core"))
-	(ecl ("c:\\msys32\\mingw32\\ecl.exe"))
-	(nova ("c:\\Users\\Quaker\\nova\\nova.exe"))))
+
+;; (setq slime-lisp-implementations
+;;       '((sbcl-w32 ("C:\\msys32\\mingw32\\bin\\sbcl.exe"
+;; 		   "--core"
+;; 		   "C:\\msys32\\mingw32\\lib\\sbcl\\sbcl.core"))
+;; 	(sbcl-old ("C:\\Program Files\\Steel Bank Common Lisp\\1.3.12\\sbcl.exe"
+;; 	       "--core"
+;; 	       "C:\\Program Files\\Steel Bank Common Lisp\\1.3.12\\sbcl.core"))
+;; 	(ecl ("c:\\msys32\\mingw32\\ecl.exe"))
+;; 	(nova ("c:\\Users\\Quaker\\nova\\nova.exe"))))
 
 ;(add-to-list 'load-path "/users/quaker/quicklisp/dists/quicklisp/software/slime-v2.18")
 ;(require 'slime-autoloads)
-(load "/users/quaker/quicklisp/slime-helper.el")
+(load "~/quicklisp/slime-helper.el")
 (setq slime-auto-connect 'ask)
 (setq slime-contribs '(slime-fancy slime-xref-browser
 				   slime-sprof slime-asdf slime-company))
