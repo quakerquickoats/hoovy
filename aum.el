@@ -6,6 +6,8 @@
 (ido-mode t)
 
 (setq visible-bell t)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
+(setq mouse-wheel-progressive-speed nil)
 
 (package-initialize)
 ;(add-to-list 'package-archives '("elpa" . "http://elpa.gnu.org/packages/"))
