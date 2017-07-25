@@ -1,0 +1,12 @@
+[package]
+name = "nova"
+version = "0.1.0"
+
+[lib]
+path = "nova.rs"
+crate-type = ["dylib"]
+
+[dependencies]
+libc = "*"
+emacs = "*"
+

@@ -2,3 +2,5 @@
 *.FASL
 *.fasl
 *.lisp-temp
+
+./
