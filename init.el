@@ -5,9 +5,9 @@
 (require 'ido)
 (ido-mode t)
 
-(setq visible-bell t)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
-(setq mouse-wheel-progressive-speed nil)
+(setq visible-bell nil)
+;;(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
+;;(setq mouse-wheel-progressive-speed nil)
 
 (package-initialize)
 ;(add-to-list 'package-archives '("elpa" . "http://elpa.gnu.org/packages/"))
@@ -81,11 +81,12 @@
 ;(require 'slime-autoloads)
 (load "~/quicklisp/slime-helper.el")
 (setq slime-auto-connect 'ask)
-(setq slime-contribs '(slime-fancy slime-xref-browser
-				   slime-sprof slime-asdf slime-company))
-
+(slime-setup '(slime-fancy slime-mrepl slime-banner slime-tramp
+			   slime-xref-browser slime-highlight-edits
+			   slime-sprof slime-asdf slime-company))
 (setq common-lisp-hyperspec-root "file:///Users/Quaker/Downloads/HyperSpec/")
-(setq browse-url-browser-function 'eww-browse-url)
+(global-set-key "\C-cs" 'slime-selector)
+(setf slime-scratch-file "~/Work/hoovy/scratch.lisp")
 
 ;; (defun my-slime-setup ()
 ;;   (require 'slime)
@@ -119,5 +120,7 @@
 ;; (mapc (lambda (x)
 ;; 	(add-hook (quote x) (lambda () (lispy-mode))))
 ;;       '(emacs-lisp-mode-hook))
+
+(setq browse-url-browser-function 'eww-browse-url)
 
 
