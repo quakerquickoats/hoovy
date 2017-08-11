@@ -1,5 +1,20 @@
 ;; scratch forms.
 
+;; 2017-08-04
+
+(defmethod draw ((ship s))
+  (destructuring-bind (x y hp w h)
+      (>> pushMatrix (translate x y 0))
+    (if (< hp 0)
+	(color3 1 1 1)
+	(color3 0.33 0.33 0.33))
+    (begin 'triangles)
+    (vertex2 (- (/ w 2)) h)
+    (vertex2 0 (- h))
+    (vertex2 (/ w 2) h)
+    (>> end popMatrix)))
+
+
 ;; 2017-06-11
 
 

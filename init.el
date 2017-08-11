@@ -5,7 +5,12 @@
 (require 'ido)
 (ido-mode t)
 
-(setq visible-bell nil)
+(setq ibuffer-saved-filter-groups
+      '(("default"
+	 ("Emacs" (name . "^\\*"))
+	 ("Dired" (mode . dired-mode)))))
+
+(setq visible-bell t)
 ;;(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
 ;;(setq mouse-wheel-progressive-speed nil)
 
