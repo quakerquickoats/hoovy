@@ -19,15 +19,42 @@
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 ;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/))"))
 
+(require 'elfeed)
+(setq elfeed-feeds
+      '("https://news.ycombinator.com/rss"
+        "http://planet.emacsen.org/atom.xml"))
+
+(setq browse-url-browser-function 'eww-browse-url)
+
 ;; (if (eq system-type 'windows-nt)
 ;;     (progn
 ;;       (setq explicit-shell-file-name "c:/cygwin/bin/bash.exe")
 ;;       (setq shell-file-name explicit-shell-file-name)
 ;;       (add-to-list 'exec-path "c:/cygwin/bin")))
 
+(autoload 'snoopy-mode "snoopy"
+  "Turn on unshifted mode for characters in the keyboard number row." t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;; Erlang config
 ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(add-to-list 'load-path "/usr/lib/erlang/tools-2.10.1/emacs")
+(setq erlang-root-path "/usr/lib/erlang")
+(add-to-list 'exec-path "/usr/lib/erlang/bin")
+
+(add-to-list 'load-path "~/Downloads/distel/elisp")
+(require 'distel)
+(distel-setup)
+
+(defvar inferior-erlang-prompt-timeout t)
+(setq inferior-erlang-machine-options '("-sname" "emacs"))
+(setq erl-nodename-cache
+      (make-symbol (concat "emacs@"
+			   (car (split-string
+				 (shell-command-to-string "hostname"))))))
 
 ;; (cl-flet ((erlpath (x) (concat x "/Program Files/erl9.0/")))
 ;;   (add-to-list 'load-path (erlpath "/lib/tools-2.10/emacs"))
@@ -35,14 +62,27 @@
 ;;   (add-to-list 'exec-path (erlpath "/erts-9.0/bin"))
 ;;   (setq erlang-man-root-dir (erlpath "/erts-9.0/man")))
 
-;; (require 'erlang-start)
+(defun my-erlang-mode-hook ()
+        ;; when starting an Erlang shell in Emacs, default in the node name
+        (setq inferior-erlang-machine-options '("-sname" "emacs"))
+        ;; add Erlang functions to an imenu menu
+        (imenu-add-to-menubar "imenu")
+        ;; customize keys
+        (local-set-key [return] 'newline-and-indent))
+
+;; Some Erlang customizations
+(add-hook 'erlang-mode-hook 'my-erlang-mode-hook)
+
+(require 'erlang-start)
 
 ;; (add-to-list 'auto-mode-alist '("\\.erl?$" . erlang-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.hrl?$" . erlang-mode))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;; Lisp config
 ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (require 'cl)
 
@@ -91,7 +131,7 @@
 			   slime-sprof slime-asdf slime-company))
 (setq common-lisp-hyperspec-root "file:///Users/Quaker/Downloads/HyperSpec/")
 (global-set-key "\C-cs" 'slime-selector)
-(setf slime-scratch-file "~/Work/hoovy/scratch.lisp")
+(setf slime-scratch-file "~/hoovy/scratch.lisp")
 
 ;; (defun my-slime-setup ()
 ;;   (require 'slime)
@@ -105,8 +145,14 @@
 ;; (defadvice lisp-mode (before my-slime-setup-once activate)
 ;;   (my-slime-setup-once))
 
+
 (autoload 'enable-paredit-mode "paredit"
   "Turn on pseudo-structural editing of Lisp code." t)
+
+;; (macrolet ((fn (&body body)
+;; 	       `(lambda (_) (print ,@body " ----"))))
+;;   (mapc fn '(1 2 3 4)))
+
 (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
 (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
 (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
@@ -121,11 +167,10 @@
 ;; (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
 ;; (add-hook 'lisp-mode-hook (lambda () (lispy-mode 1)))
 
-
 ;; (mapc (lambda (x)
 ;; 	(add-hook (quote x) (lambda () (lispy-mode))))
 ;;       '(emacs-lisp-mode-hook))
 
-(setq browse-url-browser-function 'eww-browse-url)
+
 
 

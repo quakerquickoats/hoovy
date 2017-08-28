@@ -1,12 +1,11 @@
-{application, hoovy,
+{application, gamelike,
  [{description, "An OTP application"},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, { hoovy_app, []}},
+  {mod, { gamelike_app, []}},
   {applications,
    [kernel,
-    stdlib,
-    cowboy
+    stdlib
    ]},
   {env,[]},
   {modules, []},

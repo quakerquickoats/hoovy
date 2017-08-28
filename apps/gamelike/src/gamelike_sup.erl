@@ -1,9 +1,9 @@
 %%%-------------------------------------------------------------------
-%% @doc hoovy top level supervisor.
+%% @doc gamelike top level supervisor.
 %% @end
 %%%-------------------------------------------------------------------
 
--module(hoovy_sup).
+-module(gamelike_sup).
 
 -behaviour(supervisor).
 
@@ -28,9 +28,7 @@ start_link() ->
 
 %% Child :: {Id,StartFunc,Restart,Shutdown,Type,Modules}
 init([]) ->
-    Children = {hoovy_web_server, {hoovy_web_server, start_link, []},
-		permanent, 2000, worker, [hoovy_web_server]},
-    {ok, { {one_for_all, 0, 1}, [Children]} }.
+    {ok, { {one_for_all, 0, 1}, []} }.
 
 %%====================================================================
 %% Internal functions

@@ -16,8 +16,3 @@ _build
 .idea
 *.iml
 rebar3.crashdump
-
-*~
-*.FASL
-*.fasl
-*.lisp-temp
