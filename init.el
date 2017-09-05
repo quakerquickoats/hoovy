@@ -1,6 +1,11 @@
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
+
 (defun insert-date ()
   (interactive)
   (insert (format-time-string "%Y-%m-%d")))
+
+(setq mouse-autoselect-window t)
 
 (require 'ido)
 (ido-mode t)
@@ -149,16 +154,24 @@
 (autoload 'enable-paredit-mode "paredit"
   "Turn on pseudo-structural editing of Lisp code." t)
 
+(autoload 'snoopy-mode "snoopy"
+    "Turn on unshifted mode for characters in the keyboard number row."
+    t)
+
 ;; (macrolet ((fn (&body body)
 ;; 	       `(lambda (_) (print ,@body " ----"))))
 ;;   (mapc fn '(1 2 3 4)))
 
-(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
-(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+(let ((modes-to-hook '(emacs-lisp-mode-hook
+		       eval-expression-minibuffer-setup-hook
+		       ielm-mode-hook
+		       lisp-mode-hook
+		       lisp-interaction-mode-hook
+		       scheme-mode-hook)))
+  (mapc (lambda (a)
+	  (add-hook a 'snoopy-mode)
+	  (add-hook a #'enable-paredit-mode))
+	modes-to-hook))
 
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
@@ -172,5 +185,9 @@
 ;;       '(emacs-lisp-mode-hook))
 
 
-
-
+(require 'redshank-loader "~/.emacs.d/site-lisp/redshank/redshank-loader")
+(eval-after-load "redshank-loader"
+  `(redshank-setup '(lisp-mode-hook
+		     slime-repl-mode-hook
+		     ielm-mode-hook
+		     emacs-lisp-mode-hook) t))
