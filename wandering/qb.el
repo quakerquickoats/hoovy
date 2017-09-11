@@ -13,7 +13,7 @@
 (defconst *qb-sephirot*
   '(kexer hokama binae
 	  hesed din xiperex-tifereth
-	  necah yesod malkux))
+	  necah hod yesod malkux))
 
 (defun qb-letter-value (c)
   (pcase c
@@ -22,6 +22,32 @@
 ;;
 ;; some english
 ;;
+
+;; qwertyuiop
+;; asdfghjkl;'
+;; zxcvbnm,./
+
+;; ׳קראטוןםפ
+;; שדגכעיחלךף,
+;; זסבהנמצתץ.
+
+(defconst *qb-key-alist*
+  (let ((e.row1 "qwertyuiop")
+	(e.row2 "asdfghjkl;'")
+	(e.row3 "zxcvbnm,./")
+	(h.row1 "/'קראטוןםפ")
+	(h.row2 "שדגכעיחלךף,")
+	(h.row3 "זסבהנמצתץ."))
+    (let ((e (concat e.row1 e.row2 e.row3))
+	  (h (concat h.row1 h.row2 h.row3)))
+     (mapcar* #'cons e h))))
+
+(defun qb-english-char-to-hebrew (c)
+  (cdr (assoc c *qb-key-alist*)))
+
+(defun qb-transliterate-english (s))
+
+(defun qb-transliterate-hebrew (s))
 
 (defconst *qb-alphabet* "abcdefghijklmnopqrstuvwxyz")
 (defconst *qb-alephbeth*
@@ -39,16 +65,28 @@
 	  ?\x05E6
 	  ?\x05E7 ?\x05E8 ?\x05E9 ?\x05EA
 	  ))
-(defconst *qb-finals*
+(defconst --*qb-finals*
   (string ?\x05DA ?\x05DD ?\x05DF ?\x05E3 ?\x05E5))
+
+(defconst --*qb-alephbeth*
+  '((:aleph
+     (:char ?\x5D0
+	    :value 1))
+    (:beth
+     (:char ?\x5D1
+	    :value 2))))
 
 (defconst *qb-geresh* ?\x05F3)
 (defconst *qb-gershaym* ?\x05F4)
 
 ;;(defconst *qb-alephbet* "abgdewzhtiklmnoypcqrsx")
 
-(defun random-three (l)
-  (loop repeat 3 collect (nth (random (length l)) l)))
+(defun qb-random-word (n &optional alphabet)
+  (apply #'string
+	 (qb-random-elements-of-list n (if alphabet alphabet *qb-alephbeth*))))
+
+(defun qb-random-elements-of-list (n l)
+  (loop repeat n collect (elt l (random (length l)))))
 
 ;;
 ;;
@@ -113,3 +151,4 @@
 	(forward-line)
 	(setq x (thing-at-point 'word t)))
       x)))
+
