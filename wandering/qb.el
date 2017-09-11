@@ -32,52 +32,53 @@
 ;; זסבהנמצתץ.
 
 (defconst *qb-key-alist*
-  (let ((e.row1 "qwertyuiop")
-	(e.row2 "asdfghjkl;'")
-	(e.row3 "zxcvbnm,./")
-	(h.row1 "/'קראטוןםפ")
-	(h.row2 "שדגכעיחלךף,")
-	(h.row3 "זסבהנמצתץ."))
-    (let ((e (concat e.row1 e.row2 e.row3))
-	  (h (concat h.row1 h.row2 h.row3)))
-     (mapcar* #'cons e h))))
+  (let ((e "qwertyuiopasdfghjkl;'zxcvbnm,./")
+	(h "/'קראטוןםפשדגכעיחלךף,זסבהנמצתץ."))
+    (mapcar* #'cons e h)))
 
 (defun qb-english-char-to-hebrew (c)
   (cdr (assoc c *qb-key-alist*)))
+(defun qb-hebrew-char-to-english (c)
+  (car (rassoc c *qb-key-alist*)))
 
-(defun qb-transliterate-english (s))
+(defun qb-transliterate-english (s)
+  (assert (stringp s))
+  (concat (mapcar #'qb-english-char-to-hebrew s)))
 
-(defun qb-transliterate-hebrew (s))
+(defun qb-transliterate-hebrew (s)
+  (assert (stringp s))
+  (concat (mapcar #'qb-hebrew-char-to-english s)))
 
 (defconst *qb-alphabet* "abcdefghijklmnopqrstuvwxyz")
 (defconst *qb-alephbeth*
   (string ?\x05D0 ?\x05D1 ?\x05D2 ?\x05D3 ?\x05D4 ?\x05D5 ?\x05D6 ?\x05D7 ?\x05D8 ?\x05D9
-	  ;;?\x05DA    ;; final kaf
-	  ?\x05DB
-	  ?\x05DC
-	  ;;?\x05DD    ;; final mem
-	  ?\x05DE
-	  ;;?\x05DF    ;; final nun
-	  ?\x05E0 ?\x05E1 ?\x05E2
-	  ;;?\x05E3    ;; final peh
-	  ?\x05E4
-	  ;;?\x05E5    ;; final cad
-	  ?\x05E6
+	  ?\x05DB ?\x05DC ?\x05DE ?\x05E0 ?\x05E1 ?\x05E2 ?\x05E4 ?\x05E6
 	  ?\x05E7 ?\x05E8 ?\x05E9 ?\x05EA
+	  ?\x05DA    ;; final kaf
+	  ?\x05DD    ;; final mem
+	  ?\x05DF    ;; final nun
+	  ?\x05E3    ;; final peh
+	  ?\x05E5    ;; final cad
 	  ))
-(defconst --*qb-finals*
-  (string ?\x05DA ?\x05DD ?\x05DF ?\x05E3 ?\x05E5))
-
-(defconst --*qb-alephbeth*
-  '((:aleph
-     (:char ?\x5D0
-	    :value 1))
-    (:beth
-     (:char ?\x5D1
-	    :value 2))))
 
 (defconst *qb-geresh* ?\x05F3)
 (defconst *qb-gershaym* ?\x05F4)
+
+;;
+;; gematria
+;;
+
+(defconst *qb-letter-values*
+  '(1 2 3 4 5 6 7 8 9
+      10 20 30 40 50 60 70 80 90
+      100 200 300 400 600 700 800 900))
+
+(defconst *qb-letter-values*
+  (mapcar* #'cons *qb-alephbeth* *qb-letter-values*))
+
+(defun qb-letter-values (s)
+  (let ((values *qb-letter-values*))
+    (mapcar (lambda (c) (cdr (assoc c values))) s)))
 
 ;;(defconst *qb-alephbet* "abgdewzhtiklmnoypcqrsx")
 
