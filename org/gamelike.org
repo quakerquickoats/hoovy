@@ -1,0 +1,40 @@
+#+TITLE: Gamelike
+#+OPTIONS: toc:nil
+
+* Characters
+* Classes
+** Human
+** Machine
+** Robot
+** Junk
+** Food
+* Jobs
+** Chef
+** Craftsman
+** Warrior
+** Monk
+* Styles
+* Items
+- can throw and equip all items.
+** Weapons
+- bow
+- staff/spear/bo
+- sword
+- knife/dagger
+- fists/knuckle
+** Armor
+** Accessories
+** Collectables
+- figures
+- cards
+- Books
+** Consumables
+- Food (health, stamina, stats)
+- Scrolls (skills, stats)
+- Potions/Drugs (drunk, speed, pain)
+- Ammo (arrows, bullets, darts)
+* Rooms/Arenas
+* Maps/Zones
+* Trading/Market
+* Parties/Quests
+

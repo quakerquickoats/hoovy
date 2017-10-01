@@ -15,14 +15,6 @@
 	  hesed din xiperex-tifereth
 	  necah hod yesod malkux))
 
-(defun qb-letter-value (c)
-  (pcase c
-      (Alf 1)))
-
-;;
-;; some english
-;;
-
 ;; qwertyuiop
 ;; asdfghjkl;'
 ;; zxcvbnm,./
@@ -36,18 +28,24 @@
 	(h "/'קראטוןםפשדגכעיחלךף,זסבהנמצתץ."))
     (mapcar* #'cons e h)))
 
+(defconst *qb-char-alist*
+  (mapcar* #'cons *qb-transliteration* *qb-alephbeth*))
+
 (defun qb-english-char-to-hebrew (c)
-  (cdr (assoc c *qb-key-alist*)))
+  (cdr (assoc c *qb-char-alist*)))
 (defun qb-hebrew-char-to-english (c)
-  (car (rassoc c *qb-key-alist*)))
+  (car (rassoc c *qb-char-alist*)))
 
 (defun qb-transliterate-english (s)
   (assert (stringp s))
+  (error "fail, do actual transliterating.")
   (concat (mapcar #'qb-english-char-to-hebrew s)))
 
 (defun qb-transliterate-hebrew (s)
-  (assert (stringp s))
   (concat (mapcar #'qb-hebrew-char-to-english s)))
+
+(defun qb-untransliterate-hebrew (s)
+  (concat (mapcar #'qb-english-char-to-hebrew s)))
 
 (defconst *qb-alphabet* "abcdefghijklmnopqrstuvwxyz")
 (defconst *qb-alephbeth*
@@ -60,6 +58,7 @@
 	  ?\x05E3    ;; final peh
 	  ?\x05E5    ;; final cad
 	  ))
+(defconst *qb-transliteration* "ABGDHWZX@IKLMNS&PCQR$T")
 
 (defconst *qb-geresh* ?\x05F3)
 (defconst *qb-gershaym* ?\x05F4)
@@ -69,16 +68,16 @@
 ;;
 
 (defconst *qb-letter-values*
-  '(1 2 3 4 5 6 7 8 9
-      10 20 30 40 50 60 70 80 90
-      100 200 300 400 600 700 800 900))
+  (list
+   1 2 3 4 5 6 7 8 9
+   10 20 30 40 50 60 70 80 90
+   100 200 300 400 600 700 800 900))
 
-(defconst *qb-letter-values*
-  (mapcar* #'cons *qb-alephbeth* *qb-letter-values*))
+(defun qb-letter-value (c)
+  (cdr (assoc c (mapcar* #'cons *qb-alephbeth* *qb-letter-values*))))
 
 (defun qb-letter-values (s)
-  (let ((values *qb-letter-values*))
-    (mapcar (lambda (c) (cdr (assoc c values))) s)))
+  (mapcar #'qb-letter-value s))
 
 ;;(defconst *qb-alephbet* "abgdewzhtiklmnoypcqrsx")
 

@@ -1,3 +1,13 @@
+(server-start)
+
+(require 'exwm)
+(require 'exwm-config)
+;;(exwm-config-ido)
+(exwm-config-default)
+(setq exwm-workspace-number 4)
+;;(exwm-enable)
+
+
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 
@@ -5,7 +15,7 @@
   (interactive)
   (insert (format-time-string "%Y-%m-%d")))
 
-(setq mouse-autoselect-window t)
+(setq mouse-autoselect-window nil)   ;; can't use with exwm
 
 (require 'ido)
 (ido-mode t)
@@ -15,7 +25,11 @@
 	 ("Emacs" (name . "^\\*"))
 	 ("Dired" (mode . dired-mode)))))
 
+(menu-bar-mode nil)
+(tool-bar-mode nil)
+(scroll-bar-mode nil)
 (setq visible-bell t)
+(show-paren-mode t)
 ;;(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
 ;;(setq mouse-wheel-progressive-speed nil)
 
@@ -31,14 +45,23 @@
 
 (setq browse-url-browser-function 'eww-browse-url)
 
-;; (if (eq system-type 'windows-nt)
-;;     (progn
-;;       (setq explicit-shell-file-name "c:/cygwin/bin/bash.exe")
-;;       (setq shell-file-name explicit-shell-file-name)
-;;       (add-to-list 'exec-path "c:/cygwin/bin")))
+(setq erc-nick "whoman")
+(setq erc-fill-column 95)
+(setq erc-autojoin-channels-alist
+      '(("freenode.net" "#lispgames" "#lisp" "##lisp" "#emacs" "#prolog" "#clim" "#clnoobs" "#erc")
+	("quakenet.org" "#rgrd")
+	("undernet.org" "#buddhism")
+	("efnet" "#buddhism")))
 
-(autoload 'snoopy-mode "snoopy"
-  "Turn on unshifted mode for characters in the keyboard number row." t)
+;;;;;;;;;;;;;;;
+;;
+;; Prolog
+;;
+;;;;;;;;;;;;;;;
+
+(require 'ediprolog)
+(global-set-key "\C-c\C-e" 'ediprolog-dwim)
+(add-to-list 'auto-mode-alist '("\\.pl?$" . prolog-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
