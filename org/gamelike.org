@@ -2,6 +2,7 @@
 #+OPTIONS: toc:nil
 
 * Characters
+- generated with random levels and status and items and history.
 * Classes
 ** Human
 ** Machine
@@ -35,6 +36,10 @@
 - Ammo (arrows, bullets, darts)
 * Rooms/Arenas
 * Maps/Zones
+** Snow and Ice (water)
+** Underground Caves (earth)
+** Floating Continents (sky)
+** 
 * Trading/Market
 * Parties/Quests
 

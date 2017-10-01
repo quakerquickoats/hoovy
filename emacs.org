@@ -1,42 +1,67 @@
-(server-start)
+#+TITLE: humasect emacs configuration
 
+* Startup
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/.emacs.d/site-lisp")
+(server-start)
 (require 'exwm)
 (require 'exwm-config)
 ;;(exwm-config-ido)
 (exwm-config-default)
 (setq exwm-workspace-number 4)
-;;(exwm-enable)
-
-
-(set-language-environment "UTF-8")
-(set-default-coding-systems 'utf-8)
-
-(defun insert-date ()
-  (interactive)
-  (insert (format-time-string "%Y-%m-%d")))
 
 (setq mouse-autoselect-window nil)   ;; can't use with exwm
+;;(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
+;;(setq mouse-wheel-progressive-speed nil)
 
-(require 'ido)
-(ido-mode t)
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/))"))
+#+END_SRC
+
+* Display
+#+BEGIN_SRC emacs-lisp
+(menu-bar-mode nil)
+(scroll-bar-mode nil)
+(tool-bar-mode nil)
+(setq visible-bell t)
+(show-paren-mode t)
 
 (setq ibuffer-saved-filter-groups
       '(("default"
 	 ("Emacs" (name . "^\\*"))
 	 ("Dired" (mode . dired-mode)))))
+#+END_SRC
 
-(menu-bar-mode nil)
-(tool-bar-mode nil)
-(scroll-bar-mode nil)
-(setq visible-bell t)
-(show-paren-mode t)
-;;(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
-;;(setq mouse-wheel-progressive-speed nil)
+* Text Editing
+#+BEGIN_SRC emacs-lisp
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
 
-(package-initialize)
-;(add-to-list 'package-archives '("elpa" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
-;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/))"))
+(require 'ido)
+(ido-mode t)
+
+(defun insert-date ()
+  (interactive)
+  (insert (format-time-string "%Y-%m-%d")))
+
+(org-display-inline-images t t)
+(setq org-edit-src-content-indentation 0
+      org-src-tab-acts-natively t
+      org-src-fontify-natively t
+      org-confirm-babel-evaluate nil
+      org-support-shift-select 'always)
+#+END_SRC
+
+* Communications
+#+BEGIN_SRC emacs-lisp
+(setq erc-autojoin-channels-alist
+      '(("freenode.net" "#clim" "#lispgames" "#lisp" "#emacs")
+	("quakenet" "#rgrd")
+	("efnet" "#buddhism")
+	("undernet" "#buddhism"))
+      erc-fill-column 80
+      erc-hide-timestamps t
+      erc-nick "whoman")
 
 (require 'elfeed)
 (setq elfeed-feeds
@@ -44,31 +69,17 @@
         "http://planet.emacsen.org/atom.xml"))
 
 (setq browse-url-browser-function 'eww-browse-url)
+#+END_SRC
 
-(setq erc-nick "whoman")
-(setq erc-fill-column 95)
-(setq erc-autojoin-channels-alist
-      '(("freenode.net" "#lispgames" "#lisp" "##lisp" "#emacs" "#prolog" "#clim" "#clnoobs" "#erc")
-	("quakenet.org" "#rgrd")
-	("undernet.org" "#buddhism")
-	("efnet" "#buddhism")))
-
-;;;;;;;;;;;;;;;
-;;
-;; Prolog
-;;
-;;;;;;;;;;;;;;;
-
+* Prolog
+#+BEGIN_SRC emacs-lisp
 (require 'ediprolog)
 (global-set-key "\C-c\C-e" 'ediprolog-dwim)
 (add-to-list 'auto-mode-alist '("\\.pl?$" . prolog-mode))
+#+END_SRC
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;; Erlang config
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+* Erlang
+#+BEGIN_SRC emacs-lisp
 (add-to-list 'load-path "/usr/lib/erlang/tools-2.10.1/emacs")
 (setq erlang-root-path "/usr/lib/erlang")
 (add-to-list 'exec-path "/usr/lib/erlang/bin")
@@ -106,12 +117,11 @@
 ;; (add-to-list 'auto-mode-alist '("\\.erl?$" . erlang-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.hrl?$" . erlang-mode))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;; Lisp config
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;(erlang-indent-level 4)
+#+END_SRC
 
+* Lisp
+#+BEGIN_SRC emacs-lisp
 (require 'cl)
 
 (defun slime-style-init-command (port-filename _coding-system extra-args)
@@ -214,3 +224,4 @@
 		     slime-repl-mode-hook
 		     ielm-mode-hook
 		     emacs-lisp-mode-hook) t))
+#+END_SRC
