@@ -1,5 +1,5 @@
 #+TITLE: Gamelike
-#+OPTIONS: toc:nil
+#+SETUPFILE: setup.hrg
 
 * Characters
 - generated with random levels and status and items and history.
@@ -42,4 +42,6 @@
 ** 
 * Trading/Market
 * Parties/Quests
+
+
 

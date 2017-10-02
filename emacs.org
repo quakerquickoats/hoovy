@@ -52,6 +52,51 @@
       org-support-shift-select 'always)
 #+END_SRC
 
+* Org Mode
+#+BEGIN_SRC emacs-lisp
+(defconst hoovy-root "~/hoovy/")
+(defconst hoovy-www (concat hoovy-root "/www/"))
+
+(setq org-default-notes-file (concat hoovy-root "/org/notes.org"))
+(define-key global-map (kbd "C-c c") 'org-capture)
+
+;; (defun hv-make-notes (&optional name)
+;;   `(,(concat name "-notes")
+;;    :base-directory ,(concat hv-root "/" name "/org")
+;;    :base-extension "org"
+;;    :publishing-function org-publish-org-to-html
+;;    :publishing-directory ,(concat hv-www "/dev/" name)
+;;    :auto-sitemap t
+;;    :sitemap-title "/Site Map/"
+;;    :sitemap-alphabetically nil
+;;    :recursive t
+;;    :style-include-default t
+;;    :headline-levels 4
+;;    :auto-preamble t))
+
+;; (defun hv-make-static (&optional name)
+;;   `(,(concat name "-static")
+;;     :base-directory ,(concat hv-root "/" name "/org")
+;;     :base-extension "css\\|js\\|png\\|gif\\|pdf\\|mp3\\|ogg\\|svg"
+;;     :publishing-function org-publish-attachment
+;;     :publishing-directory ,(concat hv-www "/dev/" name)
+;;     :recursive t))
+
+;; (setq org-capture-templates
+;;       '(("t" "Todo" entry (file+headline "" "Tasks")
+;;          "* TODO %?\n  %i\n  %a")
+;;         ("j" "Journal" entry (file+datetree "")
+;;          "* %?\nEntered on %U\n  %i\n  %a")))
+
+(setq org-publish-project-alist
+      `(("hoovy"
+	 :base-directory ,hoovy-root
+	 :recursive t
+	 :publishing-directory ,hoovy-www
+	 :publishing-function org-html-publish-to-html
+	 :html-head-extra ""
+	 :components ())))
+#+END_SRC
 * Communications
 #+BEGIN_SRC emacs-lisp
 (setq erc-autojoin-channels-alist

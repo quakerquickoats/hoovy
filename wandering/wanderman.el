@@ -1,9 +1,17 @@
+;; -*- lexical-binding: t; -*-
 ;;
 ;; WanderMan
 ;;
 ;; (C) 2017 Lyndon Tremblay
 ;;
 
+
+;; (cl-defstruct wm:actor
+;;   level status inventory equipment shkel)
+;; (cl-defstruct wm:state
+;;   wanderer actors map story)
+
+;;;;;;;;;;;;;;;;
 
 (require 'websocket)
 

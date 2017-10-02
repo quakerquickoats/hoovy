@@ -1,0 +1,27 @@
+#+TITLE: Hoovy Home
+#+SETUPFILE: setup.hrg
+
+
+* Projects
+
+* Cancelled Projects
+
+[[file:ectron.el][Emacs Electron]]
+[[file:emacsript.el][Emacs ParenScript]]
+
+* Development
+
+** git status
+#+BEGIN_SRC: sh
+git status
+#+END_SRC
+
+** dropbox
+#+BEGIN_SRC: sh
+dropbox start && dropbox status
+#+END_SRC
+
+* News
+| [[https://news.ycombinator.com/][Hacker News]] | [[http://rockpapershotgun.com/][Rock Paper Shotgun]] | [[http://sachachua.com/blog/category/emacs/][Sacha Chua Emacs Blog]] |
+
+

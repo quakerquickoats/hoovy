@@ -145,3 +145,72 @@ swap 3 & 4?
 ** 5 Vinnana, the desert volcano planet (red, fire, consciousness, tongue?)
 	is where the water bombs are useful.
 	there are hot lizards here.
+* the screens
+** main screen
+four buttons: attack, jump, special, defend.
+there is a map on the top right.
+** map screen
+shows current position, save points, boss rooms.
+** item screen
+shows your items.
+** equipment screen
+can equip:
+- body
+- head
+- feet
+- accessory 1
+- accessory 2
+- weapon
+- skill
+** status screen
+xp, gold, time, monster count.
+stats are distributed manually among these:
+
+DEX (attack, defense)
+AGI (dodge, luck)
+CON (hp, mp)
+WIS (Matk, Mdef)
+
+both equipment and manual stats affect these:
+Attack, Defense, Dodge, luck, Mdef, Matk, health points, magic points, crit.
+* ITEMS
+each item has a weight.
+** weapons
+two-handed and one-handed ?
+  only sheilds for one handed or no handed ?
+
+atk speed, atk power
+
+** skills
+fire, ice, heal, etc.
+* Dungeon
+three skills: beginner, normal, advanced.
+
+** Rooms
+dungeon entrance.
+save room.
+boss room.
+empty room.
+monster room.
+secret room.
+trap room.
+treasure room.
+** World
+the character and the world are inseperable.
+
+the rooms are generated as soon as they are entered, then saved along
+with the game progress. so in this way, the world is endless but remains
+unique. there are themed rooms too and so it forms a heirarchy, not just
+of rooms but of themed areas. the map is a grid by screen size. 4:3.
+
+only if there are teleports: ?
+the whole dungeon is saved, so monsters do not come back. and breakable
+things stay broken if they were broken.
+
+monsters actually respond after 1 minute or so after being killed.
+
+there will need to be logic so that if a player needs an item to continue
+from getting stuck, they can somehow get it. say if they are surrounded
+with no health, by rooms that require health to pass, and another room
+that needs a certain item to cross lava (or something), then ...
+

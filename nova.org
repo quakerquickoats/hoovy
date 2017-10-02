@@ -7,6 +7,11 @@
 0,0 is lower left
 511,511 is top right
 
+** parts
+sound > sample
+                   > function
+image > pixel
+
 ** Characters
 8x16 8bit (1024 bytes)
 
@@ -33,6 +38,7 @@ namespaces (branches) can be associated to and resolved from physical or virtual
 clients use HTTP.
 
 * Drawing
+turtle
 draw, lift pen, stroke, path, bitops, etc.
 
 * Polygons
