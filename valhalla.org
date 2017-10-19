@@ -27,7 +27,6 @@
 
 * Status Effects
 
-{{{line-table}}}
 | Type      | Effect                                       | Note | Duration |
 |-----------+----------------------------------------------+------+----------|
 | Poison    | Loss of HP at each turn                      |      | 20 turns |
@@ -46,7 +45,6 @@
    + An item has a chance to break if it is thrown and hits an actor.
    + Two items cannot be on the same part of floor.
 
-{{{line-table}}}
 | Action  | Effect                                    | State                |
 |---------+-------------------------------------------+----------------------|
 | Throw   | /Throw the item in the facing directionl/ |                      |
@@ -56,7 +54,7 @@
 ** Properties
    - Items share some common properties
 
-{{{line-table}}}
+
 | Property       | Use                              | Type                  |
 |----------------+----------------------------------+-----------------------|
 | amount/charges | /How many charges left in item/  | pos_integer           |
@@ -79,7 +77,6 @@
    - Herbs can be eaten or thrown to an actor to cause the effect.
    - Eating a herb replenishes 5% fullness.
 
-{{{line-table}}}
 | Name                | Effect           | Note |
 |---------------------+------------------+------|
 | Weak Healing Herb   | Replenish 6% HP  |      |
@@ -89,7 +86,6 @@
 ** Food
    - Food is used to replenish SP and sometimes HP.
 
-{{{line-table}}}
 | Name       | Effect        | Note                        |
 |------------+---------------+-----------------------------|
 | Cherry     | 5% SP         | Stacking item (cherry[ 3 ]) |
@@ -108,7 +104,6 @@
    [[/val/potion2.svg]]
    - Potion can be mixed
 
-{{{line-table}}}
 | Name         | Effect                                    | Note                           |
 |--------------+-------------------------------------------+--------------------------------|
 | Empty Bottle | None                                      | Can be used to collect liquids |
@@ -120,7 +115,6 @@
 ** Bag of Holding
     - Used for holding other items except bags.
 
-{{{line-table}}}
 | Action   | Effect                             | State                |
 |----------+------------------------------------+----------------------|
 | Contents | /Look inside, show inventory menu/ |                      |
@@ -129,7 +123,6 @@
 * Scrolls
   - Scrolls are single-charge items
 
-{{{line-table}}}
 | Name            | Effect                                         | Note              |
 |-----------------+------------------------------------------------+-------------------|
 | Teleport Scroll | Warp user to random unoccupied location of map |                   |
@@ -140,7 +133,6 @@
   - Holds charges. Swing to fire a charge in direction of facing.
   - A staff can be thrown for the effect if it hits, even when there are no charges.
 
-{{{line-table}}}
 | Name           | Effect                                           | Note          |
 |----------------+--------------------------------------------------+---------------|
 | Transfer Staff | Swap places with the actor the shot hits, if any |               |
@@ -278,14 +270,13 @@
    - Neutral alignment
    - Appears in deer form during the day
    - Appears in formless spirit during the night
-   [[keiths.png]] [[mononoke1.png]] [[mononoke2.png]] [[mononoke3.png]] [[mononoke4.png]]
 
 ** God of Entropy
 
 ** Mara
    - Strong Chaotic alignment
 
-** Buhhda
+** Buddha
    - Strong Lawful alignment
 
-#+INCLUDE: ../footer.hrg
+

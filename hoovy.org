@@ -1,6 +1,5 @@
 #+TITLE: Hoovy Home
-#+SETUPFILE: setup.hrg
-
+#+SETUPFILE: org-setup.hrg
 
 * Projects
 
@@ -11,6 +10,14 @@
 
 * Development
 
+** Update Emacs
+#+BEGIN_SRC: sh :exports code
+cd ~/Downloads/emacs
+git fetch
+./configure --with-modules --with-x-toolkit=lucid
+make
+#+END_SRC
+
 ** git status
 #+BEGIN_SRC: sh
 git status
@@ -20,6 +27,10 @@ git status
 #+BEGIN_SRC: sh
 dropbox start && dropbox status
 #+END_SRC
+
+* Communications
+
+[[irc:/irc.freenode.net/#emacs][#emacs on freenode]]
 
 * News
 | [[https://news.ycombinator.com/][Hacker News]] | [[http://rockpapershotgun.com/][Rock Paper Shotgun]] | [[http://sachachua.com/blog/category/emacs/][Sacha Chua Emacs Blog]] |

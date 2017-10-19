@@ -1,5 +1,5 @@
 #+TITLE: Gamelike
-#+SETUPFILE: setup.hrg
+#+SETUPFILE: org-setup.hrg
 
 * Characters
 - generated with random levels and status and items and history.
