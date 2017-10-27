@@ -1,0 +1,15 @@
+1. You need a Common Lisp implementation.
+   Only tested on SBCL right now.
+
+2. Then link the huma4drl.asd file into your ~/.sbcl/systems directory:
+
+   mkdir ~/.sbcl
+   mkdir ~/.sbcl/systems
+   ln -s ~/src/huma4drl/huma4drl.asd ~/.sbcl/systems
+
+3. At the shell, cd to the the directory with this file, run SBCL, and
+   then at the REPL, type:
+
+    (require :huma4drl)
+    (in-package :huma4drl)
+    (output [dir])               ;; 'dir' is optional destination
