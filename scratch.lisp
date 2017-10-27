@@ -1,5 +1,7 @@
 ;; scratch forms.
 
+
+
 ;; 2017-08-04
 
 (defmethod draw ((ship s))

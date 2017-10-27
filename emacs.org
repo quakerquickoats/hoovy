@@ -1,5 +1,23 @@
 #+TITLE: humasect emacs configuration
 
+* Init
+#+BEGIN_SRC emacs-lisp
+(defgroup hoovy nil
+  "Hoovy Customization Group"
+  :link '(custom-manual "(hoovy)Top"))
+
+(defcustom hoovy-root "~/hoovy"
+  "Root Path"
+  :type 'directory
+  :group 'hoovy)
+
+(defcustom hoovy-apps '(("Krita" . "~/Downloads/krita"))
+  "List of Applications"
+  :type '(alist :key-type string :value-type file)
+  :group 'hoovy)
+
+#+END_SRC
+
 * Startup
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
@@ -8,14 +26,24 @@
 (require 'exwm-config)
 ;;(exwm-config-ido)
 (exwm-config-default)
+(exwm-enable-ido-workaround)
 (setq exwm-workspace-number 4)
 
 (setq mouse-autoselect-window nil)   ;; can't use with exwm
 ;;(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
 ;;(setq mouse-wheel-progressive-speed nil)
 
+#+END_SRC
+
+* Packages
+#+BEGIN_SRC emacs-lisp
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 ;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/))"))
+
+(defun packages ()
+  (interactive)
+  (package-list-packages nil)
+  (hl-line-mode))
 #+END_SRC
 
 * Display
@@ -32,25 +60,50 @@
 	 ("Dired" (mode . dired-mode)))))
 #+END_SRC
 
-* Text Editing
+* Workspace
 #+BEGIN_SRC emacs-lisp
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 
-(require 'ido)
-(ido-mode t)
+;;(require 'ido)
+;;(ido-mode t)
+(require 'helm)
+(require 'helm-config)
+(helm-mode 1)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-unset-key (kbd "C-x c"))
+(global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
+(global-set-key (kbd "C-c h x") 'helm-register)
+(global-set-key (kbd "C-c h g") 'helm-google-suggest)
+(global-set-key (kbd "C-c h M-:") 'helm-eval-expression-with-eldoc)
+;;(define-key minibuffer-local-map (kbd "C-c C-l") 'helm-minibuffer-history)
 
-(defun insert-date ()
+(require 'helm-eshell)
+(add-hook 'eshell-mode-hook
+          #'(lambda ()
+              (define-key eshell-mode-map (kbd "C-c C-l")  'helm-eshell-history)))
+
+;;(setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
+;; (setq helm-buffers-fuzzy-matching t
+;;       helm-recentf-fuzzy-match    t)
+;; (setq helm-semantic-fuzzy-match t
+;;       helm-imenu-fuzzy-match    t)
+
+(defun hoovy-insert-date ()
   (interactive)
   (insert (format-time-string "%Y-%m-%d")))
 #+END_SRC
 
 * Org Mode
 #+BEGIN_SRC emacs-lisp
-(defconst hoovy-root "~/hoovy/")
-(defconst hoovy-www (concat hoovy-root "/www/"))
 
-(setq org-default-notes-file (concat hoovy-root "/org/notes.org"))
+(defun hoovy-www () (concat hoovy-root "/www/"))
+(setq org-default-notes-file (concat hoovy-root "/notes.org"))
+
 (define-key global-map (kbd "C-c c") 'org-capture)
 
 ;; (defun hv-make-notes (&optional name)
@@ -85,7 +138,7 @@
       `(("hoovy"
 	 :base-directory ,hoovy-root
 	 :recursive t
-	 :publishing-directory ,hoovy-www
+	 :publishing-directory ,(hoovy-www)
 	 :publishing-function org-html-publish-to-html
 	 :html-head-extra ""
 	 :components ())))
@@ -102,8 +155,12 @@
       (shell . t)))
 
 #+END_SRC
-* Communications
+* Comminucations
 #+BEGIN_SRC emacs-lisp
+
+(setq browse-url-browser-function 'eww-browse-url)
+
+;; shouldnt really be here, but in user config
 (setq erc-autojoin-channels-alist
       '(("freenode.net" "#clim" "#lispgames" "#lisp" "#emacs")
 	("quakenet" "#rgrd")
@@ -118,7 +175,9 @@
       '("https://news.ycombinator.com/rss"
         "http://planet.emacsen.org/atom.xml"))
 
-(setq browse-url-browser-function 'eww-browse-url)
+(require 'emms-setup)
+(emms-standard)
+(emms-default-players)
 #+END_SRC
 
 * Prolog
@@ -199,18 +258,11 @@
 	      x y `(:style ,style :dont-close t))))))
 
 (setq inferior-lisp-program "sbcl")
+(setq slime-lisp-implementations
+      '((sbcl ("/usr/local/bin/sbcl"))
+	(ecl ("/usr/local/bin/ecl"))
+	(nova ("~/nova/nova"))))
 
-;; (setq slime-lisp-implementations
-;;       '((sbcl-w32 ("C:\\msys32\\mingw32\\bin\\sbcl.exe"
-;; 		   "--core"
-;; 		   "C:\\msys32\\mingw32\\lib\\sbcl\\sbcl.core"))
-;; 	(sbcl-old ("C:\\Program Files\\Steel Bank Common Lisp\\1.3.12\\sbcl.exe"
-;; 	       "--core"
-;; 	       "C:\\Program Files\\Steel Bank Common Lisp\\1.3.12\\sbcl.core"))
-;; 	(ecl ("c:\\msys32\\mingw32\\ecl.exe"))
-;; 	(nova ("c:\\Users\\Quaker\\nova\\nova.exe"))))
-
-;(add-to-list 'load-path "/users/quaker/quicklisp/dists/quicklisp/software/slime-v2.18")
 ;(require 'slime-autoloads)
 (load "~/quicklisp/slime-helper.el")
 (setq slime-auto-connect 'ask)

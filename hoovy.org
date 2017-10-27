@@ -1,17 +1,87 @@
 #+TITLE: Hoovy Home
-#+SETUPFILE: org-setup.hrg
+
+* Start Page
+#+BEGIN_SRC emacs-lisp
+(defun hoovy-spawn-app (name file)
+  (let ((buf (concat "*" name "*")))
+    (async-shell-command file buf buf)))
+
+(require 'widget)
+(eval-when-compile (require 'wid-edit))
+
+(defun hoovy-all-apps ()
+  "add earmuffs to hoovy-apps"
+  (mapcar (lambda (x) `(,(concat "*" (car x) "*") . ,(cdr x)))
+	  hoovy-apps))
+
+(defun hoovy-welcome ()
+  "Hoovy Welcome Page"
+  (interactive)
+  (switch-to-buffer "Hoovy")
+  (kill-all-local-variables)
+  ;;(make-local-variable 'asdfasdf)
+  (let ((inhibit-read-only t))
+    (erase-buffer))
+  (remove-overlays)
+  (widget-insert "Welcome to Hoovy Studio\n\n")
+  (dolist (a (hoovy-all-apps))
+    (widget-create 'push-button
+		   :notify (lambda (&rest ignore)
+			     (async-shell-command (cdr a)
+						  (car a) (car a)))
+		   (car a)))
+  (use-local-map widget-keymap)
+  (widget-setup))
+#+END_SRC
+
+[[elisp:(hoovy-spawn-app "Krita" "~/Downloads/krita-3.3.1-x86_64.appimage")][Krita]]
+[[elisp:(hoovy-spawn-app "OpenToolz" "opentoolz")][OpenToolz]]
+[[elisp:(hoovy-spawn-app "Blender" "~/Downloads/blender-2.78c-linux-glibc219-x86_64/blender")][Blender]]
+
 
 * Projects
+** <Nova>
+
+Common Lisp game development and animation and music production tools.
+
+** Gamelike
+
+Roguelike game inspired by Ragnarok Online and Shiren: The Wanderer.
+
+** Novapilot
+
+2D game inspired by Bangai-O
+Built in level editor
+
+** Monsterpiece
+
+2D game inspired by Mario Bros and Smash Bros and Metroid and Castlevania.
+Single-room monster breed/fight/collect maze platform action.
 
 * Cancelled Projects
 
+** Mini Macs (hu-macs)
 [[file:ectron.el][Emacs Electron]]
 [[file:emacsript.el][Emacs ParenScript]]
 
-* Development
+** Erl-Dev
+Erlang multiplayer game server. Supported IRC and other pieces. [[http://github.com/humasect/erl-dev]]
+
+** Nova
+Haskell realtime 2D graphics and media engine. [[http://github.com/humasect/Nova]]
+Website with documentation and tutorial is missing. ( [[http://hoovy.org]] )
+
+** The Middle
+Objective-C library for iOS and macOS for high performance turtle-style graphics and game development for Emacs and Xcode.
+
+** HaskellPlugin
+http://github.com/humasect/HaskellPlugin
+Plugin for Haskell for old version of Xcode.
+
+* Programming
 
 ** Update Emacs
-#+BEGIN_SRC: sh :exports code
+#+BEGIN_SRC shell :exports code
 cd ~/Downloads/emacs
 git fetch
 ./configure --with-modules --with-x-toolkit=lucid
@@ -19,12 +89,12 @@ make
 #+END_SRC
 
 ** git status
-#+BEGIN_SRC: sh
+#+BEGIN_SRC shell :exports code
 git status
 #+END_SRC
 
 ** dropbox
-#+BEGIN_SRC: sh
+#+BEGIN_SRC shell :exports code
 dropbox start && dropbox status
 #+END_SRC
 
