@@ -1,4 +1,5 @@
-./www/
+emacs.el
+./www
 
 .rebar3
 _*
