@@ -15,13 +15,25 @@
 	  hesed din xiperex-tifereth
 	  necah hod yesod malkux))
 
+;; keyboard transliteration. (set-language-input "Hebrew"), C-\
+;;
 ;; qwertyuiop
 ;; asdfghjkl;'
 ;; zxcvbnm,./
-
+;;
 ;; ׳קראטוןםפ
 ;; שדגכעיחלךף,
 ;; זסבהנמצתץ.
+;;
+
+;;
+;; 22-letter english for transliteration. (see *qb-transliteration* below)
+;;     not sure if i like "e" and "u" for Heh and Waw, or "h" and "w".
+;;     we could just have caps/uncaps modes. cant for get Final Otiyot anyhow.
+;;
+;; abgdeuzx@iklmnsypcqr$t
+;; אבגדהוזחטיכלמנסעפצקרשת
+;;
 
 (defconst *qb-key-alist*
   (let ((e "qwertyuiopasdfghjkl;'zxcvbnm,./")
@@ -87,6 +99,13 @@
 
 (defun qb-random-elements-of-list (n l)
   (loop repeat n collect (elt l (random (length l)))))
+
+;;
+;; base32
+;;
+
+(defvar *qb-base32-en* "0123456789abcdefghijklmnopqrstuvwxyz") ;; מקח
+(defvar *qb-base32-he8 "0123456789אבגדהוזחטיכלמנסעפצקרשת")
 
 ;;
 ;;

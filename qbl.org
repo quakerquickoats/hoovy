@@ -1,11 +1,18 @@
-;; Gamelike
-;;
-;; (c) 2017 Lyndon Tremblay
-;;
+-*- lexical-binding: t -*-
+#+TITLE: Qabbalah
 
-(in-package :gamelike)
+Lexical Binding ??
 
-(defparameter letters
+* Notes
+** Rendering Hebrew
+- https://mattdesl.svbtle.com/drawing-lines-is-hard
+- https://github.com/tyt2y3/vaserenderer
+** brackets lisp and literate programming
+http://pcmonk.me/2016/10/13/logging-idea-maze.html
+
+* CL Letters
+#+BEGIN_SRC emacs-lisp
+(defparameter *qb-letters*
   '((aleph ALF ox)
     (bet   BYT house)
     (gimel GML camel)
@@ -29,12 +36,8 @@
     (shin  SIN tooth)
     (taw   TAW mark-cross)))
 
-(defun random-letter ()
-  (elt letters (random 22)))
+(defun qb-random-letter ()
+  (elt *qb-letters* (random 22)))
+#+END_SRC
 
-(defclass letter ()
-  ((value :initform 0 :reader :value :allocation :class)))
 
-(defclass aleph (letter)
-  ((value :initform 1)))
-(defclass )
