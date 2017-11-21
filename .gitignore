@@ -1,8 +1,7 @@
 emacs.el
-./www
+./www/*.html
 
 .rebar3
-_*
 .eunit
 *.o
 *.beam
