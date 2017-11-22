@@ -1,6 +1,8 @@
 open Nova
 
-let main () = Nova.init ()
+let main () =
+  let st = Nova.init () in
+  Nova.quit st
    
 let () = main ()
            
