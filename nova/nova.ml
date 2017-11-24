@@ -65,17 +65,31 @@ module Machine = struct
       (* game = (update_game en.game ((tick *. en.tick_mul) /. 1000.)); *)
     }
 end
-type machine = Machine.t
 
 (* Machine *)
-module System = struct
+
+module type Game = sig
+  type t
+  (* clock, heart, breath, rhythm, beat *)
+  val up: unit -> t
+  val step: t -> t
+  val render: t -> unit
+  val down: unit -> unit
+end
+
+module System (G: Game) = struct
+
+  (* let create up step render down = {up; step; render; down;} *)
+
   type t = {
       w: Sdl.window;
       r: Sdl.renderer;
       ctx: Sdl.gl_context;
+      game: G.t;
     }
 
-  let quit {w;r;ctx;} =
+  let quit {w;r;ctx;game;} =
+    G.down ();
     Sdl.destroy_renderer r;
     Sdl.destroy_window w;
     Sdl.gl_delete_context ctx;
@@ -107,7 +121,7 @@ module System = struct
                 Sdl.log "GL Version: %i.%i" x y;
                 handler (Sdl.create_renderer w)
                   (fun e -> err "Fail to create renderer: %s" e)
-                  (fun r -> {w; r; ctx;}))))
+                  (fun r -> {w; r; ctx; game=G.up();}))))
 
   let handle_events () =
     let e = Sdl.Event.create() in
@@ -126,25 +140,24 @@ module System = struct
     done;
     !stop
     
-  let rec run sys =
+  let rec run game =
     let stop = handle_events () in
-    Sdl.gl_swap_window sys.w;
+    Sdl.gl_swap_window game.w;
     Sdl.delay 10l;
-    if not stop then run sys
+    if not stop then run game
     
-  let rec loop sys =
+  let rec loop game =
     let e = Sdl.Event.create() in
     handler (Sdl.wait_event (Some e))
       (fun e -> err "Could not wait event: %s" e)
       (fun () ->
         match Sdl.Event.(enum (get e typ)) with
         | `Quit ->
-           quit sys
+           quit game
         | _ ->
-           Sdl.gl_swap_window sys.w;
-           loop sys)
+           Sdl.gl_swap_window game.w;
+           loop game)
 end
-type system = System.t  
 
 
 

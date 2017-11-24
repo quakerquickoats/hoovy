@@ -39,10 +39,6 @@ module Step = struct
   let sub a b = v (V2.sub a.v b.v) (V2.sub a.t b.t) (V4.sub a.c b.c)
 end
 
-type step = Step.t
-module type Step = sig
-end
-
 (* type step = v2 * v2 * v4 [@@deriving sexp] *)
 
                          
@@ -51,40 +47,18 @@ end
 (* let add (t,v,c) (t',v',c') =
  *   (add t t', add v v', add c c') *)
 
-let rec zip a b = match a,b with
-  | [], _ -> []
-  | _, [] -> []
-  | (x::xs),(y::ys) -> (x,y) :: (zip xs ys)
-
-let rev_list l =
-  let rec rev_acc acc = function
-    | [] -> acc
-    | hd::tl -> rev_acc (hd::acc) tl
-  in 
-  rev_acc [] l
-
-let rotatel (n::ns) = ns @ [n]
-let rotater a = rev_list (rotatel a)
-
-let dbl a = (a,a)
-let trp a = (a,a,a)
-                 
 module Winding = struct
-  type t = step list
+  type t = Step.t list
 
-  let spiral2 a = zip (rotatel a)
-                (* let spiral3 a = let ts = rotatel a in zip3... *)
+  let spiral2 a = Huma.zip (Huma.rotatel a)
+  (* Let spiral3 a = let ts = rotatel a in zip3... *)
   let as_edges = spiral2
   let as_vertices a = List.map (fun s -> Step.vertex s) a
-  let as_lines a = let vs = as_vertices a in zip vs (rotatel vs)
+  let as_lines a = let vs = as_vertices a in Huma.zip vs (Huma.rotatel vs)
 
-                                                 (* let map_edges f a = f `zipWith` w $ rotatel w... *)
-
+  (* let map_edges f a = f `zipWith` w $ rotatel w... *)
   (* let is_convex a = is_circle_inside (center_of a, 0) a *)
-                  
 end
-
-type winding = Winding.t
 
 let test_w = [Step.v (V2.v 1. 1.) (V2.v 0. 0.) (V4.zero);
               Step.v (V2.v 2. 3.) (V2.v 0. 0.) (V4.zero);

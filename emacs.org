@@ -15,6 +15,12 @@
 ;;(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
 ;;(setq mouse-wheel-progressive-speed nil)
 
+(windmove-default-keybindings)
+(global-hl-line-mode 1)
+(and
+  (require 'centered-cursor-mode)
+  (global-centered-cursor-mode 1))
+
 #+END_SRC
 
 * Packages
