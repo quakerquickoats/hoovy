@@ -1,3 +1,5 @@
+module Huma = struct
+  
 let rec zip a b = match a,b with
   | [], _ -> []
   | _, [] -> []
@@ -10,9 +12,19 @@ let rev_lst l =
   in 
   rev_acc [] l
 
-let rotatel (n::ns) = ns @ [n]
-let rotater a = rev_list (rotatel a)
+let rotatel n = match n with
+  | [] -> []
+  | (n::ns) -> ns @ [n]
+
+let rotater a = rev_lst (rotatel a)
 
 let dbl a = (a,a)
 let trp a = (a,a,a)
-                 
+
+(******************************)
+
+type compass_direction =
+    North | NorthEast | East | SouthEast | South | SouthWest | West | NorthWest
+
+
+end

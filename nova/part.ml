@@ -1,14 +1,9 @@
 open Gg
-
-module Huma_math = struct
-  type compass_direction =
-    North | NorthEast | East | SouthEast | South | SouthWest | West | NorthWest
-end                                             
-
+open Huma
+open Geom
+   
 type travel = v3
 
-type 'a maybe = Nothing | Just of 'a
-            
 type mutator =
   Static
 | Many of mutator list | AtCenterDo of mutator
@@ -16,18 +11,21 @@ type mutator =
 
 type procedural =
   Default
-| Gradient of Huma_math.compass_direction
+| Gradient of Huma.compass_direction
 | Textured of string | Model of string | Image of string
 (* editor *)
-| EditNote of string | ResPreview of string maybe | ResMaking of string maybe
+| EditNote of string | ResPreview of string option | ResMaking of string option
 | Wired | WireColored | Bounds | TravelKnot | StepVecs of float
 
 type synthesizer =
   Silent
 | Wavetable of string | Volume of float | SineOsc of float
 
-let synthesizer Silent _ = 0.
-let synthesizer (SineOsc freq) p = sin freq
+let synthesizer s p = match s with
+  | Silent -> 0.
+  | (SineOsc freq) -> sin freq
+  | _ -> 0.
+       
 (*let synthesizer (SineOsc freq) p = List.map sin (iterate (2*.pi*.freq +.) 0) *)
                                                         
 type 'a perfstep = Trans of mutator | Render of 'a
@@ -43,7 +41,7 @@ module Part = struct
       
       perf: performance;
       travel: travel;
-      winding: Winding.winding;
+      winding: Winding.t;
       trans: mutator list;
     }
 end

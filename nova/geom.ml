@@ -1,5 +1,7 @@
 open Gg
+open Huma
 
+   
 module Step = struct
   (* type t = v3 *)
   let dim = 3
@@ -63,3 +65,5 @@ end
 let test_w = [Step.v (V2.v 1. 1.) (V2.v 0. 0.) (V4.zero);
               Step.v (V2.v 2. 3.) (V2.v 0. 0.) (V4.zero);
               Step.v (V2.v 4. 5.) (V2.v 0. 0.) (V4.zero)]
+
+
