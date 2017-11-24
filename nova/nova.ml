@@ -29,19 +29,29 @@ let no_input = {
 
 let set_input_char i x b = {i with char_states = ('b',true)} (*map.insert x b (char_states i)*)
 
+(********************************************************)
+
 module Engine = struct
+  type t = int
+end
+type engine = Engine.t
+
+let update_game g tick =
+  Sdl.log "Update game %f" tick
+
+module Machine = struct
   type t = {
       last_time: float;
-      input_state: input;
       running: bool;
       tick_mul: float;
+      input_state: input;
     } [@@deriving sexp]
 
   let create g = {
       last_time = Unix.gettimeofday();
-      input_state = no_input;
       running = false;
       tick_mul = 1.0;
+      input_state = no_input;
     }
 
   let step en =
@@ -49,25 +59,15 @@ module Engine = struct
     (* let now = Int32.to_int (Sdl.get_ticks ()) in *)
     let now = Unix.gettimeofday () in
     let tick = (now -. before) in
-    Sdl.log "last %f now %f" before now;
+    Sdl.log "last %f now %f tick %f" before now tick;
     { en with
       last_time = now;
       (* game = (update_game en.game ((tick *. en.tick_mul) /. 1000.)); *)
     }
 end
-type engine = Engine.t
+type machine = Machine.t
 
-  (*
-  let c_dt = Int64.sub (Sdl.get_performance_counter ()) c in
-  let freq = Sdl.get_performance_frequency () in
-  let c_dt = ((Int64.to_float c_dt) /. ((Int64.to_float freq) /. 1000.)) in
-   *)
-
-let update_game g tick =
-  Sdl.log "Update game %f" tick
-
-(**********)
-
+(* Machine *)
 module System = struct
   type t = {
       w: Sdl.window;
@@ -75,46 +75,74 @@ module System = struct
       ctx: Sdl.gl_context;
     }
 
-  let quit (w,r,ctx) =
+  let quit {w;r;ctx;} =
     Sdl.destroy_renderer r;
     Sdl.destroy_window w;
     Sdl.gl_delete_context ctx;
     Sdl.quit ();
     exit 0
 
+  let err s e = Sdl.log s e; exit 1
+  let handler x l r =
+    match x with
+    | Error (`Msg e) -> l e
+    | Ok a -> r a
+
   let init () =
-    match Sdl.init Sdl.Init.(video + timer + audio + events) with
-    | Error (`Msg e) -> Sdl.log "Init error: %s" e; exit 1
-    | Ok () ->
-       (* http://erratique.ch/software/tsdl/doc/Tsdl.Sdl.Window.html#TYPEflags *)
-       Sdl.log "Init OK...";
-       ignore (Sdl.gl_set_attribute Sdl.Gl.doublebuffer 1);
-       match Sdl.create_window ~w:512 ~h:512 "Novapilot" Sdl.Window.opengl with
-       | Error (`Msg e) -> Sdl.log "Create window error: %s" e; exit 1
-       | Ok w ->
-          Sdl.set_window_position w ~x:0 ~y:0;
-          match Sdl.gl_create_context w with
-          | Error (`Msg e) -> Sdl.log "OpenGL context error: %s" e; exit 1
-          | Ok ctx ->
-             let (Ok x) = Sdl.gl_get_attribute Sdl.Gl.context_major_version in
-             let (Ok y) = Sdl.gl_get_attribute Sdl.Gl.context_minor_version in
-             Sdl.log "GL Version: %i.%i" x y;
-             match Sdl.create_renderer w with
-             | Error (`Msg e) -> Sdl.log "Fail to create renderer: %s" e; exit 1
-             | Ok r ->
-                let e = Sdl.Event.create () in
-                let rec loop state = match Sdl.wait_event (Some e) with
-                  | Error (`Msg e) -> Sdl.log "Could not wait event: %s" e; exit 1 (* () *)
-                  | Ok () ->
-                     match Sdl.Event.(enum (get e typ)) with
-                     | `Quit ->
-                        (* Sdl.pause_audio_device device_id true; *)
-                        quit state
-                     | _ ->
-                        Sdl.gl_swap_window w;
-                        loop state
-                in
-                loop (w,r,ctx)
+    handler (Sdl.init Sdl.Init.(video + timer + audio + events))
+      (fun e -> err "Init error: %s" e)
+      (fun _ ->
+        Sdl.log "Init OK...";
+        ignore (Sdl.gl_set_attribute Sdl.Gl.doublebuffer 1);
+        handler (Sdl.create_window ~w:512 ~h:512 "Novapilot" Sdl.Window.opengl)
+          (fun e -> err "Create window error: %s" e)
+          (fun w ->
+            handler (Sdl.gl_create_context w)
+              (fun e -> err "OpenGL context error: %s" e)
+              (fun ctx ->
+                let x = handler (Sdl.gl_get_attribute Sdl.Gl.context_major_version)
+                          (fun _ -> 0) (fun x -> x) in
+                let y = handler (Sdl.gl_get_attribute Sdl.Gl.context_minor_version)
+                          (fun _ -> 0) (fun y -> y) in
+                Sdl.log "GL Version: %i.%i" x y;
+                handler (Sdl.create_renderer w)
+                  (fun e -> err "Fail to create renderer: %s" e)
+                  (fun r -> {w; r; ctx;}))))
+
+  let handle_events () =
+    let e = Sdl.Event.create() in
+    let stop = ref false in
+    while (Sdl.poll_event (Some e)) && (not !stop) do
+      match Sdl.Event.(enum (get e typ)) with
+      | `Key_down -> Sdl.log "key event, %x" Sdl.Event.(get e keyboard_keycode);
+                     stop := (Sdl.Event.(get e keyboard_keycode) == Sdl.K.q);
+(*          | `Key_up -> false
+          | `Mouse_motion -> false
+          | `Mouse_button_down -> false
+          | `Mouse_button_up -> ()
+          | `Finger_motion -> () *)
+      | `Quit -> Sdl.log "quit event"; stop := true;
+      | _ -> Sdl.log "event = %x" Sdl.Event.(get e typ)
+    done;
+    !stop
+    
+  let rec run sys =
+    let stop = handle_events () in
+    Sdl.gl_swap_window sys.w;
+    Sdl.delay 10l;
+    if not stop then run sys
+    
+  let rec loop sys =
+    let e = Sdl.Event.create() in
+    handler (Sdl.wait_event (Some e))
+      (fun e -> err "Could not wait event: %s" e)
+      (fun () ->
+        match Sdl.Event.(enum (get e typ)) with
+        | `Quit ->
+           quit sys
+        | _ ->
+           Sdl.gl_swap_window sys.w;
+           loop sys)
 end
 type system = System.t  
 

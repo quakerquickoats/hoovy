@@ -1,6 +1,6 @@
 RESULT     = novapilot
 SOURCES    = nova.ml
-LIBS       = bigarray tsdl
+LIBS       = bigarray tsdl gg
 #INCDIRS    = +tsdl
 
 #include OCamlMakefile

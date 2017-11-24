@@ -1,1 +1,1 @@
-true: package(tsdl), debug
+true: package(tsdl), package(gg), debug
