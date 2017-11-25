@@ -1,7 +1,5 @@
 open Gg
 
-open Geom
-   
    
 type input = {
     up_arrow: bool; down_arrow: bool; left_arrow: bool; right_arrow: bool;
@@ -66,36 +64,5 @@ module Machine = struct
       (* game = (update_game en.game ((tick *. en.tick_mul) /. 1000.)); *)
     }
 end
-
-(***********************************)
-
-type model = {
-    windings: Geom.Winding.t
-  }
-
-module type Scene = sig
-  type t
-  val start: unit -> t
-  val step: t -> t
-  val cleanup: t -> unit
-end
-
-module Scene = struct
-  (* let render s = List.map Part.render s.parts *)
-end
-               
-module type Game = sig
-  (* a Play *)
-  type t
-  (*type scenes = Scene list*)
-  (* clock, heart, breath, rhythm, beat *)
-  val initial_state: unit -> t
-  val step: t -> t
-  val render: t -> unit
-  val cleanup: t -> unit
-end
-
-
-
 
 

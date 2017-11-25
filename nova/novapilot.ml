@@ -2,6 +2,8 @@ open Gg
 
 open Nova
 open System
+open Play
+   
    
 (*
 let pl_engine = ref (Nova.Engine.create ())
@@ -18,7 +20,7 @@ let speed s = () (* set engine tick_mul *)
 
 (**************)
 
-module MainMenu : Nova.Scene = struct
+module MainMenu : Play.Scene = struct
   type t = {
     selected: int;}
 
@@ -27,7 +29,7 @@ module MainMenu : Nova.Scene = struct
   let cleanup g = ()
 end
 
-module Level : Nova.Scene = struct
+module Level : Play.Scene = struct
   type t = {
       number: int;
       size: v2;
@@ -46,7 +48,7 @@ module Level : Nova.Scene = struct
   let cleanup g = ()
 end
             
-module Pilot : Nova.Game = struct
+module Pilot : Play.Game = struct
   type t = {
       something: int;
       blah: string;
@@ -58,7 +60,7 @@ module Pilot : Nova.Game = struct
       blah = "hello";
       score = 0;
     }
-  let step g = g
+  let step g _ = g
   let render g = ()
   let cleanup g = ()
 end

@@ -2,12 +2,17 @@ open Tsdl
 open Result
 
 open Nova
+open Play
 
-module System (G: Nova.Game) = struct
+module System (G: Play.Game) = struct
   type t = {
+      last_time: float;
+      tick_mul: float;
+      
       w: Sdl.window;
       r: Sdl.renderer;
       ctx: Sdl.gl_context;
+      
       game: G.t;
     }
 
@@ -44,7 +49,9 @@ module System (G: Nova.Game) = struct
                 Sdl.log "GL Version: %i.%i" x y;
                 handler (Sdl.create_renderer w)
                   (fun e -> err "Fail to create renderer: %s" e)
-                  (fun r -> {w; r; ctx; game=G.initial_state();}))))
+                  (fun r -> {w; r; ctx; game=G.initial_state();
+                             last_time = Unix.gettimeofday();
+                             tick_mul = 1.}))))
 
   let handle_events sys =
     let e = Sdl.Event.create() in
@@ -66,9 +73,14 @@ module System (G: Nova.Game) = struct
     !stop
     
   let rec run sys =
+    let before = sys.last_time in
+    let now = Unix.gettimeofday() in
+    let tick = (now -. before) in
     match handle_events sys with
     | true -> sys
-    | false -> run {sys with game = G.step sys.game}
+    | false ->
+       run {sys with last_time = now;
+                     game = G.step sys.game (tick *. sys.tick_mul);}
 
   let play () =
     let sys = init () in
