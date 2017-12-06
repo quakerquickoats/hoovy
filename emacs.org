@@ -50,51 +50,63 @@
 
 * Workspace
 #+BEGIN_SRC emacs-lisp
-(set-language-environment "UTF-8")
-(set-default-coding-systems 'utf-8)
+  (set-language-environment "UTF-8")
+  (set-default-coding-systems 'utf-8)
 
-;;(require 'ido)
-;;(ido-mode t)
-(require 'helm)
-(require 'helm-config)
-(helm-mode 1)
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-x b") 'helm-mini)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
-(global-unset-key (kbd "C-x c"))
-(global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
-(global-set-key (kbd "C-c h x") 'helm-register)
-(global-set-key (kbd "C-c h g") 'helm-google-suggest)
-(global-set-key (kbd "C-c h M-:") 'helm-eval-expression-with-eldoc)
-;;(define-key minibuffer-local-map (kbd "C-c C-l") 'helm-minibuffer-history)
+  (setq prettify-symbols-alist
+		'(
+		  ("lambda" . 955) ; λ
+		  ("->" . 8594)    ; →
+		  ("=>" . 8658)    ; ⇒
+		  ;;("map" . 8614)    ; ↦
+		  ("asdf" . "b")
+		  ))
 
-(require 'helm-eshell)
-(add-hook 'eshell-mode-hook
-          #'(lambda ()
-              (define-key eshell-mode-map (kbd "C-c C-l")  'helm-eshell-history)))
+  (global-prettify-symbols-mode 1)
 
-;;(setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
-;; (setq helm-buffers-fuzzy-matching t
-;;       helm-recentf-fuzzy-match    t)
-;; (setq helm-semantic-fuzzy-match t
-;;       helm-imenu-fuzzy-match    t)
+  (require 'ido)
+  (ido-mode t)
 
-(defun hoovy-insert-date ()
-  (interactive)
-  (insert (format-time-string "%Y-%m-%d")))
+  ;; (require 'helm)
+  ;; (require 'helm-config)
+  ;; (helm-mode 1)
+  ;; (global-set-key (kbd "M-x") 'helm-M-x)
+  ;; (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+  ;; (global-set-key (kbd "C-x b") 'helm-mini)
+  ;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
+  ;; (global-set-key (kbd "C-c h") 'helm-command-prefix)
+  ;; (global-unset-key (kbd "C-x c"))
+  ;; (global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
+  ;; (global-set-key (kbd "C-c h x") 'helm-register)
+  ;; (global-set-key (kbd "C-c h g") 'helm-google-suggest)
+  ;; (global-set-key (kbd "C-c h M-:") 'helm-eval-expression-with-eldoc)
+  ;; ;;(define-key minibuffer-local-map (kbd "C-c C-l") 'helm-minibuffer-history)
+
+  ;; (require 'helm-eshell)
+  ;; (add-hook 'eshell-mode-hook
+  ;;           #'(lambda ()
+  ;;               (define-key eshell-mode-map (kbd "C-c C-l")  'helm-eshell-history)))
+
+  ;;(setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
+  ;; (setq helm-buffers-fuzzy-matching t
+  ;;       helm-recentf-fuzzy-match    t)
+  ;; (setq helm-semantic-fuzzy-match t
+  ;;       helm-imenu-fuzzy-match    t)
+
+  (defun hoovy-insert-date ()
+	(interactive)
+	(insert (format-time-string "%Y-%m-%d")))
 #+END_SRC
 
 
-* Comminucations
+* Communications
 #+BEGIN_SRC emacs-lisp
 
 (setq browse-url-browser-function 'eww-browse-url)
 
 ;; shouldnt really be here, but in user config
 (setq erc-autojoin-channels-alist
-      '(("freenode.net" "#clim" "#lispgames" "#lisp" "#emacs")
+      '(("freenode.net" "#clim" "#lispgames" "#lisp" "#emacs" "#GNUstep" "#ocaml" "#erlang")
 	("quakenet" "#rgrd")
 	("efnet" "#buddhism")
 	("undernet" "#buddhism"))
@@ -209,7 +221,7 @@
 (slime-setup '(slime-fancy slime-mrepl slime-banner slime-tramp
 			   slime-xref-browser slime-highlight-edits
 			   slime-sprof slime-asdf slime-company))
-(setq common-lisp-hyperspec-root "file:///Users/Quaker/Downloads/HyperSpec/")
+(setq common-lisp-hyperspec-root "file:///home/lyndon/Downloads/HyperSpec/")
 (global-set-key "\C-cs" 'slime-selector)
 (setf slime-scratch-file "~/hoovy/scratch.lisp")
 
@@ -267,3 +279,7 @@
 		     ielm-mode-hook
 		     emacs-lisp-mode-hook) t))
 #+END_SRC
+
+* Hoovy
+
+(org-babel-load-file (concat hoovy-root "hoovy.org")

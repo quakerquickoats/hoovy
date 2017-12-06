@@ -12,7 +12,7 @@
   :group 'hoovy)
 
 (defcustom hoovy-apps
-  '(("Krita" . "~/Downloads/krita")
+  '(("Krita" . "krita")
     ("Hexchat" . "hexchat")
     ("DOOM (Zandronum)" . "~/Downloads/zandronum")
     ("OpenToonz" . "opentoonz")
@@ -37,6 +37,9 @@
   (mapcar (lambda (x) `(,(concat "*" (car x) "*") . ,(cdr x)))
 	   hoovy-apps))
 
+;;
+;; TODO: do initial-buffer-choice setup 
+;;
 (defun hoovy-welcome ()
   "Hoovy Welcome Page"
   (interactive)

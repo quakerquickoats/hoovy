@@ -27,7 +27,7 @@ module System (G: Play.Game) = struct
   let err s e = Sdl.log s e; exit 1
   let handler x l r =
     match x with
-    | Error (`Msg e) -> l e
+      Error (`Msg e) -> l e
     | Ok a -> r a
 
   let init () =
@@ -53,20 +53,27 @@ module System (G: Play.Game) = struct
                              last_time = Unix.gettimeofday();
                              tick_mul = 1.}))))
 
+  let handle_key_down sys k =
+    if k == Sdl.K.z then Sdl.log "zed"; (* sys.make_happen sys.game; *)
+    if k == Sdl.K.q then true else false
+(*    match k with
+      Sdl.K.z -> sys.game.make_happen(); false
+    | Sdl.K.q -> true
+    | _ -> Sdl.log "key event, %x" k; false *)
+    
   let handle_events sys =
     let e = Sdl.Event.create() in
     let stop = ref false in
     while (Sdl.poll_event (Some e)) && (not !stop) do
-      match Sdl.Event.(enum (get e typ)) with
-      | `Key_down -> Sdl.log "key event, %x" Sdl.Event.(get e keyboard_keycode);
-                     stop := (Sdl.Event.(get e keyboard_keycode) == Sdl.K.q);
-(*          | `Key_up -> false
-          | `Mouse_motion -> false
-          | `Mouse_button_down -> false
-          | `Mouse_button_up -> ()
-          | `Finger_motion -> () *)
-      | `Quit -> Sdl.log "quit event"; stop := true;
-      | _ -> Sdl.log "event = %x" Sdl.Event.(get e typ)
+      stop := match Sdl.Event.(enum (get e typ)) with
+              | `Key_down -> handle_key_down sys Sdl.Event.(get e keyboard_keycode) 
+              (*| `Key_up -> false
+                | `Mouse_motion -> false  
+                | `Mouse_button_down -> false
+                | `Mouse_button_up -> ()
+                | `Finger_motion -> () *)
+              | `Quit -> true;
+              | _ -> Sdl.log "event = %x" Sdl.Event.(get e typ); false
     done;
     Sdl.gl_swap_window sys.w;
     Sdl.delay 10l;

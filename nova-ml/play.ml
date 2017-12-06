@@ -18,6 +18,7 @@ end
 module type Game = sig
   (* a Play *)
   type t
+  val scene: Scene.t
   (*type scenes = Scene list*)
   (* clock, heart, breath, rhythm, beat *)
   val initial_state: unit -> t
@@ -26,3 +27,7 @@ module type Game = sig
   val cleanup: t -> unit
 end
 
+module Game = struct
+  type x = {bummer: int;}
+  let make_happen p = Printf.printf "POoppppyy: %d\n" (p.bummer)
+end
