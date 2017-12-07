@@ -6,7 +6,7 @@
 
 (in-package :nova)
 
-(defstruct Input
+(defstruct Input2
   (upArrow nil) (downArrow nil) (leftArrow nil) (rightArrow nil)
   (charStates nil)
   (moveVector noVec) ; multiple values

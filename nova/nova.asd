@@ -26,7 +26,7 @@
 			   (:file "zone")
 
 			   ;; client
-			   (:file "novapilot")
+			   (:file "pilot")
 			   ))
 
 
