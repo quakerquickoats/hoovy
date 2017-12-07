@@ -4,8 +4,9 @@
 ECL_CFLAGS=-I/msys32/mingw32
 ECL_LDFLAGS=-L/msys32/mingw32 -lecl
 
-CFILES=game.c
-OUTPUT=gamelike.exe
+CFILES=nova.c
+#OUTPUT=gamelike.exe
+OUTPUT=nova
 
 all:
 	gcc -o $(OUTPUT) $(CFILES) $(ECL_CFLAGS) $(ECL_LDFLAGS)

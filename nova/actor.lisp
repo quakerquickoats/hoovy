@@ -1,9 +1,9 @@
-;; Gamelike
-;;
-;; (c) 2017 Lyndon Tremblay
-;;
+;;; Gamelike
+;;;
+;;; (c) 2017 Lyndon Tremblay
+;;;
 
-(in-package :gamelike)
+(in-package :nova.gamelike)
 
 (defclass actor-stats ()
   (earth water fire wind ether))
@@ -16,7 +16,7 @@
      (stats :initform
 	    '(:str 1 :agi 1 :luk 1 :vit 1 :int 1 :dex 1))))
 
-;; s.p.e.c.i.a.l.
+;; s.p.e.c.i.a.l. attributes (seven ?)
 
 ;; (defclass slime-def (actor-def)
 ;;   ((hp 22)

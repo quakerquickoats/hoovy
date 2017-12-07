@@ -1,8 +1,8 @@
-;;
-;; Nova
-;; (c) 2017 Lyndon Tremblay
-;;
-;;
+;;;
+;;; Nova
+;;;
+;;; (c) 2017 Lyndon Tremblay
+;;;
 
 (in-package :nova)
 

@@ -1,8 +1,9 @@
-;;
-;;
-;;
+;;; Nova
+;;;
+;;; (c) 2017 Lyndon Tremblay
+;;;
 
-(in-package :gamelike)
+(in-package :nova.gamelike)
 
 (defparameter monster-class-spec
   '(name

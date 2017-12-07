@@ -9,6 +9,32 @@
 (require :sdl2)
 (require :cl-opengl)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+(defstruct Input
+  (arrows '(nil nil nil nil))
+  (charStates nil)
+  (moveVector #(0 0 0))
+  (buttons '(nil nil nil))
+  (cursor '(nil nil nil))
+  (screenCursor '(nil nil nil)))
+
+
+(defvar noInput
+  (make-input :arrows nil
+			  :charStates nil
+			  :moveVector nil
+			  :buttons nil
+			  :cursor nil
+			  :screenCursor nil))
+
+(defun setInputChar (i x b)
+  nil)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (defclass System ()
   ((lastTime :initform 0.0)
    (tickMul :initform 1.0)
@@ -39,6 +65,7 @@
 	  (setf (slot-value sys 'lastTime) now)
 	  (setf (slot-value sys 'game) (update (slot-value sys 'game) tick))
 	  (runEvents sys))))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

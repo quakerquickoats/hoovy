@@ -6,15 +6,26 @@
   :depends-on (:sdl2 :cl-opengl)
   :serial t
   :components ((:file "package")
-			   ;;(:file "nova")
+			   ;; core
 			   (:file "system")
 			   (:file "huma-math")
 			   (:file "engine")
-			   (:file "draw")
 			   (:file "render")
+			   (:file "draw")
+			   (:file "part")
+			   (:file "play")
 			   (:file "nova")
-			   ;;(:file "game-sdl")
-			   ;;(:file "window")
+
+			   ;; game
+			   (:file "actor")
+			   (:file "char")
+			   (:file "monster")
+			   (:file "item")
+			   (:file "storage")
+			   (:file "world")
+			   (:file "zone")
+
+			   ;; client
 			   (:file "novapilot")
 			   ))
 
