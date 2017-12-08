@@ -12,7 +12,7 @@ http://pcmonk.me/2016/10/13/logging-idea-maze.html
 
 
 * CL Letters
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :lexical t
 (defvar *qb-letters*
   '((aleph ALF ox)
     (bet   BYT house)

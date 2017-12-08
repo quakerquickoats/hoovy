@@ -5,7 +5,7 @@ int plugin_is_GPL_compatible;
 
 /* New emacs lisp function. All function exposed to Emacs must have this prototype. */
 static emacs_value
-Fmymod_test (emacs_env *env, int nargs, emacs_value args[], void *data)
+Fnova_test (emacs_env *env, ptrdiff_t n, emacs_value *args, void *ptr)
 {
   return env->make_integer (env, 42);
 }
@@ -42,22 +42,21 @@ provide (emacs_env *env, const char *feature)
 }
 
 int
-emacs_module_init (struct emacs_runtime *ert)
+emacs_module_init (struct emacs_runtime *rt)
 {
-  return 0;
-  emacs_env *env = ert->get_environment (ert);
+  emacs_env *e = rt->get_environment(rt);
 
   /* create a lambda (returns an emacs_value) */
-  emacs_value fun = env->make_function (env,
+  emacs_value fun = e->make_function(e,
               0,            /* min. number of arguments */
               0,            /* max. number of arguments */
-              Fmymod_test,  /* actual function pointer */
+              Fnova_test,  /* actual function pointer */
               "doc",        /* docstring */
               NULL          /* user pointer of your choice (data param in Fmymod_test) */
   );
 
-  bind_function (env, "mymod-test", fun);
-  provide (env, "mymod");
+  bind_function(e, "nova-test", fun);
+  provide(e, "nova");
 
   /* loaded successfully */
   return 0;

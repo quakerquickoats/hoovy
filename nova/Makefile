@@ -4,12 +4,26 @@
 ECL_CFLAGS=-I/msys32/mingw32
 ECL_LDFLAGS=-L/msys32/mingw32 -lecl
 
-CFILES=nova.c
-#OUTPUT=gamelike.exe
+CFILES=nova-ecl.c
+#OUTPUT=nova.exe
 OUTPUT=nova
 
-all:
-	gcc -o $(OUTPUT) $(CFILES) $(ECL_CFLAGS) $(ECL_LDFLAGS)
+GCC=gcc
+EMACS=emacs
+CFLAGS=-s -Wall -Wextra -O3 -fPIC -ggdb3 -I/home/lyndon/Downloads/emacs/src/
+MODULE_SUFFIX := $(shell $(EMACS) -batch --eval '(princ module-file-suffix)')
+EMACS_MODULE=nova.so
+
+all: $(OUTPUT) $(EMACS_MODULE)
+	@
+
+$(OUTPUT):
+	$(GCC) -o $(OUTPUT) $(CFILES) $(ECL_CFLAGS) $(ECL_LDFLAGS)
+
+$(EMACS_MODULE): nova-emacs.c
+	$(GCC) -shared $(CFLAGS) -o $@ $^
 
 clean:
-	rm $(OUTPUT)
+	rm $(OUTPUT) $(EMACS_MODULE)
+
+

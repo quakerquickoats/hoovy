@@ -24,19 +24,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; SDL testing code
-
-(defun nova-init ()
-  (format t "Initialize Nova.~%")
-  (finish-output)
-  (gl:viewport 0 0 512 512)
-  (gl:matrix-mode :projection)
-  (gl:ortho -1 1 -1 1 -1 1)
-  (gl:matrix-mode :modelview)
-  (gl:load-identity)
-  (gl:clear-color 0.0 0.0 1.0 1.0)
-  (gl:clear :color-buffer-bit))
-
 (defun handle-key (keysym)
   (let ((scancode (sdl2:scancode-value keysym))
 	(sym (sdl2:sym-value keysym))
@@ -44,86 +31,122 @@
     (format t "Key: ~a - ~a - ~a~%" sym scancode mod-value)
     (finish-output)))
 
-(defvar *win* nil)
-(defvar *gl-context* nil)
+(defstruct Viewport
+  (running nil)
+  (width 0 :read-only t)
+  (height 0 :read-only t)
+  (window nil :read-only t)
+  (gl-context nil :read-only t))
 
-(defun nova-test ()
-  (sdl2:init :everything)
-  (setf *win* (sdl2:create-window-and-renderer 512 512 '(:shown :opengl)))
-  ;;(sdl2:with-window (win :flags '(:shown :opengl)))
-  (setf *gl-context* (sdl2:gl-create-context *win*))
-  (sdl2:with-gl-context (*gl-context* *win*)
-	(sdl2:gl-make-current *win* *gl-context*)
-	(nova-init)
-	(sdl2:with-event-loop (:background t)
-	  (:keydown (:keysym keysym)
-				(handle-key keysym))
-	  (:keyup (:keysym keysym)
-			  (when (sdl2:scancode= (sdl2:scancode-value keysym)
-									:scancode-escape)
-				(sdl2:push-event :quit)))
-	  (:idle ()
-			 (gl:clear :color-buffer)
-			 (gl:begin :triangles)
-			 (gl:color 1.0 0.0 0.0)
-			 (gl:vertex  0.0  1.0)
-			 (gl:vertex -1.0 -1.0)
-			 (gl:vertex  1.0  1.0)
-			 (gl:end)
-			 (gl:flush)
-			 (sdl2:gl-swap-window *win*))
-	  (:quit () t)
-	  )))
+(defvar *viewport* nil)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun create-viewport (&optional (width 512) (height 512))
+  (let* ((w (sdl2:create-window-and-renderer 512 512 '(:shown :opengl)))
+		 (gl (sdl2:gl-create-context w)))
+	(make-viewport :width width :height height
+				   :window w :gl-context gl)))
 
-(defclass nova-window (kit.sdl2:gl-window)
-  ((starttime :initform (get-internal-real-time))
-   (one-frame-time :initform (get-internal-real-time))
-   (frames :initform 0)))
+(defun test1 ()
+  (gl:begin :triangles)
+  (gl:color 1 0 0)
+  (gl:vertex  0.0  1.0)
+  (gl:color 0 1 0)
+  (gl:vertex -1.0 -1.0)
+  (gl:color 0 0 1)
+  (gl:vertex  1.0  1.0)
+  (gl:end))
 
-(defmethod initialize-instance :after ((w nova-window) &key &allow-other-keys)
-  (format t "Init window.~%")
-   ;; with culling
-  ;; (gl:enable :cull-face)
-  ;; (gl:cull-face :back)
-  ;; (gl:front-face :cw)
-  (setf (kit.sdl2:idle-render w) t)
-  (gl:viewport 0 0 512 512)
+(defun test2 ()
+  (gl:begin :triangles)
+  (gl:color 1.0 0.0 0.0)
+  (gl:vertex  0.0  1.0)
+  (gl:vertex  1.0 -1.0)
+  (gl:vertex -1.0  1.0)
+  (gl:end))
+
+(defvar *test* nil)
+
+(defun viewport-render (v)
+  (gl:viewport 0 0 (viewport-width v) (viewport-height v))
   (gl:matrix-mode :projection)
   (gl:ortho -1 1 -1 1 -1 1)
   (gl:matrix-mode :modelview)
-  (gl:load-identity))
-
-
-(defmethod render ((w nova-window))
-  (format t "Renderrr ~%")
-  (gl:clear-color 0 0 1 1)
-  (gl:clear :color-buffer-bit)
   (gl:load-identity)
-  (gl:begin :triangles)
-  (gl:vertex 0 256)
-  (gl:vertex 256 256)
-  (gl:vertex 256 0)
-  (gl:end))
+  (gl:clear-color 0.0 0.0 1.0 1.0)
+  (gl:clear :color-buffer-bit)
 
-(defmethod close-window ((w nova-window))
-  (format t "Bye~%")
-  ;; To _actually_ destroy the GL context and close the window,
-  ;; CALL-NEXT-METHOD.  You _may_ not want to do this, if you wish to
-  ;; prompt the user!
-  (call-next-method))
+  (if *test*
+	  (test1)
+	  (test2))
+  
+  (gl:flush)
+  (sdl2:gl-swap-window (viewport-window v)))
 
-(defmethod textinput-event :after ((window nova-window) ts text)
-  (when (string= "Q" (string-upcase text))
-	(close-window window)))
+(defvar *running* nil)
 
-;; (defmethod textinput-event ((w game-window) ts text)
-;;   (format t "You typed: ~S~%" text))
+(defun viewport-idle (v)
+  (sdl2:delay 100)
+  (when *running*
+	;; do some nova stuff here, then render.
+	(viewport-render v))
+  (update-swank))
 
-(defmethod keyboard-event ((w nova-window) state ts repeat-p keysym)
-  (let ((scancode (sdl2:scancode keysym)))
-    (when (eq :scancode-escape scancode)
-      (close-window w))
-    (unless repeat-p
-      (format t "~A ~S ~S~%" state scancode (sdl2:scancode-name scancode)))))
+(defun nova-stop ()
+  (setf *running* nil))
+
+(defun nova-run ()
+  (setf *running* t))
+
+(defun nova-boot ()
+  (when (not *viewport*)
+	(format t "Initialize Nova...~%")
+	(sdl2:init :everything)
+	(setf *viewport* (create-viewport 512 512)))
+  (sdl2:gl-make-current (viewport-window *viewport*) (viewport-gl-context *viewport*))
+  (sdl2:with-event-loop ;;(:background t)
+	(:keydown (:keysym keysym)
+			  (handle-key keysym))
+	(:keyup (:keysym keysym)
+			(when (sdl2:scancode= (sdl2:scancode-value keysym) :scancode-escape)
+			  (sdl2:push-quit-event)))
+	(:idle () (viewport-idle *viewport*))   ; gl-make-current here?
+	(:quit () t)
+	))
+
+
+;; from nikki93's github.com/nikki93/lgame/blob/master/game.lisp
+;; this supposedly solves live editing problems for all the three main OS's
+;; but on windows "single threaded mode" must be forced:
+;; (setf *swank:*communication-style* nil) in ~/.swank.lisp
+
+(defmacro with-main (&body body)
+  "Enables REPL access via UPDATE-SWANK in the main loop using SDL2. Wrap this around
+the sdl2:with-init code."
+  ;;TODO: understand this. Without this wrapping the sdl:with-init the sdl thread
+  ;; is an "Anonymous thread" (tested using sb-thread:*current-thread*), while applying
+  ;; this makes *current-thread* the same as the one one when queried directly from the
+  ;; REPL thread: #<SB-THREAD:THREAD "repl-thread" RUNNING {adress...}>
+  `(sdl2:make-this-thread-main
+    (lambda ()
+      ;; does work on linux+sbcl without the following line:
+      #+sbcl (sb-int:with-float-traps-masked (:invalid) ,@body)
+      #-sbcl ,@body)))
+
+
+(defmacro continuable (&body body)
+  "Helper macro that we can use to allow us to continue from an
+  error. Remember to hit C in slime or pick the restart so errors don't kill the
+  app."
+  `(restart-case
+       (progn ,@body) (continue () :report "Continue")))
+
+(defun update-swank ()
+  "Called from within the main loop, this keeps the lisp repl
+working while cepl runs"
+  (continuable
+   (let ((connection
+	  (or swank::*emacs-connection*
+	      (swank::default-connection))))
+     (when connection
+	   (swank::handle-requests connection t)))))
+

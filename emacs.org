@@ -16,7 +16,7 @@
   ;;(setq mouse-wheel-progressive-speed nil)
 
   (windmove-default-keybindings)
-  (global-hl-line-mode 1)
+  ;;(global-hl-line-mode 1)
   ;; (and
   ;;   (require 'centered-cursor-mode)
   ;;   (global-centered-cursor-mode 1))
@@ -62,7 +62,7 @@
 		  ("asdf" . "b")
 		  ))
 
-  (global-prettify-symbols-mode 1)
+  ;;(global-prettify-symbols-mode 1)
 
   (require 'ido)
   (ido-mode t)
@@ -102,26 +102,26 @@
 * Communications
 #+BEGIN_SRC emacs-lisp
 
-(setq browse-url-browser-function 'eww-browse-url)
+  (setq browse-url-browser-function 'eww-browse-url)
 
-;; shouldnt really be here, but in user config
-(setq erc-autojoin-channels-alist
-      '(("freenode.net" "#clim" "#lispgames" "#lisp" "#emacs" "#GNUstep" "#ocaml" "#erlang")
-	("quakenet" "#rgrd")
-	("efnet" "#buddhism")
-	("undernet" "#buddhism"))
-      erc-fill-column 80
-      erc-hide-timestamps t
-      erc-nick "whoman")
+  ;; shouldnt really be here, but in user config
+  (setq erc-autojoin-channels-alist
+		'(("freenode.net" "#clim" "#lispgames" "#lisp" "#emacs" "#GNUstep" "#ocaml" "#erlang")
+	  ("quakenet" "#rgrd")
+	  ("efnet" "#buddhism")
+	  ("undernet" "#buddhism"))
+		erc-fill-column 80
+		erc-hide-timestamps t
+		erc-nick "whoman")
 
-(require 'elfeed)
-(setq elfeed-feeds
-      '("https://news.ycombinator.com/rss"
-        "http://planet.emacsen.org/atom.xml"))
+  (require 'elfeed)
+  (setq elfeed-feeds
+		'("https://news.ycombinator.com/rss"
+		  "http://planet.emacsen.org/atom.xml"))
 
-(require 'emms-setup)
-(emms-standard)
-(emms-default-players)
+  ;; (require 'emms-setup)
+  ;; (emms-standard)
+  ;; (emms-default-players)
 #+END_SRC
 
 
@@ -281,5 +281,7 @@
 #+END_SRC
 
 * Hoovy
+#+BEGIN_SRC emacs-lisp
+(org-babel-load-file (concat "~/hoovy/hoovy.org")) ;; FIXME: use hoovy-root
+#+END_SRC
 
-(org-babel-load-file (concat hoovy-root "hoovy.org")
