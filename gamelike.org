@@ -1,7 +1,14 @@
 #+TITLE: Gamelike
 #+SETUPFILE: org-setup.hrg
 
-* Characters
+* Implementation
+- uses your filesystem for inventory storage. big files, small files...
+  for eg: potion = 1024kb 
+
+
+* World
+- In Space!
+* Character
 - generated with random levels and status and items and history.
 * Classes
 ** Human
@@ -12,8 +19,10 @@
 * Jobs
 ** Chef
 ** Craftsman
-** Warrior
+** Soldier
 ** Monk
+** Hacker
+** Artist ?
 * Styles
 * Items
 - can throw and equip all items.
@@ -29,18 +38,20 @@
 - figures
 - cards
 - Books
+- discs
 ** Consumables
 - Food (health, stamina, stats)
 - Scrolls (skills, stats)
-- Potions/Drugs (drunk, speed, pain)
+- Medicines/Potions/Drugs (drunk, speed, pain)
 - Ammo (arrows, bullets, darts)
+- Tools (oil, fuel, powders, etc)
 * Rooms/Arenas
 * Maps/Zones
-** Snow and Ice (water)
-** Underground Caves (earth)
-** Floating Continents (sky)
-** 
+** Snow and Ice (water, mem)
+** Underground Caves (earth, aleph)
+** Floating Continents (sky, shin)
 * Trading/Market
+- real trading of unique items.
 * Parties/Quests
 
 

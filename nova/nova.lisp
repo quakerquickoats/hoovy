@@ -78,7 +78,8 @@
   (if *test*
 	  (test1)
 	  (test2))
-  
+
+  (format t "hmmm~%") (finish-output)
   (gl:flush)
   (sdl2:gl-swap-window (viewport-window v)))
 
@@ -97,19 +98,26 @@
 (defun nova-run ()
   (setf *running* t))
 
+(defun nova-reset ()
+  (sdl2:destroy-window (viewport-window *viewport*))
+  (sdl2:gl-delete-context (viewport-gl-context *viewport*))
+  (setf *viewport* nil))
+
 (defun nova-boot ()
   (when (not *viewport*)
 	(format t "Initialize Nova...~%")
 	(sdl2:init :everything)
 	(setf *viewport* (create-viewport 512 512)))
   (sdl2:gl-make-current (viewport-window *viewport*) (viewport-gl-context *viewport*))
-  (sdl2:with-event-loop ;;(:background t)
+  (sdl2:with-event-loop (:background t)
 	(:keydown (:keysym keysym)
+			  (format t "flap jacks.~%") (finish-output)
 			  (handle-key keysym))
 	(:keyup (:keysym keysym)
 			(when (sdl2:scancode= (sdl2:scancode-value keysym) :scancode-escape)
 			  (sdl2:push-quit-event)))
-	(:idle () (viewport-idle *viewport*))   ; gl-make-current here?
+	(:idle ()
+		   (viewport-idle *viewport*))   ; gl-make-current here?
 	(:quit () t)
 	))
 

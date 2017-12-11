@@ -1,4 +1,4 @@
-;; Wanderman
+;; Gamelike
 ;;
 ;; (c) 2017 Lyndon Tremblay
 ;;
@@ -6,7 +6,7 @@
 ;; (defstruct wanderer
 ;;   char-status house)
 
-(defvar *wm-classes*
+(defvar *gl-classes*
   '(atheist mason scientist ;;illuminatist
     gnostic gypsy summoner
     buddhist zen monk
@@ -17,7 +17,7 @@
     hindu guru wizard
     ))
 
-(defvar *wm-classes-2*
+(defvar *gl-classes-2*
   '(scientist
     zen
     sufi
