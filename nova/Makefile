@@ -1,29 +1,20 @@
-#ECL_CONFIG=/mingw32/ecl-config
-#ECL_CFLAGS=-$(shell $(ECL_CONFIG) --cflags)
-#ECL_LDFLAGS=`$(ECL_CONFIG) --ldflags`
-ECL_CFLAGS=-I/msys32/mingw32
-ECL_LDFLAGS=-L/msys32/mingw32 -lecl
+RESULT     = novapilot
+SOURCES    = nova.ml
+LIBS       = bigarray tsdl gg ecl
+#INCDIRS    = +tsdl
+#CFLAGS = -cclib -lecl
 
-CFILES=nova-ecl.c
-#OUTPUT=nova.exe
-OUTPUT=nova
-
-GCC=gcc
-EMACS=emacs
-CFLAGS=-s -Wall -Wextra -O3 -fPIC -ggdb3 -I/home/lyndon/Downloads/emacs/src/
-MODULE_SUFFIX := $(shell $(EMACS) -batch --eval '(princ module-file-suffix)')
-EMACS_MODULE=nova.so
-
-all: $(OUTPUT) $(EMACS_MODULE)
-	@
-
-$(OUTPUT):
-	$(GCC) -o $(OUTPUT) $(CFILES) $(ECL_CFLAGS) $(ECL_LDFLAGS)
-
-$(EMACS_MODULE): nova-emacs.c
-	$(GCC) -shared $(CFLAGS) -o $@ $^
-
-clean:
-	rm $(OUTPUT) $(EMACS_MODULE)
+#include OCamlMakefile
 
 
+all:
+	ocamlbuild -use-ocamlfind 'novapilot.native' -lflag -cclib -lflag -lecl
+
+all22:
+	ocamlbuild -use-ocamlfind 'novapilot.cmo'
+	ocamlfind ocamlmktop -o novapilot -thread -linkpkg -package utop -package tsdl novapilot.cmo
+
+
+nothing:
+	ocamlfind ocamlc -o novapilot -thread -linkpkg -linkall -predicates create_toploop \
+       -package compiler-libs.toplevel,utop novapilot.cmo

@@ -18,7 +18,7 @@ end
 module type Game = sig
   (* a Play *)
   type t
-  val scene: Scene.t
+  (*val scene: Scene.t*)
   (*type scenes = Scene list*)
   (* clock, heart, breath, rhythm, beat *)
   val initial_state: unit -> t

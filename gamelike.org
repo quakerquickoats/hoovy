@@ -7,9 +7,11 @@
 
 
 * World
-- In Space!
+- In Space! Not Outer space!
 * Character
 - generated with random levels and status and items and history.
+- can 'move' the mind (actor) into another body (action).
+- can move into items, objects, pixels.
 * Classes
 ** Human
 ** Machine
