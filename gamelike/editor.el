@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+;;;
 ;;; Gamelike
 ;;;
 ;;; (c) 2017 Lyndon Tremblay

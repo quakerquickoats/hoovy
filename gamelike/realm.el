@@ -1,4 +1,5 @@
-
+;;; -*- lexical-binding: t; -*-
+;;;
 
 (defclass wm-language ()
   (tree-of-life  ;; above: shin, heaven (sea of names)

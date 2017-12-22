@@ -1,5 +1,6 @@
-;;;; package.lisp
-
 (defpackage :hoovy
-  (:use :common-lisp))
+  (:documentation "hoovy web framework")
+  (:nicknames :hw)
+  (:use :common-lisp :cl-who :parenscript)
+  (:export nothing))
 

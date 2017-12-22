@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 ;;
-;; WanderMan
+;; Gamelike
 ;;
 ;; (C) 2017 Lyndon Tremblay
 ;;

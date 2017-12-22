@@ -3,6 +3,10 @@
 
 Lexical Binding ??
 
+* DOS Filenames
+- 8 letters basename, 3 letters extension = 11
+- 2x11 = 22
+
 * Notes
 ** Rendering Hebrew
 - https://mattdesl.svbtle.com/drawing-lines-is-hard
@@ -145,6 +149,11 @@ http://pcmonk.me/2016/10/13/logging-idea-maze.html
 (defun qb-random-elements-of-list (n l)
   (loop repeat n collect (elt l (random (length l)))))
 
+(defun qb-english-letters-for-number (n))
+
+(defun qb-hebrew-letters-for-number (n)
+  )
+
 #+END_SRC
 * Base-32
 #+BEGIN_SRC emacs-lisp
@@ -153,7 +162,7 @@ http://pcmonk.me/2016/10/13/logging-idea-maze.html
 ;;
 
 (defvar *qb-base32-en* "0123456789abcdefghijklmnopqrstuvwxyz") ;; מקח
-(defvar *qb-base32-he8 "0123456789אבגדהוזחטיכלמנסעפצקרשת")
+(defvar *qb-base32-he* "0123456789אבגדהוזחטיכלמנסעפצקרשת")
 
 #+END_SRC
 
