@@ -103,12 +103,13 @@
 
 (setq org-publish-project-alist
       `(("hoovy"
-	 :base-directory ,hoovy-root
-	 :recursive t
-	 :publishing-directory ,(hoovy-www)
-	 :publishing-function org-html-publish-to-html
-	 :html-head-extra ""
-	 :components ())))
+		 :auto-sitemap t
+		 :base-directory ,hoovy-root
+		 :recursive t
+		 :publishing-directory ,(hoovy-www)
+		 :publishing-function org-html-publish-to-html
+		 :html-head-extra ""
+		 :components ())))
 
 (org-display-inline-images t t)
 (setq org-edit-src-content-indentation 0
