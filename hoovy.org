@@ -103,13 +103,28 @@
 
 (setq org-publish-project-alist
       `(("hoovy"
+		 :components ("hoovy-org" "hoovy-art" "hoovy-code"))
+		("hoovy-org"
 		 :auto-sitemap t
 		 :base-directory ,hoovy-root
-		 :recursive t
+		 :base-extension "org"
 		 :publishing-directory ,(hoovy-www)
 		 :publishing-function org-html-publish-to-html
+		 :recursive t
+		 :html-head "<link rel='stylesheet' href='style.css' type='text/css'/>"
 		 :html-head-extra ""
-		 :components ())))
+		 :html-preamble t
+		 :components ())
+		("hoovy-art"
+		 :base-directory ,(concat hoovy-root "/images/")
+		 :base-extension "jpg\\|gif\\|png\\|svg"
+		 :publishing-directory ,(hoovy-www)
+		 :publishing-function org-publish-attachment)
+		("hoovy-code"
+		 :base-directory ,(concat hoovy-root "/apps/")
+		 :base-extension "css\\|el\\|js"
+		 :publishing-directory ,(hoovy-www)
+		 :publishing-function org-publish-attachment)))
 
 (org-display-inline-images t t)
 (setq org-edit-src-content-indentation 0

@@ -1,4 +1,5 @@
 open Geom
+open Gg
 
 type model = {
     windings: Geom.Winding.t
@@ -14,7 +15,15 @@ end
 module Scene = struct
   (* let render s = List.map Part.render s.parts *)
 end
-               
+
+type game_info = {
+    identifier: string;
+    width: float;
+    height: float;
+    background: v4 option;
+    camera: v3;
+  }
+             
 module type Game = sig
   (* a Play *)
   type t

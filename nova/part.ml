@@ -32,7 +32,10 @@ type 'a perfstep = Trans of mutator | Render of 'a
             
 type 'a process = 'a perfstep list
             
-type performance = Visual | Ethereal of procedural process | Aural of synthesizer process
+type performance =
+  Visual of procedural process
+| Ethereal of mutator process
+| Aural of synthesizer process
             
 module Part = struct
   type t = {

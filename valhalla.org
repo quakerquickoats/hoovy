@@ -1,4 +1,4 @@
-#+TITLE: /Gamelike/
+#+TITLE: /Valhalla/
 
 # character
 

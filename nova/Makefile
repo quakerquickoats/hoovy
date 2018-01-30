@@ -1,5 +1,5 @@
 RESULT     = novapilot
-SOURCES    = nova.ml
+SOURCES    = main.ml
 LIBS       = bigarray tsdl gg ecl
 #INCDIRS    = +tsdl
 #CFLAGS = -cclib -lecl
@@ -8,7 +8,7 @@ LIBS       = bigarray tsdl gg ecl
 
 
 all:
-	ocamlbuild -use-ocamlfind 'novapilot.native' -lflag -cclib -lflag -lecl
+	ocamlbuild -use-ocamlfind 'main.native' -lflag -cclib -lflag -lecl
 
 all22:
 	ocamlbuild -use-ocamlfind 'novapilot.cmo'

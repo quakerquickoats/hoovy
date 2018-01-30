@@ -5,21 +5,6 @@ open System
 open Play
    
    
-(*
-let pl_engine = ref (Nova.Engine.create ())
-
-let next () = pl_engine := Nova.Engine.step !pl_engine
- *)
-
-let pause () = ()
-let run () = ()
-let runUntil time = ()
-let runFor seconds = ()
-
-let speed s = () (* set engine tick_mul *)
-
-(**************)
-
 module MainMenu : Play.Scene = struct
   type t = {
     selected: int;}
@@ -65,7 +50,24 @@ module Pilot : Play.Game = struct
   let cleanup g = ()
 end
 
+(*****************************************************)
+                         
+(*
+  let pl_engine = ref (Nova.Engine.create ())
+
+  let next () = pl_engine := Nova.Engine.step !pl_engine
+ *)
+
+let pause () = ()
+let run () = ()
+let runUntil time = ()
+let runFor seconds = ()
+
+let speed s = () (* set engine tick_mul *)
+
+
 module Novapilot = System(Pilot)                 
 let main () = Novapilot.play ()
 let () = main ()
            
+
