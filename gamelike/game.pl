@@ -37,17 +37,16 @@ user:file_search_path(files, '.').
 	   user:head//2.
 
 user:body(hoovy_style, Body) -->
-	html(body([
-					 div(id=top, h1('Gamelike')),
+	html(body([div(id=top, h1('Gamelike')),
 			   div([align=center, id=content], Body),
 			   div(align=right, p('(c) 2018 Lyndon Tremblay'))
 			  ])).
 
 user:head(hoovy_style, Head) -->
 	html(head([title('Hoovy Studio'),
-			   \html_requires(files('game.js')),
-			   \html_requires(files('rot.min.js')),
 			   % 'https://raw.github.com/ondras/rot.js/master/rot.min.js'
+			   \html_requires(files('_rot.min.js')),
+			   \html_requires(files('game.js')),
 			   \html_requires(files('style.css')),
 			   Head])).
 
@@ -55,7 +54,7 @@ a_handler(_Request) :-
     reply_html_page(
 		hoovy_style,
         [],
-        [canvas(id(viewport))]).
+        []).
 
 %%%%%%%
 
