@@ -1,97 +1,63 @@
+%% Gamelike
 %%
-%%%% Generation
-%%
-
-% god_name
-% religion_name
-% book_name
-% mystical_book_names
-% enemy_name
-% tree_of_life_name
-% secular_book_names
-% secular_country_names
-% country_name
-
-% temples, etc.
-
-%%
-%%%% Player
+%% (c) 2018 Lyndon Tremblay
 %%
 
-job(novice, 0, 0, 0, 0, 0).
-job(merchant).
-job(archer).
-job(soldier).
-job(theif).
-job(acolyte).
-job(mage).
+:- module(game,[]).
+:- use_module(library(http/thread_httpd)).
+:- use_module(library(http/http_dispatch)).
+:- use_module(library(http/http_server_files)).
+:- use_module(library(http/http_files)).
+:- use_module(library(http/html_head)).
+:- use_module(library(http/html_write)).
+:- use_module(library(http/js_write)).
 
-jobStats(novice, S):- S = status{str:0, dex:0, agi:0, int:0, luk:0}.
-jobStats(merchant, S):- S = status{str:0, dex:0, agi:0, int:0, luk:1}.
-jobStats(archer, S):- S = status{str:0, dex:1, agi:0, int:0, luk:0}.
-jobStats(soldier, S):- S = status{str:1, dex:0, agi:0, int:0, luk:0}.
-jobStats(thief, S):- S = status{str:0, dex:0, agi:1, int:0, luk:0}.
-jobStats(acolyte, S):- S = status{str:0, dex:1, agi:0, int:0, luk:0}.
+:- multifile
+	   user:file_search_path/2,
+	   http:location/2.
+:- dynamic
+	   user:file_search_path/2.
 
-player:-
-	inventory(I),
-	status(S),
-	[I,S].
+:- prolog_load_context(directory, Dir),
+   asserta(user:file_search_path(app, Dir)).
 
-%%
-%%%% Actor
-%%
+http:location(files, root(.), []).
+user:file_search_path(files, '.').
 
-isDead(HP):-
-	HP < 1.
+%:- http_handler(files(.), serve_files_in_directory(.), [prefix]).
+:- http_handler(files(.), http_reply_from_files('.', []), [prefix]).
+%:- http_handler(root(.), serve_files_in_directory(files), [prefix]).
+:- http_handler(root(test), a_handler, []).
+:- http_handler(/, http_reply_file('index.html', []), []).
+   
+% :- http_handler(/, http_redirect(moved_temporarily, root('index.html')), []).
 
-equipSlots:-
-	[head,body,arms,leftHand,rightHand,face,legs,feet,back].
+:- multifile
+	   user:body//2,
+	   user:head//2.
 
-status([]).
+user:body(hoovy_style, Body) -->
+	html(body([
+					 div(id=top, h1('Gamelike')),
+			   div([align=center, id=content], Body),
+			   div(align=right, p('(c) 2018 Lyndon Tremblay'))
+			  ])).
 
-inventory([]).
+user:head(hoovy_style, Head) -->
+	html(head([title('Hoovy Studio'),
+			   \html_requires(files('game.js')),
+			   \html_requires(files('rot.min.js')),
+			   % 'https://raw.github.com/ondras/rot.js/master/rot.min.js'
+			   \html_requires(files('style.css')),
+			   Head])).
 
-takeItem(Item):-
-	inventory(I),
-	asserta(inventory([Item|I])).
+a_handler(_Request) :-
+    reply_html_page(
+		hoovy_style,
+        [],
+        [canvas(id(viewport))]).
 
-%%
-%%%% Battle
-%%
-
-% strength, speed
-% wisdom, ego
-% intellect, size
-% 
-
-statNames:-
-	[str,dex,agi,int,luk].
-statNames:-
-	[str,dex,agi,int,luk,ego].
-
-elementTypes:-
-	[earth,water,fire,wind,spirit].
-
-%%
-%%%% Mob
-%%
-
-actorMobType:-
-	[mammal,zombie,undead,robot,machine,reptile].
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% Persistence
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-save:-
-	open("game.save",write,Stream),
-	with_output_to(Stream,listing(player)),
-	close(Stream).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% Map
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%
 
 cellTypes:-
 	[floor,water,wall,upSlope,downSlope,warp].
@@ -99,6 +65,13 @@ cellTypes:-
 actorTypes:-
 	[player,enemy,friend,warp].
 
+%%%%%%
+
 start:-
-	write("Gamelike"),
-	nl.
+	write("Gamelike..."), nl,
+	config:port(Port),
+	http_server(http_dispatch, [port(Port)]).
+
+stop:-
+	config:port(Port),
+	http_stop_server(Port, []).

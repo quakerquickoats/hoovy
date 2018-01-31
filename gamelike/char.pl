@@ -19,3 +19,30 @@ new(Char,Name,Level,Stats):-
 
 is_dead(_{status:{hp:HP}}):-
 	HP < 1.
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+% strength, speed
+% wisdom, ego
+% intellect, size
+% 
+
+actorMobType:-
+	[mammal,zombie,undead,robot,machine,reptile].
+
+
+statNames:-
+	[str,dex,agi,int,luk].
+statNames:-
+	[str,dex,agi,int,luk,ego].
+
+elementTypes:-
+	[earth,water,fire,wind,spirit].
+
+
+equipSlots:-
+	[head,body,arms,leftHand,rightHand,face,legs,feet,back].
+
+takeItem(Item):-
+	inventory(I),
+	asserta(inventory([Item|I])).

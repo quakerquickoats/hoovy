@@ -17,7 +17,7 @@
 %		weight:positive_integer).
 
 attach:-
-	db_attach("world.db",[]).
+	db_attach("save.db",[]).
 
 sync:-
 	db_sync(update).
@@ -32,6 +32,33 @@ language(treeOfLife, holyBook, motherLand).
 treeOfLife(above,shin,heaven).  % sea of names
 holyBook(middle,aleph,heart).  % humankind, MDL - (m-dalet) - gate
 motherLand(below,mem,ocean).   % MEM-ory. sea of MEMEs.
+
+%%
+%%%% Generation
+%%
+
+% god_name
+% religion_name
+% book_name
+% mystical_book_names
+% enemy_name
+% tree_of_life_name
+% secular_book_names
+% secular_country_names
+% country_name
+
+% temples, etc.
+
+god_name(elohim).
+god_name(allah).
+god_name(buddha).
+
+char_name(C):-
+	FirstNames = [job,david,moshe,abraham,jacob,isaac],
+	LastNames = [israel,benjamin,levi,dan,asher],
+	random_member(A,FirstNames),
+	random_member(B,LastNames),
+	C = (A,B).
 
 %%%%%%%%%%%%%%%%%%%%%%
 
