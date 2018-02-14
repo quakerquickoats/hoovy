@@ -3,12 +3,13 @@ window.onload = function() {
     if (!ROT.isSupported()) {
         alert("The rot.js library isn't supported by your browser.");
     } else {
-        // Create a display 80 characters wide and 20 characters tall
-        var display = new ROT.Display({width:80, height:20});
-        var container = display.getContainer();
-        // Add the container to our HTML page
+        var display = new ROT.Display({width:64, height:48,
+									   fontSize:16,
+									   spacing:1,
+//									   tileWidth:16, tileHeight:16,
+									   forceSquareRatio:true});
 		var content = document.getElementById('content');
-        content.appendChild(container);
+        content.appendChild(display.getContainer());
 		
         var foreground, background, colors;
         for (var i = 0; i < 15; i++) {
@@ -22,7 +23,7 @@ window.onload = function() {
             colors = "%c{" + foreground + "}%b{" + background + "}";
             // Draw the text two columns in and at the row specified
             // by i
-            display.drawText(2, i, colors + "Hello, world!");
+            display.drawText(2, i, colors + "Hello, world!גכשגכשגכ");
         }
     }
 }

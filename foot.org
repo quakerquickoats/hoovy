@@ -10,7 +10,7 @@
 
 #+BEGIN_HTML
 <p align="right">
-  <i>&copy;2010 <a href="quakerquickoats@gmail.com">Quaker Quickoats</a></i>
+  <i>&copy;2010-2018 <a href="humasect@me.com">humasect</a></i>
   &nbsp;&nbsp;
 </p>
 #+END_HTML

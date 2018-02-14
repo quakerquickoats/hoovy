@@ -167,7 +167,7 @@
 	  ("xxxx" ignore)))
       
       (while (and x (not (eql (thing-at-point 'word t) "xxxx")))
-	(forward-line)
-	(setq x (thing-at-point 'word t)))
+		(forward-line)
+		(setq x (thing-at-point 'word t)))
       x)))
 

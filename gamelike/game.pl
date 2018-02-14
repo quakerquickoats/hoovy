@@ -37,7 +37,7 @@ user:file_search_path(files, '.').
 	   user:head//2.
 
 user:body(hoovy_style, Body) -->
-	html(body([div(id=top, h1('Gamelike')),
+	html(body([% div(id=top, h1('Gamelike')),
 			   div([align=center, id=content], Body),
 			   div(align=right, p('(c) 2018 Lyndon Tremblay'))
 			  ])).

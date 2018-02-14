@@ -1,5 +1,5 @@
 #+TITLE: Gamelike
-#+SETUPFILE: org-setup.hrg
+#+SETUPFILE: _setup.org
 
 * Implementation
 - uses your filesystem for inventory storage. big files, small files...
