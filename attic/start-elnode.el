@@ -3,12 +3,12 @@
 ;;; start-elnode.el
 ;;;
 
-(setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")))
-(package-initialize)
-(package-refresh-contents)
-(package-install 'elnode)
+;; (setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")))
+;; (package-initialize)
+;; (package-refresh-contents)
+;; (package-install 'elnode)
 
-(defun handler (httpcon)
+(defun elnode-test-handler (httpcon)
   "Demonstration function"
   (elnode-http-start httpcon "200"
                      '("Content-type" . "text/html")

@@ -6,3 +6,11 @@
 (defun boust-find-file (filename)
   (interactive "FFilename: ")
   (print filename))
+
+
+(define-minor-mode boust-mode
+  "Toggle Boustephedron mode."
+  :init-value nil
+  :lighter " Boust"
+  :group 'boust
+  :keymap '(()))

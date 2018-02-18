@@ -52,6 +52,10 @@
 
 * Workspace
 #+BEGIN_SRC emacs-lisp
+(require 'persistent-scratch)
+(setq persistent-scratch-autosave-interval (* 60 10))
+(persistent-scratch-autosave-mode)
+
   (set-language-environment "UTF-8")
   (set-default-coding-systems 'utf-8)
 
