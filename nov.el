@@ -1,56 +1,38 @@
 ;; -*- lexical-binding: t; -*-
 ;;
-;; Gamelike
 ;;
 ;; (C) 2017 Lyndon Tremblay
 ;;
 
 
-;; (cl-defstruct wm:actor
-;;   level status inventory equipment shkel)
-;; (cl-defstruct wm:state
-;;   wanderer actors map story)
-
-;;;;;;;;;;;;;;;;
-
-(require 'websocket)
-
-(defconst *wm-hostname* "localhost")
-(defconst *wm-port* 9999)
-
-(defun wm-game-buffer ()
-  (get-buffer-create "*wm-game*"))
-(defun wm-message-buffer ()
-  (get-buffer-create "*wm-messages*"))
-
-(defun wm-log (msg)
-  (with-current-buffer (wm-message-buffer)
-    (set-window-point (get-buffer-window (wm-message-buffer))
-		      (point-max))
-    (goto-char (point-max))
-    (insert msg)))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; network
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defvar *wm-socket* nil)
-(defun wm-init-net (user pass)
+(require 'websocket)
+(defconst *nov-hostname* "localhost")
+(defconst *nov-port* 9999)
+
+(defvar *nv-socket* nil)
+(defun nv-init-net (user pass)
   (interactive "sUsername: \nsPassword: ")
-  (wm-log "Connecting...")
-  (setq *wm-socket*
+  (nv-log "Connecting...")
+  (setq *nv-socket*
 	(websocket-open
 	 "ws://127.0.0.1:9999"
 	 :on-message (lambda (_ws frame)
 		       (message "ws frame: %S"
 				(websocket-frame-text frame)))
-	 :on-close (lambda (_ws) (setq *wm-closed* t))))
-  (assert *wm-socket*)
-  (wm-send `(:client (:login [,user ,pass]))))
+	 :on-close (lambda (_ws) (setq *nv-closed* t))))
+  (assert *nv-socket*)
+  (nv-send `(:client (:login [,user ,pass]))))
 
-(defun wm-send (text)
-  (websocket-send-text *wm-socket*
+(defun nv-send (text)
+  (websocket-send-text *nv-socket*
 		       (if (stringp text) text (print text))))
+
+(defun nv-shutdown-net ()
+  (setq *nv-socket* (websocket-close *nv-socket*)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;; regular net (old)
@@ -96,39 +78,75 @@
       (lco-log "OK.\n")
     (lco-log "Error.\n")))
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;
-;; API
+;; Game
 ;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun wm-init-display ()
+(defgroup nova nil
+  "Nova is a game."
+  :tag "Nov"
+  :group 'games)
+
+(defcustom nv-buffer-name "*Nova*"
+  "Name of the buffer for the game."
+  :group 'nova
+  :type '(string))
+
+(defcustom nv-player-name "person"
+  "Default name for the player."
+  :group 'nova
+  :type '(string))
+
+(defconst nv-width 64)
+(defconst nv-height 64)
+
+;; (cl-defstruct wm:actor
+;;   level status inventory equipment shkel)
+;; (cl-defstruct wm:state
+;;   wanderer actors map story)
+
+;;;;;;;;;;;;;;;;
+
+(defun nv-game-buffer () (get-buffer-create nv-buffer-name))
+(defun nv-message-buffer () (get-buffer-create "*nv-messages*"))
+
+(defun nv-log (msg)
+  (with-current-buffer (nv-message-buffer)
+    (set-window-point (get-buffer-window (nv-message-buffer))
+		      (point-max))
+    (goto-char (point-max))
+    (insert msg)))
+
+;;;;;;;;;;;;;;;
+
+(defun --nv-init-display ()
   (setq f (make-frame
 	   '((title . "WanderMan")
-	     (name . "wm-frame")
+	     (name . "nv-frame")
 	     (width . 80)
 	     (height . 50)
 	     (buffer-list .
-			  '((wm-message-buffer) (wm-game-buffer)))
+			  '((nv-message-buffer) (nv-game-buffer)))
 	     (unsplittable . t)
 	     (menu-bar-lines . nil)
 	     (tool-bar-lines . nil))))
   (select-frame f)
-  (switch-to-buffer (wm-message-buffer))
+  (switch-to-buffer (nv-message-buffer))
   (setq w2 (split-window (selected-window) 10))
   (select-window w2)
-  (switch-to-buffer (wm-game-buffer)))
+  (switch-to-buffer (nv-game-buffer)))
 
-(defun wm-init-keys ()
-  (set-buffer (wm-game-buffer))
-  (local-set-key "q" 'wm-quit)
+(defun --nv-init-keys ()
+  (set-buffer (nv-game-buffer))
+  (local-set-key "q" 'nv-quit)
 
   (local-set-key "/" (lambda (cmd)
                        (interactive "sCommand: ")
-                       (lco-send `(:command ,cmd))))
+                       (nv-send `(:command ,cmd))))
 
   (local-set-key "t" (lambda (msg)
                        (interactive "sMessage: ")
-                       (lco-send `(:client (:say ,msg)))))
+                       (nv-send `(:client (:say ,msg)))))
 
   (local-set-key "4" (lambda () (interactive) (lco-move 270)))
   (local-set-key "2" (lambda () (interactive) (lco-move 180)))
@@ -140,12 +158,45 @@
   (local-set-key "3" (lambda () (interactive) (lco-move 135)))
   (local-set-key "1" (lambda () (interactive) (lco-move 225))))
 
-(defun wm-init ()
-  (wm-init-display)
-  (wm-init-keys)
-  (wm-init-net))
+(defun nv-display-options ()
+  "Computes display options, required by gamegrid for colors."
+  (let ((options (make-vector 256 nil)))
+	options))
 
-(defun wm-quit ()
+(defvar nv-mode-map
+  (let ((map (make-sparse-keymap 'nv-mode-map)))
+	(define-key map [left] 'nv-move-left)
+	(define-key map [right] 'nv-move-right)
+	(define-key map [up] 'nv-move-up)
+	(define-key map [down] 'nv-move-down)
+	map)
+  "Modemap for nova.")
+
+(defun nv-init ()
+  (get-buffer-create nv-buffer-name)
+  (switch-to-buffer nv-buffer-name)
+  (use-local-map nv-mode-map)
+
+  ;;(nv-init-net)
+
+  (setq gamegrid-use-glyphs t)
+  (setq gamegrid-use-color t)
+  (gamegrid-init (nv-display-options))
+  (gamegrid-init-buffer nv-width nv-height ?\s))
+
+(defun nv-quit ()
   (interactive)
-  (wm-log "Quit.")
-  (setq *wm-socket* (websocket-close *wm-socket*)))
+  (nv-log "Quit.")
+  (kill-buffer (nv-message-buffer))
+  (kill-buffer (nv-game-buffer))
+  ;;(nv-shutdown-net)
+  )
+
+;;;###autoload
+(defun nov ()
+  (interactive)
+  (nv-init))
+
+(provide 'nov)
+
+

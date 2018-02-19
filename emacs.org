@@ -257,6 +257,7 @@
 
 (let ((modes-to-hook '(emacs-lisp-mode-hook
 		       eval-expression-minibuffer-setup-hook
+			   slime-repl-mode-hook
 		       ielm-mode-hook
 		       lisp-mode-hook
 		       lisp-interaction-mode-hook
