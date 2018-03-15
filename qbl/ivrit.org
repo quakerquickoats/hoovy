@@ -14,8 +14,13 @@ Lexical Binding ??
 ** brackets lisp and literate programming
 http://pcmonk.me/2016/10/13/logging-idea-maze.html
 
+* Links
+http://koshertorah.com  (and mental kung fu)
+http://www.hope-of-israel.org/tetragram.html
+http://www.sacred-texts.com/eso/sta/sta29.htm
 
-* CL Letters
+
+* Letters
 #+BEGIN_SRC emacs-lisp :lexical t
 (defvar *qb-letters*
   '((aleph ALF ox)
@@ -39,16 +44,12 @@ http://pcmonk.me/2016/10/13/logging-idea-maze.html
     (qof   QOF monkey)
     (resh  RES head)
     (shin  SIN tooth)
-    (taw   TAW mark-cross)))
+    (taw   TAW mark-cross)
+	))
 
 (defun qb-random-letter ()
   (elt *qb-letters* (random 22)))
-#+END_SRC
 
-#+RESULTS:
-: qb-random-letter
-
-* Letters
 #+BEGIN_SRC emacs-lisp
 (defconst *qb-otiyot*
   '(Alf Bet Gml Dal Heh Waw Zay Xet Tet Yod
@@ -58,10 +59,8 @@ http://pcmonk.me/2016/10/13/logging-idea-maze.html
   '(kexer hokama binae
 	  hesed din xiperex-tifereth
 	  necah hod yesod malkux))
-#+END_SRC
 
-#+RESULTS:
-: *qb-sephirot*
+#+END_SRC
 
 * Keyboard Transliteration
 #+BEGIN_SRC emacs-lisp
@@ -132,7 +131,7 @@ http://pcmonk.me/2016/10/13/logging-idea-maze.html
   (list
    1 2 3 4 5 6 7 8 9
    10 20 30 40 50 60 70 80 90
-   100 200 300 400 600 700 800 900))
+   100 200 300 400 500 600 700 800 900))
 
 (defun qb-letter-value (c)
   (cdr (assoc c (mapcar* #'cons *qb-alephbeth* *qb-letter-values*))))
