@@ -2,24 +2,29 @@
 
 * Startup
 #+BEGIN_SRC emacs-lisp
-  (add-to-list 'load-path "~/.emacs.d/site-lisp")
-  (server-start)
-  (require 'exwm)
-  (require 'exwm-config)
-  ;;(exwm-config-ido)
-  (exwm-config-default)
-  ;;(exwm-enable-ido-workaround)
-  (setq exwm-workspace-number 4)
+(add-to-list 'load-path "~/.emacs.d/site-lisp")
+(server-start)
+(require 'exwm)
+(require 'exwm-config)
+;;(exwm-config-ido)
+(exwm-config-default)
+;;(exwm-enable-ido-workaround)
+(setq exwm-workspace-number 4)
 
-  (setq mouse-autoselect-window nil)   ;; can't use with exwm
-  ;;(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
-  ;;(setq mouse-wheel-progressive-speed nil)
+(setq mouse-autoselect-window nil)   ;; can't use with exwm
+;;(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
+;;(setq mouse-wheel-progressive-speed nil)
 
-  (windmove-default-keybindings)
-  ;;(global-hl-line-mode 1)
-  ;; (and
-  ;;   (require 'centered-cursor-mode)
-  ;;   (global-centered-cursor-mode 1))
+(add-hook 'exwm-update-title-hook
+		  (defun pnh-ff-title-hook ()
+			(when (string-match "Firefox" exwm-class-name)
+			  (exwm-workspace-rename-buffer exwm-title))))
+
+(windmove-default-keybindings)
+;;(global-hl-line-mode 1)
+;; (and
+;;   (require 'centered-cursor-mode)
+;;   (global-centered-cursor-mode 1))
 
 #+END_SRC
 
@@ -27,6 +32,7 @@
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 ;;(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+;;(add-to-list 'package-archives '("elpa" . "http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 ;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/))"))
 

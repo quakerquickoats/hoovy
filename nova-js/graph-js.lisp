@@ -1,4 +1,4 @@
-(in-package :humaweb)
+(in-package :nova-js)
 
 (define-psmacros ctx
   (call (n &body body) `((chain *ctx* ,n) ,@body))

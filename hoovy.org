@@ -1,5 +1,22 @@
 #+TITLE: Hoovy Home
 
+* Overview
+** DeveloperProjects
+|          |                             |                        |
+|----------+-----------------------------+------------------------|
+| Hoovy    | Editor Tools and Web Server | Emacs Lisp/Common Lisp |
+| Nova     | Local game engine client    | Ocaml/JavaScript       |
+| Valhalla | Multiplayer game server     | Prolog/Erlang          |
+|          |                             |                        |
+
+** UserProjects
+|              |                       |   |
+|--------------+-----------------------+---|
+| Gamelike     | Roguelike RPG game    |   |
+| Novapilot    | Shmup shooter game    |   |
+| Monsterpiece | running platform game |   |
+
+ 
 * Init
 #+BEGIN_SRC emacs-lisp
 (defgroup hoovy nil
@@ -208,3 +225,30 @@ dropbox start && dropbox status
 | [[https://news.ycombinator.com/][Hacker News]] | [[http://rockpapershotgun.com/][Rock Paper Shotgun]] | [[http://sachachua.com/blog/category/emacs/][Sacha Chua Emacs Blog]] |
 
 
+
+* GitHub links
+** C
+[[https://github.com/eudoxia0/cmacro][cmacro]]
+** Common Lisp
+[[https://github.com/google/lisp-koans][Lisp Koans (from google)]]
+[[http://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html][Starting a Minimal Common Lisp Project]]
+[[https://gist.github.com/chaitanyagupta/9324402][Common Lisp Reader Macros]]
+[[https://github.com/janestreet/ecaml][Emacs plugin in OCaml]]
+[[https://github.com/Shirakumo/trial][Shirakumo trial CL game engine]]
+[[http://turtleware.eu/posts/cl-charms-crash-course.html][cl-charms CLIM backend FFI crash course]]
+[[https://github.com/fukamachi/woo][woo webserver]]
+** Gamedev
+[[https://github.com/HackerTheory/first-light][psilord and mfiano's first-light game engine]]
+[[http://www.roguebasin.com/index.php?title=Code_design_basics][Roguebasin code outline basics]]
+[[https://github.com/rsaarelm/magog/][rsaaleim's magog RL in Rust]]
+** Qabal
+[[https://he.wikisource.org/wiki/%25D7%25A2%25D7%259E%25D7%2595%25D7%2593_%25D7%25A8%25D7%2590%25D7%25A9%25D7%2599][Wikipedia Hebrew]]
+** People
+[[https://en.wikipedia.org/wiki/George_Gurdjieff][George Gurdjieff]]
+** Emacs
+[[https://github.com/joaotavora/sly][Sly]]
+[[https://www.youtube.com/watch?v=xqWkVvubnSI][Sly YT Video]]
+[[https://joaotavora.github.io/sly/#A-SLY-tour-for-SLIME-users][Sly for Slime users]]
+[[http://emacslife.com/emacs-chats/chat-iannis-zannos.html][Emacs and SuperCollider!]]
+** Prolog
+[[https://wps.aw.com/wps/media/objects/5771/5909832/PDF/Luger_0136070477_1.pdf][Logic programming PDF]]

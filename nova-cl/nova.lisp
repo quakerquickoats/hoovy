@@ -86,7 +86,8 @@
 (defvar *running* nil)
 
 (defun viewport-idle (v)
-  (sdl2:delay 100)
+  (format t "asdfasdfasdf~%")
+  (sdl2:delay 1000)
   (when *running*
 	;; do some nova stuff here, then render.
 	(viewport-render v))
@@ -103,17 +104,24 @@
   (sdl2:gl-delete-context (viewport-gl-context *viewport*))
   (setf *viewport* nil))
 
+(defvar *only-once* nil)
+
+;; TODO: make an only-once macro
+
 (defun nova-boot ()
   (when (not *viewport*)
 	(format t "Initialize Nova...~%")
-	(sdl2:init :everything)
+	(when (not *only-once*)
+	  (sdl2:init :everything)
+	  (setf *only-once* t))
 	(setf *viewport* (create-viewport 512 512)))
   (sdl2:gl-make-current (viewport-window *viewport*) (viewport-gl-context *viewport*))
-  (sdl2:with-event-loop (:background t)
+  (sdl2:with-event-loop (:method :poll) ;;(:background t)
 	(:keydown (:keysym keysym)
 			  (format t "flap jacks.~%") (finish-output)
 			  (handle-key keysym))
 	(:keyup (:keysym keysym)
+			(format t "jjjjjjjjj~%") (finish-output)
 			(when (sdl2:scancode= (sdl2:scancode-value keysym) :scancode-escape)
 			  (sdl2:push-quit-event)))
 	(:idle ()

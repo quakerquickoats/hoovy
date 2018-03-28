@@ -32,6 +32,7 @@ module System (G: Play.Game) = struct
 
   let init () =
     handler (Sdl.init Sdl.Init.(video + timer + audio + events))
+      (* TODO: put this pattern in another handler fun *)
       (fun e -> err "Init error: %s" e)
       (fun _ ->
         Sdl.log "Init OK...";

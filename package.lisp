@@ -1,7 +1,12 @@
 (defpackage :hoovy
   (:documentation "hoovy web framework")
-  (:nicknames :hw)
+  ;(:nicknames :hw)
   (:use :common-lisp :cl-who :parenscript)
+  (:export nothing))
+
+(defpackage :hoovy.nova
+  (:documentation "hoovy nova multimedia engine")
+  (:use :common-lisp :cl-sdl2)
   (:export nothing))
 
 #|

@@ -1,10 +1,10 @@
-(defpackage :huma4drl
-  (:documentation "humasect 4-day roguelike")
-  (:nicknames :4drl)
-  (:use :common-lisp :cl-who :parenscript :humaweb)
+(defpackage :nova-js
+  (:documentation "Nova JS engine")
+  (:nicknames :nova)
+  (:use :common-lisp :cl-who :parenscript)
   (:export output))
 
-(in-package :huma4drl)
+(in-package :nova-js)
 
 (defparameter *js-files* '("actor" "map" "game"))
 (defparameter *css-files* '("style"))

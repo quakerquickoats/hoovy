@@ -1,0 +1,14 @@
+(defpackage :nova-js-asd)
+(in-package :nova-js-asd)
+
+(asdf:defsystem nova-js
+  :name "nova-js"
+  :version "1.0"
+  :maintainer "humasect"
+  :author "humasect"
+  :description "Nova JS engine"
+  :serial t
+  :depends-on (:cl-who :parenscript)
+  :components ((:file "huma4drl")
+               (:file "actor-js")
+               (:file "map-js")))

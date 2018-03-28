@@ -43,14 +43,6 @@
    (game :initform nil))
   (:documentation "Platform-specific system calls"))
 
-(defmethod initialize-instance :after ((sys System) &key)
-  (sdl2:init :everything)
-  (destructuring-bind (w r)
-	  (sdl2:create-window-and-renderer 512 512 nil)
-	(progn
-	  (setf (slot-value sys 'window) w)
-	  (setf (slot-value sys 'renderer) r))))
-
 (defgeneric handleEvents (sys)
   (:documentation "Handle system events. Return T if we reached a form of conclusion to events."))
 
@@ -66,10 +58,18 @@
 	  (setf (slot-value sys 'game) (update (slot-value sys 'game) tick))
 	  (runEvents sys))))
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defclass SDL-System (System) ())
+
+(defmethod initialize-instance :after ((sys SDL-System) &key)
+  (when (not *once-only*)
+   (sdl2:init :everything))
+  (destructuring-bind (w r)
+	  (sdl2:create-window-and-renderer 512 512 nil)
+	(progn
+	  (setf (slot-value sys 'window) w)
+	  (setf (slot-value sys 'renderer) r))))
 
 (defmethod handleEvents ((sys SDL-System))
   (let ((stop nil)

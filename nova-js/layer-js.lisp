@@ -1,4 +1,4 @@
-(in-package :humaweb)
+(in-package :nova-js)
 
 (define-psmacros layer
   (make (&key (name "")

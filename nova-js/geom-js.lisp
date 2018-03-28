@@ -1,4 +1,4 @@
-(in-package :humaweb)
+(in-package :nova-js)
 
 (define-psmacros nil
   (min (x y) `(if (> ,x ,y) ,x ,y))

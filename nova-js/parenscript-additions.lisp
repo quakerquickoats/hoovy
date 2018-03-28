@@ -1,4 +1,4 @@
-(in-package :humaweb)
+(in-package :nova-js)
 
 ;; (defmacro ps-to-stream* (stream &body body)
 ;;   `(progn (setf *parenscript-stream* ,stream)
