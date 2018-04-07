@@ -3,21 +3,33 @@
 %% (c) 2018 Lyndon Tremblay
 %%
 
-:- module(char,[default_status/1,
-				is_dead/1]).
+:- module(char,[defaultStatus/1,
+				isDead/1]).
 
-default_status(S):-
-	S = status{level:1,
-			   hp:1, sp:0, xp:0,
-			   str:1, agi:1, dex:1, int:1, luk:1}.
+:- use_module(library(record)).
 
-status(S,Str,Agi,Dex,Int,Luk):-
-	S = status{str:Str, agi:Agi, dex:Dex, int:Int, luk:Luk}.
+:- record status(
+	   level:integer=1,
+	   hp:integer=1,
+	   sp:integer=0,
+	   xp:integer=0,
+	   str:integer=0,
+	   agi:integer=0,
+	   dex:integer=0,
+	   int:integer=0,
+	   luk:integer=0).
 
-new(Char,Name,Level,Stats):-
-	Char = char{name:Name, level:Level, status:Stats}.
+%statusLevelMod(chi,
 
-is_dead(_{status:{hp:HP}}):-
+buildStatus(S,Level):-
+	defaultStatus(D),
+	Str is D{str},
+	S = status{level:Level, str:Str}.
+
+new(Char,Name,Stats):-
+	Char = char{name:Name, status:Stats}.
+
+isDead(_{status:{hp:HP}}):-
 	HP < 1.
 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -27,22 +39,46 @@ is_dead(_{status:{hp:HP}}):-
 % intellect, size
 % 
 
-actorMobType:-
-	[mammal,zombie,undead,robot,machine,reptile].
+actorMobType:- [mammal,zombie,undead,robot,machine,reptile].
 
+element(chi,Name,Stat):-
+	Name = earth,
+	Stat = str.
+element(sui,Name,Stat):-
+	Name = water,
+	Stat = dex.
+element(hi,Name,Stat):-
+	Name = fire,
+	Stat = agi.
+element(ki,Name,Stat):-
+	Name = wind,
+	Stat = int.
+element(mu,Name,Stat):-
+	Name = spirit,
+	Stat = luk.
 
-statNames:-
-	[str,dex,agi,int,luk].
-statNames:-
-	[str,dex,agi,int,luk,ego].
+statNames:- [str,dex,agi,int,luk].
 
-elementTypes:-
-	[earth,water,fire,wind,spirit].
-
-
-equipSlots:-
-	[head,body,arms,leftHand,rightHand,face,legs,feet,back].
+equipSlots:- [head,body,arms,leftHand,rightHand,face,legs,feet,back].
 
 takeItem(Item):-
 	inventory(I),
 	asserta(inventory([Item|I])).
+
+%%%%%%%%%%%%%%%%%%%%
+
+generateName(C) :-
+	FirstNames = [job,david,moshe,abraham,jacob,isaac],
+	LastNames = [israel,benjamin,levi,dan,asher],
+	random_member(A,FirstNames),
+	random_member(B,LastNames),
+	C = (A,B).
+
+makePlayer(P):- generateName(N),
+				random_member(E, [chi,sui,hi,ki,mu]),
+				Level is 1,
+				buildStatus(Level,S),
+				P = char{name:N,
+						 element:E,
+						 job:novice,
+						 status:S}.

@@ -1,5 +1,8 @@
 #+TITLE: Wanderman
 
+* Computer
+** generate specs
+
 * Character
 - cursed to wander forever
 - has two sides, each like both rick and morty.

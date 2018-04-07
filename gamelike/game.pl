@@ -56,14 +56,6 @@ a_handler(_Request) :-
         [],
         []).
 
-%%%%%%%
-
-cellTypes:-
-	[floor,water,wall,upSlope,downSlope,warp].
-
-actorTypes:-
-	[player,enemy,friend,warp].
-
 %%%%%%
 
 start:-

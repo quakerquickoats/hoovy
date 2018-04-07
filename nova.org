@@ -1,6 +1,7 @@
 #+TITLE: Nova Project
 
 * Nova Computer (NVC)
+Experimental Idea
 ** Terminal
 *** Display
  512x512 1bit (262144 pixels, 32kb)
@@ -10,7 +11,6 @@
 
  8x8 tiles, 64x64 max tiles (or 8x16??)
  
-
 *** Parts
  sound > sample
 					> function
@@ -31,7 +31,6 @@
 text stream I/O.
 
 ** Programming
- - using cube tiles, or full geometry in parts but connecting doorways ?
  - encryption or some smarts to prevent game progress hacking
 ** Session
  persistent user sessions
@@ -43,37 +42,24 @@ text stream I/O.
 
 ** Network
 - clients use HTTP, JSON API, or Swank.
+
+* Game Engine
+** Porting from HS-Nova (Haskell)
+- ~/hoovy/nova-ml
+- finish porting the "game/system" modules.
+** Targets
+- Local native
+- Web Canvas
+- OpenGL?
 ** Drawing
+- using cube tiles, or full geometry in parts but connecting doorways ?
 - turtle
 - draw, lift pen, stroke, path, bitops, et
 - polygon windings?
 
-* The Pilot
-- hero is a wandering alchemist.
-- he has a ship.
-- he is known around the galaxy for helping others.
-- his dressing is in tattered robes
-- he is always happy, even at very scary and threatening large bosses to hurt him
-- he has great knowledge of the 5 elements
-- he also has great knowledge of the two opposing forces, light and dark. neither are good or bad.
-- he is a retired bounty hunter a long time ago,
-- now is in a life of peaceful living and music and helping
-  those who he encounters in his passive/reactive travels
-** Weapons
-- starting gun is default pistol-like single shot arm cannon
-- mid way through game upgrade is rapid fire machine-style shooting with shells.
-  this weapon is rapid but overheats.
-- green laser that might bounce one time. toothpaste green, bright and
-  spilly and splashy and with travel. might push a little, samus and/or enemies.
-- actually a railgun, it shoots for 1 second and has 1 second delay. pushback for
-  samus prevents her from movement. so it is a precise weapon like sniper.
-** Actions
-- he throws bombs.
-- his potions come in vials to throw or to use on himself
-- he collects item in the bag he carries
-- E-tank
-- missile tank
-- electric whip/grapple ?
+
+* The Mech
+Called Nova
 ** the novaphone
  his grand and complicated magical (blessed) organ can travel in the galaxy.
  it is made of junk parts from things given to him. each part has sentimental value. (karma)
@@ -93,8 +79,8 @@ text stream I/O.
  here many items are made, like fire attack bombs, regular bombs, even bullets.
  it also works with metal and can make some special parts for upgrades and progress.
 
-* Game World
-Dharma in a game
+
+* The Pilot
 ** STORY
  he travels alone in space until the federation sends him a message but they haven't met
    until his help is requested by them. they know of him from his mercenary name, The Whistler.
@@ -124,15 +110,39 @@ Dharma in a game
 	samus must change into suit... will give a great sense of human fragility.
  - zen chozo masters
  - story telling but not like fusion, instead like castlevania, but computers
+- hero is a wandering alchemist.
+- he has a mechship.
+- he is known around the galaxy for helping others.
+- his dressing is in tattered robes
+- he is always happy, even at very scary and threatening large bosses to hurt him
+- he has great knowledge of the 5 elements
+- he also has great knowledge of the two opposing forces, light and dark. neither are good or bad.
+- he is a retired bounty hunter a long time ago,
+- now is in a life of peaceful living and music and helping
+  those who he encounters in his passive/reactive travels
+** Weapons
+ two-handed and one-handed ?
+   only sheilds for one handed or no handed ?
 
+ atk speed, atk power
+- starting gun is default pistol-like single shot arm cannon
+- mid way through game upgrade is rapid fire machine-style shooting with shells.
+  this weapon is rapid but overheats.
+- green laser that might bounce one time. toothpaste green, bright and
+  spilly and splashy and with travel. might push a little, samus and/or enemies.
+- actually a railgun, it shoots for 1 second and has 1 second delay. pushback for
+  samus prevents her from movement. so it is a precise weapon like sniper.
+** Actions
+- he throws bombs.
+- his potions come in vials to throw or to use on himself
+- he collects item in the bag he carries
+- E-tank
+- missile tank
+- electric whip/grapple ?
 ** GAMEPLAY
  - three skills: beginner, normal, advanced.
  - melee? smash brothers maybe auto, charging into them, kicking them
  - mouse to aim.
- - samus can point in 360 degrees but always facing toward camera.
- ? can walk backwards, or lock aim to where samus can physically rotate ?
- - option to use analog control stick.
- - mouse buttons to change shot items
  - buttons on keyboard to move left right, down is duck, up is jump
  - button for fire (selected weapon/item) and bombs in morph
  ? there are curving geometry for morph ball requiring acceleration/momentum ?
@@ -140,6 +150,32 @@ Dharma in a game
  - screen can turn and rotate left and right, and zoom
  - gravity weapons that attract samus to it because of the suit, gravity suit can
      overcome it
+
+** skills
+ fire, ice, heal, etc.
+
+** equipment screen
+ can equip:
+ - body
+ - head
+ - feet
+ - accessory 1
+ - accessory 2
+ - weapon
+ - skill
+** status screen
+ xp, gold, time, monster count.
+ stats are distributed manually among these:
+
+ DEX (attack, defense)
+ AGI (dodge, luck)
+ CON (hp, mp)
+ WIS (Matk, Mdef)
+
+ both equipment and manual stats affect these:
+ Attack, Defense, Dodge, luck, Mdef, Matk, health points, magic points, crit.
+* Game World
+Dharma in a game
 
 ** ENVIRONMENT
 - space, tech, earthy, cyber
@@ -204,36 +240,11 @@ Dharma in a game
  shows current position, save points, boss rooms.
 *** item screen
  shows your items.
-*** equipment screen
- can equip:
- - body
- - head
- - feet
- - accessory 1
- - accessory 2
- - weapon
- - skill
-*** status screen
- xp, gold, time, monster count.
- stats are distributed manually among these:
 
- DEX (attack, defense)
- AGI (dodge, luck)
- CON (hp, mp)
- WIS (Matk, Mdef)
 
- both equipment and manual stats affect these:
- Attack, Defense, Dodge, luck, Mdef, Matk, health points, magic points, crit.
 ** ITEMS
  each item has a weight.
-*** weapons
- two-handed and one-handed ?
-   only sheilds for one handed or no handed ?
 
- atk speed, atk power
-
-*** skills
- fire, ice, heal, etc.
 ** Dungeon Rooms
   dungeon entrance.
   save room.
@@ -242,8 +253,7 @@ Dharma in a game
   monster room.
   secret room.
   trap room.
-  treasure room.
-** World
+  treasure room.** World
   the character and the world are inseperable.
 
   the rooms are generated as soon as they are entered, then saved along
@@ -260,5 +270,4 @@ Dharma in a game
   there will need to be logic so that if a player needs an item to continue
   from getting stuck, they can somehow get it. say if they are surrounded
   with no health, by rooms that require health to pass, and another room
-  that needs a certain item to cross lava (or something), then ...
-
+  that needs a certain item to cross lava (or something), then ..

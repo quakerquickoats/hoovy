@@ -16,13 +16,13 @@
 %		cost:positive_integer,
 %		weight:positive_integer).
 
-attach:-
+attach :-
 	db_attach("save.db",[]).
 
-sync:-
+sync :-
 	db_sync(update).
 
-detach:-
+detach :-
 	db_detach.
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -53,23 +53,16 @@ god_name(elohim).
 god_name(allah).
 god_name(buddha).
 
-char_name(C):-
-	FirstNames = [job,david,moshe,abraham,jacob,isaac],
-	LastNames = [israel,benjamin,levi,dan,asher],
-	random_member(A,FirstNames),
-	random_member(B,LastNames),
-	C = (A,B).
-
 %%%%%%%%%%%%%%%%%%%%%%
 
-generate_with_seed(Seed):-
+generate_with_seed(Seed) :-
 	%atom_string(Name,NameS),
 	%string_concat(NameS,".db",Filename),
 	db_attach("world.db",[]),
 	assert_seed(Seed),
 	ok.
 
-generate:-
+generate :-
 	fail,
 	getrand(Seed),  % this is quite large, takes a full 1/2 screen to print. later.
 	generate_with_seed(Seed).
