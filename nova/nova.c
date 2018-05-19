@@ -10,6 +10,9 @@
 SDL_Window* window = NULL;
 SDL_Surface* screen = NULL;
 
+int screen_width = 512,
+  screen_height = 512;
+
 void NV_Error (const char *msg, ...)
 {
   va_list args;
@@ -26,12 +29,62 @@ void NV_Error (const char *msg, ...)
   exit(1);
 }
 
-void NV_Init ()
+void NV_Init (int w, int h)
 {
+  if (window)
+	return;
+  
   if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	NV_Error("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
+
+  screen_width = w;
+  screen_height = h;
+  window = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+							screen_width, screen_height, SDL_WINDOW_SHOWN);
+  if (!window)
+	NV_Error("Window could not be created! SDL_Error: %s\n", SDL_GetError());
+
+  screen = SDL_GetWindowSurface(window); //Fill the surface white
+  SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 0xFF, 0xFF, 0xFF));
+  //Update the surface
+  SDL_UpdateWindowSurface(window);
+  //Wait two seconds
+  //SDL_Delay(2000);
 }
 
 void NV_Shutdown ()
 {
+  //SDL_FreeSurface(screen);
+  screen = NULL;
+
+  SDL_DestroyWindow(window);
+  window = NULL;
+  
+  SDL_Quit();
 }
+
+int NV_Update ()
+{
+  SDL_Event e;
+  
+  while (SDL_PollEvent(&e) != 0)
+  {
+	if (e.type == SDL_QUIT)
+	  return 0;
+	else if (e.type == SDL_KEYDOWN) {
+	  //Select surfaces based on key press
+	  switch (e.key.keysym.sym)
+	  {
+		case SDLK_q: return 0; break;
+	  }
+	}
+  }
+
+  return 1;
+}
+
+void NV_Render ()
+{
+  SDL_UpdateWindowSurface(window);
+}
+

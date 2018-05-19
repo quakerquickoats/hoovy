@@ -12,10 +12,16 @@
 
 (use-foreign-library nova)
 
-(defcfun "NV_Init" :void)
-(defcfun "NV_Shutdown" :void)
+(defcfun "NV_Init" :void (width :int) (height :int))
+(defcfun "NV_Shutdown"  :void)
 (defcfun "NV_Error" :void (fmt :string) &rest)
+(defcfun "NV_Update" :boolean)
+(defcfun "NV_Render" :void)
 
-(let ((pack (find-package :foo)))
-  (do-all-symbols (sym pack) (when (eql (symbol-package sym) pack) (export sym))))
+;;(mapc #'export '(:nv-init :nv-shutdown :nv-error))
+
+
+;;
+;; (let ((pack (find-package :foo)))
+;;   (do-all-symbols (sym pack) (when (eql (symbol-package sym) pack) (export sym))))
 
