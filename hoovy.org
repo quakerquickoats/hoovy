@@ -159,21 +159,14 @@
 #+END_SRC
 
 * Projects
-** <Nova>
-
-Common Lisp game development and animation and music production tools.
-
-** Gamelike
-
+Game development and animation and music production tools,
+- [[nova.org][Nova]]
+Game engine, written in Objective Caml.
+- [[gamelike.org][Gamelike]]
 Roguelike game inspired by Ragnarok Online and Shiren: The Wanderer.
-
-** Novapilot
-
-2D game inspired by Bangai-O
-Built in level editor
-
-** Monsterpiece
-
+- [[novapilot.org][Novapilot]]
+2D game inspired by Bangai-O, Built in level editor.
+- [[monsterpiece.org][Monsterpiece]]
 2D game inspired by Mario Bros and Smash Bros and Metroid and Castlevania.
 Single-room monster breed/fight/collect maze platform action.
 
@@ -182,16 +175,18 @@ Single-room monster breed/fight/collect maze platform action.
 ** Mini Macs (hu-macs)
 [[file:ectron.el][Emacs Electron]]
 [[file:emacsript.el][Emacs ParenScript]]
+Emacsript
 
 ** Erl-Dev
 Erlang multiplayer game server. Supported IRC and other pieces. [[http://github.com/humasect/erl-dev]]
 
-** Nova
+** hs-Nova
 Haskell realtime 2D graphics and media engine. [[http://github.com/humasect/Nova]]
 Website with documentation and tutorial is missing. ( [[http://hoovy.org]] )
 
 ** The Middle
-Objective-C library for iOS and macOS for high performance turtle-style graphics and game development for Emacs and Xcode.
+Objective-C library for iOS and macOS for high performance
+turtle-style graphics and game development for Emacs and Xcode.
 
 ** HaskellPlugin
 http://github.com/humasect/HaskellPlugin
@@ -201,7 +196,7 @@ Plugin for Haskell for old version of Xcode.
 
 ** Update Emacs
 #+BEGIN_SRC shell :exports code
-cd ~/Downloads/emacs
+cd ~/src/emacs
 git fetch
 ./configure --with-modules --with-x-toolkit=lucid
 make
@@ -222,9 +217,7 @@ dropbox start && dropbox status
 [[irc:/irc.freenode.net/#emacs][#emacs on freenode]]
 
 * News
-| [[https://news.ycombinator.com/][Hacker News]] | [[http://rockpapershotgun.com/][Rock Paper Shotgun]] | [[http://sachachua.com/blog/category/emacs/][Sacha Chua Emacs Blog]] |
-
-
+| [[https://news.ycombinator.com/][Hacker News]] | [[http://sachachua.com/blog/category/emacs/][Sacha Chua Emacs Blog]] |
 
 * GitHub links
 ** C

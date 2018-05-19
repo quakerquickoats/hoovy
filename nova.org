@@ -253,7 +253,8 @@ Dharma in a game
   monster room.
   secret room.
   trap room.
-  treasure room.** World
+  treasure room.
+** World
   the character and the world are inseperable.
 
   the rooms are generated as soon as they are entered, then saved along
