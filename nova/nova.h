@@ -10,4 +10,6 @@
 void NV_Init ();
 void NV_Shutdown ();
 
+void NV_Error (const char *msg, ...);
+
 #endif

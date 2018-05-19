@@ -6,25 +6,33 @@
 
 #CFILES=nova-ecl.c
 #TARGET_REPL=nova.exe
-TARGET_REPL=nova
-TARGET_EMACS_MODULE=nova.so
+TARGET=nova.so
+TARGET_REPL=nova-ecl
+TARGET_EMACS_MODULE=enova.so
+
+OBJECTS=nova.o
 
 GCC=gcc
 EMACS=emacs
-CFLAGS=-s -Wall -Wextra -O3 -fPIC -ggdb3 -I/home/lyndon/src/emacs/src/
+EMACS_SOURCES=/home/lyndon/src/emacs/src/
+CFLAGS=-s -Wall -Wextra -O3 -fPIC -ggdb3
 MODULE_SUFFIX := $(shell $(EMACS) -batch --eval '(princ module-file-suffix)')
 
-all: $(TARGET_REPL) $(TARGET_EMACS_MODULE)
+all: $(TARGET)
+# $(TARGET_REPL) $(TARGET_EMACS_MODULE)
 	@
 
-$(TARGET_REPL): nova-ecl.c
+$(TARGET): $(OBJECTS)
+	$(GCC) -shared $(CFLAGS) -o $@ $< -lSDL2
+
+$(TARGET_REPL): $(OBJECTS) nova-ecl.o
 	$(GCC) -o $@ $< $(ECL_CFLAGS) $(ECL_LDFLAGS) -lecl
 
-$(TARGET_EMACS_MODULE): nova-emacs.c
+$(TARGET_EMACS_MODULE): $(OBJECTS) nova-emacs.o
 	$(GCC) -shared $(CFLAGS) -o $@ $^
 
 %.o: %.c
-	$(GCC) -o $@ -c $<
+	$(GCC) $(CFLAGS) -I$(EMACS_SOURCES) -o $@ -c $<
 
 clean:
 	rm $(OUTPUT) $(EMACS_MODULE)
