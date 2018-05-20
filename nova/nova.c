@@ -6,8 +6,10 @@
 
 #include <stdio.h>
 #include <SDL2/SDL.h>
+#include <GL/gl.h>
 
 SDL_Window* window = NULL;
+SDL_GLContext context = NULL;
 //SDL_Surface* screen = NULL;
 
 int screen_width = 512,
@@ -39,18 +41,33 @@ void NV_Init (int w, int h)
 
   screen_width = w;
   screen_height = h;
-  window = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-							screen_width, screen_height, SDL_WINDOW_SHOWN);
+  window = SDL_CreateWindow("Nova",
+							0, 0,//SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+							screen_width, screen_height,
+							SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN);
   if (!window)
 	NV_Error("Window could not be created! SDL_Error: %s\n", SDL_GetError());
 
-  //screen = SDL_GetWindowSurface(window);
+  context = SDL_GL_CreateContext(window);
+  
+  //SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+  SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
+  SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+  SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+  SDL_GL_SetSwapInterval(1);
+
+  // This is the same as :
+  // 		SDL_SetRenderDrawColor(&renderer, 255, 0, 0, 255);
+  // 		SDL_RenderClear(&renderer);
+  glClearColor(0.0, 0.0, 0.0, 1.0);
+  glClear(GL_COLOR_BUFFER_BIT);
+  
 }
 
 void NV_Shutdown ()
 {
-  //SDL_FreeSurface(screen);
-  //screen = NULL;
+  SDL_GL_DeleteContext(context);
+  context = NULL;
 
   SDL_DestroyWindow(window);
   window = NULL;
@@ -87,10 +104,11 @@ int NV_Update ()
 
 void NV_Render ()
 {
+  //SDL_Surface *screen = SDL_GetWindowSurface(window);
   printf("adsdsd ok...\n");
-    screen = SDL_GetWindowSurface(window);
 
-  SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 0xFF, 0xFF, 0xFF));
-  SDL_UpdateWindowSurface(window);
+  // This is the same as :
+  // 		SDL_RenderPresent(&renderer);
+  SDL_GL_SwapWindow(window);
 }
 
