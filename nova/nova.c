@@ -8,7 +8,7 @@
 #include <SDL2/SDL.h>
 
 SDL_Window* window = NULL;
-SDL_Surface* screen = NULL;
+//SDL_Surface* screen = NULL;
 
 int screen_width = 512,
   screen_height = 512;
@@ -44,16 +44,13 @@ void NV_Init (int w, int h)
   if (!window)
 	NV_Error("Window could not be created! SDL_Error: %s\n", SDL_GetError());
 
-  screen = SDL_GetWindowSurface(window); //Fill the surface white
-  SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 0xFF, 0xFF, 0xFF));
-  //Update the surface
-  SDL_UpdateWindowSurface(window);
+  //screen = SDL_GetWindowSurface(window);
 }
 
 void NV_Shutdown ()
 {
   //SDL_FreeSurface(screen);
-  screen = NULL;
+  //screen = NULL;
 
   SDL_DestroyWindow(window);
   window = NULL;
@@ -90,6 +87,10 @@ int NV_Update ()
 
 void NV_Render ()
 {
+  printf("adsdsd ok...\n");
+    screen = SDL_GetWindowSurface(window);
+
+  SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 0xFF, 0xFF, 0xFF));
   SDL_UpdateWindowSurface(window);
 }
 
