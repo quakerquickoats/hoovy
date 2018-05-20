@@ -2,7 +2,7 @@
 ;(asdf:load-system :swank)
 
 (defpackage :nova
-  (:use :common-lisp :cffi)
+  (:use :common-lisp :cffi :cl-opengl)
   ;;(:export :nv-init :nv-error)
   )
 (in-package :nova)
@@ -30,15 +30,29 @@
 
 (defvar *running* nil)
 
-(defgeneric update-frame (state))
+(defgeneric render-frame (state))
 
 (defun main-loop (state)
   (when (and *running* state)
 	(if (nv-update)
 		(progn
 		  (swank::handle-requests swank::*emacs-connection* t)
+
+		  (gl:clear :color-buffer :depth-buffer)
+		  (gl:matrix-mode :projection)
+		  (gl:load-identity)
+
+		  (gl:ortho 16 -16 16 -16 -1 1)
+  
+		  ;;(glu:perspective 50 (/ width height) 0.5 20)
+		  (gl:matrix-mode :modelview)
+		  (gl:load-identity)
+
+		  (gl:flush)
+
+		  (render-frame state)
 		  (nv-render)
-		  (main-loop (update-frame state))))))
+		  (main-loop state)))))
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Boot
@@ -49,12 +63,37 @@
 (defclass monsterpiece ()
   ((score :initform 0)))
 
-(defmethod update-frame ((mp monsterpiece))
+(defmethod render-frame ((mp monsterpiece))
+  (gl:color 1 0 0)
+  (gl:with-primitives :lines
+	(gl:vertex -16 -16)
+	(gl:vertex 16 16)
+	)
+  
   (princ "heheheheh,")
-  mp)
+  
+  ;(gl:translate 0 0 -5)
+  ;(gl:rotate 30 1 1 0)
+  ;(gl:light :light0 :position '(0 1 1 0))
+  ;(gl:light :light0 :diffuse '(0.2 0.4 0.6 0))
+  ;(gl:clear :color-buffer :depth-buffer)
+  ;(gl:color 1 1 1)
+  ;(gl:front-face :cw)
+  ;;(glut:solid-teapot 1.3)
+  ;(gl:front-face :ccw)
+  )
 
 (defun run ()
   (nv-init 512 512)
+
+  (gl:cull-face :back)
+  (gl:depth-func :less)
+  (gl:disable :dither)
+  ;(gl:shade-model :smooth)
+  ;(gl:light-model :light-model-local-viewer 1)
+  ;(gl:color-material :front :ambient-and-diffuse)
+  ;(gl:enable :light0 :lighting :cull-face :depth-test)
+  
   (let ((*running* t)
 		(*state* (make-instance 'monsterpiece)))
 	(main-loop *state*)

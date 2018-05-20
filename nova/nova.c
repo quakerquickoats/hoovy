@@ -56,12 +56,9 @@ void NV_Init (int w, int h)
   SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
   SDL_GL_SetSwapInterval(1);
 
-  // This is the same as :
-  // 		SDL_SetRenderDrawColor(&renderer, 255, 0, 0, 255);
-  // 		SDL_RenderClear(&renderer);
-  glClearColor(0.0, 0.0, 0.0, 1.0);
-  glClear(GL_COLOR_BUFFER_BIT);
-  
+  glViewport(0, 0, screen_width, screen_height);
+  //glClearColor(0.0, 0.0, 0.0, 1.0);
+  //glClear(GL_COLOR_BUFFER_BIT);
 }
 
 void NV_Shutdown ()
@@ -104,11 +101,7 @@ int NV_Update ()
 
 void NV_Render ()
 {
-  //SDL_Surface *screen = SDL_GetWindowSurface(window);
   printf("adsdsd ok...\n");
-
-  // This is the same as :
-  // 		SDL_RenderPresent(&renderer);
   SDL_GL_SwapWindow(window);
 }
 
