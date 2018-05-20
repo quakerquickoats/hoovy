@@ -19,13 +19,9 @@
 (defcfun "NV_Render" :void)
 
 ;;(mapc #'export '(:nv-init :nv-shutdown :nv-error))
-
-
 ;;
 ;; (let ((pack (find-package :foo)))
 ;;   (do-all-symbols (sym pack) (when (eql (symbol-package sym) pack) (export sym))))
-
-;; (swank:handle-requests swank:*emacs-connection* t)
 
 (defvar *running* nil)
 
@@ -33,6 +29,7 @@
   (when *running*
 	(if (nv-update)
 		(progn
+		  (swank::handle-requests swank::*emacs-connection* t)
 		  (nv-render)
 		  (main-loop)))))
 
