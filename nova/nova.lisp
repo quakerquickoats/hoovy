@@ -25,3 +25,20 @@
 ;; (let ((pack (find-package :foo)))
 ;;   (do-all-symbols (sym pack) (when (eql (symbol-package sym) pack) (export sym))))
 
+;; (swank:handle-requests swank:*emacs-connection* t)
+
+(defvar *running* nil)
+
+(defun main-loop ()
+  (when *running*
+	(if (nv-update)
+		(progn
+		  (nv-render)
+		  (main-loop)))))
+
+(defun run ()
+  (nv-init 512 512)
+  (let ((*running* t))
+	(main-loop)
+	(nv-shutdown)))
+

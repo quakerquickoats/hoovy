@@ -48,8 +48,6 @@ void NV_Init (int w, int h)
   SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 0xFF, 0xFF, 0xFF));
   //Update the surface
   SDL_UpdateWindowSurface(window);
-  //Wait two seconds
-  //SDL_Delay(2000);
 }
 
 void NV_Shutdown ()
@@ -66,6 +64,8 @@ void NV_Shutdown ()
 int NV_Update ()
 {
   SDL_Event e;
+
+  SDL_Delay(200);
   
   while (SDL_PollEvent(&e) != 0)
   {
@@ -75,7 +75,12 @@ int NV_Update ()
 	  //Select surfaces based on key press
 	  switch (e.key.keysym.sym)
 	  {
-		case SDLK_q: return 0; break;
+		case SDLK_q:
+		  return 0;
+		  break;
+	  default:
+		printf("asdasodasiodj key\n");
+		break;
 	  }
 	}
   }
