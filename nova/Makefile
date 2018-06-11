@@ -9,6 +9,7 @@
 TARGET=nova.so
 TARGET_REPL=nova-ecl
 TARGET_EMACS_MODULE=enova.so
+TARGET_PROLOG=pnova.so
 
 OBJECTS=nova.o
 
@@ -18,18 +19,36 @@ EMACS_SOURCES=/home/lyndon/src/emacs/src/
 CFLAGS=-s -Wall -Wextra -O3 -fPIC -ggdb3
 MODULE_SUFFIX := $(shell $(EMACS) -batch --eval '(princ module-file-suffix)')
 
-all: $(TARGET)
-# $(TARGET_REPL) $(TARGET_EMACS_MODULE)
+all:
+	@echo "Usage: make <target> - try one of <core> <emacs> <prolog> <lisp>"
+
+core: $(TARGET)
 	@
+
+lisp: $(TARGET_REPL)
+	@
+
+emacs: $(TARGET_EMACS_MODULE)
+	@
+
+prolog: $(TARGET_PROLOG)
+	@
+
+#################
 
 $(TARGET): $(OBJECTS)
 	$(GCC) -shared $(CFLAGS) -o $@ $< -lSDL2
 
 $(TARGET_REPL): $(OBJECTS) nova-ecl.o
-	$(GCC) -o $@ $< $(ECL_CFLAGS) $(ECL_LDFLAGS) -lecl
+	$(GCC) -o $@ $< $(ECL_CFLAGS) $(ECL_LDFLAGS) -lecl -lSDL2 -lGL
 
 $(TARGET_EMACS_MODULE): $(OBJECTS) nova-emacs.o
 	$(GCC) -shared $(CFLAGS) -o $@ $^
+
+$(TARGET_PROLOG): $(OBJECTS)
+	swipl-ld -o $@ -shared $<
+
+##################
 
 %.o: %.c
 	$(GCC) $(CFLAGS) -I$(EMACS_SOURCES) -o $@ -c $<

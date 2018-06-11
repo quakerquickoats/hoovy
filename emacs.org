@@ -117,13 +117,13 @@
 
   ;; shouldnt really be here, but in user config
   (setq erc-autojoin-channels-alist
-		'(("freenode.net" "#clim" "#lispgames" "#lisp" "#emacs" "#GNUstep" "#ocaml" "#erlang")
+		'(("freenode.net" "#clim" "#lispgames" "#lisp" "#emacs" "#GNUstep" "#gamedev" "#prolog")
 	  ("quakenet" "#rgrd")
 	  ("efnet" "#buddhism")
 	  ("undernet" "#buddhism"))
 		erc-fill-column 80
 		erc-hide-timestamps t
-		erc-nick "whoman")
+		erc-nick "on_ion")
 
   (require 'elfeed)
   (setq elfeed-feeds
@@ -135,6 +135,12 @@
   ;; (emms-default-players)
 #+END_SRC
 
+* C
+#+BEGIN_SRC emacs-lisp
+(setq-default c-basic-offset 4
+              tab-width 4
+              indent-tabs-mode nil)
+#+END_SRC
 * Objective CAML
 #+BEGIN_SRC emacs-lisp
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
