@@ -1,5 +1,6 @@
 (asdf:load-system :cffi)
 ;(asdf:load-system :swank)
+;....for repl, (cffi:reload-foreign-libraries)
 
 (defpackage :nova
   (:use :common-lisp :cffi :cl-opengl)
@@ -17,7 +18,7 @@
 (defcfun "NV_Shutdown"  :void)
 (defcfun "NV_Error" :void (fmt :string) &rest)
 (defcfun "NV_Update" :boolean)
-(defcfun "NV_Render" :void)
+(defcfun "NV_EndFrame" :void)
 
 ;;(mapc #'export '(:nv-init :nv-shutdown :nv-error))
 ;;
@@ -51,7 +52,7 @@
 		  (gl:flush)
 
 		  (render-frame state)
-		  (nv-render)
+		  (nv-endframe)
 		  (main-loop state)))))
 
 ;;;;;;;;;;;;;;;;;;;;;

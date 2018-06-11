@@ -99,7 +99,7 @@ int NV_Update ()
   return 1;
 }
 
-void NV_Render ()
+void NV_EndFrame ()
 {
   printf("adsdsd ok...\n");
   SDL_GL_SwapWindow(window);
