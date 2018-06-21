@@ -1,4 +1,3 @@
-emacs.el
 ./www/*.html
 
 .rebar3

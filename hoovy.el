@@ -1,3 +1,8 @@
+;;; -*- lexical-binding -*-
+;;; --------------------------------
+;;; Hoovy
+;;; --------------------------------
+
 (defgroup hoovy nil
   "Hoovy Customization Group"
   :link '(custom-manual "(hoovy)Top"))
@@ -29,9 +34,6 @@
   (mapcar (lambda (x) `(,(concat "*" (car x) "*") . ,(cdr x)))
 	   hoovy-apps))
 
-;;
-;; TODO: do initial-buffer-choice setup 
-;;
 (defun hoovy-welcome ()
   "Hoovy Welcome Page"
   (interactive)
@@ -51,6 +53,9 @@
   (use-local-map widget-keymap)
   (widget-setup))
 
+;;; --------------------------------
+;;; Org Mode
+;;; --------------------------------
 (defun hoovy-www () (concat hoovy-root "/www/"))
 (setq org-default-notes-file (concat hoovy-root "/notes.org"))
 

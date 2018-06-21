@@ -1,3 +1,4 @@
+%%
 %% Gamelike
 %%
 %% (c) 2018 Lyndon Tremblay
@@ -27,10 +28,10 @@ detach :-
 
 %%%%%%%%%%%%%%%%%%%%%%
 
-language(treeOfLife, holyBook, motherLand).
+language(holyBook, treeOfLife, motherLand).
 
-treeOfLife(above,shin,heaven).  % sea of names
-holyBook(middle,aleph,heart).  % humankind, MDL - (m-dalet) - gate
+holyBook(above,shin,heaven).  % sea of names
+treeOfLife(middle,aleph,heart).  % humankind, MDL - (m-dalet) - gate
 motherLand(below,mem,ocean).   % MEM-ory. sea of MEMEs.
 
 %%

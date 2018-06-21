@@ -18,7 +18,7 @@ http://pcmonk.me/2016/10/13/logging-idea-maze.html
 http://koshertorah.com  (and mental kung fu)
 http://www.hope-of-israel.org/tetragram.html
 http://www.sacred-texts.com/eso/sta/sta29.htm
-
+http://sapphiremagendavid.blogspot.com/
 
 * Letters
 #+BEGIN_SRC emacs-lisp :lexical t
