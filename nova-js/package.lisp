@@ -1,4 +1,4 @@
-(defpackage :hoovy
+(defpackage :nova
   (:documentation "hoovy web framework")
   ;(:nicknames :hw)
   (:use :common-lisp :cl-who :parenscript)

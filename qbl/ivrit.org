@@ -1,7 +1,4 @@
--*- lexical-binding: t -*-
 #+TITLE: Qabbalah
-
-Lexical Binding ??
 
 * DOS Filenames
 - 8 letters basename, 3 letters extension = 11

@@ -1,6 +1,4 @@
-#+TITLE: /Valhalla/
-
-# character
+#+TITLE: Valhalla
 
 * Alignment
   - Karma(chaotic)

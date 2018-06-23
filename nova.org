@@ -1,7 +1,7 @@
 #+TITLE: Nova Project
 
 * Nova Computer (NVC)
-Experimental Idea
+Experimental Idea - generate specs!
 ** Terminal
 *** Display
  512x512 1bit (262144 pixels, 32kb)

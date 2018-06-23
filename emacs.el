@@ -93,7 +93,7 @@
 	  erc-hide-timestamps t
       erc-server-coding-system '(utf-8 . utf-8)
       erc-join-buffer 'bury
-      erc-lurker-hide-list '("JOIN" "PART" "QUIT")
+      ;;erc-lurker-hide-list '("JOIN" "PART" "QUIT")
 	  erc-nick "oni-on-ion")
 
 (require 'erc-hl-nicks)
@@ -284,7 +284,7 @@
 ;;; ------------------------------------
 ;;; Lisp
 ;;; ------------------------------------
-(require 'rainbow-delimiters-mode)
+;;(require 'rainbow-delimiters-mode)
 
 (autoload 'enable-paredit-mode "paredit"
   "Turn on pseudo-structural editing of Lisp code." t)
