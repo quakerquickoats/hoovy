@@ -1,10 +1,5 @@
-;; -*- lexical-binding -*-
-
-(setq custom-file "~/.emacs-custom")
-(load custom-file 'noerror)
-
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
-;;(server-start)
+(server-start)
 
 ;; (require 'org)
 ;; (org-babel-load-file "~/hoovy/emacs.org")
@@ -41,41 +36,6 @@
 			  (exwm-workspace-rename-buffer exwm-title))))
 
 ;;;
-;;; Interface
-;;; 
-
-(setq browse-url-browser-function 'eww-browse-url)
-
-(require 'ido)
-(ido-mode t)
-
-(setq mouse-autoselect-window nil)   ;; can't use with exwm
-;;(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
-;;(setq mouse-wheel-progressive-speed nil)
-
-(windmove-default-keybindings)
-;;(global-hl-line-mode 1)
-;; (and
-;;   (require 'centered-cursor-mode)
-;;   (global-centered-cursor-mode 1))
-
-(menu-bar-mode nil)
-(scroll-bar-mode nil)
-(tool-bar-mode nil)
-(setq visible-bell t)
-(show-paren-mode t)
-
-(setq prettify-symbols-alist
-	  '(
-		("lambda" . 955) ;;
-		("->" . 8594)    ;;
-		("=>" . 8658)    ;;
-		;;("map" . 8614)    ;;
-		("asdf" . "b")
-		))
-;;(global-prettify-symbols-mode 1)
-
-;;;
 ;;; Files
 ;;; 
 
@@ -106,6 +66,14 @@
 ;;;
 (require 'erc)
 
+(add-hook 'window-configuration-change-hook
+            '(lambda ()
+               (setq erc-fill-column (- (window-width) 2))))
+
+(add-hook 'erc-mode-hook
+            '(lambda ()
+               (setq-local scroll-margin 1)))
+
 ;; shouldnt really be here, but in user config
 (setq erc-autojoin-channels-alist
 	  '(("freenode.net" "#emacs" "#lispgames" "#lisp" "##lisp" "#lispcafe"
@@ -113,21 +81,28 @@
 	    ("quakenet" "#rgrd")
 	    ;;("efnet" "#buddhism")
 	    ;;("undernet" "#buddhism"))
-		;;erc-fill-column 100  ;; (- (window-width) 2)  ;; doesnt work here? 
-		erc-hide-timestamps t
-		erc-nick "oni-on-ion"))
+		;;erc-fill-column 100  ;; (- (window-width) 2)  ;; doesnt work here?
+        ) 
+      erc-kill-buffer-on-part t  ;; Kill buffers for channels after /part
+      erc-kill-queries-on-quit t
+      erc-log-channels-directory "~/log/"
+      erc-save-buffer-on-part t
+      erc-save-queries-on-quit t
+      erc-log-write-after-insert t
+      erc-log-write-after-send t
+	  erc-hide-timestamps t
+      erc-server-coding-system '(utf-8 . utf-8)
+      erc-join-buffer 'bury
+      erc-lurker-hide-list '("JOIN" "PART" "QUIT")
+	  erc-nick "oni-on-ion")
+
+(require 'erc-hl-nicks)
 
 ;;(setq erc-fill-column (- (window-width) 2))
-(setq erc-fill-column 100)  ;;same number, because window-width is not yet set.
+;;(setq erc-fill-column 100)  ;;same number, because window-width is not yet set.
 
 (erc-log-mode) 
-;; The directory should be created by user.
-(setq erc-log-channels-directory "~/log/")
-;;(setq erc-generate-log-file-name-function (quote erc-generate-log-file-name-with-date))
-(setq erc-save-buffer-on-part t)
-(setq erc-save-queries-on-quit t)
-(setq erc-log-write-after-insert t)
-(setq erc-log-write-after-send t)
+
 
 ;;;
 ;;; Elfeed
@@ -309,6 +284,8 @@
 ;;; ------------------------------------
 ;;; Lisp
 ;;; ------------------------------------
+(require 'rainbow-delimiters-mode)
+
 (autoload 'enable-paredit-mode "paredit"
   "Turn on pseudo-structural editing of Lisp code." t)
 
@@ -329,7 +306,9 @@
 		       scheme-mode-hook)))
   (mapc (lambda (a)
 	  (add-hook a 'snoopy-mode)
-	  (add-hook a #'enable-paredit-mode))
+	  (add-hook a #'enable-paredit-mode)
+      (add-hook a (lambda ()
+                    (rainbow-delimiters-mode t))))
 	modes-to-hook))
 
 ;;(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
@@ -355,3 +334,39 @@
 ;;; Hoovy
 ;;; -------------------
 (load (concat "~/hoovy/hoovy.el"))
+
+;;;
+;;; Interface
+;;; 
+
+(setq browse-url-browser-function 'eww-browse-url)
+
+(require 'ido)
+(ido-mode t)
+
+(setq mouse-autoselect-window nil)   ;; can't use with exwm
+;;(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
+;;(setq mouse-wheel-progressive-speed nil)
+
+(windmove-default-keybindings)
+;;(global-hl-line-mode 1)
+;; (and
+;;   (require 'centered-cursor-mode)
+;;   (global-centered-cursor-mode 1))
+
+(menu-bar-mode nil)
+(scroll-bar-mode nil)
+(tool-bar-mode nil)
+(setq visible-bell t)
+(show-paren-mode t)
+
+(setq prettify-symbols-alist
+	  '(
+		("lambda" . 955) ;;
+		("->" . 8594)    ;;
+		("=>" . 8658)    ;;
+		;;("map" . 8614)    ;;
+		("asdf" . "b")
+		))
+;;(global-prettify-symbols-mode 1)
+

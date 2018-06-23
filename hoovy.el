@@ -1,4 +1,3 @@
-;;; -*- lexical-binding -*-
 ;;; --------------------------------
 ;;; Hoovy
 ;;; --------------------------------
@@ -56,6 +55,7 @@
 ;;; --------------------------------
 ;;; Org Mode
 ;;; --------------------------------
+(require 'org)
 (defun hoovy-www () (concat hoovy-root "/www/"))
 (setq org-default-notes-file (concat hoovy-root "/notes.org"))
 
