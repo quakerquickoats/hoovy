@@ -1,5 +1,5 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
-(server-start)
+;;(server-start)
 
 ;; (require 'org)
 ;; (org-babel-load-file "~/hoovy/emacs.org")
@@ -23,25 +23,26 @@
 ;;; EXWM
 ;;; 
 
-(require 'exwm)
-(require 'exwm-config)
-;;(exwm-config-ido)
-;;(exwm-enable-ido-workaround)
-(exwm-config-default)
-(setq exwm-workspace-number 4)
+(when (require 'exwm nil :noerror)
+  (require 'exwm-config)
+  ;;(exwm-config-ido)
+  ;;(exwm-enable-ido-workaround)
+  (exwm-config-default)
+  (setq exwm-workspace-number 4)
 
-(add-hook 'exwm-update-title-hook
-		  (defun pnh-ff-title-hook ()
-			(when (string-match "Firefox" exwm-class-name)
-			  (exwm-workspace-rename-buffer exwm-title))))
+  (add-hook 'exwm-update-title-hook
+	    (defun pnh-ff-title-hook ()
+	      (when (string-match "Firefox" exwm-class-name)
+		(exwm-workspace-rename-buffer exwm-title))))
+  )
 
 ;;;
 ;;; Files
 ;;; 
 
-(require 'persistent-scratch)
-(setq persistent-scratch-autosave-interval (* 60 10))
-(persistent-scratch-autosave-mode)
+(when (require 'persistent-scratch nil :noerror)
+  (setq persistent-scratch-autosave-interval (* 60 10))
+  (persistent-scratch-autosave-mode))
 
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
@@ -96,7 +97,7 @@
       ;;erc-lurker-hide-list '("JOIN" "PART" "QUIT")
 	  erc-nick "oni-on-ion")
 
-(require 'erc-hl-nicks)
+(require 'erc-hl-nicks nil :noerror)
 
 ;;(setq erc-fill-column (- (window-width) 2))
 ;;(setq erc-fill-column 100)  ;;same number, because window-width is not yet set.
@@ -107,10 +108,10 @@
 ;;;
 ;;; Elfeed
 ;;; 
-(require 'elfeed)
-(setq elfeed-feeds
-	  '("https://news.ycombinator.com/rss"
-		"http://planet.emacsen.org/atom.xml"))
+(when (require 'elfeed nil :noerror)
+  (setq elfeed-feeds
+	'("https://news.ycombinator.com/rss"
+	  "http://planet.emacsen.org/atom.xml")))
 
 ;;(require 'emms-setup)
 ;;(emms-standard)
@@ -123,7 +124,7 @@
               tab-width 4
               indent-tabs-mode nil)
 
-(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+;;(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 
 ;; Add the opam lisp dir to the emacs load path
 (add-to-list 'load-path
@@ -131,9 +132,11 @@
               "\n" "/usr/share/emacs/site-lisp"
               (shell-command-to-string "opam config var prefix")))
 
-;; Automatically load utop.el
-(autoload 'utop "utop" "Toplevel for OCaml" t)
-(setq utop-command "opam config exec -- utop -emacs")
+;;;;;;;; utop stuff ;;;;;;;
+(when (require 'utop nil :noerror)
+  (setq utop-command "opam config exec -- rtop -emacs")
+  (add-hook 'reason-mode-hook #'utop-minor-mode) ;; can be included in the hook above as well
+  )
 
 ;;----------------------------------------------------------------------------
 ;; Reason setup
@@ -158,13 +161,13 @@
   (when refmt-bin
     (setq refmt-command refmt-bin)))
 
-(require 'reason-mode)
-(require 'merlin)
-(add-hook 'reason-mode-hook (lambda ()
-                              (add-hook 'before-save-hook 'refmt-before-save)
-                              (merlin-mode)))
+(when (require 'reason-mode nil :noerror)
+  (require 'merlin)
+  (add-hook 'reason-mode-hook (lambda ()
+                                (add-hook 'before-save-hook 'refmt-before-save)
+                                (merlin-mode)))
 
-(setq merlin-ac-setup t)
+  (setq merlin-ac-setup t))
 
 ;;;;;; iedit stuff ;;;;
 ;; (require 'merlin-iedit)
@@ -174,55 +177,51 @@
 ;;     (merlin-iedit-occurrences)))
 ;; (define-key merlin-mode-map (kbd "C-c C-e") 'evil-custom-merlin-iedit)
 
-;;;;;;;; utop stuff ;;;;;;;
-(require 'utop)
-(setq utop-command "opam config exec -- rtop -emacs")
-(add-hook 'reason-mode-hook #'utop-minor-mode) ;; can be included in the hook above as well
 
 ;;; -------------------------------------
 ;;; Prolog
 ;;; -------------------------------------
-(require 'ediprolog)
-(global-set-key "\C-c\C-e" 'ediprolog-dwim)
-(add-to-list 'auto-mode-alist '("\\.pl?$" . prolog-mode))
+(when (require 'ediprolog nil :noerror)
+  (global-set-key "\C-c\C-e" 'ediprolog-dwim)
+  (add-to-list 'auto-mode-alist '("\\.pl?$" . prolog-mode)))
 
 ;;; --------------------------
 ;;; Erlang
 ;;; --------------------------
-(add-to-list 'load-path "/usr/lib/erlang/tools-2.10.1/emacs")
-(setq erlang-root-path "/usr/lib/erlang")
-(add-to-list 'exec-path "/usr/lib/erlang/bin")
+;; (add-to-list 'load-path "/usr/lib/erlang/tools-2.10.1/emacs")
+;; (setq erlang-root-path "/usr/lib/erlang")
+;; (add-to-list 'exec-path "/usr/lib/erlang/bin")
 
-(add-to-list 'load-path "~/src/distel/elisp")
-(require 'distel)
-(distel-setup)
+;; (add-to-list 'load-path "~/src/distel/elisp")
+;; (require 'distel)
+;; (distel-setup)
 
-(defvar inferior-erlang-prompt-timeout t)
-(setq inferior-erlang-machine-options '("-sname" "emacs"))
-(setq erl-nodename-cache
-      (make-symbol (concat "emacs@"
-			               (car (split-string
-				                 (shell-command-to-string "hostname"))))))
+;; (defvar inferior-erlang-prompt-timeout t)
+;; (setq inferior-erlang-machine-options '("-sname" "emacs"))
+;; (setq erl-nodename-cache
+;;       (make-symbol (concat "emacs@"
+;; 			               (car (split-string
+;; 				                 (shell-command-to-string "hostname"))))))
 
-;; (cl-flet ((erlpath (x) (concat x "/Program Files/erl9.0/")))
-;;   (add-to-list 'load-path (erlpath "/lib/tools-2.10/emacs"))
-;;   (setq erlang-root-dir (erlpath "/erts-9.0"))
-;;   (add-to-list 'exec-path (erlpath "/erts-9.0/bin"))
-;;   (setq erlang-man-root-dir (erlpath "/erts-9.0/man")))
+;; ;; (cl-flet ((erlpath (x) (concat x "/Program Files/erl9.0/")))
+;; ;;   (add-to-list 'load-path (erlpath "/lib/tools-2.10/emacs"))
+;; ;;   (setq erlang-root-dir (erlpath "/erts-9.0"))
+;; ;;   (add-to-list 'exec-path (erlpath "/erts-9.0/bin"))
+;; ;;   (setq erlang-man-root-dir (erlpath "/erts-9.0/man")))
 
-(defun my-erlang-mode-hook ()
-  (setq inferior-erlang-machine-options '("-sname" "emacs"))
-  (imenu-add-to-menubar "imenu")
-  (local-set-key [return] 'newline-and-indent))
+;; (defun my-erlang-mode-hook ()
+;;   (setq inferior-erlang-machine-options '("-sname" "emacs"))
+;;   (imenu-add-to-menubar "imenu")
+;;   (local-set-key [return] 'newline-and-indent))
 
-;; Some Erlang customizations
-(add-hook 'erlang-mode-hook 'my-erlang-mode-hook)
+;; ;; Some Erlang customizations
+;; (add-hook 'erlang-mode-hook 'my-erlang-mode-hook)
 
-(require 'erlang-start)
+;; (require 'erlang-start)
 
-;; (add-to-list 'auto-mode-alist '("\\.erl?$" . erlang-mode))
-;; (add-to-list 'auto-mode-alist '("\\.hrl?$" . erlang-mode))
-;;(erlang-indent-level 4)
+;; ;; (add-to-list 'auto-mode-alist '("\\.erl?$" . erlang-mode))
+;; ;; (add-to-list 'auto-mode-alist '("\\.hrl?$" . erlang-mode))
+;; ;;(erlang-indent-level 4)
 
 ;;; -----------------------------
 ;;; Common Lisp
@@ -255,9 +254,9 @@
 
 (setq inferior-lisp-program "sbcl")
 (setq slime-lisp-implementations
-      '((sbcl ("/usr/local/bin/sbcl"))
-	(ecl ("/usr/local/bin/ecl"))
-	(nova ("~/nova/nova"))))
+      '((sbcl ("sbcl"))
+	    (ecl ("/usr/local/bin/ecl"))
+	    (nova ("~/nova/nova"))))
 
 ;(require 'slime-autoloads)
 (load "~/quicklisp/slime-helper.el")
@@ -299,7 +298,7 @@
 
 (let ((modes-to-hook '(emacs-lisp-mode-hook
 		       eval-expression-minibuffer-setup-hook
-			   slime-repl-mode-hook
+		       slime-repl-mode-hook
 		       ielm-mode-hook
 		       lisp-mode-hook
 		       lisp-interaction-mode-hook
@@ -323,12 +322,13 @@
 ;;       '(emacs-lisp-mode-hook))
 
 
-(require 'redshank-loader "~/.emacs.d/site-lisp/redshank/redshank-loader")
-(eval-after-load "redshank-loader"
-  `(redshank-setup '(lisp-mode-hook
-		             slime-repl-mode-hook
-		             ielm-mode-hook
-		             emacs-lisp-mode-hook) t))
+(when (require 'redshank-loader
+               "~/.emacs.d/site-lisp/redshank/redshank-loader" :noerror)
+  (eval-after-load "redshank-loader"
+    `(redshank-setup '(lisp-mode-hook
+		               slime-repl-mode-hook
+		               ielm-mode-hook
+		               emacs-lisp-mode-hook) t)))
 
 ;;; -------------------
 ;;; Hoovy
