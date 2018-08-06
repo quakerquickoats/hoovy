@@ -1,0 +1,80 @@
+Lyndon Tremblay
+
+  175 Stewart St, Peterborough, Ontario
+  E: quakerquickoats@gmail.com P: 705-536-1254
+
+-------------
+
+Professional Summary
+
+  Experienced and accomplished programmer with 25 years of experience in development of various kinds of software. Excellent in every stage of the life cycle of software development; including design, coding, debugging, testing, and maintenance. Expert in devising innovative and and efficiently tailored solutions to assist and inspire businesses to achieve their goals in a variety of industries. Advanced skills and knowledge of both leading and unfamiliar development tools with a strong background in linguistics, geometry and mathematics, data-processing logic and deployment strategies.
+
+Skills
+
+  - Superior development skills outside of the computer including Software Architecture, Project Management, and Technical Documentation, version control, marketing and community maintenance, priority arrangement and knowing well my place in the grander picture.
+  - Programming languages include C/C++/Objective-C, VB/C#/Scala/F#/ASP.NET, HTML5/CSS3/JS, Haskell, Common Lisp, Scheme, Erlang, shell scripting, SQL, Objective-Caml, Standard ML, Reason/React, Smalltalk, Prolog, and various others such as Python, Java, Lua, Go, Ruby, etc.
+  - Exceptional ability to work in the following environments: Modern Web, MacOS, UNIX, Linux, and Windows.
+  - Very strong and also quick decision maker; critical thinker, and creative designer with the ability to think around problems to unusual yet highly effective solutions, as well as reinforcing existing traditions and enhancing what already works well.
+  - Excels in systems evaluation to identify system performance indicators and the best course of action to take to improve or correct performance based upon specific system goals.
+
+-----------
+
+Work Experience
+  Open Source Projects (GNUstep, Squeak, Linux, GCC Obj-C runtime, Mesa GL)
+  1994-1998
+  
+  Government of Victoria B.C.
+  1998-2000
+
+    Develop, upgrade, and maintain advanced financial industry software.
+    Coordinate the design and implementation of various applications, including collaboration with project managers, and client representative and development teams.
+    Provide mentoring services to junior developers as needed.
+    Select projects include the design and development of a flagship financial trading application, a content distribution server, and business systems for clients in a variety of industries.
+
+  Personal Projects
+  1996-2004
+    Designed, written and developed several 3D modelers and rendering engines,
+    mostly C and OpenGL, experimenting and studying mathematics, geometry and real time systems and compilers.
+
+  Epic Megagames
+  2002
+    Developed a plugin for converting models from 3DS Max.
+
+  IMVU Inc
+  2003
+    Developed a plugin for converting models from Google SketchUp.
+
+  Brent Welke, Victoria BC. 
+  2005-2007
+    Work on several preexisting websites and web servers with ASP.NET and Windows technology for various local public institutions, including BC Ferries.
+
+  Aiding PhD of University of Hamilton to develop thesis and software for the CELL microprocessor for a collaborative IDE and compiling suite in Squeak Smalltalk.
+
+  Open Source and Personal Projects 
+  2006-2010
+    Designed and developed new real time graphics engine and built-in editing modeler in Haskell. Web page is now defunct, screenshots can be provided. ("HS-Nova")
+    Begun work on a ObjC and GNU Smalltalk mixed-language runtime and parsing bridge to allow both languages to interoperate seamlessly.
+    Written an efficient graphics rendering library in Obj-C for both iOS and macOS game development, deployed a couple of iOS game demo apps. ("TheMiddle")
+
+  Membase/CouchDB
+  2010-2011
+    Developed JavaScript/HTML5/CSS3 visualization for server data cluster migration. The company was very impressed and I was offered a Bachelor Degree of Science and was on the airplane to work and live full time in Silicon Valley.
+
+  Open Source and Personal Projects
+  2011-2012
+    Design and develop an Erlang multi-MMO game server hosting system. Ported existing game server and took over maintenance, as well as porting another well-known MMO game server into the system. ("erl-dev")
+
+  Frostlight.SE
+    Kriss Krostoffer
+  2010-2012
+    Develop iOS app for Augmented Reality, bugfix several existing apps on the store, collaborate with clients and budget management.
+
+  Sammy & Sons
+  2011-2012
+    Technical lead and main programmer for a new SEO system for a startup web design and marketing group (now called Marketing.INK)
+    
+---------------
+
+Hobbies and Interests
+
+When I am not sitting in front of a computer monitor, I like to meditate, go for walks, excersize and read and study, and some yoga. I currently volunteer my time several times a week to the local churches and various community events. I particularily enjoy studying languages and other cultures most of all, as well as psychology and mental illnesses. I've spent most of my life on the computer, and had a recent hiatus from computers so I've had many great opportunities to learn much of the spectrum of the human condition; and now to reapproach technology understanding both sides of things, which is where I am now; mediating the great compromise between Man and Machine. I've played a lot of electric guitar, piano, drums and bongos, and I am also very musically inclined. Studied much Buddhism and Judaism, Taoism and Hinduism.
