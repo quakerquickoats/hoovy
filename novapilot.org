@@ -1,4 +1,4 @@
-#+TITLE: Nova Project
+v#+TITLE: Nova Project
 
 * Nova Computer (NVC)
 Experimental Idea - generate specs!

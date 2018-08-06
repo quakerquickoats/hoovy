@@ -1,5 +1,15 @@
 #+TITLE: Hoovy Home
 
+* Tasks
+** TODO Port hs-HoovyWeb into cl-hoovyweb, with HS-Nova section
+** TODO Port 'nova' (C) to CL ?
+** TODO finish porting HS-Nova to nova-cl
+** TODO merge humaweb and nova-cl
+** TODO start emacs sprite editor
+* System Tasks
+** DONE disable lightdm
+** TODO somehow get a feature for ERC to cycle through buffers that have recent activity
+** TODO clean up usage of .emacs (-> hoovy/emacs-init.el) and what it loads (-> hoovy/emacs.el)
 
 * Projects
 Game development and animation and music production tools,
@@ -105,8 +115,6 @@ dropbox start && dropbox status
 [[https://github.com/HackerTheory/first-light][psilord and mfiano's first-light game engine]]
 [[http://www.roguebasin.com/index.php?title=Code_design_basics][Roguebasin code outline basics]]
 [[https://github.com/rsaarelm/magog/][rsaaleim's magog RL in Rust]]
-** Qabal
-[[https://he.wikisource.org/wiki/%25D7%25A2%25D7%259E%25D7%2595%25D7%2593_%25D7%25A8%25D7%2590%25D7%25A9%25D7%2599][Wikipedia Hebrew]]
 ** People
 [[https://en.wikipedia.org/wiki/George_Gurdjieff][George Gurdjieff]]
 ** Emacs

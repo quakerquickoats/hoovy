@@ -47,12 +47,15 @@
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 
+
 (setq ibuffer-saved-filter-groups
       '(("default"
 	 ("Emacs" (name . "^\\*"))
 	 ("Dired" (mode . dired-mode)))))
 
 (put 'dired-find-alternate-file 'disabled nil)
+
+(setq-default bidi-display-reordering t)
 
 ;;;
 ;;; Utility functions

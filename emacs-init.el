@@ -18,11 +18,11 @@
  '(custom-unlispify-menu-entries t)
  '(default-input-method "japanese")
  '(erc-autojoin-channels-alist
-   '(("freenode.net" "#xelf" "##prolog" "#gamedev" "#fsf" "#org-mode" "#clim" "#lispgames" "#lisp" "#emacs" "#sbcl" "#erc" "#GNUstep")
+   '(("freenode.net" "#xelf" "##prolog" "#gamedev" "#clim" "#lispgames" "#lisp" "#emacs" "#GNUstep")
      ("quakenet" "#rgrd")))
  '(erc-fill-column 80)
  '(erc-hide-timestamps t)
- '(erc-log-mode t)
+ '(erc-log-mode nil)
  '(erc-log-write-after-insert t)
  '(erc-log-write-after-send t)
  '(erc-modules
