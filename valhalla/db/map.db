@@ -1,0 +1,28 @@
+% -*- erlang -*-
+
+{attributes,
+ [
+  {'Water', []},
+  {'Ice', []},
+  {'Fire', []},
+  {'Earth', []},
+  {'Metal', []}
+ ]}.
+
+{jobs,
+ [
+  {'Dungeon', []},
+  {'Town', []},
+  {'Field', []},
+  {'Cave', []}
+ ]}.
+
+{families,
+ [
+  {'Forest', []},
+  {'Mountain', []},
+  {'Castle', []},
+  {'Desert', []},
+  {'Swamp', []},
+  {'Island', []}
+ ]}.

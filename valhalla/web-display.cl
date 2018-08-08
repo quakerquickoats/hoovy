@@ -1,10 +1,4 @@
-(defpackage :nova-js
-  (:documentation "Nova JS engine")
-  (:nicknames :nova)
-  (:use :common-lisp :cl-who :parenscript)
-  (:export output))
-
-(in-package :nova-js)
+(in-package :valhalla)
 
 (defparameter *js-files* '("actor" "map" "game"))
 (defparameter *css-files* '("style"))

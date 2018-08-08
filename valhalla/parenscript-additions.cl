@@ -1,4 +1,4 @@
-(in-package :nova-js)
+(in-package :valhalla)
 
 ;; (defmacro ps-to-stream* (stream &body body)
 ;;   `(progn (setf *parenscript-stream* ,stream)
@@ -12,7 +12,7 @@
             (mapcar (lambda (l)
                       (let ((name (if prefix
                                       (intern
-                                       (concat (string prefix) "-"
+                                       (asdfconcat (string prefix) "-"
                                                (string-upcase (car l))))
                                       (car l)))
                             (args (cadr l))

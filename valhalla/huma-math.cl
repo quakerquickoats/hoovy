@@ -1,4 +1,4 @@
-(in-package :nova)
+(in-package :valhalla)
 
 (defparameter noVec '(0.0 0.0))
 

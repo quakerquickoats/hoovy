@@ -1,4 +1,4 @@
-(in-package :nova)
+(in-package :valhalla)
 
 (defvar *layer-scale*)
 (defvar *screen-width*)
