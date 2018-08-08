@@ -1,4 +1,4 @@
-(in-package :valhalla-web)
+(in-package :humaweb)
 
 (define-psmacros layer
   (make (&key (name "")

@@ -1,4 +1,4 @@
-(in-package :valhalla-web)
+(in-package :humaweb)
 
 (defparameter *js-files* '())
 (defparameter *css-files* '("style"))

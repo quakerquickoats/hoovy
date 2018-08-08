@@ -1,4 +1,4 @@
-(in-package :valhalla-web)
+(in-package :humaweb)
 
 ;; (defmacro ps-to-stream* (stream &body body)
 ;;   `(progn (setf *parenscript-stream* ,stream)

@@ -1,9 +1,9 @@
-;;; Nova
+;;; Valhalla
 ;;;
-;;; (c) 2017 Lyndon Tremblay
+;;; (c) 2018 Lyndon Tremblay
 ;;;
 
-(in-package :nova.gamelike)
+(in-package :valhalla)
 
 (defclass thing ()
   ((name :accessor thing-name

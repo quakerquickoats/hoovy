@@ -1,4 +1,4 @@
-(in-package :valhalla-web)
+(in-package :humaweb)
 
 (define-psmacros nil
   (min (x y) `(if (> ,x ,y) ,x ,y))
