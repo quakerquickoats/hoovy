@@ -16,10 +16,15 @@
                  (:cl-file "huma-math")
                  
                  ;; web
-                 (:cl-file "parenscript-additions")
-                 (:cl-file "web-output")
-                 (:cl-file "web-display")
-                 (:cl-file "web-actor")
+                 (:module web
+                          :components ((:cl-file "parenscript-additions")
+                                       (:cl-file "output")
+                                       (:cl-file "display")
+                                       (:cl-file "geom")
+                                       (:cl-file "layer")
+                                       (:cl-file "anim")
+                                       (:cl-file "graph")
+                                       (:cl-file "actor")))
                  
 			     ;; ;; core
 			     ;; (:file "system")
