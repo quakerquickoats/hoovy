@@ -1,6 +1,0 @@
-#+TITLE: Writings
-
-* 001 2018-05-27
-Here is a second entry. We are getting more comfortable with things. There needs to be output, from all of the input. Here are some more words. We are using Emacs and sitting on the floor. It would be best without any consciousness-altering activities of any kind, reducing nicotine and caffeine and processed/refined sugar intake as much as possible. We will avoid marijuana; alcohol only for social respect. We have quite a few IRC logs with which to browse for inspiration and to directly copy as well. 
-* 000 2018-05-27
-Here is a first entry. We are going to be entering, the entries, with the newest one at the top, and the oldest at the bottom. Numerical order, dated. We will not need to worry about word wrap or any of the word wrapping kind of stuff.

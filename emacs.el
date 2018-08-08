@@ -128,12 +128,17 @@
               indent-tabs-mode nil)
 
 ;;(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+;; ;; Add the opam lisp dir to the emacs load path
+;; (add-to-list 'load-path
+;;              (replace-regexp-in-string
+;;               "\n" "/usr/share/emacs/site-lisp"
+;;               (shell-command-to-string "opam config var prefix")))
 
-;; Add the opam lisp dir to the emacs load path
-(add-to-list 'load-path
-             (replace-regexp-in-string
-              "\n" "/usr/share/emacs/site-lisp"
-              (shell-command-to-string "opam config var prefix")))
+(let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
+  (when (and opam-share (file-directory-p opam-share))
+    (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))))
+
+(require 'sturgeon)
 
 ;;;;;;;; utop stuff ;;;;;;;
 (when (require 'utop nil :noerror)

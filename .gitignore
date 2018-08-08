@@ -1,4 +1,4 @@
-./www/*.html
+www
 
 *~
 *.FASL
