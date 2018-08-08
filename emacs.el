@@ -236,6 +236,9 @@
 ;;; -----------------------------
 (require 'cl)
 
+(add-to-list 'auto-mode-alist '("\\.cl?$" . lisp-mode))
+
+
 (defun slime-style-init-command (port-filename _coding-system extra-args)
   "Return a string to initialize Lisp."
   (let ((loader (if (file-name-absolute-p slime-backend)
@@ -341,7 +344,7 @@
 ;;; -------------------
 ;;; Hoovy
 ;;; -------------------
-(load (concat "~/hoovy/hoovy.el"))
+(load "~/hoovy/hoovy.el")
 
 ;;;
 ;;; Interface
