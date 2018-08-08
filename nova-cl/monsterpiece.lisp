@@ -1,10 +1,10 @@
 ;;;
-;;; Nova
+;;; Monsterpiece
 ;;;
-;;; (c) 2017 Lyndon Tremblay
+;;; (c) 2018 Lyndon Tremblay
 ;;;
 
-(in-package :nova)
+(in-package :monsterpiece)
 
 ;; PLATO specs. orange and black pixels
 ;;

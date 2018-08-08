@@ -1,4 +1,4 @@
-(in-package :valhalla)
+(in-package :valhalla-web)
 
 ;(defvar *act-move-amt* 1)    ;; 32
 

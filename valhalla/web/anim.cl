@@ -1,4 +1,4 @@
-(in-package :valhalla)
+(in-package :valhalla-web)
 
 (define-jsoutput anim
   (var *anim-interval* null)

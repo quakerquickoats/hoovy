@@ -1,10 +1,10 @@
 ;;;
-;;; Nova
+;;; Valhalla
 ;;;
-;;; (c) 2017 Lyndon Tremblay
+;;; (c) 2018 Lyndon Tremblay
 ;;;
 
-(in-package :nova)
+(in-package :valhalla)
 
 ;; (defun pause () nil)
 ;; (defun run () nil)
@@ -23,7 +23,7 @@
   (make-instance 'actor ))
 
 (defun init ()
-  (format t "Loading Novapilot.~%")
+  (format t "Loading Valhalla.~%")
   (setq world '())
   )
 

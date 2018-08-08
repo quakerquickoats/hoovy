@@ -1,4 +1,4 @@
-(in-package :valhalla)
+(in-package :valhalla-web)
 
 (defvar *layer-scale*)
 (defvar *screen-width*)

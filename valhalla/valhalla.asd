@@ -14,6 +14,15 @@
                  ;; general
                  (:cl-file "huma-util")
                  (:cl-file "huma-math")
+
+                 (:cl-file "world")
+                 (:cl-file "char")
+                 (:cl-file "actor")
+                 (:cl-file "monster")
+                 (:cl-file "namegen")
+                 (:cl-file "item")
+                 (:cl-file "storage")
+                 (:cl-file "client")
                  
                  ;; web
                  (:module web
