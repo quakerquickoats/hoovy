@@ -1,4 +1,4 @@
-(in-package :nova-js)
+(in-package :valhalla)
 
 (define-psmacros layer
   (make (&key (name "")

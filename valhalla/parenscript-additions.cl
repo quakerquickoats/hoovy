@@ -12,7 +12,7 @@
             (mapcar (lambda (l)
                       (let ((name (if prefix
                                       (intern
-                                       (asdfconcat (string prefix) "-"
+                                       (concat (string prefix) "-"
                                                (string-upcase (car l))))
                                       (car l)))
                             (args (cadr l))

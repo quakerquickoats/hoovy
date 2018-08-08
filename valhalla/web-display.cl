@@ -1,14 +1,14 @@
 (in-package :valhalla)
 
-(defparameter *js-files* '("actor" "map" "game"))
+(defparameter *js-files* '())
 (defparameter *css-files* '("style"))
 
-(defun output (&key (dir "../huma4drl_gh-pages"))
+(defun output (&key (dir "./www"))
   (output-project :dir dir
                   :width 32
                   :height 24
                   :scale 32
-                  :html '("play")
+                  :html '() ;;'("play")   ;; FIXME: broken html output
                   :js *js-files*
                   :css *css-files*))
 

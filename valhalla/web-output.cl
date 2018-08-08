@@ -22,7 +22,7 @@
      (let* ((fun (fdefinition (fun-symbol i ,kind))))
        (output-file ,dir i ,kind fun))))
 
-(defparameter *builtin-js-names* '("geom" "layer" "anim" "graph"))
+(defparameter *builtin-js-names* '("geom" "layer" "anim" "graph" "actor"))
 
 (defun output-project (&key (dir ".")
                        (html '()) (js '()) (css '())

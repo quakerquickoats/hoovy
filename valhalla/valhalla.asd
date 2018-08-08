@@ -19,6 +19,7 @@
                  (:cl-file "parenscript-additions")
                  (:cl-file "web-output")
                  (:cl-file "web-display")
+                 (:cl-file "web-actor")
                  
 			     ;; ;; core
 			     ;; (:file "system")

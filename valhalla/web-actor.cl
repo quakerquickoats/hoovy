@@ -1,4 +1,4 @@
-(in-package :huma4drl)
+(in-package :valhalla)
 
 ;(defvar *act-move-amt* 1)    ;; 32
 

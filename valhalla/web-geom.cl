@@ -1,4 +1,4 @@
-(in-package :nova-js)
+(in-package :valhalla)
 
 (define-psmacros nil
   (min (x y) `(if (> ,x ,y) ,x ,y))

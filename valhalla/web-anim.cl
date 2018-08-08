@@ -1,4 +1,4 @@
-(in-package :nova-js)
+(in-package :valhalla)
 
 (define-jsoutput anim
   (var *anim-interval* null)
