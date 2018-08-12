@@ -381,3 +381,11 @@
 		))
 ;;(global-prettify-symbols-mode 1)
 
+
+
+;;; -------------------
+;;; Julia
+;;; -------------------
+
+(when (require 'julia-mode nil :noerror)
+  (add-to-list 'auto-mode-alist '("\\.jl?$" . julia-mode)))

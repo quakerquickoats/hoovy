@@ -1,0 +1,4 @@
+name = "novapilot"
+uuid = "941b62fe-9c38-11e8-005f-1f169f84088f"
+authors = ["Lyndon Tremblay <quakerquickoats@gmail.com>"]
+version = "0.1.0"
