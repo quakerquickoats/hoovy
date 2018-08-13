@@ -3,21 +3,29 @@ module Novapilot
 export greet
 greet() = print("Hello World!")
 
-const Scalar = Float32
+using CoordinateTransformations, StaticArrays
 
-struct Point
-    x :: Scalar
-    y :: Scalar
-end
+#######################
 
 struct Actor
-    pos :: Point
+    pos :: SVector
 end
+
+render(a::Actor) = println("nothing")
+
+########################
+
+struct Cell
+end
+
+render(c::Cell) = nothing
 
 struct Layer
     actors :: Dict{String,Actor}
-    cells :: AbstractArray
+    cells :: Array{Cell,2}
 end
+
+################################
 
 struct GameState
     score :: Int
@@ -30,8 +38,15 @@ GameState() = GameState(0, 0, [])
 
 render(g::GameState) = foreach(render, g.layers)
 render(l::Layer) = foreach(render, l.actors)
-render(a::Actor) = println("nothing")
 
+locatecell(g::GameState, x,y,z) = nothing  # layers == Z
+
+###########################
+
+menu() = Dict("Story Mode" => storymode,
+              "Edit Mode" => editmode,
+              "Scores" => scoremode,
+              "Options" => optionmode)
 
 main() = println("boot nova...")
 
