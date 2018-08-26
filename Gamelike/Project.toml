@@ -1,0 +1,6 @@
+authors = ["Lyndon Tremblay <quakerquickoats@gmail.com>"]
+name = "Gamelike"
+uuid = "9a23a36e-a956-11e8-1c05-0306cfdecf63"
+version = "0.1.0"
+
+[deps]

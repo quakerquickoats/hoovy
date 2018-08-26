@@ -236,7 +236,7 @@
 ;;; -----------------------------
 (require 'cl)
 
-(add-to-list 'auto-mode-alist '("\\.cl?$" . lisp-mode))
+(add-to-list 'auto-mode-alist '("\\.cl\\'" . lisp-mode))
 
 
 (defun slime-style-init-command (port-filename _coding-system extra-args)
