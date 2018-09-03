@@ -44,16 +44,12 @@ error(msg) = begin
 end
 
 init(w::Int, h::Int) :: Screen = begin
-    #screen = Screen(w, h)
-
-    #if screen.window != nothing
-#        return
-#else
-    if SDL.Init(SDL.INIT_VIDEO) < 0
+    if SDL.Init(SDL.INIT_VIDEO | SDL.INIT_EVENTS) < 0
         error("SDL could not initialise! SDL_Error: $(SDL.GetError())")
     end
 
-    zero = convert(Cint, 0)
+    # what
+    zero = convert(Cint, 30)
     w2 = convert(Cint, w)
     h2 = convert(Cint, h)
     window = SDL.CreateWindow("Nova",
@@ -85,9 +81,20 @@ shutdown(s::Screen) = begin
 end
 
 update() = begin
-    e :: SDL.Event
+    #local e :: SDL.Event
+    #local e = pointer(SDL.Event(SDL.USEREVENT))
+    e = SDL.CommonEvent(tuple(zeros(UInt8, 56)...))
     
-    SDL.Delay(200)
+    
+    SDL.Delay(convert(Cuint,200))
+
+    while SDL.PollEvent(pointer_from_objref(e)) != 0
+        if e.type == SDL.QUIT
+            return 0
+        elseif e.type == SDL.KEYDOWN
+            println("$e.key.keysym.sym ....")
+        end
+    end
 end
 
 endFrame(s::Screen) = begin

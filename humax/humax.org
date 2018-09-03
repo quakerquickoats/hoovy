@@ -1,0 +1,69 @@
+#+TITLE: HUMAX
+
+Humacs?
+
+* Specs
+** Overview
+- Main processor unit. MPU
+- Physics displacement processor (PDP)
+- Math oprocessor unit. MPU.
+
+** CPU
+Common Lisp
+32-bit Processor
+22 letters
+** Graphics Pipeline
+- Polygons
+- 8x8 tiles
+- 'shaders'
+- Access to pixel framebuffer
+- layers (5? 10?)
+- 8mb raster memory
+- 8mb texture memory
+- remote screens?
+** Cartridge
+- memory mapped objects and functions
+- image-based sets
+- code
+- maps
+- waves
+- models
+- save as .PNG and .HUV?
+** Audio Processor
+- 10 channels, 5 sfx 5 music
+** Networking
+- network display?
+- connect SWANK to edit code.
+** Gamepad
+- 4 directions
+- analog x/y -ff..+ff
+- 4 buttons, 2 shoulder
+* Operating System
+hOS?
+** File System
+- is recursive
+* Applications
+** Code Editor
+- uses SWANK and SLIME for now.
+** Map Editor
+- sprites are maps
+- maps contain cells of maps
+- which contain maps of cells, recursively.
+- allow linking of objects to other maps at /depths/using/paths
+** Wave Editor
+- audio editor
+- music plots
+- sound effects
+- animation ?
+** Model Editor
+- polygons
+- curves
+- instancing and paths
+- parts and pieces
+** Animation editor
+- hmmm
+* Programming
+AL programming language.
+A variant of emacs lisp.
+or HL.
+Derive from ParenScript... ?

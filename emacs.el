@@ -360,6 +360,11 @@
 ;;(setq mouse-wheel-progressive-speed nil)
 
 (windmove-default-keybindings)
+(add-hook 'org-shiftup-final-hook 'windmove-up)
+(add-hook 'org-shiftleft-final-hook 'windmove-left)
+(add-hook 'org-shiftdown-final-hook 'windmove-down)
+(add-hook 'org-shiftright-final-hook 'windmove-right)
+
 ;;(global-hl-line-mode 1)
 ;; (and
 ;;   (require 'centered-cursor-mode)
