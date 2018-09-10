@@ -6,6 +6,10 @@
   for eg: potion = 1024kb 
 
 
+* Robots
+** generated OS and hardware for each class of being
+** network protocol for language
+
 * World
 - In Space! Not Outer space!
 * Character

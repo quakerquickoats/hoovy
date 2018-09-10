@@ -3,7 +3,7 @@
 %% (c) 2018 Lyndon Tremblay
 %%
 
-:- module(char,[defaultStatus/1,
+:- module(char,[%defaultStatus/1,
 				isDead/1]).
 
 :- use_module(library(record)).
@@ -21,10 +21,12 @@
 
 %statusLevelMod(chi,
 
+defaultStatus:-undefined.
+
 buildStatus(S,Level):-
-	defaultStatus(D),
-	Str is D{str},
-	S = status{level:Level, str:Str}.
+	%defaultStatus(D),
+	%Str is D{str},
+	S = status{level:Level}. %, str:Str}.
 
 new(Char,Name,Stats):-
 	Char = char{name:Name, status:Stats}.

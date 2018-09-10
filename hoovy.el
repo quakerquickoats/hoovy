@@ -28,6 +28,9 @@
 (require 'widget)
 (eval-when-compile (require 'wid-edit))
 
+(defun hoovy-run-xterm ()
+  "xterm -fg white -bg black -fa 'Monospace' -fs 12")
+
 (defun hoovy-all-apps ()
   "add earmuffs to hoovy-apps"
   (mapcar (lambda (x) `(,(concat "*" (car x) "*") . ,(cdr x)))
