@@ -291,7 +291,7 @@
  '(menu-bar-mode nil)
  '(org-babel-load-languages '((emacs-lisp . t) (shell . t) (lisp . t)))
  '(package-selected-packages
-   '(rmsbolt erc-hl-nicks web-server edts auto-complete reason-mode quelpa package-build expand-region persistent-scratch hyperbole charmap circe flycheck flycheck-ocaml flyspell-popup merlin tuareg utop webpaste helm helm-dash helm-emms helm-org-rifle helm-package helm-proc emms github-browse-file github-clone sx memory-usage es-lib svg svg-clock htmlize simple-httpd websocket dictionary "bbdb" xelb ediprolog which-key ggtags common-lisp-snippets el-autoyas yasnippet snoopy hackernews elfeed eyebrowse hierarchy projectile rainbow-blocks rainbow-delimiters treemacs esxml exwm rainbow-mode emacsql csound-mode haskell-emacs haskell-emacs-base haskell-emacs-text haskell-mode erlang swift-mode racer rust-mode slime slime-company))
+   '(helpful rmsbolt erc-hl-nicks web-server edts auto-complete reason-mode quelpa package-build expand-region persistent-scratch hyperbole charmap circe flycheck flycheck-ocaml flyspell-popup merlin tuareg utop webpaste helm helm-dash helm-emms helm-org-rifle helm-package helm-proc emms github-browse-file github-clone sx memory-usage es-lib svg svg-clock htmlize simple-httpd websocket dictionary "bbdb" xelb ediprolog which-key ggtags common-lisp-snippets el-autoyas yasnippet snoopy hackernews elfeed eyebrowse hierarchy projectile rainbow-blocks rainbow-delimiters treemacs esxml exwm rainbow-mode emacsql csound-mode haskell-emacs haskell-emacs-base haskell-emacs-text haskell-mode erlang swift-mode racer rust-mode slime slime-company))
  '(persistent-scratch-autosave-interval 3000)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)

@@ -8,12 +8,16 @@
 #include <SDL2/SDL.h>
 #include <GL/gl.h>
 
+#include "nova.h"
+
 SDL_Window* window = NULL;
 SDL_GLContext context = NULL;
 //SDL_Surface* screen = NULL;
 
 int screen_width = 512,
     screen_height = 512;
+
+int keys[16];
 
 void NV_Error (const char *msg, ...)
 {
@@ -72,7 +76,7 @@ void NV_Shutdown ()
     SDL_Quit();
 }
 
-int NV_Update ()
+BOOL NV_Update ()
 {
     SDL_Event e;
     
