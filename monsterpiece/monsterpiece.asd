@@ -1,3 +1,6 @@
+(defclass cl-file (cl-source-file)
+  ((type :initform "cl")))
+
 (asdf:defsystem :monsterpiece
   :description "Monsterpiece"
   :author "Lyndon Tremblay <humasect@me.com>"
@@ -5,16 +8,16 @@
   :version "0.1.0"
   :depends-on (:sdl2 :cl-opengl)
   :serial t
-  :components ((:file "package")
+  :components ((:cl-file "package")
 			   ;; core
-			   (:file "system")
-			   (:file "huma-math")
-			   (:file "engine")
-			   (:file "render")
-			   (:file "part")
-			   (:file "play")
-			   (:file "zone")
-			   (:file "monsterpiece")
+			   (:cl-file "system")
+			   (:cl-file "huma-math")
+			   (:cl-file "engine")
+			   (:cl-file "render")
+			   (:cl-file "part")
+			   (:cl-file "play")
+			   (:cl-file "zone")
+			   (:cl-file "monsterpiece")
 			   ))
 
 

@@ -5,6 +5,17 @@
 
 (in-package :valhalla)
 
+
+;; planes
+;; http://blogofholding.com/?p=3933
+
+(defvar *planes* '(earth water fire wind spirit))
+
+(defun plane-desc (p)
+  (case p
+    ('earth "Underground Caves and Dungeon")
+    ('water "")))
+
 ;; islands!!
 
 ;;

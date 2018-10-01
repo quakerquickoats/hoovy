@@ -8,7 +8,7 @@
       `(,(create-prefix-dispatcher "/hello-world" 'hello-page)))
 
 (defun hello-page ()
-  "<html><body>Hello World1</body></html>")
+  "<html><body>Welcome to Hoovy</body></html>")
 
 (defvar *acceptor* nil)
 

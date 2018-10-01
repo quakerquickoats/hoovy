@@ -1,5 +1,12 @@
+;;; HUMAX
+;;;
+;;; (c) 2018 Lyndon Tremblay
+;;;
+
 (defpackage :hoovy.humax
   (:use :cl))
+
+(in-package :hoovy.humax)
 
 ;; atom - aleph
 ;; eq - ayin
@@ -7,8 +14,6 @@
 ;; car - yod
 ;; cdr - hey
 ;; defun - ??
-
-(in-package :hoovy.humax)
 
 (defparameter FS-root
   '(/Carts/  ;; roms

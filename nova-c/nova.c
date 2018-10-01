@@ -37,7 +37,7 @@ void NV_Error (const char *msg, ...)
 
 void NV_Init (int w, int h)
 {
-    if (window)
+  if (window)
         return;
   
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
@@ -72,7 +72,7 @@ void NV_Shutdown ()
 
     SDL_DestroyWindow(window);
     window = NULL;
-  
+    
     SDL_Quit();
 }
 
