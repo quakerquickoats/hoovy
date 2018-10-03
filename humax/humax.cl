@@ -4,9 +4,53 @@
 ;;;
 
 (defpackage :hoovy.humax
-  (:use :cl))
+  (:use :cl)
+  (:export :random-element))
 
 (in-package :hoovy.humax)
+
+;;
+;; System
+;;
+
+(defstruct CPU
+  clock-speed
+  instruction-set)
+
+(defstruct System
+  (cpu nil :type CPU)
+  memory
+  disk
+  network
+  graphics
+  audio)
+
+(defclass GPU ()
+  ((dimensions :type Rectangle)))
+
+;; (defclass APU ()
+;;   (()))
+
+(defparameter *power-table*
+  `,)
+
+(defun random-pow2 (n)
+  (let ((pows (loop for i from 1 to n collect (expt 2 i))))
+    (* 1024 (random-element pows))))
+
+(defun gen-specs ()
+  `(:clock-speed ,(random 1100)
+    :memory ,(random-pow2 10)
+    :colors ,(random 256)
+    :disk ,(random-pow2 10)
+    :audio-channels ,(+ 1 (random 8))))
+
+
+;; #aaffcc
+
+;;
+;; Programming
+;;
 
 ;; atom - aleph
 ;; eq - ayin
@@ -15,11 +59,9 @@
 ;; cdr - hey
 ;; defun - ??
 
-(defparameter FS-root
-  '(/Carts/  ;; roms
-    (/Dev/ framebuffer speakers gamepads)
-    /Capture/  ;; png and gif and wav?
-    ))
+;;
+;; Rendering
+;;
 
 (defclass Rectangle ()
   ((width :initarg :width)
@@ -30,6 +72,16 @@
 
 (defclass CellMap (Rectangle)  ;; 2d array
   ((cells :initform nil :initarg :cells)))
+
+;;
+;; Filesystem
+;;
+
+(defparameter FS-root
+  '(/Carts/  ;; roms
+    (/Dev/ framebuffer speakers gamepads)
+    /Capture/  ;; png and gif and wav?
+    ))
 
 (defun list-dir (&optional dir)
   (princ FS-root))

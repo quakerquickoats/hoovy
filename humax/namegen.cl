@@ -5,6 +5,31 @@
 
 (in-package :hoovy.humax)
 
+;; OBJECT , SUBJECT , VERB
+
+(defparameter *subjects*
+  '(they he she we))
+
+(defparameter *verbs*
+  '(make take get find open eat drink play give break use sit push pull))
+
+(defparameter *objects*
+  '(book table door pencil cup fruit chair sandwich game floor wall))
+
+(defparameter *place-verbs*
+  '(walk go toward from))
+
+;; in/on?  sit?
+
+(defparameter *places*
+  '(outside inside above below itself before behind))
+
+(defparameter *manners*
+  '(nicely gently carelessly wrecklessly))
+
+(defun build-statement ()
+  (mapcar (lambda (n) (random-word n)) (list *subjects* *verbs* *objects* *place-verbs* *places*)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;
@@ -41,9 +66,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun random-word (seq)
+(defun random-element (seq)
   (elt seq (random (length seq))))
 
-(defun make-object ()
-  (list (random-word *adjectives*) (random-word *objects*)))
+(defun make-object-name ()
+  (list (random-element *adjectives*) (random-element *objects*)))
 

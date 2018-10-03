@@ -274,7 +274,7 @@
 (setq slime-auto-connect 'ask)
 (slime-setup '(slime-fancy slime-mrepl slime-banner slime-tramp
 			   slime-xref-browser slime-highlight-edits
-			   slime-sprof slime-asdf slime-company))
+			   slime-sprof slime-asdf slime-company slime-indentation))
 (setq common-lisp-hyperspec-root "file:///home/lyndon/Downloads/HyperSpec/")
 (global-set-key "\C-cs" 'slime-selector)
 (setf slime-scratch-file "~/hoovy/scratch.lisp")
