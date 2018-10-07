@@ -1,10 +1,11 @@
 #+TITLE: Qabbalah
 
-* DOS Filenames
-- 8 letters basename, 3 letters extension = 11
-- 2x11 = 22
+* Ideas about the letters
+** DOS Filenames
+ - 8 letters basename, 3 letters extension = 11
+ - 2x11 = 22
 
-* Notes
+* Technical Notes
 ** Rendering Hebrew
 - https://mattdesl.svbtle.com/drawing-lines-is-hard
 - https://github.com/tyt2y3/vaserenderer
@@ -17,7 +18,12 @@ http://www.hope-of-israel.org/tetragram.html
 http://www.sacred-texts.com/eso/sta/sta29.htm
 http://sapphiremagendavid.blogspot.com/
 
-* Letters
+[10 commandments]
+http://kabbalahsecrets.com/?page_id=1944
+
+
+* Torah Emacs
+** Letters
 #+BEGIN_SRC emacs-lisp :lexical t
 (defvar *qb-letters*
   '((aleph ALF ox)
@@ -47,7 +53,6 @@ http://sapphiremagendavid.blogspot.com/
 (defun qb-random-letter ()
   (elt *qb-letters* (random 22)))
 
-#+BEGIN_SRC emacs-lisp
 (defconst *qb-otiyot*
   '(Alf Bet Gml Dal Heh Waw Zay Xet Tet Yod
     Kaf Lam Mem Nun Sam Iyn Peh Tza Qof Rsh Sin Tau))
@@ -56,10 +61,9 @@ http://sapphiremagendavid.blogspot.com/
   '(kexer hokama binae
 	  hesed din xiperex-tifereth
 	  necah hod yesod malkux))
-
 #+END_SRC
 
-* Keyboard Transliteration
+** Keyboard Transliteration
 #+BEGIN_SRC emacs-lisp
 ;; qwertyuiop
 ;; asdfghjkl;'
@@ -82,25 +86,6 @@ http://sapphiremagendavid.blogspot.com/
 	(h "/'קראטוןםפשדגכעיחלךף,זסבהנמצתץ."))
     (mapcar* #'cons e h)))
 
-(defconst *qb-char-alist*
-  (mapcar* #'cons *qb-transliteration* *qb-alephbeth*))
-
-(defun qb-english-char-to-hebrew (c)
-  (cdr (assoc c *qb-char-alist*)))
-(defun qb-hebrew-char-to-english (c)
-  (car (rassoc c *qb-char-alist*)))
-
-(defun qb-transliterate-english (s)
-  (assert (stringp s))
-  (error "fail, do actual transliterating.")
-  (concat (mapcar #'qb-english-char-to-hebrew s)))
-
-(defun qb-transliterate-hebrew (s)
-  (concat (mapcar #'qb-hebrew-char-to-english s)))
-
-(defun qb-untransliterate-hebrew (s)
-  (concat (mapcar #'qb-english-char-to-hebrew s)))
-
 (defconst *qb-alphabet* "abcdefghijklmnopqrstuvwxyz")
 (defconst *qb-alephbeth*
   (string ?\x05D0 ?\x05D1 ?\x05D2 ?\x05D3 ?\x05D4 ?\x05D5 ?\x05D6 ?\x05D7 ?\x05D8 ?\x05D9
@@ -114,11 +99,22 @@ http://sapphiremagendavid.blogspot.com/
 	  ))
 (defconst *qb-transliteration* "ABGDHWZX@IKLMNS&PCQR$T")
 
+(defconst *qb-char-alist*
+  (mapcar* #'cons *qb-transliteration* *qb-alephbeth*))
+
+(defun qb-english-char-to-hebrew (c)
+  (cdr (assoc c *qb-char-alist*)))
+(defun qb-hebrew-char-to-english (c)
+  (car (rassoc c *qb-char-alist*)))
+
+(defun qb-transliterate-english (s) (mapcar #'qb-english-char-to-hebrew s))
+(defun qb-transliterate-hebrew (s) (mapcar #'qb-hebrew-char-to-english s))
+
 (defconst *qb-geresh* ?\x05F3)
 (defconst *qb-gershaym* ?\x05F4)
 
 #+END_SRC
-* Gematria
+** Gematria
 #+BEGIN_SRC emacs-lisp
 ;;
 ;; gematria
@@ -151,7 +147,7 @@ http://sapphiremagendavid.blogspot.com/
   )
 
 #+END_SRC
-* Base-32
+** Base-32
 #+BEGIN_SRC emacs-lisp
 ;;
 ;; base32
@@ -159,10 +155,9 @@ http://sapphiremagendavid.blogspot.com/
 
 (defvar *qb-base32-en* "0123456789abcdefghijklmnopqrstuvwxyz") ;; מקח
 (defvar *qb-base32-he* "0123456789אבגדהוזחטיכלמנסעפצקרשת")
-
 #+END_SRC
 
-* Torah
+** XML Text
 #+BEGIN_SRC emacs-lisp
 ;;
 ;; torah
@@ -188,7 +183,7 @@ http://sapphiremagendavid.blogspot.com/
     (insert-file-contents (qb-book-path book))
     (let ((xml (xml-to-esxml (buffer-string))))
       (qb--convert-xml xml)
-      
+
       ;; (with-temp-file (qb-book-path book)
       ;; 	(prin1 xml))
       )))
@@ -213,10 +208,9 @@ http://sapphiremagendavid.blogspot.com/
       (while x
 	(pcase x
 	  ("xxxx" ignore)))
-      
+
       (while (and x (not (eql (thing-at-point 'word t) "xxxx")))
 	(forward-line)
 	(setq x (thing-at-point 'word t)))
       x)))
-
 #+END_SRC

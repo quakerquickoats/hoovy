@@ -16,7 +16,8 @@
     ("Evince" . "evince")
     ("DOOM (Zandronum)" . "~/Downloads/zandronum")
     ("OpenToonz" . "opentoonz")
-    ("Firefox" . "/opt/firefox/firefox"))
+    ("Firefox" . "/opt/firefox/firefox")
+    ("XTerm" . hoovy-xterm-command))
   "List of Applications"
   :type '(alist :key-type string :value-type file)
   :group 'hoovy)
@@ -28,7 +29,7 @@
 (require 'widget)
 (eval-when-compile (require 'wid-edit))
 
-(defun hoovy-run-xterm ()
+(defconst hoovy-xterm-command ()
   "xterm -fg white -bg black -fa 'Monospace' -fs 12")
 
 (defun hoovy-all-apps ()
@@ -48,9 +49,10 @@
   (widget-insert "Welcome to Hoovy Studio\n\n")
   (dolist (a (hoovy-all-apps))
     (widget-create 'push-button
-		   :notify (lambda (&rest ignore)
-			     (async-shell-command (cdr a)
-						  (car a) (car a)))
+		           :notify (lambda (&rest ignore)
+                             ;; should use #'hoovy-spawn-app
+			                 (async-shell-command (cdr a)
+						                          (car a) (car a)))
 		   (car a)))
   (use-local-map widget-keymap)
   (widget-setup))

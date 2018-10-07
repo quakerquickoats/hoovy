@@ -14,7 +14,7 @@
  '(ansi-color-names-vector
    ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1" "#e1e1e0"])
  '(blink-cursor-mode nil)
- '(c-basic-offset 4)
+ '(c-basic-offset 4 t)
  '(custom-enabled-themes '(tango-dark))
  '(custom-unlispify-menu-entries t)
  '(default-input-method "japanese")
