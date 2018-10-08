@@ -1,19 +1,5 @@
 #+TITLE: Human Technology
 
-* Computer Programming Language
-** basic unit: atom
-** object: number
-** object: list
-** object: person
-*** memory
-*** mailbox
-*** actions
-*** passions
-** object: computer
-*** 
-
-** Cell
-
 
 * Symmetry
 sit straight

@@ -1,27 +1,46 @@
 #+TITLE: Hoovy Home
 
 * Tasks
-** TODO Port hs-HoovyWeb into cl-hoovyweb, with HS-Nova section
-** TODO Port 'nova' (C) to CL ?
-** TODO finish porting HS-Nova to nova-cl
+** TODO move all [[github.com/humasect][Humasect Github]] projects into one, call it "attic".
+** TODO begin website. two methods: CL Server, and Publish Static pages.
+*** TODO Port hs-HoovyWeb into cl-hoovyweb, with HS-Nova section
+** TODO make a "NOVA" engine that uses Raylib.
+*** TODO Port 'nova' (C) to CL ?
+*** TODO finish porting HS-Nova to nova-cl
 ** TODO merge humaweb and nova-cl
 ** TODO start emacs sprite editor
+
 * System Tasks
 ** DONE disable lightdm
 ** TODO somehow get a feature for ERC to cycle through buffers that have recent activity
 ** TODO clean up usage of .emacs (-> hoovy/emacs-init.el) and what it loads (-> hoovy/emacs.el)
 
+** Update Emacs
+#+BEGIN_SRC shell :exports code
+cd ~/src/emacs
+git fetch
+./configure --with-json --with-modules --with-x-toolkit=lucid
+make
+#+END_SRC
+
+** git status
+#+BEGIN_SRC shell :exports code
+git status
+#+END_SRC
+
+** dropbox
+#+BEGIN_SRC shell :exports code
+dropbox start && dropbox status
+#+END_SRC
+
+
 * Projects
 Game development and animation and music production tools,
-- [[nova.org][Nova]]
-Game engine, written in Objective Caml.
-- [[gamelike.org][Gamelike]]
-Roguelike game inspired by Ragnarok Online and Shiren: The Wanderer.
-- [[novapilot.org][Novapilot]]
-2D game inspired by Bangai-O, Built in level editor.
-- [[monsterpiece.org][Monsterpiece]]
-2D game inspired by Mario Bros and Smash Bros and Metroid and Castlevania.
-Single-room monster breed/fight/collect maze platform action.
+
+- [[nova.org][Nova]] Game engine, written in Objective Caml.
+- [[gamelike.org][Gamelike]] Roguelike game inspired by Ragnarok Online and Shiren: The Wanderer.
+- [[novapilot.org][Novapilot]] 2D game inspired by Bangai-O, Built in level editor.
+- [[monsterpiece.org][Monsterpiece]] 2D game inspired by Mario Bros and Smash Bros and Metroid and Castlevania. Single-room monster breed/fight/collect maze platform action.
 
 ** DeveloperProjects
 |          |                             |                        |
@@ -38,20 +57,52 @@ Single-room monster breed/fight/collect maze platform action.
 | Novapilot    | Shmup shooter game    |   |
 | Monsterpiece | running platform game |   |
 
-* Inspiration
-Kirby
-Bangai-o
-Shiren the wanderer
-
-Poncho Game
-"20,000 atmospheres" underwater sub dungeon crawl....
-Knuckle Sandwich =) =)
-Lobotomy Corporation..
-Long Gone Days
-Way of the Passive Fist=)
-
 
 * Cancelled Projects
+
+** Nova Computer (NVC)
+ Experimental Idea - generate specs!
+*** Terminal
+**** Display
+  512x512 1bit (262144 pixels, 32kb)
+
+  0,0 is lower left
+  511,511 is top right
+
+  8x8 tiles, 64x64 max tiles (or 8x16??)
+ 
+**** Parts
+  sound > sample
+					 > function
+  image > pixel
+
+**** Characters
+  8x16 8bit (1024 bytes)
+
+  coordinates can be specified as char:
+  101 - 3264
+  or fine coords:
+  1,1 - 32,64
+
+**** Processor
+  locally executes instruction codes. (lisp vm)
+
+**** Input
+ text stream I/O.
+
+*** Programming
+  - encryption or some smarts to prevent game progress hacking
+*** Session
+  persistent user sessions
+*** Memory Tree Filesystem
+ - shared symbols organized as a list of lists.
+ - symbols can be remote pointers (message passing).
+ - namespaces (branches) can be associated to and resolved from physical or virtual places.
+ - real NVC files are virtual. but virtual NVC files are real files...
+
+*** Network
+ - clients use HTTP, JSON API, or Swank.
+
 
 ** Mini Macs (hu-macs)
 [[file:ectron.el][Emacs Electron]]
@@ -73,59 +124,61 @@ turtle-style graphics and game development for Emacs and Xcode.
 http://github.com/humasect/HaskellPlugin
 Plugin for Haskell for old version of Xcode.
 
-* Programming
-
-** Update Emacs
-#+BEGIN_SRC shell :exports code
-cd ~/src/emacs
-git fetch
-./configure --with-json --with-modules --with-x-toolkit=lucid
-make
-#+END_SRC
-
-** git status
-#+BEGIN_SRC shell :exports code
-git status
-#+END_SRC
-
-** dropbox
-#+BEGIN_SRC shell :exports code
-dropbox start && dropbox status
-#+END_SRC
 
 * Communications
 
+Freenode: #emacs #lispgames #lisp ##prolog #gamedev #xelf 
+EFnet: #buddhism #shmups #dragonquest
+Quakenet: #rgrd
+
 [[irc:/irc.freenode.net/#emacs][#emacs on freenode]]
 
-* News
-| [[https://news.ycombinator.com/][Hacker News]] | [[http://sachachua.com/blog/category/emacs/][Sacha Chua Emacs Blog]] |
 
-* GitHub links
-** C
-[[https://github.com/eudoxia0/cmacro][cmacro]]
-** Common Lisp
-[[https://github.com/google/lisp-koans][Lisp Koans (from google)]]
-[[http://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html][Starting a Minimal Common Lisp Project]]
-[[https://gist.github.com/chaitanyagupta/9324402][Common Lisp Reader Macros]]
-[[https://github.com/janestreet/ecaml][Emacs plugin in OCaml]]
-[[https://github.com/Shirakumo/trial][Shirakumo trial CL game engine]]
-[[http://turtleware.eu/posts/cl-charms-crash-course.html][cl-charms CLIM backend FFI crash course]]
-[[https://github.com/fukamachi/woo][woo webserver]]
-** Gamedev
-[[https://github.com/HackerTheory/first-light][psilord and mfiano's first-light game engine]]
-[[http://www.roguebasin.com/index.php?title=Code_design_basics][Roguebasin code outline basics]]
-[[https://github.com/rsaarelm/magog/][rsaaleim's magog RL in Rust]]
-** People
-[[https://en.wikipedia.org/wiki/George_Gurdjieff][George Gurdjieff]]
-** Emacs
-[[https://github.com/joaotavora/sly][Sly]]
-[[https://www.youtube.com/watch?v=xqWkVvubnSI][Sly YT Video]]
-[[https://joaotavora.github.io/sly/#A-SLY-tour-for-SLIME-users][Sly for Slime users]]
-[[http://emacslife.com/emacs-chats/chat-iannis-zannos.html][Emacs and SuperCollider!]]
-** Prolog
-[[https://wps.aw.com/wps/media/objects/5771/5909832/PDF/Luger_0136070477_1.pdf][Logic programming PDF]]
-* Quotes
-Every money reward has a price beyond the financial fee you can see and count. Accepting that is critical.
-Scott Adams once wrote: “One of the best pieces of advice I’ve ever heard goes something like this:
-If you want success, figure out the price, then pay it. It sounds trivial and obvious, but if you unpack the idea it has extraordinary power.”
-Wonderful money advice.
+* Research
+** Inspiration
+ Kirby
+ Bangai-o
+ Shiren the wanderer
+ ikaruga
+ Ragnarok Online
+
+ Poncho Game
+ "20,000 atmospheres" underwater sub dungeon crawl....
+ Knuckle Sandwich =) =)
+ Lobotomy Corporation..
+ Long Gone Days
+ Way of the Passive Fist=)
+ ZERO RANGER!!!
+
+** News
+ | [[https://news.ycombinator.com/][Hacker News]] | [[http://sachachua.com/blog/category/emacs/][Sacha Chua Emacs Blog]] |
+
+** GitHub links
+*** C
+ [[https://github.com/eudoxia0/cmacro][cmacro]]
+*** Common Lisp
+ [[https://github.com/google/lisp-koans][Lisp Koans (from google)]]
+ [[http://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html][Starting a Minimal Common Lisp Project]]
+ [[https://gist.github.com/chaitanyagupta/9324402][Common Lisp Reader Macros]]
+ [[https://github.com/janestreet/ecaml][Emacs plugin in OCaml]]
+ [[https://github.com/Shirakumo/trial][Shirakumo trial CL game engine]]
+ [[http://turtleware.eu/posts/cl-charms-crash-course.html][cl-charms CLIM backend FFI crash course]]
+ [[https://github.com/fukamachi/woo][woo webserver]]
+*** Gamedev
+ [[https://github.com/HackerTheory/first-light][psilord and mfiano's first-light game engine]]
+ [[http://www.roguebasin.com/index.php?title=Code_design_basics][Roguebasin code outline basics]]
+ [[https://github.com/rsaarelm/magog/][rsaaleim's magog RL in Rust]]
+*** People
+ [[https://en.wikipedia.org/wiki/George_Gurdjieff][George Gurdjieff]]
+*** Emacs
+ [[https://github.com/joaotavora/sly][Sly]]
+ [[https://www.youtube.com/watch?v=xqWkVvubnSI][Sly YT Video]]
+ [[https://joaotavora.github.io/sly/#A-SLY-tour-for-SLIME-users][Sly for Slime users]]
+ [[http://emacslife.com/emacs-chats/chat-iannis-zannos.html][Emacs and SuperCollider!]]
+*** Prolog
+ [[https://wps.aw.com/wps/media/objects/5771/5909832/PDF/Luger_0136070477_1.pdf][Logic programming PDF]]
+** Quotes
+ Every money reward has a price beyond the financial fee you can see and count. Accepting that is critical.
+ Scott Adams once wrote: “One of the best pieces of advice I’ve ever heard goes something like this:
+ If you want success, figure out the price, then pay it. It sounds trivial and obvious, but if you unpack the idea it has extraordinary power.”
+ Wonderful money advice.
