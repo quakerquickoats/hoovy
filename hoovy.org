@@ -1,20 +1,28 @@
-#+TITLE: Hoovy Home
+<#+TITLE: Hoovy Studio Workspace Home
 
 * Tasks
-** TODO move all [[github.com/humasect][Humasect Github]] projects into one, call it "attic".
-** TODO begin website. two methods: CL Server, and Publish Static pages.
-*** TODO Port hs-HoovyWeb into cl-hoovyweb, with HS-Nova section
-** TODO make a "NOVA" engine that uses Raylib.
-*** TODO Port 'nova' (C) to CL ?
-*** TODO finish porting HS-Nova to nova-cl
-** TODO merge humaweb and nova-cl
-** TODO start emacs sprite editor
 
-* System Tasks
-** DONE disable lightdm
-** TODO somehow get a feature for ERC to cycle through buffers that have recent activity
-** TODO clean up usage of .emacs (-> hoovy/emacs-init.el) and what it loads (-> hoovy/emacs.el)
+** Big Tasks
+*** TODO move all [[github.com/humasect][Humasect Github]] projects into one, call it "attic".
+*** TODO merge valhalla.org and gamelike.org
+*** TODO merge the two parts in humacs.org
 
+** Dev Tasks
+*** TODO begin website. two methods: CL Server, and Publish Static pages.
+**** TODO Port hs-HoovyWeb into cl-hoovyweb, with HS-Nova section
+*** TODO make a "NOVA" engine that uses Raylib.
+**** TODO Port 'nova' (C) to CL ?
+**** TODO finish porting HS-Nova to nova-cl
+*** TODO merge humaweb and nova-cl
+*** TODO start emacs sprite editor
+
+** System Tasks
+*** DONE disable lightdm
+*** TODO somehow get a feature for ERC to cycle through buffers that have recent activity
+*** TODO clean up usage of .emacs (-> hoovy/emacs-init.el) and what it loads (-> hoovy/emacs.el)
+
+
+* Maintenance
 ** Update Emacs
 #+BEGIN_SRC shell :exports code
 cd ~/src/emacs
@@ -35,94 +43,45 @@ dropbox start && dropbox status
 
 
 * Projects
-Game development and animation and music production tools,
+** Embryo Projects
 
-- [[nova.org][Nova]] Game engine, written in Objective Caml.
-- [[gamelike.org][Gamelike]] Roguelike game inspired by Ragnarok Online and Shiren: The Wanderer.
-- [[novapilot.org][Novapilot]] 2D game inspired by Bangai-O, Built in level editor.
-- [[monsterpiece.org][Monsterpiece]] 2D game inspired by Mario Bros and Smash Bros and Metroid and Castlevania. Single-room monster breed/fight/collect maze platform action.
+ |              |                                 |                        |
+ |--------------+---------------------------------+------------------------|
+ | Hoovy        | Editor Tools and Web Server     | Emacs Lisp/Common Lisp |
+ | Nova         | Local game engine client        | Ocaml/JavaScript       |
+ | Valhalla     | Multiplayer game server         | Prolog/Erlang          |
+ |              |                                 |                        |
+ |              |                                 |                        |
+ | Gamelike     | Roguelike RPG                   |                        |
+ | Novapilot    | Shmup platform                  |                        |
+ | Monsterpiece | running platform                |                        |
+ | MonsterPeace | Ghouls'n'Ghosts,PoP,Battletoads |                        |
+ |              |                                 |                        |
 
-** DeveloperProjects
-|          |                             |                        |
-|----------+-----------------------------+------------------------|
-| Hoovy    | Editor Tools and Web Server | Emacs Lisp/Common Lisp |
-| Nova     | Local game engine client    | Ocaml/JavaScript       |
-| Valhalla | Multiplayer game server     | Prolog/Erlang          |
-|          |                             |                        |
+** Cancelled Projects
 
-** UserProjects
-|              |                       |   |
-|--------------+-----------------------+---|
-| Gamelike     | Roguelike RPG game    |   |
-| Novapilot    | Shmup shooter game    |   |
-| Monsterpiece | running platform game |   |
+*** Mini Macs (hu-macs)
+ [[file:ectron.el][Emacs Electron]]
+ [[file:emacsript.el][Emacs ParenScript]]
+ Emacsript
 
+*** Erl-Dev
+ Erlang multiplayer game server. Supported IRC and other pieces. [[http://github.com/humasect/erl-dev]]
 
-* Cancelled Projects
+*** hs-Nova
+ Haskell realtime 2D graphics and media engine. [[http://github.com/humasect/Nova]]
+ Website with documentation and tutorial is missing. ( [[http://hoovy.org]] )
 
-** Nova Computer (NVC)
- Experimental Idea - generate specs!
-*** Terminal
-**** Display
-  512x512 1bit (262144 pixels, 32kb)
+*** The Middle
+ Objective-C library for iOS and macOS for high performance
+ turtle-style graphics and game development for Emacs and Xcode.
 
-  0,0 is lower left
-  511,511 is top right
+*** HaskellPlugin
+ http://github.com/humasect/HaskellPlugin
+ Plugin for Haskell for old version of Xcode.
 
-  8x8 tiles, 64x64 max tiles (or 8x16??)
- 
-**** Parts
-  sound > sample
-					 > function
-  image > pixel
-
-**** Characters
-  8x16 8bit (1024 bytes)
-
-  coordinates can be specified as char:
-  101 - 3264
-  or fine coords:
-  1,1 - 32,64
-
-**** Processor
-  locally executes instruction codes. (lisp vm)
-
-**** Input
- text stream I/O.
-
-*** Programming
-  - encryption or some smarts to prevent game progress hacking
-*** Session
-  persistent user sessions
-*** Memory Tree Filesystem
- - shared symbols organized as a list of lists.
- - symbols can be remote pointers (message passing).
- - namespaces (branches) can be associated to and resolved from physical or virtual places.
- - real NVC files are virtual. but virtual NVC files are real files...
-
-*** Network
- - clients use HTTP, JSON API, or Swank.
-
-
-** Mini Macs (hu-macs)
-[[file:ectron.el][Emacs Electron]]
-[[file:emacsript.el][Emacs ParenScript]]
-Emacsript
-
-** Erl-Dev
-Erlang multiplayer game server. Supported IRC and other pieces. [[http://github.com/humasect/erl-dev]]
-
-** hs-Nova
-Haskell realtime 2D graphics and media engine. [[http://github.com/humasect/Nova]]
-Website with documentation and tutorial is missing. ( [[http://hoovy.org]] )
-
-** The Middle
-Objective-C library for iOS and macOS for high performance
-turtle-style graphics and game development for Emacs and Xcode.
-
-** HaskellPlugin
-http://github.com/humasect/HaskellPlugin
-Plugin for Haskell for old version of Xcode.
+*** HuMAX
+ Haskell OpenGL example game like beatmania/DJ MAX
 
 
 * Communications
@@ -135,6 +94,10 @@ Quakenet: #rgrd
 
 
 * Research
+** Editing links
+https://www.emacswiki.org/emacs/TheCraftOfTextEditing
+** RPG links
+https://rolltop-indigo.blogspot.com/2018/10/the-big-list-of-rpg-plots.html
 ** Inspiration
  Kirby
  Bangai-o

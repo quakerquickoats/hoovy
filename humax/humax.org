@@ -2,6 +2,62 @@
 
 HumaX.
 
+* Humacs Editor (HMX).
+
+Game development and animation and music production tools
+with virtual computer
+
+* Nova Computer (NVC)
+ Experimental Idea - generate specs!
+*** Terminal
+**** Display
+  512x512 1bit (262144 pixels, 32kb)
+
+  0,0 is lower left
+  511,511 is top right
+
+  8x8 tiles, 64x64 max tiles (or 8x16??)
+ 
+**** Parts
+  sound > sample
+					 > function
+  image > pixel
+
+**** Characters
+  8x16 8bit (1024 bytes)
+
+  coordinates can be specified as char:
+  101 - 3264
+  or fine coords:
+  1,1 - 32,64
+
+**** Processor
+  locally executes instruction codes. (lisp vm)
+
+**** Input
+ text stream I/O.
+
+*** Programming
+  - encryption or some smarts to prevent game progress hacking
+*** Session
+  persistent user sessions
+*** Memory Tree Filesystem
+ - shared symbols organized as a list of lists.
+ - symbols can be remote pointers (message passing).
+ - namespaces (branches) can be associated to and resolved from physical or virtual places.
+ - real NVC files are virtual. but virtual NVC files are real files...
+
+*** Network
+  - clients use HTTP, JSON API, or Swank.
+
+
+
+- [[nova.org][Nova]] Game engine, written in Objective Caml.
+- [[gamelike.org][Gamelike]] Roguelike game inspired by Ragnarok Online and Shiren: The Wanderer.
+- [[novapilot.org][Novapilot]] 2D game inspired by Bangai-O, Built in level editor.
+- [[monsterpiece.org][Monsterpiece]] 2D game inspired by Mario Bros and Smash Bros and Metroid and Castlevania. Single-room monster breed/fight/collect maze platform action.
+
+
 
 * Specs
 ** Overview
@@ -33,8 +89,8 @@ Common Lisp
 ** Audio Processor
 - 10 channels, 5 sfx 5 music
 ** Networking
-- network display?
-- connect SWANK to edit code.
+ - network display?
+ - connect SWANK to edit code.
 ** Gamepad
 - 4 directions
 - analog x/y -ff..+ff

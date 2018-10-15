@@ -33,6 +33,8 @@
 ** Connect/Login
 ** Difficulty?
 ** Options
+- sound on/off
+- music on/off
 
 * Player
 ** The Mech
