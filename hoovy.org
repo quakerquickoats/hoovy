@@ -1,21 +1,20 @@
-<#+TITLE: Hoovy Studio Workspace Home
+#+TITLE: Hoovy Studio Workspace Home
 
 * Tasks
 
 ** Big Tasks
-*** TODO move all [[github.com/humasect][Humasect Github]] projects into one, call it "attic".
+*** TODO move all [[github.com/humasect][Humasect Github]] projects into one, call it "attic"
 *** TODO merge valhalla.org and gamelike.org
 *** TODO merge the two parts in humacs.org
-
-** Dev Tasks
-*** TODO begin website. two methods: CL Server, and Publish Static pages.
-**** TODO Port hs-HoovyWeb into cl-hoovyweb, with HS-Nova section
-*** TODO make a "NOVA" engine that uses Raylib.
-**** TODO Port 'nova' (C) to CL ?
-**** TODO finish porting HS-Nova to nova-cl
+** Web Tasks
+*** TODO begin website. two methods: CL Server, and Publish Static pages
+*** TODO Port hs-HoovyWeb into cl-hoovyweb, with HS-Nova section
 *** TODO merge humaweb and nova-cl
+** Dev Tasks
+*** TODO Make NOVA library that supports, ECL, Emacs, Guile, Prolog, ML, JS
+*** TODO Create the "NOVA" engine (C) that uses Raylib
+*** TODO finish porting HS-Nova to nova-cl
 *** TODO start emacs sprite editor
-
 ** System Tasks
 *** DONE disable lightdm
 *** TODO somehow get a feature for ERC to cycle through buffers that have recent activity
@@ -55,7 +54,6 @@ dropbox start && dropbox status
  | Gamelike     | Roguelike RPG                   |                        |
  | Novapilot    | Shmup platform                  |                        |
  | Monsterpiece | running platform                |                        |
- | MonsterPeace | Ghouls'n'Ghosts,PoP,Battletoads |                        |
  |              |                                 |                        |
 
 ** Cancelled Projects
@@ -94,6 +92,8 @@ Quakenet: #rgrd
 
 
 * Research
+** Programming articles
+https://www.brynmawr.edu/cs/resources/beauty-of-programming - Linus Torvalds
 ** Editing links
 https://www.emacswiki.org/emacs/TheCraftOfTextEditing
 ** RPG links

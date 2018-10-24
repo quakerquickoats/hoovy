@@ -4,11 +4,9 @@
 // (c) 2018 Lyndon Tremblay
 //
 
-#include <stdio.h>
-#include <SDL2/SDL.h>
-#include <GL/gl.h>
-
 #include "nova.h"
+#include <GL/gl.h>
+#include <SDL2/SDL.h>
 
 SDL_Window* window = NULL;
 SDL_GLContext context = NULL;
@@ -18,22 +16,6 @@ int screen_width = 512,
     screen_height = 512;
 
 int keys[16];
-
-void NV_Error (const char *msg, ...)
-{
-    va_list args;
-    //char buf[256];
-
-    va_start(args, msg);
-    //vsprintf(buf, "Nova Error: %s",
-    fprintf(stderr, "Nova Error: ");
-    fflush(stderr);
-    vfprintf(stderr, msg, args);
-    va_end(args);
-    fprintf(stderr, "\n");
-    
-    exit(1);
-}
 
 void NV_Init (int w, int h)
 {

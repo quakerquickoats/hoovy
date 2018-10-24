@@ -18,10 +18,23 @@ typedef enum {
 typedef int BOOL;
 #endif
 
-void NV_Init ();
-void NV_Shutdown ();
+typedef struct {
+    int width, height;
+    BOOL keys[16];
+}nova_session_t;
+
+extern nova_session_t nova;
+
+/////////////////////////////////////////
+// util
 
 void NV_Error (const char *msg, ...);
+
+/////////////////////////////////////////
+// sdl or raylib
+
+void NV_Init ();
+void NV_Shutdown ();
 
 void NV_EndFrame ();
 
