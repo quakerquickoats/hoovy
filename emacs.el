@@ -138,7 +138,7 @@
   (when (and opam-share (file-directory-p opam-share))
     (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))))
 
-(require 'sturgeon)
+;;(require 'sturgeon)
 
 ;;;;;;;; utop stuff ;;;;;;;
 (when (require 'utop nil :noerror)

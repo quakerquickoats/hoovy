@@ -137,3 +137,18 @@ Derive from ParenScript... ?
 
 ** Cell
 
+* Factory
+2 dimensions of layers and layers and scale of scale.
+everything can be inspected, edited, modified, fixed, broken.
+
+can either start with blank blueprint,
+or can generate a factory that works or is broken given a seed and percentage,
+also we can download and share blueprints.
+** Grids
+- Hexagon, tile, polygon, curve, and radial.
+** Connection types
+- Pipes, gears, cables
+** Doors
+** Pathways
+** Scaffolding
+** Engines

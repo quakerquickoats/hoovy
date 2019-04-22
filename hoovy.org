@@ -1,20 +1,32 @@
 #+TITLE: Hoovy Studio Workspace Home
 
+cluck: oni-on-ion: it's easy; you take any one ion in an onion and you funion the shit on it
+
+* Run XTerm
+xterm -fa monospace -fs 11 -bg black -fg white -xrm 'XTerm*metaSendsEscape: true'
+
 * Tasks
+
+** Today Tasks
+*** TODO research Objective-Caml. decide.
+*** TODO otherwise, choose a scheme. or BiwaScheme ?
+
+*** TODO guile for gamelike
+*** TODO ocaml for novapilot
 
 ** Big Tasks
 *** TODO move all [[github.com/humasect][Humasect Github]] projects into one, call it "attic"
 *** TODO merge valhalla.org and gamelike.org
 *** TODO merge the two parts in humacs.org
 ** Web Tasks
-*** TODO begin website. two methods: CL Server, and Publish Static pages
+*** TODO begin website. two methods: CL or Prolog Server, and Publish Static pages
 *** TODO Port hs-HoovyWeb into cl-hoovyweb, with HS-Nova section
 *** TODO merge humaweb and nova-cl
 ** Dev Tasks
 *** TODO Make NOVA library that supports, ECL, Emacs, Guile, Prolog, ML, JS
-*** TODO Create the "NOVA" engine (C) that uses Raylib
-*** TODO finish porting HS-Nova to nova-cl
-*** TODO start emacs sprite editor
+*** DONE Create the "NOVA" engine (C) that uses Raylib
+*** TODO finish porting HS-Nova to nova-c
+*** TODO start emacs sprite editor?
 ** System Tasks
 *** DONE disable lightdm
 *** TODO somehow get a feature for ERC to cycle through buffers that have recent activity
