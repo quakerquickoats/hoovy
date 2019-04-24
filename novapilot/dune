@@ -1,0 +1,7 @@
+
+(executable
+ (name novapilot)
+ (libraries nova)
+ (preprocess (pps)))
+
+

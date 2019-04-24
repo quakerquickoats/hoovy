@@ -293,7 +293,7 @@
  '(org-attach-store-link-p 'attached)
  '(org-babel-load-languages '((emacs-lisp . t) (shell . t) (lisp . t)))
  '(package-selected-packages
-   '(ac-slime helpful rmsbolt erc-hl-nicks web-server edts auto-complete reason-mode quelpa package-build expand-region persistent-scratch hyperbole charmap circe flycheck flycheck-ocaml flyspell-popup merlin tuareg utop webpaste helm helm-dash helm-emms helm-org-rifle helm-package helm-proc emms github-browse-file github-clone sx memory-usage es-lib svg svg-clock htmlize simple-httpd websocket dictionary "bbdb" ediprolog which-key ggtags common-lisp-snippets el-autoyas yasnippet snoopy hackernews elfeed eyebrowse hierarchy projectile rainbow-blocks rainbow-delimiters treemacs esxml exwm rainbow-mode emacsql csound-mode haskell-emacs haskell-emacs-base haskell-emacs-text haskell-mode erlang swift-mode racer rust-mode slime slime-company))
+   '(dune ac-slime helpful rmsbolt erc-hl-nicks web-server edts auto-complete reason-mode quelpa package-build expand-region persistent-scratch hyperbole charmap circe flycheck flycheck-ocaml flyspell-popup merlin tuareg utop webpaste helm helm-dash helm-emms helm-org-rifle helm-package helm-proc emms github-browse-file github-clone sx memory-usage es-lib svg-clock htmlize simple-httpd websocket dictionary "bbdb" ediprolog which-key ggtags common-lisp-snippets el-autoyas yasnippet snoopy hackernews elfeed eyebrowse hierarchy projectile rainbow-blocks rainbow-delimiters treemacs esxml exwm rainbow-mode emacsql csound-mode haskell-emacs haskell-emacs-base haskell-emacs-text haskell-mode erlang swift-mode racer rust-mode slime slime-company))
  '(persistent-scratch-autosave-interval 3000)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
@@ -338,3 +338,6 @@
  '(secondary-selection ((t (:background "#203960"))))
  '(slime-highlight-edits-face ((t (:background "#222"))))
  '(tuareg-font-lock-governing-face ((t (:foreground "green")))))
+;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
+(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+;; ## end of OPAM user-setup addition for emacs / base ## keep this line
