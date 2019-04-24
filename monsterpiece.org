@@ -3,6 +3,10 @@
 
 MonsterPeace 
 
+* Graphics
+- 320x240
+- 32 color
+
 * Inspirations
 - Zelda II : Adventure of Link
 - Ghouls'n'Ghosts

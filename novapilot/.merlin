@@ -1,52 +1,9 @@
-EXCLUDE_QUERY_DIR
-B /home/lyndon/.opam/default/lib/bytes
-B /home/lyndon/.opam/default/lib/camomile
-B /home/lyndon/.opam/default/lib/camomile/default_config
-B /home/lyndon/.opam/default/lib/camomile/dyn
-B /home/lyndon/.opam/default/lib/camomile/lib_default
-B /home/lyndon/.opam/default/lib/camomile/library
-B /home/lyndon/.opam/default/lib/ctypes
-B /home/lyndon/.opam/default/lib/findlib
-B /home/lyndon/.opam/default/lib/integers
-B /home/lyndon/.opam/default/lib/lambda-term
-B /home/lyndon/.opam/default/lib/lwt
-B /home/lyndon/.opam/default/lib/lwt/unix
-B /home/lyndon/.opam/default/lib/lwt_log
-B /home/lyndon/.opam/default/lib/lwt_log/core
-B /home/lyndon/.opam/default/lib/lwt_react
-B /home/lyndon/.opam/default/lib/mmap
-B /home/lyndon/.opam/default/lib/ocaml
-B /home/lyndon/.opam/default/lib/ocaml/compiler-libs
-B /home/lyndon/.opam/default/lib/ocaml/threads
-B /home/lyndon/.opam/default/lib/react
-B /home/lyndon/.opam/default/lib/result
-B /home/lyndon/.opam/default/lib/seq
-B /home/lyndon/.opam/default/lib/utop
-B /home/lyndon/.opam/default/lib/zed
-B _build/default/.novapilot.eobjs/byte
-S /home/lyndon/.opam/default/lib/bytes
-S /home/lyndon/.opam/default/lib/camomile
-S /home/lyndon/.opam/default/lib/camomile/default_config
-S /home/lyndon/.opam/default/lib/camomile/dyn
-S /home/lyndon/.opam/default/lib/camomile/lib_default
-S /home/lyndon/.opam/default/lib/camomile/library
-S /home/lyndon/.opam/default/lib/ctypes
-S /home/lyndon/.opam/default/lib/findlib
-S /home/lyndon/.opam/default/lib/integers
-S /home/lyndon/.opam/default/lib/lambda-term
-S /home/lyndon/.opam/default/lib/lwt
-S /home/lyndon/.opam/default/lib/lwt/unix
-S /home/lyndon/.opam/default/lib/lwt_log
-S /home/lyndon/.opam/default/lib/lwt_log/core
-S /home/lyndon/.opam/default/lib/lwt_react
-S /home/lyndon/.opam/default/lib/mmap
-S /home/lyndon/.opam/default/lib/ocaml
-S /home/lyndon/.opam/default/lib/ocaml/compiler-libs
-S /home/lyndon/.opam/default/lib/ocaml/threads
-S /home/lyndon/.opam/default/lib/react
-S /home/lyndon/.opam/default/lib/result
-S /home/lyndon/.opam/default/lib/seq
-S /home/lyndon/.opam/default/lib/utop
-S /home/lyndon/.opam/default/lib/zed
-S .
-FLG -w @a-4-29-40-41-42-44-45-48-58-59-60-40 -strict-sequence -strict-formats -short-paths -keep-locs -safe-string
+# structure of my awesome project
+S ~/hoovy/nova
+S editor
+S gamelike
+S grenadier
+
+B _build
+
+PKG sexplib gg.top tsdl.top gg

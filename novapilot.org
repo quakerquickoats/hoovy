@@ -1,5 +1,6 @@
-#+TITLE: Nova Project
+#+TITLE: Novapilot Project
 
+Dharma in a game
 
 * Game Engine
 - language is: ????
@@ -13,8 +14,6 @@
 - ~/hoovy/nova-ml
 - finish porting the "game/system" modules.
 ** Graphics
-- 320x240
-- 32 color
 - using cube tiles, or full geometry in parts but connecting doorways ?
 - turtle
 - draw, lift pen, stroke, path, bitops, et
@@ -154,8 +153,18 @@
   Attack, Defense, Dodge, luck, Mdef, Matk, health points, magic points, crit.
 
 
+* Design
+** the screens
+*** main screen
+ four buttons: attack, jump, special, defend.
+ there is a map on the top right.
+*** map screen
+ shows current position, save points, boss rooms.
+*** item screen
+ shows your items.
+
+
 * Game World
-Dharma in a game
 ** Rooms
 - rooms are single screens
 - players can edit/upload rooms and fit them in the world.
@@ -210,13 +219,3 @@ Dharma in a game
 *** 5 Vinnana, the desert volcano planet (red, fire, consciousness, tongue?)
 	 is where the water bombs are useful.
 	 there are hot lizards here.
-** the screens
-*** main screen
- four buttons: attack, jump, special, defend.
- there is a map on the top right.
-*** map screen
- shows current position, save points, boss rooms.
-*** item screen
- shows your items.
-
-

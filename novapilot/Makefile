@@ -1,21 +1,20 @@
-TARGET=novapilot
-SOURCES=novapilot.ml nova.ml
-LIBS=
-#OBJECTS=
+RESULT     = novapilot
+SOURCES    = main.ml
+LIBS       = bigarray tsdl gg ecl
+#INCDIRS    = +tsdl
+#CFLAGS = -cclib -lecl
 
 #include OCamlMakefile
 
-all: $(TARGET)
-	@
 
-$(TARGET): build_libnova
-	ocamlbuild -use-ocamlfind 'novapilot.native' \
-		-package utop,ctypes,ctypes.foreign \
-		-lflag -cclib -lflag -lGL \
-		-lflag -cclib -lflag -L./nova -lflag -cclib -lflag -lnova
+all:
+	ocamlbuild -use-ocamlfind 'main.native' -lflag -cclib -lflag -lecl
 
-build_libnova:
-	make -C ./nova
+all22:
+	ocamlbuild -use-ocamlfind 'novapilot.cmo'
+	ocamlfind ocamlmktop -o novapilot -thread -linkpkg -package utop -package tsdl novapilot.cmo
 
-#	ocamlfind ocamlopt -linkpkg -package ctypes,ctypes.foreign $(SOURCES)
-	    #-lflag -cclib -lflag -lGL
+
+nothing:
+	ocamlfind ocamlc -o novapilot -thread -linkpkg -linkall -predicates create_toploop \
+       -package compiler-libs.toplevel,utop novapilot.cmo

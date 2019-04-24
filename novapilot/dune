@@ -1,9 +1,0 @@
-(toplevel
- (name novapilot)
- (libraries utop ctypes ctypes.foreign))
-
-; (executable
-;  (name novapilot)
-;  (flags :standard -safe-string)
-;  (link_flags -linkall)
-;  (libraries utop ctypes ctypes.foreign))

@@ -1,9 +1,0 @@
-# structure of my awesome project
-S ~/hoovy/nova
-S editor
-S gamelike
-S grenadier
-
-B _build
-
-PKG sexplib gg.top tsdl.top gg
