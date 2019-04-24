@@ -1,0 +1,8 @@
+# structure of my awesome project
+S ~/hoovy/nova
+
+B _build
+
+PKG sexplib ctypes foreign
+
+#gg.top tsdl.top gg

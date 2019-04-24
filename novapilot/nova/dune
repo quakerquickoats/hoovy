@@ -1,8 +1,0 @@
-(library
- (name            nova)
- (public_name     nova)
- ;;(libraries       re lwt)
- (c_names         nova)
- ;(c_flags         (-I/blah/include))
- ;(c_library_flags (-lblah))
-)

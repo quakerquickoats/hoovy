@@ -7,6 +7,8 @@
 #ifndef _NOVA_H
 #define _NOVA_H
 
+typedef float scalar;
+
 typedef enum {
               NV_KEY_UP,
               NV_KEY_DOWN,
