@@ -10,7 +10,7 @@ all: $(TARGET)
 
 $(TARGET): build_libnova
 	ocamlbuild -use-ocamlfind 'novapilot.native' \
-		-package ctypes,ctypes.foreign \
+		-package utop,ctypes,ctypes.foreign \
 		-lflag -cclib -lflag -lGL \
 		-lflag -cclib -lflag -L./nova -lflag -cclib -lflag -lnova
 
