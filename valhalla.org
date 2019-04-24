@@ -16,12 +16,41 @@
 | Alchemist | A   | Fire    | Gun          | Tool        | INT+5 LUX+10 |
 | Monk/Sage | *   | Void    | N/A          | N/A         | STR+5 AGI+10 |
 
+** Alternative
+(defparameter *disposition*
+  '(wanderer
+    volunteer
+    scribe
+    soldier
+    hunter
+    artisan))
+
+(defparameter *jobs*
+  '(chef
+    monk
+    sage
+    fighter
+    archer
+    craftsman))
+
+(defparameter *second-jobs*
+  '(alchemist
+    priest
+    wizard
+    samurai    ; swordsman
+    shaman     ; woodsman
+    blacksmith))
+
 * Profile
 | Name | Use                 | Note |
 |------+---------------------+------|
 | STR  | Physical ATK and HP |      |
 | INT  | Fromless ATK and SP |      |
 | AGI  |                     |      |
+
+** Alternative
+(defparameter *char-stats*
+  '(STR AGI LUK INT VIT DEX))
 
 * Status Effects
 
@@ -32,6 +61,12 @@
 | Confused  | Walk and Attack direction are random         |      | 20 turns |
 | Paralyze  | Automatic 'Wait' action taken                |      | 20 turns |
 | Blindness | Lose map, item, char location. Gain hearing. |      | ?        |
+
+** Alternative
+(defparameter *personalities*
+  '(angry depressed sketchy aloof asleep frantic hostile calm flaming))
+(defparameter *statuses*
+  '(normal confused fast slow stunned asleep beserk))
 
 
 # items
@@ -194,6 +229,16 @@
 
 * Dungeons
   - Dungeons are like entering a portal to a parallel realm or dream world.
+
+** Alternative
+(defparameter *map-tiles*
+  '(floor damage water wall stairs exit warp pit))
+
+(defparameter *land*
+  '(field desert mountain forest temple cave city))
+
+(defparameter *shops*
+  '(armor weapon medicine material fabric service tool))
 
 * Ideas
   - "An oubliette (from the French oubliette - literally "forgotten place") was
