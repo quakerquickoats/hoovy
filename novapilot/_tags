@@ -1,1 +1,1 @@
-true: package(tsdl), package(gg), debug
+true: package(glfw-ocaml), package(ctypes), package(gg), debug

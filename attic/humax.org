@@ -2,6 +2,12 @@
 
 HumaX.
 
+* Game dev
+** Libraries
+https://opengameart.org
+http://soundimage.org/
+https://libregamewiki.org/Main_Page
+
 * Humacs Editor (HMX).
 
 Game development and animation and music production tools
@@ -39,6 +45,14 @@ with virtual computer
 
 *** Programming
   - encryption or some smarts to prevent game progress hacking
+**** lisp 
+;; atom - aleph
+;; eq - ayin
+;; cons - waw
+;; car - yod
+;; cdr - hey
+;; defun - ??
+
 *** Session
   persistent user sessions
 *** Memory Tree Filesystem

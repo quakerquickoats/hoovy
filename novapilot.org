@@ -3,8 +3,11 @@
 Dharma in a game
 
 * Game Engine
-- language is: ????
-- libraries are: raylib
+** Libraries
+- language is: Objective-CAML
+- libraries are: raylib? glfw, nanovg
+- user interface: nulkear
+- audio: Csound
 - editor is: emacs
 ** Targets
 - Local native
@@ -19,14 +22,40 @@ Dharma in a game
 - draw, lift pen, stroke, path, bitops, et
 - polygon windings?
 
-** Data files
-- maps
-- sprites
-- paths
+** Audio synthesis
+- lots of drum patterns
+
+** Resource Data files
+S-expression; or raw OCaml type constructors.
+*** human-readable with editor support.
+- levels/maps
+- models
+- vector paths, models
 - sound waves
+- skeletons and animations
+*** binary
+- rendered waveforms
+- sprites?
+- images?
 
 ** Physics
 - chipmunk or bullet or..
+
+
+* Editor
+** Project
+- file save, open, list
+- able to merge. compare and binarily operate on tree models. (sexp)
+- filesystem represents live/streamed/persistant object ecosystem
+** Visual
+- 2D grid view with Z view like QuakeEd.
+- polygon winding editing
+** Textual
+- tree browser like oldschool Finder.
+- basic code editing
+** Temporal
+- shader/procedural/synth editing
+- animation and key frames with scrub.
 
 * Title Screen
 ** Connect/Login
@@ -152,7 +181,6 @@ Dharma in a game
   both equipment and manual stats affect these:
   Attack, Defense, Dodge, luck, Mdef, Matk, health points, magic points, crit.
 
-
 * Design
 ** the screens
 *** main screen
@@ -162,7 +190,6 @@ Dharma in a game
  shows current position, save points, boss rooms.
 *** item screen
  shows your items.
-
 
 * Game World
 ** Rooms

@@ -45,20 +45,7 @@
     :disk ,(random-pow2 10)
     :audio-channels ,(+ 1 (random 8))))
 
-
 ;; #aaffcc
-
-;;
-;; Programming
-;;
-
-;; atom - aleph
-;; eq - ayin
-;; cons - waw
-;; car - yod
-;; cdr - hey
-;; defun - ??
-
 ;;
 ;; Rendering
 ;;

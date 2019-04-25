@@ -6,4 +6,4 @@ S grenadier
 
 B _build
 
-PKG sexplib gg.top tsdl.top gg
+PKG sexplib glfw-ocaml ctypes ctypes.foreign gg.top gg

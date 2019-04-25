@@ -1,6 +1,6 @@
 RESULT     = novapilot
 SOURCES    = main.ml
-LIBS       = bigarray tsdl gg ecl
+LIBS       = bigarray gg
 #INCDIRS    = +tsdl
 #CFLAGS = -cclib -lecl
 
@@ -8,11 +8,11 @@ LIBS       = bigarray tsdl gg ecl
 
 
 all:
-	ocamlbuild -use-ocamlfind 'main.native' -lflag -cclib -lflag -lecl
+	ocamlbuild -use-ocamlfind 'novapilot.native' -lflag -cclib -lflag -L.
 
-all22:
-	ocamlbuild -use-ocamlfind 'novapilot.cmo'
-	ocamlfind ocamlmktop -o novapilot -thread -linkpkg -package utop -package tsdl novapilot.cmo
+#all22:
+#	ocamlbuild -use-ocamlfind 'novapilot.cmo'
+#	ocamlfind ocamlmktop -o novapilot -thread -linkpkg -package ctypes -package ctypes.foreign -package utop -package tsdl novapilot.cmo
 
 
 nothing:
