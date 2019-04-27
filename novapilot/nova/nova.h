@@ -12,6 +12,8 @@
 #ifndef BOOL
 typedef int BOOL;
 #endif
+#define YES 1
+#define NO 0
 
 ///////////////////////////////////////
 

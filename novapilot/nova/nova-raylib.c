@@ -17,7 +17,6 @@ nova_session_t nova = {
 void NV_Init (int w, int h)
 {
     nova_config_t *c = &nova.config;
-
     memset(&nova, 0, sizeof(nova));
         
     c->width = w;

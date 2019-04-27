@@ -1,32 +1,4 @@
-(*
-  Novapilot
-  (c) 2019 Lyndon Tremblay
- *)
-
-module Huma = struct
-  let rec zip a b = match a,b with
-    | [], _ -> []
-    | _, [] -> []
-    | (x::xs),(y::ys) -> (x,y) :: (zip xs ys)
-
-  let rev_lst l =
-    let rec rev_acc acc = function
-      | [] -> acc
-      | hd::tl -> rev_acc (hd::acc) tl
-    in 
-    rev_acc [] l
-
-  let rotatel n = match n with
-    | [] -> []
-    | (n::ns) -> ns @ [n]
-
-  let rotater a = rev_lst (rotatel a)
-
-  let dbl a = (a,a)
-  let trp a = (a,a,a)
-
-  (******************************)
-
+module HumaMath = struct
   (* any two points are colinear *)
   (* any three points are coplanar *)
   type point = float
@@ -57,7 +29,4 @@ module Huma = struct
   (* an Angle divides the Plane into two regions, Interior and Exterior. *)
   (* if two Points from each side of the Angle are connected with a
      Segment, the Segment passes through the interior of the Angle. *)
-            
-  type compassDirection =
-    North | NorthEast | East | SouthEast | South | SouthWest | West | NorthWest                                                                    
 end

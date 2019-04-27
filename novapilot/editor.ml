@@ -1,3 +1,7 @@
+(*
+  Novapilot
+  (c) 2019 Lyndon Tremblay
+ *)
 
 open Play
 open Part

@@ -8,7 +8,11 @@ LIBS       = bigarray gg
 
 
 all:
-	ocamlbuild -use-ocamlfind 'novapilot.native' -lflag -cclib -lflag -L.
+#ocamlbuild test.o
+	ocamlbuild -use-ocamlfind 'novapilot.native'
+
+
+#-lflag -cclib -lflag -L.
 
 #all22:
 #	ocamlbuild -use-ocamlfind 'novapilot.cmo'

@@ -317,7 +317,7 @@
  '(font-lock-keyword-face ((t (:foreground "green"))))
  '(font-lock-preprocessor-face ((t (:foreground "orange"))))
  '(font-lock-string-face ((t (:foreground "cyan"))))
- '(font-lock-type-face ((t (:foreground "#ff8"))))
+ '(font-lock-type-face ((t (:foreground "#8ff"))))
  '(font-lock-variable-name-face ((t (:foreground "#88f"))))
  '(highlight ((t (:background "#334400" :foreground "#ffffff"))))
  '(org-meta-line ((t (:inherit font-lock-preprocessor-face))))

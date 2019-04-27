@@ -1,3 +1,8 @@
+(*
+  Novapilot
+  (c) 2019 Lyndon Tremblay
+ *)
+
 open Gg
 
 open Nova

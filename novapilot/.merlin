@@ -1,9 +1,6 @@
-# structure of my awesome project
-S ~/hoovy/nova
-S editor
-S gamelike
-S grenadier
-
-B _build
-
-PKG sexplib glfw-ocaml ctypes ctypes.foreign gg.top gg
+EXCLUDE_QUERY_DIR
+B _build/default/.novapilot.eobjs/byte
+B _build/default/nova/.nova.objs/byte
+S .
+S nova
+FLG -w @a-4-29-40-41-42-44-45-48-58-59-60-40 -strict-sequence -strict-formats -short-paths -keep-locs
