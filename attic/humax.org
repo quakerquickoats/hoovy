@@ -2,6 +2,7 @@
 
 HumaX.
 
+
 * Game dev
 ** Libraries
 https://opengameart.org
@@ -166,3 +167,13 @@ also we can download and share blueprints.
 ** Pathways
 ** Scaffolding
 ** Engines
+
+
+* Game
+- uses your filesystem for inventory storage. big files, small files...
+  for eg: potion = 1024kb 
+
+- generated OS and hardware for each class of being
+- network protocol for languages
+
+- character generated with random levels and status and items and history.

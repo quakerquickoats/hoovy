@@ -3,6 +3,12 @@
 * Story
 nothing yet.
 trying to find the wandering one, who has been alive forever and is immortal.
+** Wanderman
+ - cursed to wander forever
+ - lost love
+ - appears and disappears, have to lure him and chase him
+
+*** Beginning
 * Character
 ** Profile
  | Name | Use                 | Note |
@@ -15,6 +21,8 @@ trying to find the wandering one, who has been alive forever and is immortal.
  | DEX  |                     |      |
 
 ** Alignment
+ - there are 3 alignments.
+
  automatically determined.
    - Karma(chaotic)
    - Dharma(lawful)
@@ -24,11 +32,64 @@ trying to find the wandering one, who has been alive forever and is immortal.
    - Robot/NPC/computer/AI
    - Female
 
+** Classes
+ - there are 7 classes
+
+TODO: rename these, they sound like jobs.
+
+| Class    | Element   | Letter | Word    | Native Region     |   |
+|----------+-----------+--------+---------+-------------------+---|
+| theif    | Dark      | bet    | xashekh | underground       |   |
+| merchant | Earth     | dalet  | aretz   | camps             |   |
+| hunter   | Water     | gimel  | mayim   | caravan           |   |
+| chef     | Fire      | kaf    | yesh    | village           |   |
+| fighter  | Wind      | peh    | ruax    | boats and ships   |   |
+| artist   | Void/Mind | resh   | neshama | city              |   |
+| monk     | Light     | tau    | aur     | temple and palace |   |
+
+theif gathers and steals for merchant,
+merchant sells to hunter,
+chef cooks from hunter,
+fighter eats from chef,
+artist draws and sings from fighter,
+monk reflects on artist,
+monk gives to theif.
+
+and so the cycle.
 
 ** Jobs
-   - Starting job is "wanderer" or "adventurer"
-   - Player can select a profession later in game,
-     to specialise in weapons and skills and game outcome.
+ - there are 12 jobs.
+ - Starting job is "novice" or "adventurer"
+ - Player can select a profession later in game,
+   to specialise in weapons and skills and game outcome.
+
+- hacker =)
+- in progress.
+
+|          | Job       | Letter |
+|----------+-----------+--------|
+|          |           |        |
+| theif    |           | hey    |
+|          | assassin  | waw    |
+|          |           |        |
+| merchant |           | zayin  |
+|          |           | xet    |
+|          |           |        |
+| hunter   |           | tet    |
+|          |           | yod    |
+|          |           |        |
+| chef     | scholar   | lamed  |
+|          | scribe    | nun    |
+|          |           |        |
+| artist   |           | samekh |
+|          |           | ayin   |
+|          |           |        |
+| monk     | righteous | tzadi  |
+|          | priest    | qof    |
+|          |           |        |
+
+- Monk has no jobs.
+
  | Job       | Tag | Element | Equip Weapon | Item Weapon | Bonuses      |
  |-----------+-----+---------+--------------+-------------+--------------|
  | Ninja     | N   | Metal   | Sword        | Knife       | AGI+5 STR+10 |
@@ -37,7 +98,7 @@ trying to find the wandering one, who has been alive forever and is immortal.
  | Alchemist | A   | Fire    | Gun          | Tool        | INT+5 LUX+10 |
  | Monk/Sage | *   | Void    | N/A          | N/A         | STR+5 AGI+10 |
 
-*** Alternative
+** Alternative classes and jobs
  (defparameter *disposition*
    '(wanderer
      volunteer
@@ -62,7 +123,6 @@ trying to find the wandering one, who has been alive forever and is immortal.
      shaman     ; woodsman
      blacksmith))
 
-
 ** Status Effects
 
  | Type      | Effect                                       | Note | Duration |
@@ -73,7 +133,7 @@ trying to find the wandering one, who has been alive forever and is immortal.
  | Paralyze  | Automatic 'Wait' action taken                |      | 20 turns |
  | Blindness | Lose map, item, char location. Gain hearing. |      | ?        |
 
-*** Alternative
+** Moods
  (defparameter *personalities*
    '(angry depressed sketchy aloof asleep frantic hostile calm flaming))
  (defparameter *statuses*
@@ -82,40 +142,42 @@ trying to find the wandering one, who has been alive forever and is immortal.
 
  # items
 
+** The Force
+- can 'move' the mind (actor) into another body (action).
+- can move into items, objects, pixels.
 * Items
-** All Items
-   Item actions listed here are 1 turn.
+- can throw and equip all items.
+- Item actions listed here are 1 turn.
+** Actions
+   + An item has a chance to break if it is thrown and hits an actor.
+   + Two items cannot be on the same part of floor.
 
-*** Actions
-    + An item has a chance to break if it is thrown and hits an actor.
-    + Two items cannot be on the same part of floor.
+| Action  | Effect                                    | State                |
+|---------+-------------------------------------------+----------------------|
+| Throw   | /Throw the item in the facing directionl/ |                      |
+| Drop    | /Put item on the ground/                  | if no item on ground |
+| Explain | /Display description screen for item/     |                      |
 
- | Action  | Effect                                    | State                |
- |---------+-------------------------------------------+----------------------|
- | Throw   | /Throw the item in the facing directionl/ |                      |
- | Drop    | /Put item on the ground/                  | if no item on ground |
- | Explain | /Display description screen for item/     |                      |
-
-*** Properties
-    - Items share some common properties
+** Properties
+   - Items share some common properties
 
 
- | Property       | Use                              | Type                  |
- |----------------+----------------------------------+-----------------------|
- | amount/charges | /How many charges left in item/  | pos_integer           |
- | status         | /The status of the item/         | blessed,cursed,normal |
- | cost           | /The full price in zeny at .../  | uinteger              |
- | charge_cost    | /The price for each item charge/ | uinteger              |
- | weight         | /The weight of the item/         | uinteger              |
- |                |                                  |                       |
+| Property       | Use                              | Type                  |
+|----------------+----------------------------------+-----------------------|
+| amount/charges | /How many charges left in item/  | pos_integer           |
+| status         | /The status of the item/         | blessed,cursed,normal |
+| cost           | /The full price in zeny at .../  | uinteger              |
+| charge_cost    | /The price for each item charge/ | uinteger              |
+| weight         | /The weight of the item/         | uinteger              |
+|                |                                  |                       |
 
-*** Status
-**** ???
-     Cannot be taken off if worn.
-     Cannot be used unless already equipped.
-**** ???
-     Extra damage.
-     Does not become destroyed when used, but has a change to become unblessed when used
+** Status
+*** cursed
+    Cannot be taken off if worn.
+    Cannot be used unless already equipped.
+*** blessed
+    Extra damage.
+    Does not become destroyed when used, but has a change to become unblessed when used
 
 ** Consumables
 *** Herbs
@@ -157,8 +219,7 @@ trying to find the wandering one, who has been alive forever and is immortal.
  | Poison       | Poison effect                             |                                |
 
 ** Bags
-*** Bag of Holding
-     - Used for holding other items except bags.
+ - Used for holding other items except bags.
 
  | Action   | Effect                             | State                |
  |----------+------------------------------------+----------------------|
@@ -166,7 +227,7 @@ trying to find the wandering one, who has been alive forever and is immortal.
  | Put In   | /Request an item to be entered/    | when there are slots |
 
 ** Scrolls
-   - Scrolls are single-charge items
+ - Scrolls are single-charge items
 
  | Name            | Effect                                         | Note              |
  |-----------------+------------------------------------------------+-------------------|
@@ -175,18 +236,23 @@ trying to find the wandering one, who has been alive forever and is immortal.
  |                 |                                                |                   |
 
 ** Staffs
-   - Holds charges. Swing to fire a charge in direction of facing.
-   - A staff can be thrown for the effect if it hits, even when there are no charges.
+ - Holds charges. Swing to fire a charge in direction of facing.
+ - A staff can be thrown for the effect if it hits, even when there are no charges.
 
  | Name           | Effect                                           | Note          |
  |----------------+--------------------------------------------------+---------------|
  | Transfer Staff | Swap places with the actor the shot hits, if any |               |
- | n/a         | A fire element shot for MATK*1.25                | Fire element  |
- | n/a   | A water element shot for MATK*1.25               | Water element |
+ | n/a            | A fire element shot for MATK*1.25                | Fire element  |
+ | n/a            | A water element shot for MATK*1.25               | Water element |
 
 ** Equipment
 *** Weapons
-    Can be equipped to left or right hand.
+ Can be equipped to left or right hand.
+ - bow
+ - staff/spear/bo
+ - sword
+ - knife/dagger
+ - fists/knuckle
 *** Armor
     Can be equipped to left or right hand.
 *** Accessories
@@ -202,6 +268,17 @@ trying to find the wandering one, who has been alive forever and is immortal.
 
  # battle
 
+*** Collectables
+ - figures
+ - cards
+ - Books
+ - discs
+*** Consumables
+ - Food (health, stamina, stats)
+ - Scrolls (skills, stats)
+ - Medicines/Potions/Drugs (drunk, speed, pain)
+ - Ammo (arrows, bullets, darts)
+ - Tools (oil, fuel, powders, etc)
 * Battle
 ** Attack
    One turn uses two hands. Two swords is two attacks, Two shields is two defends.
@@ -215,6 +292,37 @@ trying to find the wandering one, who has been alive forever and is immortal.
 
  # world
 
+* Parties/Quests
+* Map
+** Landmarks
+ - save station
+ - shops
+ - populated areas
+ - unexplored/dangerous areas
+
+** Alternative
+  (defparameter *map-tiles*
+    '(floor damage water wall stairs exit warp pit))
+
+  (defparameter *land*
+    '(field desert mountain forest temple cave city))
+
+  (defparameter *shops*
+    '(armor weapon medicine material fabric service tool))
+
+** Types of area
+  dungeon entrance.
+  save room.
+  boss room.
+  empty room.
+  monster room.
+  secret room.
+  trap room.
+  treasure room.
+** Maps/Zones
+- Snow and Ice (water, mem)
+- Underground Caves (earth, aleph)
+- Floating Continents (sky, shin)
 * World
 ** Humble Town
    The hub town of the world which beginning players start and where existing players respawn.
@@ -243,46 +351,6 @@ trying to find the wandering one, who has been alive forever and is immortal.
 
 ** Dungeons
    - Dungeons are like entering a portal to a parallel realm or dream world.
-
-*** Alternative
- (defparameter *map-tiles*
-   '(floor damage water wall stairs exit warp pit))
-
- (defparameter *land*
-   '(field desert mountain forest temple cave city))
-
- (defparameter *shops*
-   '(armor weapon medicine material fabric service tool))
-
-* Ideas
-  - "An oubliette (from the French oubliette - literally "forgotten place") was
-    a form of dungeon which was accessible only from a hatch in a high ceiling.
-    The word comes from the same root as the French oublier, "to forget,"
-    as it was used for those prisoners the captors wished to forget."
-    [[http://en.wikipedia.org/wiki/Dungeon][Wikipedia]]
-  - Seattle Underground
-    [[http://en.wikipedia.org/wiki/Seattle_Underground][Wikipedia]]
-  - Portland Underground
-  - Labyrinth
-  - Doors which open to different areas with the same door.
-  - The cleaner(s): Cave Drill!
-  - Hedge Race
-  - Side View maps, of climbing and so on. Battletoads, Zelda GB.
-  - Jars are Warps?
-  - All indoor areas, with indoor forests.
-  - Many things should be person or character,
-    - Goblins control machines, (eg. Cave Drill and Door Knight),
-    - Objects with faces
-    - Eyes, Hands, Mouths.
-  - Lots of knights. Different colors -- And knights riding stuff.
-  - City of Miniature things!!!!!!!!
-  - Moving/alive rocks. And trees.
-  - Cannons
-  - Broken apart pieces of ground and architecture floating about,
-    like Alice area that goes through the door
-  - Owls.
-
-
 ** The Middle Areas
 
 *** Field of Patience
@@ -317,23 +385,31 @@ trying to find the wandering one, who has been alive forever and is immortal.
 *** Tower of Lost Souls
     - Mara resides here.
 
-* Special Characters
+** Special Characters
 
-** Player
-   A homeless wanderer with no posessions.
-   - Alignment varies by play
+*** Player
+    A homeless wanderer with no posessions.
+    - Alignment varies by play
 
-** Spirit of Phenomena, Spirit of Nature, Spirit of Life and Death
-   - Neutral alignment
-   - Appears in deer form during the day
-   - Appears in formless spirit during the night
+*** Spirit of Phenomena, Spirit of Nature, Spirit of Life and Death
+    - Neutral alignment
+    - Appears in deer form during the day
+    - Appears in formless spirit during the night
 
-** God of Entropy
+*** God of Entropy
 
-** Mara
-   - Strong Chaotic alignment
+*** Mara
+    - Strong Chaotic alignment
 
-** Buddha
-   - Strong Lawful alignment
+*** Buddha
+    - Strong Lawful alignment
+
+* Ideas
+ - different worlds or planets (rick&morty shwifty style)
+ - use cryptocurrency style algorithm for valuable items and unique monster.
+ - What if you can be.... an ITEM ?? or an NPC?
+ - .... or a map? a set of monsters ???
+ - wanderman has two sides, each like both rick and morty.
+
 
 

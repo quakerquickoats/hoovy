@@ -22,14 +22,22 @@
 :- dynamic
 	   user:file_search_path/2.
 
+%% :- prolog_load_context(directory, Dir),
+%%    asserta(user:file_search_path(app, Dir)).
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% http:location(files, root(.), []).
+%% user:file_search_path(files, '.').
+
+% TODO: clean this up with maplist.
 
 http:location(js, '/js', []).
 http:location(css, '/css', []).
 http:location(img, '/img', []).
 user:file_search_path(css, './css').
 user:file_search_path(js, './js').
-user:file_search_path(icons, './icons').
+user:file_search_path(icons, './img').
 
 :- html_resource(style, [virtual(true),
                          requires([css('style.css')]),
@@ -49,7 +57,7 @@ user:file_search_path(icons, './icons').
 		        [priority(1000), prefix]).
 :- http_handler(css(.), http_reply_from_files('css/', []),
                 [priority(1000), prefix]).
-:- http_handler(img(.), http_reply_from_files('icons/', []),
+:- http_handler(img(.), http_reply_from_files('img/', []),
                 [priority(1000), prefix]).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -86,4 +94,4 @@ start:-
 
 stop:-
     Port is 8099,
-    http_stop(Port, []).
+    http_stop_server(Port, []).
