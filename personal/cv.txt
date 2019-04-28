@@ -62,7 +62,7 @@ Work Experience
 
   Open Source and Personal Projects
   2011-2012
-    Design and develop an Erlang multi-MMO game server hosting system. Ported existing game server and took over maintenance, as well as porting another well-known MMO game server into the system. ("erl-dev")
+    Design and develop an Erlang multi-MMO game server hosting system. Ported existing game server and took over maintenance, as well as porting another well-known MMO game server into the system. ("erl-dev") Generates JavaScript with Common Lisp for the front end.
 
   Frostlight.SE
     Kriss Krostoffer

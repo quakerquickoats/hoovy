@@ -1,244 +1,258 @@
 #+TITLE: Valhalla
 
-* Alignment
-  - Karma(chaotic)
-  - Dharma(lawful)
+* Story
+nothing yet.
+trying to find the wandering one, who has been alive forever and is immortal.
+* Character
+** Profile
+ | Name | Use                 | Note |
+ |------+---------------------+------|
+ | STR  | Physical ATK and HP |      |
+ | AGI  |                     |      |
+ | LUK  |                     |      |
+ | INT  | Fromless ATK and SP |      |
+ | VIT  |                     |      |
+ | DEX  |                     |      |
 
-* Jobs
-  - Starting job is "wanderer" or "adventurer"
-  - Player can select a profession later in game,
-    to specialise in weapons and skills and game outcome.
-| Job       | Tag | Element | Equip Weapon | Item Weapon | Bonuses      |
-|-----------+-----+---------+--------------+-------------+--------------|
-| Ninja     | N   | Metal   | Sword        | Knife       | AGI+5 STR+10 |
-| Magician  | M   | Earth   | Staff        | Gem         | DEX+5 INT+10 |
-| Hunter    | H   | Wood    | Bow          | Trap        | LUK+5 DEX+10 |
-| Alchemist | A   | Fire    | Gun          | Tool        | INT+5 LUX+10 |
-| Monk/Sage | *   | Void    | N/A          | N/A         | STR+5 AGI+10 |
+** Alignment
+ automatically determined.
+   - Karma(chaotic)
+   - Dharma(lawful)
 
-** Alternative
-(defparameter *disposition*
-  '(wanderer
-    volunteer
-    scribe
-    soldier
-    hunter
-    artisan))
-
-(defparameter *jobs*
-  '(chef
-    monk
-    sage
-    fighter
-    archer
-    craftsman))
-
-(defparameter *second-jobs*
-  '(alchemist
-    priest
-    wizard
-    samurai    ; swordsman
-    shaman     ; woodsman
-    blacksmith))
-
-* Profile
-| Name | Use                 | Note |
-|------+---------------------+------|
-| STR  | Physical ATK and HP |      |
-| INT  | Fromless ATK and SP |      |
-| AGI  |                     |      |
-
-** Alternative
-(defparameter *char-stats*
-  '(STR AGI LUK INT VIT DEX))
-
-* Status Effects
-
-| Type      | Effect                                       | Note | Duration |
-|-----------+----------------------------------------------+------+----------|
-| Poison    | Loss of HP at each turn                      |      | 20 turns |
-| Mute      | Cannot use skills                            |      | 20 turns |
-| Confused  | Walk and Attack direction are random         |      | 20 turns |
-| Paralyze  | Automatic 'Wait' action taken                |      | 20 turns |
-| Blindness | Lose map, item, char location. Gain hearing. |      | ?        |
-
-** Alternative
-(defparameter *personalities*
-  '(angry depressed sketchy aloof asleep frantic hostile calm flaming))
-(defparameter *statuses*
-  '(normal confused fast slow stunned asleep beserk))
+ also these three need to be automatically determined
+   - Male
+   - Robot/NPC/computer/AI
+   - Female
 
 
-# items
+** Jobs
+   - Starting job is "wanderer" or "adventurer"
+   - Player can select a profession later in game,
+     to specialise in weapons and skills and game outcome.
+ | Job       | Tag | Element | Equip Weapon | Item Weapon | Bonuses      |
+ |-----------+-----+---------+--------------+-------------+--------------|
+ | Ninja     | N   | Metal   | Sword        | Knife       | AGI+5 STR+10 |
+ | Magician  | M   | Earth   | Staff        | Gem         | DEX+5 INT+10 |
+ | Hunter    | H   | Wood    | Bow          | Trap        | LUK+5 DEX+10 |
+ | Alchemist | A   | Fire    | Gun          | Tool        | INT+5 LUX+10 |
+ | Monk/Sage | *   | Void    | N/A          | N/A         | STR+5 AGI+10 |
 
-* All Items
-  Item actions listed here are 1 turn.
+*** Alternative
+ (defparameter *disposition*
+   '(wanderer
+     volunteer
+     scribe
+     soldier
+     hunter
+     artisan))
 
-** Actions
-   + An item has a chance to break if it is thrown and hits an actor.
-   + Two items cannot be on the same part of floor.
+ (defparameter *jobs*
+   '(chef
+     monk
+     sage
+     fighter
+     archer
+     craftsman))
 
-| Action  | Effect                                    | State                |
-|---------+-------------------------------------------+----------------------|
-| Throw   | /Throw the item in the facing directionl/ |                      |
-| Drop    | /Put item on the ground/                  | if no item on ground |
-| Explain | /Display description screen for item/     |                      |
-
-** Properties
-   - Items share some common properties
-
-
-| Property       | Use                              | Type                  |
-|----------------+----------------------------------+-----------------------|
-| amount/charges | /How many charges left in item/  | pos_integer           |
-| status         | /The status of the item/         | blessed,cursed,normal |
-| cost           | /The full price in zeny at .../  | uinteger              |
-| charge_cost    | /The price for each item charge/ | uinteger              |
-| weight         | /The weight of the item/         | uinteger              |
-|                |                                  |                       |
-
-** Status
-*** ???
-    Cannot be taken off if worn.
-    Cannot be used unless already equipped.
-*** ???
-    Extra damage.
-    Does not become destroyed when used, but has a change to become unblessed when used
-
-* Consumables
-** Herbs
-   - Herbs can be eaten or thrown to an actor to cause the effect.
-   - Eating a herb replenishes 5% fullness.
-
-| Name                | Effect           | Note |
-|---------------------+------------------+------|
-| Weak Healing Herb   | Replenish 6% HP  |      |
-| Healing Herb        | Replenish 12% HP |      |
-| Strong Healing Herb | Replenish 24% HP |      |
-
-** Food
-   - Food is used to replenish SP and sometimes HP.
-
-| Name       | Effect        | Note                        |
-|------------+---------------+-----------------------------|
-| Cherry     | 5% SP         | Stacking item (cherry[ 3 ]) |
-| Strawberry | 5% SP         | Stacking                    |
-| Grape      | 5% SP         | Stacking                    |
-| Apple      | 25% SP        |                             |
-| Orange     | 50% SP        |                             |
-| Lemon      | 50% SP        |                             |
-| Peach      | 50% SP        |                             |
-| Banana     | 25% SP 25% HP | Changes to 'Banana Peel'    |
-| Avocado    | 25% SP 25% HP |                             |
-| Coconut    | 25% SP 25% HP |                             |
-| Mango      | 50% SP 25% HP |                             |
-
-** Potions
-   [[/val/potion2.svg]]
-   - Potion can be mixed
-
-| Name         | Effect                                    | Note                           |
-|--------------+-------------------------------------------+--------------------------------|
-| Empty Bottle | None                                      | Can be used to collect liquids |
-| Alcohol      | Confusion and Provoke state when consumed |                                |
-| Water        | None                                      |                                |
-| Poison       | Poison effect                             |                                |
-
-* Bags
-** Bag of Holding
-    - Used for holding other items except bags.
-
-| Action   | Effect                             | State                |
-|----------+------------------------------------+----------------------|
-| Contents | /Look inside, show inventory menu/ |                      |
-| Put In   | /Request an item to be entered/    | when there are slots |
-
-* Scrolls
-  - Scrolls are single-charge items
-
-| Name            | Effect                                         | Note              |
-|-----------------+------------------------------------------------+-------------------|
-| Teleport Scroll | Warp user to random unoccupied location of map |                   |
-| Blank Scroll    | Takes the effect of what is written            | Write Name action |
-|                 |                                                |                   |
-
-* Staffs
-  - Holds charges. Swing to fire a charge in direction of facing.
-  - A staff can be thrown for the effect if it hits, even when there are no charges.
-
-| Name           | Effect                                           | Note          |
-|----------------+--------------------------------------------------+---------------|
-| Transfer Staff | Swap places with the actor the shot hits, if any |               |
-| n/a         | A fire element shot for MATK*1.25                | Fire element  |
-| n/a   | A water element shot for MATK*1.25               | Water element |
-
-* Equipment
-** Weapons
-   Can be equipped to left or right hand.
-** Armor
-   Can be equipped to left or right hand.
-** Accessories
-   Can be equipped to one of two accessory slots.
-   - Hats
-   - Armbands
-   - Rings
-   - Necklace
-   - Shoes
-** Ammunition
-   Arrows, knives, rocks, traps
+ (defparameter *second-jobs*
+   '(alchemist
+     priest
+     wizard
+     samurai    ; swordsman
+     shaman     ; woodsman
+     blacksmith))
 
 
-# battle
+** Status Effects
 
-* Attack
-  One turn uses two hands. Two swords is two attacks, Two shields is two defends.
-  Sword then shield is attack then defend, shield then sword is defend then attack.
+ | Type      | Effect                                       | Note | Duration |
+ |-----------+----------------------------------------------+------+----------|
+ | Poison    | Loss of HP at each turn                      |      | 20 turns |
+ | Mute      | Cannot use skills                            |      | 20 turns |
+ | Confused  | Walk and Attack direction are random         |      | 20 turns |
+ | Paralyze  | Automatic 'Wait' action taken                |      | 20 turns |
+ | Blindness | Lose map, item, char location. Gain hearing. |      | ?        |
 
-  Damage = (Item VAL * Dest STR) / Target DEF
+*** Alternative
+ (defparameter *personalities*
+   '(angry depressed sketchy aloof asleep frantic hostile calm flaming))
+ (defparameter *statuses*
+   '(normal confused fast slow stunned asleep beserk))
 
-* Defense
 
-  Damage = (Item VAL * Source STR) / Dest DEF
+ # items
 
-# world
+* Items
+** All Items
+   Item actions listed here are 1 turn.
 
-* Humble Town
-  The hub town of the world which beginning players start and where existing players respawn.
-** Layman's Dungeon
-   - The place where a beginning player will start to learn the game
-   - Existing players can return here to gain some levels on respawn.
-** Shop
-   - Buy items.
-   - Sell items.
-   - Tag items.
-   - Untag items.
-   - Retrieve tagged items.
-** Storage
-   - Holds up to 80 items, organized by type. See [[file:item.org]].
-   - Give item
-   - Take item
-   - Give all items
-** Smith
-   - Upgrade items.
-   - Combine items.
-   - Deconstruct items into materials.
-   - Construct items from materials.
-** Fortune Teller (better name)
-   - Skills.
-   - Jobs.
+*** Actions
+    + An item has a chance to break if it is thrown and hits an actor.
+    + Two items cannot be on the same part of floor.
 
-* Dungeons
-  - Dungeons are like entering a portal to a parallel realm or dream world.
+ | Action  | Effect                                    | State                |
+ |---------+-------------------------------------------+----------------------|
+ | Throw   | /Throw the item in the facing directionl/ |                      |
+ | Drop    | /Put item on the ground/                  | if no item on ground |
+ | Explain | /Display description screen for item/     |                      |
 
-** Alternative
-(defparameter *map-tiles*
-  '(floor damage water wall stairs exit warp pit))
+*** Properties
+    - Items share some common properties
 
-(defparameter *land*
-  '(field desert mountain forest temple cave city))
 
-(defparameter *shops*
-  '(armor weapon medicine material fabric service tool))
+ | Property       | Use                              | Type                  |
+ |----------------+----------------------------------+-----------------------|
+ | amount/charges | /How many charges left in item/  | pos_integer           |
+ | status         | /The status of the item/         | blessed,cursed,normal |
+ | cost           | /The full price in zeny at .../  | uinteger              |
+ | charge_cost    | /The price for each item charge/ | uinteger              |
+ | weight         | /The weight of the item/         | uinteger              |
+ |                |                                  |                       |
+
+*** Status
+**** ???
+     Cannot be taken off if worn.
+     Cannot be used unless already equipped.
+**** ???
+     Extra damage.
+     Does not become destroyed when used, but has a change to become unblessed when used
+
+** Consumables
+*** Herbs
+    - Herbs can be eaten or thrown to an actor to cause the effect.
+    - Eating a herb replenishes 5% fullness.
+
+ | Name                | Effect           | Note |
+ |---------------------+------------------+------|
+ | Weak Healing Herb   | Replenish 6% HP  |      |
+ | Healing Herb        | Replenish 12% HP |      |
+ | Strong Healing Herb | Replenish 24% HP |      |
+
+*** Food
+    - Food is used to replenish SP and sometimes HP.
+
+ | Name       | Effect        | Note                        |
+ |------------+---------------+-----------------------------|
+ | Cherry     | 5% SP         | Stacking item (cherry[ 3 ]) |
+ | Strawberry | 5% SP         | Stacking                    |
+ | Grape      | 5% SP         | Stacking                    |
+ | Apple      | 25% SP        |                             |
+ | Orange     | 50% SP        |                             |
+ | Lemon      | 50% SP        |                             |
+ | Peach      | 50% SP        |                             |
+ | Banana     | 25% SP 25% HP | Changes to 'Banana Peel'    |
+ | Avocado    | 25% SP 25% HP |                             |
+ | Coconut    | 25% SP 25% HP |                             |
+ | Mango      | 50% SP 25% HP |                             |
+
+*** Potions
+    [[/val/potion2.svg]]
+    - Potion can be mixed
+
+ | Name         | Effect                                    | Note                           |
+ |--------------+-------------------------------------------+--------------------------------|
+ | Empty Bottle | None                                      | Can be used to collect liquids |
+ | Alcohol      | Confusion and Provoke state when consumed |                                |
+ | Water        | None                                      |                                |
+ | Poison       | Poison effect                             |                                |
+
+** Bags
+*** Bag of Holding
+     - Used for holding other items except bags.
+
+ | Action   | Effect                             | State                |
+ |----------+------------------------------------+----------------------|
+ | Contents | /Look inside, show inventory menu/ |                      |
+ | Put In   | /Request an item to be entered/    | when there are slots |
+
+** Scrolls
+   - Scrolls are single-charge items
+
+ | Name            | Effect                                         | Note              |
+ |-----------------+------------------------------------------------+-------------------|
+ | Teleport Scroll | Warp user to random unoccupied location of map |                   |
+ | Blank Scroll    | Takes the effect of what is written            | Write Name action |
+ |                 |                                                |                   |
+
+** Staffs
+   - Holds charges. Swing to fire a charge in direction of facing.
+   - A staff can be thrown for the effect if it hits, even when there are no charges.
+
+ | Name           | Effect                                           | Note          |
+ |----------------+--------------------------------------------------+---------------|
+ | Transfer Staff | Swap places with the actor the shot hits, if any |               |
+ | n/a         | A fire element shot for MATK*1.25                | Fire element  |
+ | n/a   | A water element shot for MATK*1.25               | Water element |
+
+** Equipment
+*** Weapons
+    Can be equipped to left or right hand.
+*** Armor
+    Can be equipped to left or right hand.
+*** Accessories
+    Can be equipped to one of two accessory slots.
+    - Hats
+    - Armbands
+    - Rings
+    - Necklace
+    - Shoes
+*** Ammunition
+    Arrows, knives, rocks, traps
+
+
+ # battle
+
+* Battle
+** Attack
+   One turn uses two hands. Two swords is two attacks, Two shields is two defends.
+   Sword then shield is attack then defend, shield then sword is defend then attack.
+
+   Damage = (Item VAL * Dest STR) / Target DEF
+
+** Defense
+
+   Damage = (Item VAL * Source STR) / Dest DEF
+
+ # world
+
+* World
+** Humble Town
+   The hub town of the world which beginning players start and where existing players respawn.
+*** Layman's Dungeon
+    - The place where a beginning player will start to learn the game
+    - Existing players can return here to gain some levels on respawn.
+*** Shop
+    - Buy items.
+    - Sell items.
+    - Tag items.
+    - Untag items.
+    - Retrieve tagged items.
+*** Storage
+    - Holds up to 80 items, organized by type. See [[file:item.org]].
+    - Give item
+    - Take item
+    - Give all items
+*** Smith
+    - Upgrade items.
+    - Combine items.
+    - Deconstruct items into materials.
+    - Construct items from materials.
+*** Fortune Teller (better name)
+    - Skills.
+    - Jobs.
+
+** Dungeons
+   - Dungeons are like entering a portal to a parallel realm or dream world.
+
+*** Alternative
+ (defparameter *map-tiles*
+   '(floor damage water wall stairs exit warp pit))
+
+ (defparameter *land*
+   '(field desert mountain forest temple cave city))
+
+ (defparameter *shops*
+   '(armor weapon medicine material fabric service tool))
 
 * Ideas
   - "An oubliette (from the French oubliette - literally "forgotten place") was
