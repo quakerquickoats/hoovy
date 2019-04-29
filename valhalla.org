@@ -33,29 +33,47 @@ trying to find the wandering one, who has been alive forever and is immortal.
    - Female
 
 ** Classes
- - there are 7 classes
 
-TODO: rename these, they sound like jobs.
+ - Starting class 1 is 'novice' or 'adventurer' or unnamed.
 
-| Class    | Element   | Letter | Word    | Native Region     |   |
-|----------+-----------+--------+---------+-------------------+---|
-| theif    | Dark      | bet    | xashekh | underground       |   |
-| merchant | Earth     | dalet  | aretz   | camps             |   |
-| hunter   | Water     | gimel  | mayim   | caravan           |   |
-| chef     | Fire      | kaf    | yesh    | village           |   |
-| fighter  | Wind      | peh    | ruax    | boats and ships   |   |
-| artist   | Void/Mind | resh   | neshama | city              |   |
-| monk     | Light     | tau    | aur     | temple and palace |   |
+ - there are 7 other classes (2..8)
 
-theif gathers and steals for merchant,
-merchant sells to hunter,
-chef cooks from hunter,
-fighter eats from chef,
-artist draws and sings from fighter,
-monk reflects on artist,
-monk gives to theif.
+| Class         | Element   | Native Region   | Yang Class | Yang 2      | Yin Class  | Yin 2     |
+|---------------+-----------+-----------------+------------+-------------+------------+-----------|
+| rebel/vagrant | Dark      | underground     | Rogue      | Outlaw      | Assassin   | Ninja     |
+| merchant      | Earth     | boats & ships   | Salesman?? | Businessman | Captain    | Pirate    |
+| hunter        | Water     | nomadic         | Ranger     | Hunter      | Trapper    | Geomancer |
+| artisan       | Fire      | caravan         | Cook       | Chef        | Blacksmith | Alchemist |
+| fighter       | Wind      | camps           | Soldier    | Warrior     | Guard      | Mercenary |
+| scholar       | Void/Mind | city            | Magician   | Alchemist   | Hacker     | Sorceror  |
+| monk          | Light     | temple & palace | Priest     | Prophet     | Guru       | Master    |
+
+1, outlaw gathers and steals for merchant,
+2, merchant sells to hunter,
+3, artisan cooks and makes from hunter,
+4, fighter eats and equips from artisan,
+5, scholar paints and sings from fighter,
+6, monk reflects on scholar,
+7, monk gives to outlaw.
 
 and so the cycle.
+
+ - there are 7 elements
+
+| Element | Letter | Word    | Weakness |
+|---------+--------+---------+----------|
+| Dark    | bet    | xashekh | light    |
+| Earth   | dalet  | aretz   | spirit   |
+| Water   | gimel  | mayim   | wind     |
+| Fire    | kaf    | yesh    | fire     |
+| Wind    | peh    | ruax    | water    |
+| Spirit  | resh   | neshama | earth    |
+| Light   | tau    | aur     | dark     |
+
+weakness is element reversed, except fire.
+"spirit/void/mind" is the same. "earth" is materialist.
+
+
 
 ** Jobs
  - there are 12 jobs.
