@@ -1,5 +1,7 @@
 #+TITLE: Valhalla
 
+=========== Game
+
 * Story
 nothing yet.
 trying to find the wandering one, who has been alive forever and is immortal.
@@ -8,9 +10,92 @@ trying to find the wandering one, who has been alive forever and is immortal.
  - lost love
  - appears and disappears, have to lure him and chase him
 
-*** Beginning
+* System
+ - there are 10 'numbers'
+ - there are 3 alignments
+ - there are 7 elements
+ - and 12 dispositions or temperments.
+
+ - for a total of 32 'bits'.
+
+|    |   | Mother | [[Elements]] |   |
+|----+---+--------+----------+---|
+| 1  | ? |        |          |   |
+| 2  | ? |        |          |   |
+| 3  | ? |        |          |   |
+| 4  | ? |        |          |   |
+| 5  | ? |        |          |   |
+| 6  | ? |        |          |   |
+| 7  | ? |        |          |   |
+| 8  | ? |        |          |   |
+| 9  | ? |        |          |   |
+| 10 | ? |        |          |   |
+| א  |   | Robot  |          |   |
+| ב  |   |        | [[Dark]]     |   |
+| ג  |   |        | [[Earth]]    |   |
+| ד  |   |        | [[Water]]    |   |
+| ה  |   |        |          | ? |
+| ו  |   |        |          | ? |
+| ז  |   |        |          | ? |
+| ח  |   |        |          | ? |
+| ט  |   |        |          | ? |
+| י  |   |        |          | ? |
+| כ  |   |        | [[Fire]]     |   |
+| ל  |   |        |          | ? |
+| מ  |   | Female |          |   |
+| נ  |   |        |          | ? |
+| ס  |   |        |          | ? |
+| ע  |   |        |          | ? |
+| פ  |   |        | [[Air]]      |   |
+| צ  |   |        |          | ? |
+| ק  |   |        |          | ? |
+| ר  |   |        | [[Space]]    |   |
+| ש  |   | Male   |          |   |
+| ת  |   |        | [[Light]]    |   |
+
+** Alignments (Mothers)
+ - there are 3 alignments.
+
+ also these three need to be automatically determined
+   - Male
+   - Robot/NPC/computer/AI
+   - Female
+*** other idea
+ automatically determined.
+   - Karma(chaotic)
+   - Dharma(lawful)
+
+** Elements (Doubles)
+ - there are 7 elements
+ ? dagesh(dot) is on/off depending on male/female??
+
+ | Num | Element   | Word | Weakness | Biomenvironment |
+ |-----+-----------+------+----------+-----------------|
+ |   7 | <<Dark>>  | חשך  | light    | hell            |
+ |   6 | <<Earth>> | ארץ  | spirit   | caves,buildings |
+ |   5 | <<Water>> | מים  | wind     | islands,forest  |
+ |   4 | <<Fire>>  | יש   | fire     | desert,mountain |
+ |   3 | <<Air>>   | רוה  | water    | sky             |
+ |   2 | <<Space>> | נשמה | earth    | space           |
+ |   1 | <<Light>> | אור  | dark     | heaven          |
+
+ - element.weakness is element reversed, except fire.
+
+ |   | Dark | Earth | Water | Fire | Wind | Spirit | Light |
+ |---+------+-------+-------+------+------+--------+-------|
+ |   |      |       |       |      |      |        |       |
+
+ - "spirit/void/mind" is the same
+ - "earth" is materialist.
+
+** Temperments Singles)
+|   |   |
+|---+---|
+|   |   |
+
 * Character
-** Profile
+ - character has alignment(mother), element(double), job(single)
+** Attributes
  | Name | Use                 | Note |
  |------+---------------------+------|
  | STR  | Physical ATK and HP |      |
@@ -20,32 +105,18 @@ trying to find the wandering one, who has been alive forever and is immortal.
  | VIT  |                     |      |
  | DEX  |                     |      |
 
-** Alignment
- - there are 3 alignments.
-
- automatically determined.
-   - Karma(chaotic)
-   - Dharma(lawful)
-
- also these three need to be automatically determined
-   - Male
-   - Robot/NPC/computer/AI
-   - Female
-
 ** Classes
-
  - Starting class 1 is 'novice' or 'adventurer' or unnamed.
-
  - there are 7 other classes (2..8)
 
 | Class         | Element   | Native Region   | Yang Class | Yang 2      | Yin Class  | Yin 2     |
 |---------------+-----------+-----------------+------------+-------------+------------+-----------|
 | rebel/vagrant | Dark      | underground     | Rogue      | Outlaw      | Assassin   | Ninja     |
-| merchant      | Earth     | boats & ships   | Salesman?? | Businessman | Captain    | Pirate    |
-| hunter        | Water     | nomadic         | Ranger     | Hunter      | Trapper    | Geomancer |
-| artisan       | Fire      | caravan         | Cook       | Chef        | Blacksmith | Alchemist |
-| fighter       | Wind      | camps           | Soldier    | Warrior     | Guard      | Mercenary |
-| scholar       | Void/Mind | city            | Magician   | Alchemist   | Hacker     | Sorceror  |
+| hunter        | Earth     | caravan         | Salesman?? | Businessman | Captain    | Pirate    |
+| merchant      | Water     | boats&ships     | Ranger     | Hunter      | Trapper    | Geomancer |
+| artisan       | Fire      | camps           | Cook       | Chef        | Blacksmith | Alchemist |
+| fighter       | Wind      | airship         | Soldier    | Warrior     | Guard      | Mercenary |
+| scholar       | Void/Mind | city            | Magician   | Sorceror    | Linguist?? | Hacker    |
 | monk          | Light     | temple & palace | Priest     | Prophet     | Guru       | Master    |
 
 1, outlaw gathers and steals for merchant,
@@ -58,31 +129,14 @@ trying to find the wandering one, who has been alive forever and is immortal.
 
 and so the cycle.
 
- - there are 7 elements
-
-| Element | Letter | Word    | Weakness |
-|---------+--------+---------+----------|
-| Dark    | bet    | xashekh | light    |
-| Earth   | dalet  | aretz   | spirit   |
-| Water   | gimel  | mayim   | wind     |
-| Fire    | kaf    | yesh    | fire     |
-| Wind    | peh    | ruax    | water    |
-| Spirit  | resh   | neshama | earth    |
-| Light   | tau    | aur     | dark     |
-
-weakness is element reversed, except fire.
-"spirit/void/mind" is the same. "earth" is materialist.
-
-
-
 ** Jobs
  - there are 12 jobs.
- - Starting job is "novice" or "adventurer"
- - Player can select a profession later in game,
+ ? Starting job is "novice" or "adventurer"
+ ? Player can select a profession later in game,
    to specialise in weapons and skills and game outcome.
 
-- hacker =)
-- in progress.
+? hacker =)
+? in progress.
 
 |          | Job       | Letter |
 |----------+-----------+--------|
@@ -342,67 +396,86 @@ weakness is element reversed, except fire.
 - Underground Caves (earth, aleph)
 - Floating Continents (sky, shin)
 * World
-** Humble Town
-   The hub town of the world which beginning players start and where existing players respawn.
-*** Layman's Dungeon
+** Axis Mundi
+"Every Microcosm, every inhabited region, has a Centre;
+that is to say, a place that is sacred above all."
+where all 7 continents  connect.
+*** Humble Town
+    The hub town of the world which beginning players start,
+    and where existing players respawn.
+*** Humble Dungeon
     - The place where a beginning player will start to learn the game
     - Existing players can return here to gain some levels on respawn.
-*** Shop
-    - Buy items.
-    - Sell items.
-    - Tag items.
-    - Untag items.
-    - Retrieve tagged items.
-*** Storage
-    - Holds up to 80 items, organized by type. See [[file:item.org]].
-    - Give item
-    - Take item
-    - Give all items
-*** Smith
-    - Upgrade items.
-    - Combine items.
-    - Deconstruct items into materials.
-    - Construct items from materials.
-*** Fortune Teller (better name)
+
+** Idea 1
+*** The Middle Areas
+**** Field of Patience
+     - Movement
+     - 3 floors
+**** Circle Cave
+     - Stillness
+     - 3 floors
+**** Revolving Tower
+     - Movement
+     - 5 floors
+**** Castle of the In-Between
+     - Stillness
+     - 5 floors
+     - Completion opens Heaven areas and Hell areas
+
+*** Heaven Continent Areas
+**** Lake of Reflections
+**** Cave of Harmony
+**** Field of Compassion and Equanimity
+**** Joy and Happiness Plateau
+     - Buddha resides here.
+
+*** Hell Continent Areas
+**** Nightmare Island
+     The entrance to Hell.
+**** Sea of Tears
+**** Labyrinth of Delirium
+**** Maze of Horrors
+**** Tower of Lost Souls
+     - Mara resides here.
+
+** Continents (countries)
+Sorted by smallest to biggest,
+each (element,number) relates directly to character.class
+
+| Element | name        | Style           | loc        | inspiration | Size |
+|---------+-------------+-----------------+------------+-------------+------|
+| [[Dark]]    |             | prison,factory  | bottom     | Australia   |    1 |
+| [[Earth]]   |             | castle,fortress | down       | Europe      |    2 |
+| [[Water]]   | [[Axis Mundi]]  |                 | center     | Antarctica  |    3 |
+| [[Fire]]    |             | desert          | out,around | S. America  |    4 |
+| [[Wind]]    | sky         |                 | up         | N. America  |    5 |
+| [[Spirit]]  | heaven/mind | space tech      | in,toward? | Africa      |    6 |
+| [[Light]]   |             |                 | top        | Asia        |    7 |
+
+*** antarctica: penguins
+
+* World Features
+** Market
+   - Buy items.
+   - Sell items.
+   - Tag items.
+   - Untag items.
+   - Retrieve tagged items.
+** Storage
+   - Holds up to 618 items, organized by type.
+   - Give item
+   - Take item
+   - Give all items** Dungeons
+  - Dungeons are like entering a portal to a parallel realm or dream world.
+** Factory
+   - Upgrade items.
+   - Combine items.
+   - Deconstruct items into materials.
+   - Construct items from materials.
+** Fortune Teller (better name)
     - Skills.
     - Jobs.
-
-** Dungeons
-   - Dungeons are like entering a portal to a parallel realm or dream world.
-** The Middle Areas
-
-*** Field of Patience
-    - Movement
-    - 3 floors
-*** Circle Cave
-    - Stillness
-    - 3 floors
-*** Revolving Tower
-    - Movement
-    - 5 floors
-*** Castle of the In-Between
-    - Stillness
-    - 5 floors
-    - Completion opens Heaven areas and Hell areas
-
-** Heaven Continent Areas
-
-*** Lake of Reflections
-*** Cave of Harmony
-*** Field of Compassion and Equanimity
-*** Joy and Happiness Plateau
-    - Buddha resides here.
-
-** Hell Continent Areas
-
-*** Nightmare Island
-    The entrance to Hell.
-*** Sea of Tears
-*** Labyrinth of Delirium
-*** Maze of Horrors
-*** Tower of Lost Souls
-    - Mara resides here.
-
 ** Special Characters
 
 *** Player
@@ -429,5 +502,18 @@ weakness is element reversed, except fire.
  - .... or a map? a set of monsters ???
  - wanderman has two sides, each like both rick and morty.
 
+ - have a butler somewhere somehow, as pet or service or character ??
 
 
+
+=========== Server
+
+* Login Server
+* Map Server
+* Character Server
+
+=========== Client
+
+* Graphics
+* Audio
+* Input
