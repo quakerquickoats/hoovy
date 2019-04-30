@@ -1,7 +1,5 @@
 #+TITLE: Hoovy Studio Workspace Home
 
-cluck: oni-on-ion: it's easy; you take any one ion in an onion and you funion the shit on it
-
 * Run XTerm
 xterm -fa monospace -fs 11 -bg black -fg white -xrm 'XTerm*metaSendsEscape: true'
 
@@ -95,17 +93,25 @@ dropbox start && dropbox status
 
 
 * Communications
-
-Freenode: #emacs #lispgames #lisp ##prolog #gamedev #xelf 
+Freenode: #emacs #lispgames #lisp ##prolog #gamedev #xelf
 EFnet: #buddhism #shmups #dragonquest
 Quakenet: #rgrd
-
 [[irc:/irc.freenode.net/#emacs][#emacs on freenode]]
-
 
 * Research
 ** Programming articles
-https://www.brynmawr.edu/cs/resources/beauty-of-programming - Linus Torvalds
+ Linus Torvalds
+ https://www.brynmawr.edu/cs/resources/beauty-of-programming
+ [brackets lisp and literate programming]
+ http://pcmonk.me/2016/10/13/logging-idea-maze.html
+** Qabalah
+http://koshertorah.com  (and mental kung fu)
+http://www.hope-of-israel.org/tetragram.html
+http://www.sacred-texts.com/eso/sta/sta29.htm
+http://sapphiremagendavid.blogspot.com/
+[10 commandments]
+http://kabbalahsecrets.com/?page_id=1944
+
 ** Editing links
 https://www.emacswiki.org/emacs/TheCraftOfTextEditing
 ** RPG links

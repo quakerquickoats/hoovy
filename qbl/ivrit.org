@@ -1,27 +1,5 @@
 #+TITLE: Qabbalah
 
-* Ideas about the letters
-** DOS Filenames
- - 8 letters basename, 3 letters extension = 11
- - 2x11 = 22
-
-* Technical Notes
-** Rendering Hebrew
-- https://mattdesl.svbtle.com/drawing-lines-is-hard
-- https://github.com/tyt2y3/vaserenderer
-** brackets lisp and literate programming
-http://pcmonk.me/2016/10/13/logging-idea-maze.html
-
-* Links
-http://koshertorah.com  (and mental kung fu)
-http://www.hope-of-israel.org/tetragram.html
-http://www.sacred-texts.com/eso/sta/sta29.htm
-http://sapphiremagendavid.blogspot.com/
-
-[10 commandments]
-http://kabbalahsecrets.com/?page_id=1944
-
-
 * Torah Emacs
 ** Letters
 #+BEGIN_SRC emacs-lisp :lexical t
@@ -64,7 +42,36 @@ http://kabbalahsecrets.com/?page_id=1944
 #+END_SRC
 
 ** Keyboard Transliteration
+
+| Letter | Keyboard |
+|--------+----------|
+| א      | t        |
+| ב      | c        |
+| ג      | f        |
+| ד      | s        |
+| ה      | v        |
+| ו      | u        |
+| ז      | z        |
+| ח      | j        |
+| ט      | y        |
+| י      | h        |
+| כ      | f        |
+| ל      | k        |
+| מ      | n        |
+| נ      | b        |
+| ס      | x        |
+| ע      | g        |
+| פ      | p        |
+| צ      | m        |
+| ק      | e        |
+| ר      | r        |
+| ש      | a        |
+| ת      | ,        |
+
 #+BEGIN_SRC emacs-lisp
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; These are straight keyboard mappings.
+;;
 ;; qwertyuiop
 ;; asdfghjkl;'
 ;; zxcvbnm,./
@@ -72,7 +79,13 @@ http://kabbalahsecrets.com/?page_id=1944
 ;; ׳קראטוןםפ
 ;; שדגכעיחלךף,
 ;; זסבהנמצתץ.
+;;
+;; 
+;; אבגדהוזחטיכלמנסעפצקרשת
+;; 
 
+;;;;;;;;;;;;;;;;;;;
+;; These,
 ;;
 ;; 22-letter english for transliteration. (see *qb-transliteration* below)
 ;;     not sure if i like "e" and "u" for Heh and Waw, or "h" and "w".
@@ -80,6 +93,12 @@ http://kabbalahsecrets.com/?page_id=1944
 ;;
 ;; abgdeuzx@iklmnsypcqr$t
 ;; אבגדהוזחטיכלמנסעפצקרשת
+;;
+;; OR alternative, case-sensitive:
+;; abjdeuzxTyklmnSopcgrst
+;;
+;; hmm.
+;;
 
 (defconst *qb-key-alist*
   (let ((e "qwertyuiopasdfghjkl;'zxcvbnm,./")

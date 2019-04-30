@@ -55,18 +55,19 @@ trying to find the wandering one, who has been alive forever and is immortal.
 
 ** Numbers (10 Heavenly/Celestial <<Stems>>)
     :AS-SEFIROT:
-| Num | Left  | Middle | Right |
-|-----+-------+--------+-------|
-|   1 |       |        | חכמה  |
-|   2 | בינה  |        |       |
-|   3 |       | דעת    |       |
-|   4 |       |        | חסד   |
-|   5 | גבורה |        |       |
-|   6 |       | תפארת  |       |
-|   7 |       |        | נצח   |
-|   8 | הוד   |        |       |
-|   9 |       | יסוד   |       |
-|  10 |       | מלכות  |       |
+ | Num | Left  | Middle | Right | Body          |
+ |-----+-------+--------+-------+---------------|
+ | (0) |       | כתר    |       | Skull         |
+ |   1 |       |        | חכמה  | Right brain   |
+ |   2 | בינה  |        |       | Left brain    |
+ |   3 |       | דעת    |       | Central brain |
+ |   4 |       |        | חסד   | Right arm     |
+ |   5 | גבורה |        |       | Left arm      |
+ |   6 |       | תפארת  |       | Torso         |
+ |   7 |       |        | נצח   | Right leg     |
+ |   8 | הוד   |        |       | Left leg      |
+ |   9 |       | יסוד   |       | Sex organ     |
+ |  10 |       | מלכות  |       | Mouth         |
     :END:
     :CHINESE-HEBREW:
 |    | Sephirot |      |       |        |
@@ -103,7 +104,18 @@ trying to find the wandering one, who has been alive forever and is immortal.
  - there are 7 elements.
  ? dagesh(dot) is on/off depending on yang/yin, male/female??
 
- | Num | Element   | Word | Weakness | Biomenvironment | Weekday |
+ | Letter | Class |
+ |--------+-------|
+ | ב      | Dark  |
+ | ד      | Earth |
+ | ג      | Water |
+ | כ      | Fire  |
+ | פ      | Air   |
+ | ר      | Space |
+ | ת      | Light |
+
+ :WESTERN:
+ | Num | Class     | Word | Weakness | Biomenvironment | Weekday |
  |-----+-----------+------+----------+-----------------+---------|
  |   7 | <<Dark>>  | חשך  | light    | hell            | ?       |
  |   6 | <<Earth>> | ארץ  | spirit   | caves,buildings | ?       |
@@ -112,14 +124,21 @@ trying to find the wandering one, who has been alive forever and is immortal.
  |   3 | <<Air>>   | רוה  | water    | sky             | ?       |
  |   2 | <<Space>> | נשמה | earth    | space? spirits? | ?       |
  |   1 | <<Light>> | אור  | dark     | heaven          | ?       |
-
- - "spirit/void/mind" is the same.
- - "earth" is materialist.
+ - Spirit/Void/Mind is the same.
+ - Earth is materialist.
  - element.weakness is element reversed, except fire.
-
- |   | Dark | Earth | Water | Fire | Wind | Spirit | Light |
- |---+------+-------+-------+------+------+--------+-------|
- |   |      |       |       |      |      |        |       |
+ :END:
+ :CHAKRA:
+ | Chakra       | Sephirot  | Color  |
+ |--------------+-----------+--------|
+ | Crown        | בתר,דעת   | Purple |
+ | 3rd Eye      | חכמה,בינה | Blue   |
+ | Throat       | חסד,גבורה | Cyan   |
+ | Heart        | תפארת     | Green  |
+ | Solar Plexus | נצח,הוד   | Yellow |
+ | Sacral       | יסוד      | Orange |
+ | Root         | מלכות     | Red    |
+ :END:
 
 ** Tribes (12 Earthly <<Branches>>)
  - 12 months as zodiac,
@@ -163,6 +182,49 @@ https://en.wikipedia.org/wiki/Sexagenary_cycle
 |               10 | Pig     | \       |        | Tues    |
 |               11 | Rat     | Water   | Winter | Thurs   |
 |               12 | Ox      | /       |        | Satur   |
+
+| Order | Ming           | Order | Ming             |
+|-------+----------------+-------+------------------|
+|     1 | Sea metal      |    31 | Sand metal       |
+|     2 |                |    32 |                  |
+|     3 | Furnace fire   |    33 | Forest fire      |
+|     4 |                |    34 |                  |
+|     5 | Forest wood    |    35 | Meadow wood      |
+|     6 |                |    36 |                  |
+|     7 | Road earth     |    37 | Adobe earth      |
+|     8 |                |    38 |                  |
+|     9 | Sword metal    |    39 | Precious metal   |
+|    10 |                |    40 |                  |
+|    11 | Volcanic fire  |    41 | Lamp fire        |
+|    12 |                |    42 |                  |
+|    13 | Cave water     |    43 | Sky water        |
+|    14 |                |    44 |                  |
+|    15 | Fortress earth |    45 | Highway earth    |
+|    16 |                |    46 |                  |
+|    17 | Wax metal      |    47 | Jewellery metal  |
+|    18 |                |    48 |                  |
+|    19 | Willow wood    |    49 | Mulberry wood    |
+|    20 |                |    50 |                  |
+|    21 | Stream water   |    51 | Rapids water     |
+|    22 |                |    52 |                  |
+|    23 | Rooftile earth |    53 | Desert earth     |
+|    24 |                |    54 |                  |
+|    25 | Lightning fire |    55 | Sun fire         |
+|    26 |                |    56 |                  |
+|    27 | Conifers wood  |    57 | Pomegranate wood |
+|    28 |                |    58 |                  |
+|    29 | River water    |    59 | Ocean water      |
+|    30 |                |    60 |                  |
+
+| Element | A       | B        | C         | D      | E        | F       |
+|---------+---------+----------+-----------+--------+----------+---------|
+| Metal   | Sea     | Sword    | Wax       | Sand   | Precious | Jewel   |
+| Fire    | Furnace | Volcanic | Lightning | Forest | Lamp     | Sun     |
+| Wood    | Forest  | Willow   | Conifers  | Meadow | Mulberry | Granade |
+| Earth   | Road    | Fortress | Rooftile  | Adobe  | Highway  | Desert  |
+| Water   | Cave    | Stream   | River     | Sky    | Rapids   | Ocean   |
+
+ ?? what are those 6, ABCDEF? Partzuf?
 
     :END:
     :HEBREW:
@@ -226,15 +288,25 @@ https://en.wikipedia.org/wiki/Sexagenary_cycle
 |  24 |        |
 :END:
 
+** The 60
+
 ** Elements (5 Vowels)
-| Name  | Planet  |   |
-|-------+---------+---|
-| Metal | Venus   |   |
-| Wood  | Jupiter |   |
-| Water | Mercury |   |
-| Fire  | Mars    |   |
-| Earth | Saturn  |   |
-** Seasons (4 ????)
+| Name  | Planet  | Direction | Colour | [[Partzuf]]                             |
+|-------+---------+-----------+--------+-------------------------------------|
+| Metal | Venus   | West      | White  | Atik Yomin(keter),Arich Anpin(daat) |
+| Wood  | Jupiter | East      | Green  | Abba                                |
+| Water | Mercury | North     | Black  | Amma                                |
+| Fire  | Mars    | South     | Red    | Zeir Anpin                          |
+| Earth | Saturn  | Center    | Yellow | Nukvah                              |
+** Seasons (4 <<Sphere>>s?)
+
+| Name      | Center |   |
+|-----------+--------+---|
+| Divinity  | כתר    |   |
+| Spiritual | דעת    |   |
+| Emotional | תפארת  |   |
+| Physical  | יסוד   |   |
+
 | Name   |   |
 |--------+---|
 | Winter |   |
@@ -304,6 +376,19 @@ and so the cycle.
 ? hacker =)
 ? in progress.
 
+| Name           | Branch |
+|----------------+--------|
+| Hacker         |        |
+| Martial Artist |        |
+| Musician       |        |
+| Astrologer     |        |
+| Scribe         |        |
+| Strategist     |        |
+| Herbalist      |        |
+| Geomancer?     |        |
+|                |        |
+
+*** Unsure
 |          | Job       | Letter |
 |----------+-----------+--------|
 |          |           |        |
@@ -326,6 +411,7 @@ and so the cycle.
 |          | priest    | qof    |
 |          |           |        |
 
+*** Old
 - Monk has no jobs.
 
  | Job       | Tag | Element | Equip Weapon | Item Weapon | Bonuses      |
@@ -528,10 +614,8 @@ and so the cycle.
 
    Damage = (Item VAL * Source STR) / Dest DEF
 
- # world
-
 * Parties/Quests
-* Map
+* Maps
 ** Landmarks
  - save station
  - shops
@@ -573,38 +657,10 @@ where all 7 continents  connect.
     - The place where a beginning player will start to learn the game
     - Existing players can return here to gain some levels on respawn.
 
-** Idea 1
-*** The Middle Areas
-**** Field of Patience
-     - Movement
-     - 3 floors
-**** Circle Cave
-     - Stillness
-     - 3 floors
-**** Revolving Tower
-     - Movement
-     - 5 floors
-**** Castle of the In-Between
-     - Stillness
-     - 5 floors
-     - Completion opens Heaven areas and Hell areas
-
-*** Heaven Continent Areas
-**** Lake of Reflections
-**** Cave of Harmony
-**** Field of Compassion and Equanimity
-**** Joy and Happiness Plateau
-     - Buddha resides here.
-
-*** Hell Continent Areas
-**** Nightmare Island
-     The entrance to Hell.
-**** Sea of Tears
-**** Labyrinth of Delirium
-**** Maze of Horrors
-**** Tower of Lost Souls
-     - Mara resides here.
-
+*** Tree of Life
+*** Garden of Eden
+*** Mount Zion
+*** Sheol/Gehinnom/Gehenna
 ** Continents (7 Countries)
  - each (element,number) relates directly to character.class
  ? antarctica: penguins ?
@@ -643,6 +699,37 @@ where all 7 continents  connect.
  | Europe     | Elbrus (18,510m)       | Caspian Sea (-28m)        |
  | Antarctica | Vinson Massif (4,892m) | Deep Lake (-50m)          |
  | Australia  | Puncak Jaya (4,884m)   | Lake Eyre (-15m)          |
+** __Old Idea
+*** The Middle Areas
+**** Field of Patience
+     - Movement
+     - 3 floors
+**** Circle Cave
+     - Stillness
+     - 3 floors
+**** Revolving Tower
+     - Movement
+     - 5 floors
+**** Castle of the In-Between
+     - Stillness
+     - 5 floors
+     - Completion opens Heaven areas and Hell areas
+
+*** Heaven Continent Areas
+**** Lake of Reflections
+**** Cave of Harmony
+**** Field of Compassion and Equanimity
+**** Joy and Happiness Plateau
+     - Buddha resides here.
+
+*** Hell Continent Areas
+**** Nightmare Island
+     The entrance to Hell.
+**** Sea of Tears
+**** Labyrinth of Delirium
+**** Maze of Horrors
+**** Tower of Lost Souls
+     - Mara resides here.
 
 * World Features
 ** Market
@@ -700,8 +787,39 @@ where all 7 continents  connect.
 * Map Server
 * Character Server
 
-=========== Client
+
+* --- Client ---
+* DOS Filenames?
+ - 8 letters basename, 3 letters extension = 11
+ - 2x11 = 22
 
 * Graphics
+** Rendering Hebrew
+ - https://mattdesl.svbtle.com/drawing-lines-is-hard
+ - https://github.com/tyt2y3/vaserenderer
 * Audio
 * Input
+
+* --- Research ---
+** Crystal
+ DATA = crystal, frozen, ice
+ CODE = .., burning, fire
+ snowflakes, diamonds, salt
+ metal, rock, ceramic
+** Wikipedia
+ "The 7 crystal systems consist of 32 crystal classes (corresponding to the
+  32 crystallographic point groups) as shown in the following table:"
+ https://en.wikipedia.org/wiki/Crystal_system#In_four-dimensional_space
+ 23 (minus one?) crystal spaces in 4F, each having 10 values
+ (4 edge length + 6 interaxial angles), sefirot
+ 23rd (or 1st) letter must be the Space.
+ 230 space groups (231?) ie. 22 letters x 21 letters = 462 (eliminate mirrors, 231)
+
+** E8 (Simulation theory lattice)
+gosset polytope (8D) has 240 vertices
+
+613 commandments
+248 limbs  (101 left + 101 right, 46 middle (half of 23))
+365 days in solar year (SHNE + 10) (tendons?)
+
+abraham (ABREM) = 248
