@@ -9,7 +9,14 @@ trying to find the wandering one, who has been alive forever and is immortal.
  - lost love
  - appears and disappears, have to lure him and chase him
 
-* System
+** Genesis
+ - day 1: divide chaos with order, create light and darkness
+ - day 2: divide waters with firmament, create above and below
+ - day 3: divide land with vegetation, create fruit and seed
+ - day 4: divide light and dark with luminary, create time and space
+ - day 5: divide old/far from new/close with life+death, creates birth and decay
+ - day 6: divide other and self with mind/soul, creates self
+ - day 7: chill* System
  - there are 10 'numbers'
  - there are 3 alignments
  - there are 7 elements
@@ -470,17 +477,17 @@ and so the cycle.
 - can 'move' the mind (actor) into another body (action).
 - can move into items, objects, pixels.
 * Items
-- can throw and equip all items.
-- Item actions listed here are 1 turn.
+ - can throw and equip all items.
+ - Item actions listed here are 1 turn.
 ** Actions
-   + An item has a chance to break if it is thrown and hits an actor.
-   + Two items cannot be on the same part of floor.
+ + An item has a chance to break if it is thrown and hits an actor.
+ + Two items cannot be on the same part of floor.
 
-| Action  | Effect                                    | State                |
-|---------+-------------------------------------------+----------------------|
-| Throw   | /Throw the item in the facing directionl/ |                      |
-| Drop    | /Put item on the ground/                  | if no item on ground |
-| Explain | /Display description screen for item/     |                      |
+ | Action  | Effect                                    | State                |
+ |---------+-------------------------------------------+----------------------|
+ | Throw   | /Throw the item in the facing directionl/ |                      |
+ | Drop    | /Put item on the ground/                  | if no item on ground |
+ | Explain | /Display description screen for item/     |                      |
 
 ** Properties
    - Items share some common properties
@@ -587,11 +594,7 @@ and so the cycle.
     - Necklace
     - Shoes
 *** Ammunition
-    Arrows, knives, rocks, traps
-
-
- # battle
-
+ Arrows, knives, rocks, traps
 *** Collectables
  - figures
  - cards
@@ -783,24 +786,53 @@ where all 7 continents  connect.
 
 
 * --- Server ---
-* Login Server
+* Login/Account/Web Server
+ - account user/pass
+ - email authenticate
+ - link account with web sessions and IRC
+ - account info, status, ranking, scores, acheivements
+ - veteran privaledge(sp)
+ - account storage
+ - produce JS for [[Web Client]]
+ - connect to world server
+ - account joins game as 'player' by choosing a character.
+ - character slots (how many?)
+* World Server
+ - runs [[Axis Mundi]] hub
+ - spawns [[Map Server]] per player
+ ---------------------
+ - IRC connection
+ - display stats of server and News
+ - host main general channel
+ - host channels for each world/continent
+ - host guild/party channels
+ - post messages about events, player deaths, etc
+ - broadcast messages
+ - private chat
+ - internal bots connect to IRC as well
+ - players can join parties
+ - players can enter maps (which spawns server)
 * Map Server
-* Character Server
-
+ - runs a generated map for a player or party
 
 * --- Client ---
-* DOS Filenames?
- - 8 letters basename, 3 letters extension = 11
- - 2x11 = 22
-
+** Emacs client
+** <<Web Client>>
+** IRC client
+** Native client?
 * Graphics
 ** Rendering Hebrew
  - https://mattdesl.svbtle.com/drawing-lines-is-hard
  - https://github.com/tyt2y3/vaserenderer
 * Audio
+ - Csound
 * Input
 
+
 * --- Research ---
+** DOS Filenames?
+  - 8 letters basename, 3 letters extension = 11
+  - 2x11 = 22
 ** Crystal
  DATA = crystal, frozen, ice
  CODE = .., burning, fire
