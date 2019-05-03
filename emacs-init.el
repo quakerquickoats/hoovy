@@ -320,7 +320,7 @@
  '(font-lock-type-face ((t (:foreground "#8ff"))))
  '(font-lock-variable-name-face ((t (:foreground "#88f"))))
  '(highlight ((t (:background "#334400" :foreground "#ffffff"))))
- '(org-meta-line ((t (:inherit font-lock-preprocessor-face))))
+ '(org-meta-line ((t (:inherit font-lock-comment-face))))
  '(org-special-keyword ((t (:inherit font-lock-variable-name-face))))
  '(org-table ((t (:foreground "cyan"))))
  '(outline-1 ((t (:inherit font-lock-keyword-face))))

@@ -1,17 +1,13 @@
 #+TITLE: Landone LandOne L-and-one LandOwn LanDon
 #+OPTIONS: toc:nil
 
-* Scratch
-
-* Todo
-
 * Plot
-There is a person on a strange planet or in a strange world.
+ There is a person on a strange planet or in a strange world.
 * Story
-In the beginning, there was a boy.
-He follows the creativity of youth.
-Then, gets caught up in a psychotic adventure of monsters.
-He then quests to escape or destroy this world he created.
+ In the beginning, there was a boy.
+ He follows the creativity of youth.
+ Then, gets caught up in a psychotic adventure of monsters.
+ He then quests to escape or destroy this world he created.
 
 * Characters
 ** Me
@@ -34,8 +30,6 @@ medley, ben, chad, cory, zack, nick
 ** underworld (jail)
 ** mixed world
 ** heaven, completed world
-* Scenes
-
 * Poems
 Words between lovers, prayers, incantations and puzzles.
 * Mysticism

@@ -1,10 +1,6 @@
 #+TITLE: Hoovy Studio Workspace Home
 
-* Run XTerm
-xterm -fa monospace -fs 11 -bg black -fg white -xrm 'XTerm*metaSendsEscape: true'
-
 * Tasks
-
 ** Today Tasks
 *** TODO research Objective-Caml. decide.
 *** TODO otherwise, choose a scheme. or BiwaScheme ?
@@ -14,7 +10,7 @@ xterm -fa monospace -fs 11 -bg black -fg white -xrm 'XTerm*metaSendsEscape: true
 
 ** Big Tasks
 *** TODO move all [[github.com/humasect][Humasect Github]] projects into one, call it "attic"
-*** TODO merge valhalla.org and gamelike.org
+*** DONE merge valhalla.org and gamelike.org
 *** TODO merge the two parts in humacs.org
 ** Web Tasks
 *** TODO begin website. two methods: CL or Prolog Server, and Publish Static pages
@@ -22,16 +18,18 @@ xterm -fa monospace -fs 11 -bg black -fg white -xrm 'XTerm*metaSendsEscape: true
 *** TODO merge humaweb and nova-cl
 ** Dev Tasks
 *** TODO Make NOVA library that supports, ECL, Emacs, Guile, Prolog, ML, JS
-*** DONE Create the "NOVA" engine (C) that uses Raylib
+*** DONE Create the "NOVA" engine (C) 
 *** TODO finish porting HS-Nova to nova-c
 *** TODO start emacs sprite editor?
 ** System Tasks
-*** DONE disable lightdm
+*** TODO disable lightdm
 *** TODO somehow get a feature for ERC to cycle through buffers that have recent activity
 *** TODO clean up usage of .emacs (-> hoovy/emacs-init.el) and what it loads (-> hoovy/emacs.el)
 
+* Maintenance Commands
+** Run XTerm
+xterm -fa monospace -fs 11 -bg black -fg white -xrm 'XTerm*metaSendsEscape: true'
 
-* Maintenance
 ** Update Emacs
 #+BEGIN_SRC shell :exports code
 cd ~/src/emacs
@@ -40,57 +38,59 @@ git fetch
 make
 #+END_SRC
 
-** git status
-#+BEGIN_SRC shell :exports code
-git status
-#+END_SRC
-
 ** dropbox
 #+BEGIN_SRC shell :exports code
 dropbox start && dropbox status
 #+END_SRC
 
-
 * Projects
 ** Embryo Projects
 
- |              |                                 |                        |
- |--------------+---------------------------------+------------------------|
- | Hoovy        | Editor Tools and Web Server     | Emacs Lisp/Common Lisp |
- | Nova         | Local game engine client        | Ocaml/JavaScript       |
- | Valhalla     | Multiplayer game server         | Prolog/Erlang          |
- |              |                                 |                        |
- |              |                                 |                        |
- | Gamelike     | Roguelike RPG                   |                        |
- | Novapilot    | Shmup platform                  |                        |
- | Monsterpiece | running platform                |                        |
- |              |                                 |                        |
+ | Name         | Description           | Implementation        |
+ |--------------+-----------------------+-----------------------|
+ | [[file:hoovy.org][Hoovy]]        | Editor Tools          | Emacs Lisp            |
+ | HumaWeb      | Web server            | Common Lisp? Prolog?  |
+ |              |                       |                       |
+ | Nova         | Game engine           | C -> Ocaml/JavaScript |
+ | [[file:novapilot.org][Novapilot]]    | Shmup platformer      | Objective Caml        |
+ |              |                       |                       |
+ | [[file:valhalla.org][Valhalla]]     | Game server           | Prolog/Erlang ??      |
+ | [[file:gamelike.org][Gamelike]]     | Roguelike RPG         | Prolog                |
+ | [[file:monsterpeace.org][MonsterPeace]] | running/room platform |    julia?             |
+ |              |                       |                       |
+
+|           | letter    | ext lang          | app   |
+|-----------+-----------+-------------------+-------|
+| Gamelike  | kaf/shin  | .CL - Common Lisp | book  |
+| ?         | yud/gimel | .JL - Julia       | torah |
+| Hoovy     | aleph     | .EL - Emacs       | hoovy |
+| Valhalla  | peh       | .PL - Prolog      | web   |
+| Novapilot | mem       | .ML - OCaml       | game  |
 
 ** Cancelled Projects
-
 *** Mini Macs (hu-macs)
- [[file:ectron.el][Emacs Electron]]
- [[file:emacsript.el][Emacs ParenScript]]
- Emacsript
+ [[file:attic/ectron.el][Emacs Electron]]
+ [[file:attic/emacsript.el][Emacs ParenScript]] (Emacsript)
+
+*** Tests
+[[file:attic/subjective-c][Subjective-C]] Lisping of C like how Objective-C does Smalltalking of C.
 
 *** Erl-Dev
  Erlang multiplayer game server. Supported IRC and other pieces. [[http://github.com/humasect/erl-dev]]
-
 *** hs-Nova
  Haskell realtime 2D graphics and media engine. [[http://github.com/humasect/Nova]]
  Website with documentation and tutorial is missing. ( [[http://hoovy.org]] )
-
 *** The Middle
  Objective-C library for iOS and macOS for high performance
  turtle-style graphics and game development for Emacs and Xcode.
-
-*** HaskellPlugin
+ -- Lost the Code on the Macbook Air!! --
+*** HaskellPlugin [old]
  http://github.com/humasect/HaskellPlugin
  Plugin for Haskell for old version of Xcode.
 
-*** HuMAX
- Haskell OpenGL example game like beatmania/DJ MAX
-
+*** HuMAX [old]
+ Haskell OpenGL example game like beatmania/DJ MAX.
+ - it was a learning experience.
 
 * Communications
 Freenode: #emacs #lispgames #lisp ##prolog #gamedev #xelf

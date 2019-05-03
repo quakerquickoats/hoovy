@@ -784,7 +784,6 @@ where all 7 continents  connect.
  - have a butler somewhere somehow, as pet or service or character ??
 
 
-
 * --- Server ---
 * Login/Account/Web Server
  - account user/pass
@@ -814,6 +813,7 @@ where all 7 continents  connect.
  - players can enter maps (which spawns server)
 * Map Server
  - runs a generated map for a player or party
+
 
 * --- Client ---
 ** Emacs client

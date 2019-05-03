@@ -1,7 +1,5 @@
 #+TITLE: Novapilot Project
 
-Dharma in a game
-
 * Game Engine
 ** Libraries
 - language is: Objective-CAML
@@ -40,29 +38,30 @@ S-expression; or raw OCaml type constructors.
 ** Physics
 - chipmunk or bullet or..
 
-
 * Editor
+ - users can edit levels. like bangai-o and super mario maker.
+ - players can edit/upload rooms and fit them in the world.
 ** Project
-- file save, open, list
-- able to merge. compare and binarily operate on tree models. (sexp)
-- filesystem represents live/streamed/persistant object ecosystem
+ - file save, open, list
+ - able to merge. compare and binarily operate on tree models. (sexp)
+ - filesystem represents live/streamed/persistant object ecosystem
 ** Visual
-- 2D grid view with Z view like QuakeEd.
-- polygon winding editing
+ - 2D grid view with Z view like QuakeEd.
+ - polygon winding editing
 ** Textual
-- tree browser like oldschool Finder.
-- basic code editing
+ - tree browser like oldschool Finder.
+ - basic code editing
 ** Temporal
-- shader/procedural/synth editing
-- animation and key frames with scrub.
+ - shader/procedural/synth editing
+ - animation and key frames with scrub.
 
 * Title Screen
-** Connect/Login
-** Difficulty?
 ** Options
-- sound on/off
-- music on/off
-
+ ? easy/normal/hard?
+ - sound on/off
+ - music on/off
+** Select Map
+** Load Map
 * Player
 ** The Mech
  Called Nova
@@ -180,31 +179,17 @@ S-expression; or raw OCaml type constructors.
   both equipment and manual stats affect these:
   Attack, Defense, Dodge, luck, Mdef, Matk, health points, magic points, crit.
 
-* Design
-** the screens
-*** main screen
- four buttons: attack, jump, special, defend.
- there is a map on the top right.
-*** map screen
- shows current position, save points, boss rooms.
-*** item screen
- shows your items.
-
 * Game World
-** Rooms
-- rooms are single screens
-- players can edit/upload rooms and fit them in the world.
-
 ** Atmosphere
-- space, tech, earthy, cyber
-- gears and clockwork!
-- the inner architecture of planets.
-- lots of engines and pipes and gears and machine and pits and mystery spots.
-- but not dark.
-- neat doors and room-changing
+ - space, tech, earthy, cyber
+ - gears and clockwork!
+ - the inner architecture of planets.
+ - lots of engines and pipes and gears and machine and pits and mystery spots.
+ - but not dark.
+ - neat doors and room-changing
 ** Mechanics
-- geometry able to become destroyed in some areas.
-  it should be obvious to the player.
+ - geometry able to become destroyed in some areas.
+   it should be obvious to the player.
 
 ** ENEMIES
  - all are robots.
@@ -245,3 +230,9 @@ S-expression; or raw OCaml type constructors.
 *** 5 Vinnana, the desert volcano planet (red, fire, consciousness, tongue?)
 	 is where the water bombs are useful.
 	 there are hot lizards here.
+* Inspirations
+ - Bangai-O
+ - Metal Slug
+ - Battletoads
+ - Super Metroid
+ - Another World

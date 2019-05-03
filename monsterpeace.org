@@ -1,15 +1,25 @@
-#+TITLE: Monsterpeace
+#+TITLE: MonsterPeace
 
 
 MonsterPeace 
 
 * Graphics
-- 320x240
-- 32 color
+ - 320x240
+ - 32 color
+
+* Rooms
+ - rooms are single screens
+** the screens
+*** main screen
+ four buttons: attack, jump, special, defend.
+ there is a map on the top right.
+*** map screen
+ shows current position, save points, boss rooms.
+*** item screen
+ shows your items.
 
 * Inspirations
-- Zelda II : Adventure of Link
-- Ghouls'n'Ghosts
-- PoP
-- Battletoads
-- Metal Slug
+ - Zelda II : Adventure of Link
+ - Ghouls'n'Ghosts
+ - PoP
+ - Battletoads

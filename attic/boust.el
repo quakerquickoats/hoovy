@@ -1,7 +1,8 @@
-;;; boust.el --- A boustephedron reader for Emacs  -*- lexical-binding: t -*-
-
+;; -*- lexical-binding: t -*-
+;; boust.el --- A boustephedron reader for Emacs
+;;
 ;; (c) 2018 Lyndon Tremblay
-
+;;
 
 (defun boust-find-file (filename)
   (interactive "FFilename: ")
