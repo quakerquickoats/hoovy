@@ -1,5 +1,22 @@
 #+TITLE: Novapilot Project
 
+nova*pilot*! 
+- drive around in a little robot, using fantasy OS as interface.
+- nova computer is a fantasy computer.
+
+- the city is the mainframe
+- dodge bullets in action
+- strategize tactics in passive
+
+- main view is top view turn-based.
+- second view is fps
+- using FPS mode, 'jack in' to terminals 
+
+- explore networks, connections, caves, regions
+
+- two sides of the world? from within, sub-world
+  and from without ?
+
 * Game Engine
 ** Libraries
 - language is: Objective-CAML
@@ -18,6 +35,7 @@
 - turtle
 - draw, lift pen, stroke, path, bitops, et
 - polygon windings?
+- map tiles aka FF:T and RO and FF:CC.
 
 ** Audio synthesis
 - lots of drum patterns
@@ -236,3 +254,7 @@ S-expression; or raw OCaml type constructors.
  - Battletoads
  - Super Metroid
  - Another World
+
+ - Celeste
+ - Textorcist
+ - ..?

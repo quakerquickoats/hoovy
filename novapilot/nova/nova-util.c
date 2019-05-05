@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+#include "nova.h"
+
 void NV_Error (const char *msg, ...)
 {
     va_list args;
@@ -21,6 +23,7 @@ void NV_Error (const char *msg, ...)
     va_end(args);
     fprintf(stderr, "\n");
     
+    NV_Shutdown();
     exit(1);
 }
 

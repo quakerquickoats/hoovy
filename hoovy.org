@@ -1,14 +1,18 @@
 #+TITLE: Hoovy Studio Workspace Home
 
+Welcome
+
 * Tasks
 ** Today Tasks
-*** TODO research Objective-Caml. decide.
+*** DONE research Objective-Caml. decide.
 *** TODO otherwise, choose a scheme. or BiwaScheme ?
-
 *** TODO guile for gamelike
 *** TODO ocaml for novapilot
-
-** Big Tasks
+** Dev Tasks
+*** TODO customize EXWM properly.
+**** Hoovy Welcome as starting page
+**** M-x eshell
+**** Workspace setup with Hexchat(s-3) and Firefox(s-4)
 *** TODO move all [[github.com/humasect][Humasect Github]] projects into one, call it "attic"
 *** DONE merge valhalla.org and gamelike.org
 *** TODO merge the two parts in humacs.org
@@ -16,7 +20,7 @@
 *** TODO begin website. two methods: CL or Prolog Server, and Publish Static pages
 *** TODO Port hs-HoovyWeb into cl-hoovyweb, with HS-Nova section
 *** TODO merge humaweb and nova-cl
-** Dev Tasks
+** Game Tasks
 *** TODO Make NOVA library that supports, ECL, Emacs, Guile, Prolog, ML, JS
 *** DONE Create the "NOVA" engine (C) 
 *** TODO finish porting HS-Nova to nova-c
@@ -25,7 +29,6 @@
 *** TODO disable lightdm
 *** TODO somehow get a feature for ERC to cycle through buffers that have recent activity
 *** TODO clean up usage of .emacs (-> hoovy/emacs-init.el) and what it loads (-> hoovy/emacs.el)
-
 * Maintenance Commands
 ** Run XTerm
 xterm -fa monospace -fs 11 -bg black -fg white -xrm 'XTerm*metaSendsEscape: true'
@@ -48,15 +51,15 @@ dropbox start && dropbox status
 
  | Name         | Description           | Implementation        |
  |--------------+-----------------------+-----------------------|
- | [[file:hoovy.org][Hoovy]]        | Editor Tools          | Emacs Lisp            |
+ | [[file:hoovy.org][Hoovy]]        | Editor Tools          | .EL Emacs Lisp        |
  | HumaWeb      | Web server            | Common Lisp? Prolog?  |
  |              |                       |                       |
  | Nova         | Game engine           | C -> Ocaml/JavaScript |
- | [[file:novapilot.org][Novapilot]]    | Shmup platformer      | Objective Caml        |
+ | [[file:novapilot.org][Novapilot]]    | Shmup platformer      | .ML Objective Caml    |
  |              |                       |                       |
  | [[file:valhalla.org][Valhalla]]     | Game server           | Prolog/Erlang ??      |
- | [[file:gamelike.org][Gamelike]]     | Roguelike RPG         | Prolog                |
- | [[file:monsterpeace.org][MonsterPeace]] | running/room platform |    julia?             |
+ | [[file:gamelike.org][Gamelike]]     | Roguelike RPG         | .SL Guile ??          |
+ | [[file:monsterpeace.org][MonsterPeace]] | running/room platform | julia?                |
  |              |                       |                       |
 
 |           | letter    | ext lang          | app   |

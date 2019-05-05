@@ -20,11 +20,18 @@ nova_session_t nova = {
 
 GLFWwindow* window;
 
+static void error_callback(int error, const char* description)
+{
+    NV_Error("GLFW Error: %i: %s", error, description);
+}
+
 void NV_Init (int w, int h)
 {
     nova_config_t *c = &nova.config;
     memset(&nova, 0, sizeof(nova));
 
+    glfwSetErrorCallback(error_callback);
+        
     if (!glfwInit())
         NV_Error("Failed to initialize GLFW.");
 
@@ -44,6 +51,7 @@ void NV_Init (int w, int h)
     
     glfwMakeContextCurrent(window);
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+    glfwSwapInterval(1);
 
     //glClearColor();
     glClear(GL_COLOR_BUFFER_BIT);
@@ -52,6 +60,7 @@ void NV_Init (int w, int h)
 
 void NV_Shutdown ()
 {
+    glfwDestroyWindow(window);
     memset(&nova, 0, sizeof(nova));
     glfwTerminate();
 }
@@ -71,4 +80,9 @@ void NV_EndFrame ()
 {
     if (window)
         glfwSwapBuffers(window);
+}
+
+double NV_GetTime ()
+{
+    return glfwGetTime();
 }

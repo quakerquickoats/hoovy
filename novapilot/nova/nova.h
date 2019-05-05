@@ -47,6 +47,7 @@ void NV_Init (int width, int height);
 void NV_Shutdown ();
 
 void NV_EndFrame ();
+double NV_GetTime ();
 
 BOOL NV_Update ();
 BOOL NV_CheckKey (nova_key_t k);

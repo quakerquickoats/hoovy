@@ -1,7 +1,35 @@
-#+TITLE: Qabbalah
+#+TITLE: Qabalah
 
-* Torah Emacs
-** Letters
+* Letters
+| Num | Value | Letter    |
+|-----+-------+-----------|
+|   1 |     1 | אלף       |
+|   2 |     2 | בית       |
+|   3 |     3 | גמל       |
+|   4 |     4 | דלת       |
+|   5 |     5 | הא        |
+|   6 |     6 | וו        |
+|   7 |     7 | זין       |
+|   8 |     8 | חיט       |
+|   9 |     9 | טיט       |
+|  10 |    10 | יוד       |
+|  11 |    20 | כף        |
+|  12 |    30 | למד       |
+|  13 |    40 | מים       |
+|  14 |    50 | נון       |
+|  15 |    60 | סמך       |
+|  16 |    70 | עין       |
+|  17 |    80 | פה        |
+|  18 |    90 | צדי       |
+|  19 |   100 | קוף       |
+|  20 |   200 | ריש       |
+|  21 |   300 | שין       |
+|  22 |   400 | תו        |
+|  23 |   500 | כף סופית  |
+|  24 |   600 | מים סופית |
+|  25 |   700 | נון סופית |
+|  26 |   800 | פה סופית  |
+|  27 |   900 | צדי סופית |
 #+BEGIN_SRC emacs-lisp :lexical t
 (defvar *qb-letters*
   '((aleph ALF ox)
@@ -41,7 +69,43 @@
 	  necah hod yesod malkux))
 #+END_SRC
 
-** Keyboard Transliteration
+* Gematria
+#+BEGIN_SRC emacs-lisp
+(defconst *qb-letter-values*
+  '(1 2 3 4 5 6 7 8 9
+    10 20 30 40 50 60 70 80 90
+    100 200 300 400 500 600 700 800 900))
+
+(defun qb-letter-value (c)
+  (cdr (assoc c (mapcar* #'cons *qb-alephbeth* *qb-letter-values*))))
+
+(defun qb-letter-values (s)
+  (mapcar #'qb-letter-value s))
+
+;;(defconst *qb-alephbet* "abgdewzhtiklmnoypcqrsx")
+
+(defun qb-random-word (n &optional alphabet)
+  (apply #'string
+	 (qb-random-elements-of-list n (if alphabet alphabet *qb-alephbeth*))))
+
+(defun qb-random-elements-of-list (n l)
+  (loop repeat n collect (elt l (random (length l)))))
+
+(defun qb-english-letters-for-number (n))
+(defun qb-hebrew-letters-for-number (n))
+
+#+END_SRC
+* Base-32
+#+BEGIN_SRC emacs-lisp
+;;
+;; base32
+;;
+
+(defvar *qb-base32-en* "0123456789abcdefghijklmnopqrstuvwxyz") ;; מקח
+(defvar *qb-base32-he* "0123456789אבגדהוזחטיכלמנסעפצקרשת")
+#+END_SRC
+
+* Keyboard Transliteration
 
 | Letter | Keyboard |
 |--------+----------|
@@ -68,38 +132,37 @@
 | ש      | a        |
 | ת      | ,        |
 
+** Notes
+These are straight keyboard mappings.
+
+ qwertyuiop
+ asdfghjkl;'
+ zxcvbnm,./
+
+׳קראטוןםפ
+שדגכעיחלךף,
+זסבהנמצתץ.
+
+
+אבגדהוזחטיכלמנסעפצקרשת
+
+
+
+These,
+
+22-letter english for transliteration. (see *qb-transliteration* below)
+    not sure if i like "e" and "u" for Heh and Waw, or "h" and "w".
+    we could just have caps/uncaps modes. cant forget Final Otiyot anyhow.
+
+abgdeuzx@iklmnsypcqr$t
+אבגדהוזחטיכלמנסעפצקרשת
+
+OR alternative, case-sensitive:
+abjdeuzxTyklmnSopcgrst
+
+hmm.
+** Code
 #+BEGIN_SRC emacs-lisp
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; These are straight keyboard mappings.
-;;
-;; qwertyuiop
-;; asdfghjkl;'
-;; zxcvbnm,./
-;;
-;; ׳קראטוןםפ
-;; שדגכעיחלךף,
-;; זסבהנמצתץ.
-;;
-;; 
-;; אבגדהוזחטיכלמנסעפצקרשת
-;; 
-
-;;;;;;;;;;;;;;;;;;;
-;; These,
-;;
-;; 22-letter english for transliteration. (see *qb-transliteration* below)
-;;     not sure if i like "e" and "u" for Heh and Waw, or "h" and "w".
-;;     we could just have caps/uncaps modes. cant forget Final Otiyot anyhow.
-;;
-;; abgdeuzx@iklmnsypcqr$t
-;; אבגדהוזחטיכלמנסעפצקרשת
-;;
-;; OR alternative, case-sensitive:
-;; abjdeuzxTyklmnSopcgrst
-;;
-;; hmm.
-;;
-
 (defconst *qb-key-alist*
   (let ((e "qwertyuiopasdfghjkl;'zxcvbnm,./")
 	(h "/'קראטוןםפשדגכעיחלךף,זסבהנמצתץ."))
@@ -123,63 +186,34 @@
 
 (defconst *qb-geresh* ?\x05F3)
 (defconst *qb-gershaym* ?\x05F4)
-
 #+END_SRC
-** Gematria
-#+BEGIN_SRC emacs-lisp
-;;
-;; gematria
-;;
+* Book Loading
+#+BEGIN_SRC emacs-lisp :lexical t
+(defun qb-string-for-book (book)
+  (pcase book
+    ((or 'genesis 'bereshit) "Genesis")
+    ('exodus "Exodus")
+    ('leviticus "Leviticus")
+    ('numbers "Numbers")
+    ('deuteronomy "Deuteronomy")))
 
-(defconst *qb-letter-values*
-  '(1 2 3 4 5 6 7 8 9
-    10 20 30 40 50 60 70 80 90
-    100 200 300 400 500 600 700 800 900))
-
-(defun qb-letter-value (c)
-  (cdr (assoc c (mapcar* #'cons *qb-alephbeth* *qb-letter-values*))))
-
-(defun qb-letter-values (s)
-  (mapcar #'qb-letter-value s))
-
-;;(defconst *qb-alephbet* "abgdewzhtiklmnoypcqrsx")
-
-(defun qb-random-word (n &optional alphabet)
-  (apply #'string
-	 (qb-random-elements-of-list n (if alphabet alphabet *qb-alephbeth*))))
-
-(defun qb-random-elements-of-list (n l)
-  (loop repeat n collect (elt l (random (length l)))))
-
-(defun qb-english-letters-for-number (n))
-
-(defun qb-hebrew-letters-for-number (n)
-  )
-
-#+END_SRC
-** Base-32
-#+BEGIN_SRC emacs-lisp
-;;
-;; base32
-;;
-
-(defvar *qb-base32-en* "0123456789abcdefghijklmnopqrstuvwxyz") ;; מקח
-(defvar *qb-base32-he* "0123456789אבגדהוזחטיכלמנסעפצקרשת")
-#+END_SRC
-
-** XML Text
-#+BEGIN_SRC emacs-lisp
-;;
-;; torah
-;;
-
-(defvar *qb-path* "/home/lyndon/.emacs.d/torah")
-
+(defvar *qb-path* "~/Downloads/Tanakh")
 (defun qb-book-path (book)
   (make-directory *qb-path* t)
-  (concat *qb-path* "/" book))
+  (concat *qb-path* "/" book ".con.txt"))
 
-;;(defvar *qb-book* nil)
+(defun qb-read-book (book)
+  (with-temp-buffer
+    (insert-file-contents (qb-book-path book))
+    (read (current-buffer))))
+
+(defun qb-load-book (book)
+  (if (file-exists-p (qb-book-path book))
+      (qb-read-book book)
+    (qb-download-book book)))
+#+END_SRC
+** XML Text Parsing
+#+BEGIN_SRC emacs-lisp
 
 (defun qb--convert-xml (xml)
   (let ((contents (caddr (cadddr xml)) ))
@@ -198,16 +232,6 @@
       ;; 	(prin1 xml))
       )))
 
-(defun qb-read-book (book)
-  (with-temp-buffer
-    (insert-file-contents (qb-book-path book))
-    (read (current-buffer))))
-
-(defun qb-load-book (book)
-  (if (file-exists-p (qb-book-path book))
-      (qb-read-book book)
-    (qb-download-book book)))
-
 (defvar *qb-torah*
   `(:genesis ,(qb-download-book "Genesis")))
 
@@ -223,4 +247,8 @@
 	(forward-line)
 	(setq x (thing-at-point 'word t)))
       x)))
+#+END_SRC
+
+** Uncode Text Parsing
+#+BEGIN_SRC emacs-lisp :lexical t
 #+END_SRC

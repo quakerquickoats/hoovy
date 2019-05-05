@@ -13,5 +13,6 @@ module Nova = struct
   external init : int -> int -> unit = "NV_Init" [@@noalloc]
   external update : unit -> bool = "NV_Update" [@@noalloc]
   external endFrame : unit -> unit = "NV_EndFrame" [@@noalloc]
+  external getTime : unit -> float = "NV_GetTime" [@@noalloc]
   external shutdown : unit -> unit = "NV_Shutdown" [@@noalloc]
 end

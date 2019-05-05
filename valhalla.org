@@ -1,5 +1,7 @@
 #+TITLE: Valhalla
 
+Valhalla (reversed) = allahlav = love allah
+
 * --- Game ---
 * Story
 nothing yet.
@@ -297,7 +299,7 @@ https://en.wikipedia.org/wiki/Sexagenary_cycle
 
 ** The 60
 
-** Elements (5 Vowels)
+** Elements (5 Vowels <<Finals>>)
 | Name  | Planet  | Direction | Colour | [[Partzuf]]                             |
 |-------+---------+-----------+--------+-------------------------------------|
 | Metal | Venus   | West      | White  | Atik Yomin(keter),Arich Anpin(daat) |
@@ -305,6 +307,15 @@ https://en.wikipedia.org/wiki/Sexagenary_cycle
 | Water | Mercury | North     | Black  | Amma                                |
 | Fire  | Mars    | South     | Red    | Zeir Anpin                          |
 | Earth | Saturn  | Center    | Yellow | Nukvah                              |
+
+| Letter | Class  |   |
+|--------+--------+---|
+| ך      | double |   |
+| ם      | mother |   |
+| ן      | single |   |
+| ץ      | single |   |
+| ף      | double |   |
+
 ** Seasons (4 <<Sphere>>s?)
 
 | Name      | Center |   |
