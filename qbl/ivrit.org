@@ -53,8 +53,7 @@
     (qof   QOF monkey)
     (resh  RES head)
     (shin  SIN tooth)
-    (taw   TAW mark-cross)
-	))
+    (taw   TAW mark-cross)))
 
 (defun qb-random-letter ()
   (elt *qb-letters* (random 22)))
@@ -71,28 +70,53 @@
 
 * Gematria
 #+BEGIN_SRC emacs-lisp
-(defconst *qb-letter-values*
-  '(1 2 3 4 5 6 7 8 9
-    10 20 30 40 50 60 70 80 90
-    100 200 300 400 500 600 700 800 900))
+(defun qb-string-value (s)
+  (let ((values '(
+                  1 2 3 4 5 6 7 8 9
+                  10 20 30 40 50 60 70 80 90
+                  100 200 300 400 500 600 700 800 900)))
+    (cl-flet ((letter-value (c)
+                            (cdr (assoc c (mapcar* #'cons
+                                                   ,*qb-alephbeth* values)))))
+      (reduce #'+ (mapcar #'letter-value s)))))
 
-(defun qb-letter-value (c)
-  (cdr (assoc c (mapcar* #'cons *qb-alephbeth* *qb-letter-values*))))
-
-(defun qb-letter-values (s)
-  (mapcar #'qb-letter-value s))
-
-;;(defconst *qb-alephbet* "abgdewzhtiklmnoypcqrsx")
-
-(defun qb-random-word (n &optional alphabet)
-  (apply #'string
-	 (qb-random-elements-of-list n (if alphabet alphabet *qb-alephbeth*))))
-
-(defun qb-random-elements-of-list (n l)
-  (loop repeat n collect (elt l (random (length l)))))
+#+END_SRC
+* Generation and Randomization
+#+BEGIN_SRC emacs-lisp :literate t
+(defun random-elt (n l)
+  )
+(defun qb-random-string (len &optional alphabet)
+  (cl-flet ((random-elt (l)
+                        (loop repeat len collect (elt l (random (length l))))))
+    (apply #'string
+	       (random-elt (if alphabet alphabet *qb-alephbeth-nosof*)))))
 
 (defun qb-english-letters-for-number (n))
 (defun qb-hebrew-letters-for-number (n))
+
+(defun qb-find-average-value (size count)
+  "run COUNT tests and produce the average
+   gematria value for lengths of SIZE.
+
+   strange results; with size increasing and COUNT at 1000,
+   1: 50 - 70
+   2: 130 - 140
+   3: ~200
+   4: 270 - 280
+   5: 330 - 340
+   6: ~411
+   7: ~470
+   8: ~540
+   9: ~608
+   10: ~667
+
+   so increasing by about 60 each new letter,
+   does this account for 2x27 ??? but there are no sofit in that test.
+   so maybe it accounts for 3x 22.
+   "
+  (let ((l (loop repeat count collect
+                 (qb-string-value (qb-random-string size)))))
+    (/ (reduce #'+ l) (length l))))
 
 #+END_SRC
 * Base-32
@@ -169,12 +193,15 @@ hmm.
     (mapcar* #'cons e h)))
 
 (defconst *qb-alphabet* "abcdefghijklmnopqrstuvwxyz")
-(defconst *qb-alephbeth*
+(defconst *qb-alephbeth-nosof*
   (string ?\x05D0 ?\x05D1 ?\x05D2 ?\x05D3 ?\x05D4 ?\x05D5 ?\x05D6 ?\x05D7 ?\x05D8 ?\x05D9
-	  ?\x05DB ?\x05DC ?\x05DE ?\x05E0 ?\x05E1 ?\x05E2 ?\x05E4 ?\x05E6
-	  ?\x05E7 ?\x05E8 ?\x05E9 ?\x05EA
-	  ;; final letters
-	  ?\x05DA ?\x05DD ?\x05DF ?\x05E3 ?\x05E5))
+	      ?\x05DB ?\x05DC ?\x05DE ?\x05E0 ?\x05E1 ?\x05E2 ?\x05E4 ?\x05E6
+	      ?\x05E7 ?\x05E8 ?\x05E9 ?\x05EA))
+(defconst *qb-alephbeth*
+  (concat *qb-alephbeth-nosof*
+          ;; no final letter (sofit)
+          (string ?\x05DA ?\x05DD ?\x05DF ?\x05E3 ?\x05E5)))
+
 (defconst *qb-transliteration* "ABGDHWZX@IKLMNS&PCQR$T")
 
 (defun qb-english-char-to-hebrew (c)

@@ -1,7 +1,213 @@
 #+TITLE: Hoovy Studio Workspace Home
 
-Welcome
+/Welcome/
 
+* --- Research ---
+* Creation
+  | Stage | Element  |         |                              |
+  |-------+----------+---------+------------------------------|
+  |     1 | -spirit- | עין סוף |                              |
+  |     2 | Air      | רוח     | make letters                 |
+  |     3 | Water    | מים     | make wall/tablet/table       |
+  |     4 | Fire     | יש      | make throne                  |
+  |     5 | Earth    | ארץ     | looked above, sealed height  |
+  |     6 |          | יהו     | looked below, sealed deep    |
+  |     7 |          | יוה     | looked forward, sealed east  |
+  |     8 |          | היו     | looked backward, sealed west |
+  |     9 |          | ויה     | looked right, sealed south   |
+  |    10 |          | והי     | looked left, sealed north    |
+
+  Water makes Earth
+  Fire makes Heaven
+  Air makes between.
+
+  So, 6 basic elements? Include the original and have 7.
+
+  | sfr |             |
+  |-----+-------------|
+  |   1 | -spirit of- |
+  |   2 | air         |
+  |   3 | water       |
+  |   4 | fire        |
+  |   5 | height      |
+  |   6 | depth       |
+  |   7 | east        |
+  |   8 | west        |
+  |   9 | north       |
+  |  10 | south       |
+
+** Sphere
+puts 231 modes on sphere,
+rotating forward for implied good,
+retrograde then evil intents.
+
+* Gender
+male : Alef-Mem-Shin
+female : Alef-Shin-Mem
+* Letters
+** 3 Mother Letters (שלש אמח עתיות)
+   As 3 dimensions of cube:
+   | Ltr |              | Axis | Sound           | ???   | Body        | Elem  | Season |
+   |-----+--------------+------+-----------------+-------+-------------+-------+--------|
+   | ש   | Text/Book    | Y    | Sibilant 'hiss' | Man   | Head        | Fire  | Summer |
+   |     |              |      |                 |       |             |       |        |
+   | א   | Story/Speech | Z    | Aspirate 'airy' | Time  | Torso/Chest | Air   | Rainy  |
+   |     |              |      |                 |       |             |       |        |
+   | מ   | Count/Number | X    | Mute            | World | Rest/Belly  | Water | Winter |
+
+   "ALEF, dragon, is like to a king on his throne,
+    MEM, sphere, like a king traveling in his country;
+    SHIN, heart, like a king at war."
+
+   |           | Male          | Female        |
+   |-----------+---------------+---------------|
+   | Alef/Air  | alef-mem-shin | alef-shin-mem |
+   | Mem/Water | mem-alef-shin | mem-shin-alef |
+   | Shin/Fire | shin-alef-mem | shin-mem-alef |
+
+** 7 Double Letters
+   As 7 placements on cube:
+
+*** TODO check positive/negative orders!! and the rest!
+
+   | Ltr | Direction | Body | positive           | negative          |
+   |-----+-----------+------+--------------------+-------------------|
+   | ב   | above     |      | life               | death             |
+   | ג   | below     |      | peace              | war/strife        |
+   | ד   | east      |      | riches/wealth      | poverty           |
+   | כ   | west      |      | wisdom             | folly,ignorance   |
+   | פ   | north     |      | beauty,repute      | deform,disrepute  |
+   | ר   | south     |      | fertility,fruitful | sterility         |
+   | ת   | center    |      | power,lordship     | slavery,servitude |
+
+   orifices:
+     two eyes,
+     two ears,
+     two nostrils,
+     one mouth.
+
+   days of week.
+   planets.
+   heavens.
+
+** 12 Elemental Letters
+   As edges of cube:
+   | Ltr | Direction | Body |
+   |-----+-----------+------|
+   | ה   | NE        |      |
+   | ו   | SE        |      |
+   | ז   | above E   |      |
+   | ח   | below E   |      |
+   | ט   | above N   |      |
+   | י   | below N   |      |
+   | ל   | NW        |      |
+   | נ   | SW        |      |
+   | ס   | above W   |      |
+   | ע   | below W   |      |
+   | צ   | above S   |      |
+   | ק   | below S   |      |
+
+   12 leaders of man:
+     left hand,
+     right hand,
+     left foot,
+     right foot,
+     kidneys,
+     gall,
+     intestines,
+     stomach,
+     liver
+     pancreas,
+     spleen.
+** 5 Types of Things
+   Speech:
+   | Place         | Accent | Letters |
+   |---------------+--------+---------|
+   | tip of tongue | throat |         |
+   | tip of tongue | lips   |         |
+   | middle tongue |        |         |
+   | tip of tongue |        |         |
+   | flat tongue   | teeth  |         |
+
+   |        |          |
+   |--------+----------|
+   | throat | gutteral |
+   | palat  | palatels |
+   | tongue | linguals |
+   | teeth  | dentals  |
+   | lips   | labial   |
+
+* Geometry
+** Platonic Solids
+ | Element  | Name             | Faces | Edges | Vertices   |
+ |----------+------------------+-------+-------+------------|
+ | Fire     | Tetrahedron      |     4 |     6 | 4          |
+ | Earth    | Hexahedron(Cube) |     6 |    12 | 8          |
+ | Air      | Octahedron       |     8 |    12 | 6 (2x3)    |
+ | Universe | Dodecahedron     |    12 |    30 | 20 (8+4x3) |
+ | Water    | Icosahedron      |    20 |    30 | 12 (4x3)   |
+
+** Cube
+   - 1 hidden vertex
+   - 2 ??
+   - 3 visible faces *
+   - 3 dimensions *
+   - 3 inner edges
+   - 4 ??
+   - 5 ??
+   - 6 total faces
+   - 6 visible edges
+   - 6 directions
+   - 7 visible vertices *
+   - 8 total vertices
+   - 9 total visible edges (6out + 3mid)
+   - 10 ??
+   - 11 "[[Nets]]"
+   - 12 total edges *
+
+*** The 11 <<Nets>> of a Cube
+
+ 1.
+ |   | x |
+ |   | x |
+ | x | x |
+ | x |   |
+ | x |   |
+
+ 2.
+ | x | x |   |
+ |   | x |   |
+ |   | x | x |
+ |   | x |   |
+
+ 3.
+ |   | x |   |
+ | x | x | x |
+ |   | x |   |
+ |   | x |   |
+
+ 4.
+ | x | x | x |
+ |   | x |   |
+ |   | x |   |
+ |   | x |   |
+
+ 5.
+ | x | x |   |
+ |   | x | x |
+ |   | x |   |
+ |   | x |   |
+
+ 6.
+ | x | x |   |
+ |   | x |   |
+ |   | x |   |
+ |   | x | x |
+
+ 7.
+ ??
+
+* --- Development ---
 * Tasks
 ** Today Tasks
 *** DONE research Objective-Caml. decide.
@@ -46,62 +252,158 @@ make
 dropbox start && dropbox status
 #+END_SRC
 
-* Projects
-** Embryo Projects
+* Active Projects
+** TODO sort this out
 
- | Name         | Description           | Implementation        |
- |--------------+-----------------------+-----------------------|
- | [[file:hoovy.org][Hoovy]]        | Editor Tools          | .EL Emacs Lisp        |
- | HumaWeb      | Web server            | Common Lisp? Prolog?  |
- |              |                       |                       |
- | Nova         | Game engine           | C -> Ocaml/JavaScript |
- | [[file:novapilot.org][Novapilot]]    | Shmup platformer      | .ML Objective Caml    |
- |              |                       |                       |
- | [[file:valhalla.org][Valhalla]]     | Game server           | Prolog/Erlang ??      |
- | [[file:gamelike.org][Gamelike]]     | Roguelike RPG         | .SL Guile ??          |
- | [[file:monsterpeace.org][MonsterPeace]] | running/room platform | julia?                |
- |              |                       |                       |
+ |   | Name         | Description           | Implementation        |
+ |---+--------------+-----------------------+-----------------------|
+ | ש | [[file:gamelike.org][Gamelike]]     | Roguelike RPG         | .SL Guile ??          |
+ |   | [[file:adam][Adam]]         |                       | .CL Common Lisp       |
+ |   | Nova         | Game engine           | .C for Native and Web |
+ |   |              |                       |                       |
+ | א | [[file:hoovy.org][Hoovy]]        | Project Tools         | .EL Emacs Lisp        |
+ |   |              |                       |                       |
+ | ש | [[file:novapilot.org][Novapilot]]    | Shmup platformer      | .ML Objective Caml    |
+ |   | [[file:valhalla.org][Valhalla]]     | Web+Game server       | .PL Prolog            |
+ |   | [[file:monsterpeace.org][MonsterPeace]] | running/room platform | .JL julia?            |
 
-|           | letter    | ext lang          | app   |
-|-----------+-----------+-------------------+-------|
-| Gamelike  | kaf/shin  | .CL - Common Lisp | book  |
-| ?         | yud/gimel | .JL - Julia       | torah |
-| Hoovy     | aleph     | .EL - Emacs       | hoovy |
-| Valhalla  | peh       | .PL - Prolog      | web   |
-| Novapilot | mem       | .ML - OCaml       | game  |
+** Misc experimental project tables
+|           | letter   | ext lang          | app   |
+|-----------+----------+-------------------+-------|
+| Gamelike  | כף, שין  | .CL - Common Lisp | book  |
+| ?         | יוד, גמל | .JL - Julia       | torah |
+| Hoovy     | אלף      | .EL - Emacs       | hoovy |
+| Valhalla  | פח       | .PL - Prolog      | web   |
+| Novapilot | מים      | .ML - OCaml       | game  |
 
-** Cancelled Projects
-*** Mini Macs (hu-macs)
- [[file:attic/ectron.el][Emacs Electron]]
- [[file:attic/emacsript.el][Emacs ParenScript]] (Emacsript)
+| Nova         | ב |
+| Gamelike     | ג |
+| Adam         | ד |
+|              |   |
+| Hoovy        | כ |
+|              |   |
+| Novapilot    | פ |
+| Valhalla     | ר |
+| MonsterPeace | ת |
 
-*** Tests
+| ר | Novapilot    |
+| כ | MonsterPeace |
+| ת | Nova         |
+|   |              |
+| ג | Hoovy        |
+|   |              |
+| ד |              |
+| פ |              |
+| ב |              |
+
+* Project Ideas
+
+| Name | Purpose     |     |
+|------+-------------+-----|
+| Eve  | Torah Study | .AL |
+|      |             |     |
+
+* Cancelled/Old Projects
+** HumaWeb
+   ported combination from TheMiddle and erl-dev
+
+** Mini Macs (hu-macs)
+[[file:attic/ectron.el][Emacs Electron]]
+[[file:attic/emacsript.el][Emacs ParenScript]] (Emacsript)
+
+** Tests
 [[file:attic/subjective-c][Subjective-C]] Lisping of C like how Objective-C does Smalltalking of C.
 
-*** Erl-Dev
- Erlang multiplayer game server. Supported IRC and other pieces. [[http://github.com/humasect/erl-dev]]
-*** hs-Nova
- Haskell realtime 2D graphics and media engine. [[http://github.com/humasect/Nova]]
- Website with documentation and tutorial is missing. ( [[http://hoovy.org]] )
-*** The Middle
- Objective-C library for iOS and macOS for high performance
- turtle-style graphics and game development for Emacs and Xcode.
- -- Lost the Code on the Macbook Air!! --
-*** HaskellPlugin [old]
- http://github.com/humasect/HaskellPlugin
- Plugin for Haskell for old version of Xcode.
+** Erl-Dev
+Erlang multiplayer game server. Supported IRC and other pieces. [[http://github.com/humasect/erl-dev]]
+** hs-Nova
+Haskell realtime 2D graphics and media engine. [[http://github.com/humasect/Nova]]
+Website with documentation and tutorial is missing. ( [[http://hoovy.org]] )
+** The Middle
+Objective-C library for iOS and macOS for high performance
+turtle-style graphics and game development for Emacs and Xcode.
+-- Lost the Code on the Macbook Air!! --
+** HaskellPlugin [old]
+http://github.com/humasect/HaskellPlugin
+Plugin for Haskell for old version of Xcode.
 
-*** HuMAX [old]
- Haskell OpenGL example game like beatmania/DJ MAX.
- - it was a learning experience.
+** HuMAX [old]
+Haskell OpenGL example game like beatmania/DJ MAX.
+- it was a learning experience.
 
-* Communications
-Freenode: #emacs #lispgames #lisp ##prolog #gamedev #xelf
-EFnet: #buddhism #shmups #dragonquest
-Quakenet: #rgrd
-[[irc:/irc.freenode.net/#emacs][#emacs on freenode]]
+* --- Inspiration ---
+** Stories
+   - Wall-E
+** Games
+   Kirby
+   Bangai-o
+   Shiren the wanderer
+   ikaruga
+   Ragnarok Online
 
-* Research
+   Doom
+   Mario.*
+
+** Indie Games
+   Poncho Game
+   "20,000 atmospheres" underwater sub dungeon crawl....
+   Knuckle Sandwich =) =)
+   Lobotomy Corporation..
+   Long Gone Days
+   Way of the Passive Fist=)
+   ZERO RANGER!!!
+
+   TEXTORCIST !!!
+** Anime
+ Lain,
+ Magi,
+ Ergo Proxy,
+ Gargantia,
+ Arppeggio Of Blue Steel,
+ Aldnoah Zero,
+ Shin Seki Yori
+
+** Movies
+ Dark Tower
+
+ Doctor Strange
+ Wonder Woman
+ Kong: Skull Island
+ The BFG (big friendly giant)
+
+ Evangelion Series
+
+** Genesis games
+ fire shark
+ story of thor
+ atomic runner
+ task force harrier ex
+ gargoyles
+ elemental master
+ adv. batman robin
+ cyber police swat
+ gauntlet
+ rolling thunder 3
+ rocket knight adv
+ castl bloodlines
+ contra hard corps
+
+** SNES games
+ chaos seed: feng shui chronicles
+ energy breaker
+ wonder project j
+ shin megami tensei: last bible 3
+* Quotes
+  Every money reward has a price beyond the financial fee you can see and count. Accepting that is critical.
+  Scott Adams once wrote: “One of the best pieces of advice I’ve ever heard goes something like this:
+  If you want success, figure out the price, then pay it. It sounds trivial and obvious, but if you unpack the idea it has extraordinary power.”
+  Wonderful money advice.
+* Chat
+  Freenode: #emacs #lispgames #lisp ##prolog #gamedev #xelf
+  EFnet: #buddhism #shmups #dragonquest
+  Quakenet: #rgrd
+  [[irc:/irc.freenode.net/#emacs][#emacs on freenode]]
+* Links
 ** Programming articles
  Linus Torvalds
  https://www.brynmawr.edu/cs/resources/beauty-of-programming
@@ -115,29 +417,16 @@ http://sapphiremagendavid.blogspot.com/
 [10 commandments]
 http://kabbalahsecrets.com/?page_id=1944
 
-** Editing links
+** Editing Text
 https://www.emacswiki.org/emacs/TheCraftOfTextEditing
-** RPG links
+** Role Playing Games
 https://rolltop-indigo.blogspot.com/2018/10/the-big-list-of-rpg-plots.html
-** Inspiration
- Kirby
- Bangai-o
- Shiren the wanderer
- ikaruga
- Ragnarok Online
-
- Poncho Game
- "20,000 atmospheres" underwater sub dungeon crawl....
- Knuckle Sandwich =) =)
- Lobotomy Corporation..
- Long Gone Days
- Way of the Passive Fist=)
- ZERO RANGER!!!
-
 ** News
  | [[https://news.ycombinator.com/][Hacker News]] | [[http://sachachua.com/blog/category/emacs/][Sacha Chua Emacs Blog]] |
 
-** GitHub links
+  http://indiegamereviews.com
+
+** GitHub Projects
 *** C
  [[https://github.com/eudoxia0/cmacro][cmacro]]
 *** Common Lisp
@@ -161,8 +450,3 @@ https://rolltop-indigo.blogspot.com/2018/10/the-big-list-of-rpg-plots.html
  [[http://emacslife.com/emacs-chats/chat-iannis-zannos.html][Emacs and SuperCollider!]]
 *** Prolog
  [[https://wps.aw.com/wps/media/objects/5771/5909832/PDF/Luger_0136070477_1.pdf][Logic programming PDF]]
-** Quotes
- Every money reward has a price beyond the financial fee you can see and count. Accepting that is critical.
- Scott Adams once wrote: “One of the best pieces of advice I’ve ever heard goes something like this:
- If you want success, figure out the price, then pay it. It sounds trivial and obvious, but if you unpack the idea it has extraordinary power.”
- Wonderful money advice.

@@ -316,7 +316,7 @@ https://en.wikipedia.org/wiki/Sexagenary_cycle
 | ץ      | single |   |
 | ף      | double |   |
 
-** Seasons (4 <<Sphere>>s?)
+** Seasons/Worlds (4 <<Sphere>>s?)
 
 | Name      | Center |   |
 |-----------+--------+---|
