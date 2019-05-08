@@ -14,7 +14,7 @@
  '(ansi-color-names-vector
    ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1" "#e1e1e0"])
  '(blink-cursor-mode nil)
- '(c-basic-offset 4 t)
+ '(c-basic-offset 4)
  '(custom-enabled-themes '(tango-dark))
  '(custom-unlispify-menu-entries t)
  '(default-input-method "hebrew")
@@ -307,17 +307,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#141818" :foreground "#eeeeec" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "misc" :family "fixed"))))
+ '(default ((t (:inherit nil :stipple nil :background "#101010" :foreground "#ccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "misc" :family "fixed"))))
  '(erc-input-face ((t (:foreground "#f9f"))))
  '(erc-my-nick-face ((t (:foreground "#f9f" :weight bold))))
- '(font-lock-builtin-face ((t (:foreground "#99d790"))))
- '(font-lock-comment-face ((t (:foreground "#060"))))
- '(font-lock-constant-face ((t (:foreground "#99d790"))))
- '(font-lock-function-name-face ((t (:foreground "#f8f"))))
+ '(font-lock-builtin-face ((t (:foreground "#8f8"))))
+ '(font-lock-comment-face ((t (:foreground "#666"))))
+ '(font-lock-constant-face ((t (:foreground "#8ff"))))
+ '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
+ '(font-lock-function-name-face ((t (:foreground "#c8c"))))
  '(font-lock-keyword-face ((t (:foreground "green"))))
  '(font-lock-preprocessor-face ((t (:foreground "orange"))))
- '(font-lock-string-face ((t (:foreground "cyan"))))
- '(font-lock-type-face ((t (:foreground "#8ff"))))
+ '(font-lock-string-face ((t (:foreground "#fff"))))
+ '(font-lock-type-face ((t (:foreground "#99d790"))))
  '(font-lock-variable-name-face ((t (:foreground "#88f"))))
  '(highlight ((t (:background "#334400" :foreground "#ffffff"))))
  '(org-meta-line ((t (:inherit font-lock-comment-face))))
@@ -340,7 +341,9 @@
  '(region ((t (:background "#333333"))))
  '(secondary-selection ((t (:background "#203960"))))
  '(slime-highlight-edits-face ((t (:background "#222"))))
- '(tuareg-font-lock-governing-face ((t (:foreground "green")))))
+ '(tuareg-font-lock-governing-face ((t (:foreground "green"))))
+ '(tuareg-font-lock-module-face ((t (:inherit font-lock-type-face))))
+ '(tuareg-font-lock-operator-face ((t (:foreground "yellow")))))
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line

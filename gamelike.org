@@ -12,3 +12,8 @@ Dharma in a game
 ** Hub Town
 * Decision Tree
 ** Consequences
+
+
+- Samurai!
+- Robots.
+- world tree.

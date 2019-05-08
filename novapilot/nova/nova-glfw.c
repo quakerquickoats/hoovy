@@ -54,7 +54,7 @@ void NV_Init (int w, int h)
     glfwSwapInterval(1);
 
     //glClearColor();
-    glClear(GL_COLOR_BUFFER_BIT);
+    //glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, c->width, c->height);
 }
 
@@ -73,6 +73,7 @@ BOOL NV_Update ()
         glfwWindowShouldClose(window))
         return Val_bool(NO);
     
+    glClear(GL_COLOR_BUFFER_BIT);
     return Val_bool(YES);
 }
 

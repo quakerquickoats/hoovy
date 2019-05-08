@@ -2,7 +2,6 @@
 
 HumaX.
 
-
 * Game dev
 ** Libraries
 https://opengameart.org

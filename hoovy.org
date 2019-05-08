@@ -2,6 +2,24 @@
 
 /Welcome/
 
+* Subjective-C
+
+Lisping of C like how Objective-C does Smalltalking of C.
+
+check out [[file:experiment.al]]
+
+- program is 'data' and 'code'.
+- subtractive programming
+- begin with infinite program; not empty program.
+- cut away at the abyss
+- evaluates both in and out; right and left trees (to/from trunk)
+
+
+** operations and structures
+- boolean operations
+- binary ops: AND(record conjunction), OR(variant disjunction)
+- symbolic trees using said OPS
+
 * --- Research ---
 * Creation
   | Stage | Element  |         |                              |
@@ -41,13 +59,22 @@ puts 231 modes on sphere,
 rotating forward for implied good,
 retrograde then evil intents.
 
+* Man
+  Man starts at alef, like dante;
+  descends into Hell (12 branches),
+  rearrives to Center (world tree) --
+  ascends to Heaven (10 stems) by means of 'Elastic Tension'.
+  (like a wind up --- answers the question "why do we suffer?" in order to build momentum and torque.)
 * Gender
 male : Alef-Mem-Shin
 female : Alef-Shin-Mem
 * Letters
-** 3 Mother Letters (שלש אמח עתיות)
+** 3 Mother Letters (שלש אמח אותיות)
+   [ספר יצירה]
+   3 kinds of sefer.
+
    As 3 dimensions of cube:
-   | Ltr |              | Axis | Sound           | ???   | Body        | Elem  | Season |
+   | Ltr | sefer        | Axis | Sound           | ???   | Body        | Elem  | Season |
    |-----+--------------+------+-----------------+-------+-------------+-------+--------|
    | ש   | Text/Book    | Y    | Sibilant 'hiss' | Man   | Head        | Fire  | Summer |
    |     |              |      |                 |       |             |       |        |
@@ -311,9 +338,6 @@ dropbox start && dropbox status
 [[file:attic/ectron.el][Emacs Electron]]
 [[file:attic/emacsript.el][Emacs ParenScript]] (Emacsript)
 
-** Tests
-[[file:attic/subjective-c][Subjective-C]] Lisping of C like how Objective-C does Smalltalking of C.
-
 ** Erl-Dev
 Erlang multiplayer game server. Supported IRC and other pieces. [[http://github.com/humasect/erl-dev]]
 ** hs-Nova
@@ -345,6 +369,7 @@ Haskell OpenGL example game like beatmania/DJ MAX.
    Mario.*
 
 ** Indie Games
+   https://brianiscreative.itch.io/fara
    Poncho Game
    "20,000 atmospheres" underwater sub dungeon crawl....
    Knuckle Sandwich =) =)
@@ -398,12 +423,17 @@ Haskell OpenGL example game like beatmania/DJ MAX.
   Scott Adams once wrote: “One of the best pieces of advice I’ve ever heard goes something like this:
   If you want success, figure out the price, then pay it. It sounds trivial and obvious, but if you unpack the idea it has extraordinary power.”
   Wonderful money advice.
+
+  "<Pixel_Outlaw> You either get the ugly on the programmer side or the CPU side. The "beautiful" is always on the opposite end."
 * Chat
   Freenode: #emacs #lispgames #lisp ##prolog #gamedev #xelf
   EFnet: #buddhism #shmups #dragonquest
   Quakenet: #rgrd
   [[irc:/irc.freenode.net/#emacs][#emacs on freenode]]
 * Links
+** Publishing
+   - https://gamejolt.com
+   - itch.io
 ** Programming articles
  Linus Torvalds
  https://www.brynmawr.edu/cs/resources/beauty-of-programming

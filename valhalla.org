@@ -661,9 +661,13 @@ and so the cycle.
 - Floating Continents (sky, shin)
 * World
 ** Axis Mundi
-"Every Microcosm, every inhabited region, has a Centre;
-that is to say, a place that is sacred above all."
-where all 7 continents  connect.
+   "Every Microcosm, every inhabited region, has a Centre;
+   that is to say, a place that is sacred above all."
+   where all 7 continents  connect.
+
+   - top branches is heaven
+   - middle is man
+   - bottom roots is earth
 *** Humble Town
     The hub town of the world which beginning players start,
     and where existing players respawn.
