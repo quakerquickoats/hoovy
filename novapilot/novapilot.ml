@@ -6,12 +6,12 @@
 open Nova
 
 let () =
-  Nova.init 240 320;
+  let w = Nova.init 240 320 in
   print_string "Okay.";
   print_newline ();
-  while Nova.update () do
-    Nova.endFrame ();
+  while Nova.update w do
+    Nova.endFrame w;
   done;
-  Nova.shutdown ()
+  Nova.shutdown w
     
 

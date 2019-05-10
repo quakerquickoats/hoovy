@@ -1,19 +1,11 @@
 #+TITLE: Gamelike
 
-Dharma in a game
-
-* Character Generator
-* Adventure Maker
-* Item Cookbook
-
-* World
-** Train
-- there is a train that drives around.
-** Hub Town
-* Decision Tree
-** Consequences
 
 
-- Samurai!
-- Robots.
-- world tree.
+
+
+
+
+
+
+

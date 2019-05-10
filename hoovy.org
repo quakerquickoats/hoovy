@@ -414,10 +414,14 @@ Haskell OpenGL example game like beatmania/DJ MAX.
  contra hard corps
 
 ** SNES games
- chaos seed: feng shui chronicles
- energy breaker
- wonder project j
- shin megami tensei: last bible 3
+ - Zelda II : Adventure of Link
+ - Ghouls'n'Ghosts
+ - PoP
+ - Battletoads
+ - chaos seed: feng shui chronicles
+ - energy breaker
+ - wonder project j
+ - shin megami tensei: last bible 3
 * Quotes
   Every money reward has a price beyond the financial fee you can see and count. Accepting that is critical.
   Scott Adams once wrote: “One of the best pieces of advice I’ve ever heard goes something like this:

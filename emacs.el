@@ -189,6 +189,10 @@
 
   (setq merlin-ac-setup t))
 
+(require 'merlin-eldoc)
+(add-hook 'tuareg-mode-hook 'merlin-eldoc-setup)
+(add-hook 'reason-mode-hook 'merlin-eldoc-setup)
+
 ;;;;;; iedit stuff ;;;;
 ;; (require 'merlin-iedit)
 ;; (defun evil-custom-merlin-iedit ()

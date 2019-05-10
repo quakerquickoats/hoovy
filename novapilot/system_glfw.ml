@@ -19,21 +19,17 @@ module System = struct
     windowHint ~hint:WindowHint.RefreshRate ~value:(Some 60);
     windowHint ~hint:WindowHint.DepthBits ~value:None;
 
-    let w = GLFW.createWindow ~width:width ~height:height
-                ~title:"Novapilot" () in
+    let w = GLFW.createWindow ~width:width ~height:height ~title:"Novapilot" () in
     GLFW.makeContextCurrent ~window:(Some w);
     print_string "OK.";
-
     GLFW.setInputMode ~window:w ~mode:StickyKeys ~value:true;
     w
 
   let update w =
     GLFW.pollEvents ();
     if (GLFW.getKey ~window:w ~key:GLFW.Escape) ||
-         (GLFW.windowShouldClose ~window:w) then
-      false
-    else
-      true
+         (GLFW.windowShouldClose ~window:w) then false
+    else true
 
   let endFrame w =
     GLFW.swapBuffers ~window:w
@@ -42,4 +38,3 @@ module System = struct
     GLFW.destroyWindow ~window:w;
     GLFW.terminate ();
 end
-                  
