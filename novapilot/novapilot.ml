@@ -4,14 +4,13 @@
  *)
 
 open Nova
-
+open System_glfw
+   
 let () =
-  let w = Nova.init 240 320 in
-  print_string "Okay.";
-  print_newline ();
-  while Nova.update w do
-    Nova.endFrame w;
+  let w = System.init 240 320 "Novapilot" in
+  while System.update w do
+    Nova.prepareScene ();
+    System.endFrame w;
   done;
-  Nova.shutdown w
+  System.shutdown w
     
-

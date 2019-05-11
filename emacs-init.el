@@ -321,6 +321,7 @@
  '(font-lock-type-face ((t (:foreground "#99d790"))))
  '(font-lock-variable-name-face ((t (:foreground "#88f"))))
  '(highlight ((t (:background "#334400" :foreground "#ffffff"))))
+ '(merlin-type-face ((t (:inherit caml-types-expr-face :background "skyblue" :foreground "black"))))
  '(org-meta-line ((t (:inherit font-lock-comment-face))))
  '(org-special-keyword ((t (:inherit font-lock-variable-name-face))))
  '(org-table ((t (:foreground "cyan"))))

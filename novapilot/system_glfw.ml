@@ -3,15 +3,10 @@
   (c) 2019 Lyndon Tremblay
  *)
 
-(*open Gg
-  open Ctypes
-  open Foreign
- *)
-
 open GLFW
 
 module System = struct
-  let init width height =
+  let init width height title =
     GLFW.init ();
     windowHint ~hint:WindowHint.ContextVersionMajor ~value:3;
     windowHint ~hint:WindowHint.ContextVersionMinor ~value:3;
@@ -19,22 +14,25 @@ module System = struct
     windowHint ~hint:WindowHint.RefreshRate ~value:(Some 60);
     windowHint ~hint:WindowHint.DepthBits ~value:None;
 
-    let w = GLFW.createWindow ~width:width ~height:height ~title:"Novapilot" () in
+    let w = GLFW.createWindow ~width ~height ~title () in
     GLFW.makeContextCurrent ~window:(Some w);
     print_string "OK.";
     GLFW.setInputMode ~window:w ~mode:StickyKeys ~value:true;
     w
 
-  let update w =
+  let update window =
     GLFW.pollEvents ();
-    if (GLFW.getKey ~window:w ~key:GLFW.Escape) ||
-         (GLFW.windowShouldClose ~window:w) then false
+    if (GLFW.getKey ~window ~key:GLFW.Escape) ||
+         (GLFW.windowShouldClose ~window) then false
     else true
 
-  let endFrame w =
-    GLFW.swapBuffers ~window:w
+  let endFrame window =
+    GLFW.swapBuffers ~window
     
-  let shutdown w =
-    GLFW.destroyWindow ~window:w;
-    GLFW.terminate ();
+  let shutdown window =
+    GLFW.destroyWindow ~window;
+    GLFW.terminate ()
+
+  let getKey window key =
+    GLFW.getKey ~window ~key
 end

@@ -1,4 +1,4 @@
 (executable
  (name novapilot)
  (modes (native exe))
- (libraries glfw-ocaml))
+ (libraries glfw-ocaml tgls.tgl3 gg vg cairo2 vg.cairo))
