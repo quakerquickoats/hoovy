@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!-- Copyright 2017 Vincent Jacques <vincent@vincent-jacques.net> -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <title>Novapilot demo</title>
+</head>
+<body>
+  <h1>PNG image from command-line</h1>
+  <img src="novapilot_cli.png" />
+  <h1>HTML5 canvas</h1>
+  <canvas id="nova" width="100" height="100"></canvas>
+  <script src="_build/default/novapilot_web.bc.js"></script>
+  <script>
+    draw(document.getElementById("nova"));
+  </script>
+</body>
+</html>
