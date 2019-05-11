@@ -6,7 +6,6 @@
 open Gg
 
 module Input = struct
-
   type cursor = {
       current: v2;
       previous: v2;
@@ -26,18 +25,11 @@ module Input = struct
       middleButton: bool;
       rightButton: bool;
 
-      (*type cursor = {
-        c: V2;     
-        last: V2;  
-        delta: V2; 
-        } *)
       cursor: cursor;
       screenCursor: cursor;
-(*      cursor: v2; last_cursor: v2; delta: v2;
-      screen_cursor: v2; last_screen_cursor: v2; screen_delta: v2;*)
     }
 
-  let no_input = {
+  let noInput = {
       upArrow = false;
       downArrow = false;
       leftArrow = false;
@@ -56,13 +48,6 @@ module Input = struct
       screenCursor = {current = V2.zero;
                       previous = V2.zero;
                       delta = V2.zero};
-                  (*
-      cursor = V2.zero;
-      last_cursor = V2.zero;
-      delta = V2.zero;
-      screen_cursor = V2.zero;
-      last_screen_cursor = V2.zero;
-      screen_delta = V2.zero;*)
     }
                  
   let set_input_char i _x _b = {i with char_states = ('b',true)}
