@@ -18,6 +18,7 @@ Turn based RPG (roguelike)
 ** Train
 - there is a train that goes around.
   a spiritual one and otherwise
+** Ark?
 ** Hub Town (Zion?)
 - central place near world tree. 
 * Interface

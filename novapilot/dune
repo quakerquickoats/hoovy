@@ -4,13 +4,13 @@
  (libraries JsOfOCairo))
 
 (executable
- (name novapilot_cli)
- (modules novapilot_cli)
+ (name novapilot)
+ (modules novapilot system_glfw)
  ;;(modes (native exe))
  ;;(link_flags -linkall)
  ;;(link_flags -cclib -Wl,-E)
   ;;(libraries glfw-ocaml tgls.tgl3 nanovg cairo2 vg.cairo))
- (libraries nova JsOfOCairo cairo2))
+ (libraries glfw-ocaml tgls.tgl3 nova JsOfOCairo cairo2))
 
 (executable
  (name novapilot_web)
