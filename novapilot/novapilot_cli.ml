@@ -5,7 +5,7 @@
 
 open System_glfw
 
-module Nova = Nova.Make(Cairo)
+module Draw = Draw.Make(Cairo)
 
 let () =
   let sys = System.init 320 240 "Novapilot" in
@@ -14,18 +14,18 @@ let () =
   let img = Cairo.Image.(create ARGB32 ~w ~h) in
   let ctx = Cairo.create img in
 
-  Nova.drawScene ctx;
-  Cairo.Surface.flush img;
+  Draw.testArc ctx;
+  (* Cairo.Surface.flush img; *)
   (* Cairo.Surface.finish i; *)
 
-  let _p = Draw.createShader () in
-  let l = Draw.createLayer w h img in
-    
+  let _p = Render.createShader () in
+  let l = Render.createLayer w h img in
+  
   let rec loop lastTime =
     let now = System.getTime () in
     let tick = now -. lastTime in
     if System.update sys then begin
-        Draw.initFrame w h;
+        Render.initFrame w h;
         Cairo.save ctx;
         Cairo.set_source_rgba ctx 0. 0. 0. 0.;
         Cairo.set_operator ctx Cairo.SOURCE;
@@ -39,7 +39,7 @@ let () =
         Cairo.Surface.flush img;
 
         (* texture should already be bound. *)
-        Draw.updateLayer l w h img;
+        Render.updateLayer l w h img;
         
         System.endFrame sys;
         loop now

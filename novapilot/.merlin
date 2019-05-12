@@ -10,7 +10,7 @@ B /home/lyndon/.opam/default/lib/ocaml
 B /home/lyndon/.opam/default/lib/ocaml/threads
 B /home/lyndon/.opam/default/lib/tgls
 B /home/lyndon/.opam/default/lib/uchar
-B _build/default/.nova.objs/byte
+B _build/default/.draw.objs/byte
 B _build/default/.novapilot_cli.eobjs/byte
 B _build/default/.novapilot_web.eobjs/byte
 S /home/lyndon/.opam/default/lib/JsOfOCairo
