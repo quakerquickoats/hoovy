@@ -1,5 +1,5 @@
-module Nova = Nova.Make(JsOfOCairo)
+module Draw = Draw.Make(JsOfOCairo)
 
 let () = Js_of_ocaml.Js.export "draw" (fun canvas ->
-  Nova.draw (JsOfOCairo.create canvas)
+  Draw.scene (JsOfOCairo.create canvas)
 )

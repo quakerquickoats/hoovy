@@ -5,7 +5,24 @@
 
 open GLFW
 
+open Tgl3
+   
 module System = struct
+  let rec checkErrors tag =
+    let e = Gl.get_error () in
+    if e <> Gl.no_error then begin
+        print_string tag;
+        print_string " : GL error: ";
+        print_int e;
+        print_newline ();
+        checkErrors tag
+      end
+    else begin
+        print_string tag;
+        print_string " : No further errors.";
+        print_newline ()
+      end
+  
   let init width height title =
     GLFW.init ();
     windowHint ~hint:WindowHint.ContextVersionMajor ~value:3;
@@ -13,10 +30,9 @@ module System = struct
     windowHint ~hint:WindowHint.OpenGLProfile ~value:CoreProfile;
     windowHint ~hint:WindowHint.RefreshRate ~value:(Some 60);
     windowHint ~hint:WindowHint.DepthBits ~value:None;
-
+    
     let w = GLFW.createWindow ~width ~height ~title () in
     GLFW.makeContextCurrent ~window:(Some w);
-    print_string "OK.";
     GLFW.setInputMode ~window:w ~mode:StickyKeys ~value:true;
     w
 

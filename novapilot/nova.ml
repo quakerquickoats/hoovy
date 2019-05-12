@@ -3,17 +3,24 @@
   (c) 2019 Lyndon Tremblay
  *)
 
-module Make(C: JsOfOCairo.S) = struct
-  let draw c =
-    C.save c;
-    C.arc c 50. 50. ~r:40. ~a1:0. ~a2:5.;
-    C.stroke c;
+(* open Tgl3 *)
 
-    C.set_source_rgb c 1. 1. 1.;
-    C.select_font_face c "monospace";
-    C.set_font_size c 20.;
-    C.move_to c 22. 22.;
-    C.show_text c "אלף-בית";
-
-    C.restore c
+module Nova = struct
+  (* include Nova_util
+   * include Nova_math
+   * include Nova_input *)
 end
+
+(*
+  (*
+  let init = foreign "NV_Init" (int @-> int @-> returning void)
+  let shutdown = foreign "NV_Shutdown" (void @-> returning void)
+  let update = foreign "NV_Update" (int @-> returning int)
+   *)
+
+  external init : int -> int -> unit = "NV_Init" [@@noalloc]
+  external update : unit -> bool = "NV_Update" [@@noalloc]
+  external endFrame : unit -> unit = "NV_EndFrame" [@@noalloc]
+  external getTime : unit -> float = "NV_GetTime" [@@noalloc]
+  external shutdown : unit -> unit = "NV_Shutdown" [@@noalloc]
+ *)
