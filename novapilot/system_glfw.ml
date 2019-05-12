@@ -9,9 +9,9 @@ open Tgl3
    
 module System = struct
   type t = {
+      window: window;
       width: int;
       height: int;
-      window: window;
     }
   
   let rec checkErrors tag =
@@ -40,8 +40,15 @@ module System = struct
     let window = GLFW.createWindow ~width ~height ~title () in
     GLFW.makeContextCurrent ~window:(Some window);
     GLFW.setInputMode ~window ~mode:StickyKeys ~value:true;
-    {width;height;window}
+    (* need to return actual window size.
+       EXWM does full screen by default. *)
+    let w,h = GLFW.getWindowSize ~window in
+    {width=w;height=h;window}
  
+  let shutdown {window;_} =
+    GLFW.destroyWindow ~window;
+    GLFW.terminate ()
+
   let update {window;_} =
     GLFW.pollEvents ();
     if (GLFW.getKey ~window ~key:GLFW.Escape) ||
@@ -49,14 +56,6 @@ module System = struct
     else true
 
   let getTime = GLFW.getTime
-
-  let endFrame {window;_} =
-    GLFW.swapBuffers ~window
-    
-  let shutdown {window;_} =
-    GLFW.destroyWindow ~window;
-    GLFW.terminate ()
-
-  let getKey {window;_} key =
-    GLFW.getKey ~window ~key
+  let endFrame {window;_} = GLFW.swapBuffers ~window
+  let getKey {window;_} key = GLFW.getKey ~window ~key
 end

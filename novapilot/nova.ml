@@ -3,13 +3,36 @@
   (c) 2019 Lyndon Tremblay
  *)
 
-(* open Tgl3 *)
+module Make(C: JsOfOCairo.S) = struct
+  let drawText c s =
+    C.set_font_size c 22.;
+    C.move_to c 22. 22.;
+    (* 
+       agh ! monospace is just [][][][] blocks.
+       dejavu is completely reversed from RtoL.
+       courier is a little few pixels
+       clean is completely fixed up for LtoR !
 
-module Nova = struct
+        ... there must be a good one.
+        for now, we reverse strings and it works for all.
+     *)
+    (* C.select_font_face c "dejavu"; *)
+    C.show_text c s
+  
+  let drawScene c =
+    C.save c;
+    C.arc c 50. 50. ~r:40. ~a1:0. ~a2:5.;
+    C.stroke c;
+    C.set_source_rgb c 1. 1. 1.;
+    drawText c "תיבףלא";
+    C.restore c
+end
+
+(* module Nova = struct *)
   (* include Nova_util
    * include Nova_math
    * include Nova_input *)
-end
+(* end *)
 
 (*
   (*

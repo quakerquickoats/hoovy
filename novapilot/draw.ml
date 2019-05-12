@@ -3,55 +3,81 @@
   (c) 2019 Lyndon Tremblay
  *)
 
-module Make(C: JsOfOCairo.S) = struct
-  let text c s =
-    C.set_font_size c 22.;
-    C.move_to c 22. 22.;
-    (* 
-       agh ! monospace is just [][][][] blocks.
-       dejavu is completely reversed from RtoL.
-       courier is a little few pixels
-       clean is completely fixed up for LtoR !
+open Tgl3
 
-        ... there must be a good one.
-        for now, we reverse strings and it works for all.
-     *)
-    (* C.select_font_face c "dejavu"; *)
-    C.show_text c s
-  
-  let scene c =
-    C.save c;
-    C.arc c 50. 50. ~r:40. ~a1:0. ~a2:5.;
-    C.stroke c;
-    C.set_source_rgb c 1. 1. 1.;
-    text c "תיבףלא";
-    C.restore c
-end
+let get_int =
+  let a = Bigarray.(Array1.create int32 c_layout 1) in
+  fun f -> f a; Int32.to_int a.{0}
+
+(* let set_int =
+ *   let a = Bigarray.(Array1.create int32 c_layout 1) in
+ *   fun f i -> a.{0} <- Int32.of_int i; f a *)
+
+(* let deleteBuffer = function
+ *     (Image {id;_}) -> set_int (Gl.delete_textures 1) id
+ *   | (Framebuffer {id;_}) -> set_int (Gl.delete_framebuffers 1) id *)
+   
+let createShader () =
+  let p = Gl.create_program () in
+  let cs p x str = begin
+      let sh = Gl.create_shader x in
+      Gl.shader_source sh str;
+      Gl.compile_shader sh;
+      Gl.attach_shader p sh
+    end
+  in
+  cs p Gl.vertex_shader
+    {|#version 150 core
+     out vec2 tc;
+     void main(){
+     tc = vec2((gl_VertexID & 2)>>1, 1-(gl_VertexID & 1));
+     //gl_Position = vec4(tc*2.0-1.0,0,1);
+     gl_Position = vec4(tc*2.0-1, 0, 1);}
+     |};
+  cs p Gl.fragment_shader
+    {|#version 150 core
+     uniform sampler2D tex;
+     in vec2 tc;
+     out vec4 color;
+     void main() {
+     color = texture(tex,tc*vec2(1.0,-1.0));}
+     |};
+  Gl.link_program p;
+  Gl.use_program p;
+  p
+
+let createLayer w h image =
+  let vao = get_int (Gl.gen_vertex_arrays 1) in
+  Gl.bind_vertex_array vao;
+  let tex = get_int (Gl.gen_textures 1) in
+  Gl.bind_texture Gl.texture_2d tex;
+  Gl.(tex_parameteri texture_2d texture_max_level 0);
+  Gl.(tex_parameteri texture_2d texture_min_filter linear);
+  Gl.(tex_parameteri texture_2d texture_mag_filter linear);
+  Gl.pixel_storei Gl.unpack_alignment 1;
+  Gl.(tex_image2d texture_2d 0 rgba w h 0 rgba
+        unsigned_byte (`Data (Cairo.Image.get_data8 image)));
+  (* Image {id= tex; width= w; height= h} *)
+  tex
+
+let updateLayer id width height image =
+  Gl.(bind_texture texture_2d id);
+  Gl.(tex_sub_image2d texture_2d 0 0 0 width height rgba
+        unsigned_byte (`Data (Cairo.Image.get_data8 image)))
+
+let initFrame w h =
+  Gl.(disable depth_test);
+  Gl.(enable blend);
+  Gl.(blend_func src_alpha one_minus_src_alpha);
+  (*Gl.(enable texture_2d);*)
+  Gl.viewport 0 0 w h;
+  Gl.clear_color 1. 0.5 1. 1.;
+  Gl.clear Gl.color_buffer_bit;
+  Gl.draw_arrays Gl.triangle_strip 0 4
 
 (* 
    GL Stuff 
 
-  type x =
-    | Image of
-        {id:int;
-         width:int;
-         height:int}
-    | Framebuffer of
-        {id:int}
-    
-
-  let get_int =
-    let a = Bigarray.(Array1.create int32 c_layout 1) in
-    fun f -> f a; Int32.to_int a.{0}
-
-  let set_int =
-    let a = Bigarray.(Array1.create int32 c_layout 1) in
-    fun f i -> a.{0} <- Int32.of_int i; f a
-
-  (* let createBuffer = function
-   *     Image -> 0
-   *   | Framebuffer -> 1 *)
-               
   let deleteBuffer = function
       (Image {id;_}) -> set_int (Gl.delete_textures 1) id
     | (Framebuffer {id;_}) -> set_int (Gl.delete_framebuffers 1) id
