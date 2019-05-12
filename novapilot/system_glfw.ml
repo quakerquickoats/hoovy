@@ -8,6 +8,12 @@ open GLFW
 open Tgl3
    
 module System = struct
+  type t = {
+      width: int;
+      height: int;
+      window: window;
+    }
+  
   let rec checkErrors tag =
     let e = Gl.get_error () in
     if e <> Gl.no_error then begin
@@ -31,24 +37,26 @@ module System = struct
     windowHint ~hint:WindowHint.RefreshRate ~value:(Some 60);
     windowHint ~hint:WindowHint.DepthBits ~value:None;
     
-    let w = GLFW.createWindow ~width ~height ~title () in
-    GLFW.makeContextCurrent ~window:(Some w);
-    GLFW.setInputMode ~window:w ~mode:StickyKeys ~value:true;
-    w
-
-  let update window =
+    let window = GLFW.createWindow ~width ~height ~title () in
+    GLFW.makeContextCurrent ~window:(Some window);
+    GLFW.setInputMode ~window ~mode:StickyKeys ~value:true;
+    {width;height;window}
+ 
+  let update {window;_} =
     GLFW.pollEvents ();
     if (GLFW.getKey ~window ~key:GLFW.Escape) ||
          (GLFW.windowShouldClose ~window) then false
     else true
 
-  let endFrame window =
+  let getTime = GLFW.getTime
+
+  let endFrame {window;_} =
     GLFW.swapBuffers ~window
     
-  let shutdown window =
+  let shutdown {window;_} =
     GLFW.destroyWindow ~window;
     GLFW.terminate ()
 
-  let getKey window key =
+  let getKey {window;_} key =
     GLFW.getKey ~window ~key
 end

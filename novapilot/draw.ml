@@ -16,6 +16,7 @@ module Make(C: JsOfOCairo.S) = struct
         ... there must be a good one.
         for now, we reverse strings and it works for all.
      *)
+    (* C.select_font_face c "dejavu"; *)
     C.show_text c s
   
   let scene c =
