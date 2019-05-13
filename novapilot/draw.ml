@@ -38,16 +38,8 @@ module Make(C: JsOfOCairo.S) = struct
     C.save c;
     f ();
     C.restore c
+
 end
-
-type layer = {x:int;
-  }
-
-(* module Nova = struct *)
-  (* include Nova_util
-   * include Nova_math
-   * include Nova_input *)
-(* end *)
 
 (*
   (*

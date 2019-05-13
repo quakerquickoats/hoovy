@@ -7,7 +7,7 @@ type model = {
 
 module type Scene = sig
   type t
-  val start: unit -> t
+  val start: t
   val step: t -> t
   val cleanup: t -> unit
 end

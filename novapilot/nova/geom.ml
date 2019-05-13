@@ -47,18 +47,18 @@ module Step = struct
 end
 
 module Winding = struct
-  module Make(S: Step) = struct
-    type t = S.t list
-    let spiral2 a = Util.zip (Util.rotatel a)
-    let as_edges = spiral2
-    let as_vertices a = List.map (fun s -> S.vertex s) a
-    let as_lines a =
-      let vs = as_vertices a in Util.zip vs (Util.rotatel vs)
-  end
+  type t = Step.t list
+  let spiral2 a = Util.zip (Util.rotatel a)
+  let as_edges = spiral2
+  let as_vertices a = List.map Step.vertex a
+  let as_lines a =
+    let vs = as_vertices a in Util.zip vs (Util.rotatel vs)
+
+  let empty = []
 end
 
-let test_w = [Step.v (V2.v 1. 1.) (V2.v 0. 0.) (V4.zero);
-              Step.v (V2.v 2. 3.) (V2.v 0. 0.) (V4.zero);
-              Step.v (V2.v 4. 5.) (V2.v 0. 0.) (V4.zero)]
+(* let test_w = [Step.v (V2.v 1. 1.) (V2.v 0. 0.) (V4.zero);
+ *               Step.v (V2.v 2. 3.) (V2.v 0. 0.) (V4.zero);
+ *               Step.v (V2.v 4. 5.) (V2.v 0. 0.) (V4.zero)] *)
 
 
