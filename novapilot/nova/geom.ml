@@ -1,18 +1,23 @@
+(*
+  Nova
+  (c) 2019 Lyndon Tremblay
+ *)
 open Gg
-open Huma
 
-   
+module type Step = sig
+  type t
+  val vertex: t -> v2
+end
+
 module Step = struct
-  (* type t = v3 *)
-  let dim = 3
-  type t = { v: v2; t: v2; c: v4; }
+  type t = {v: v2; t: v2; c: v4}
   let vertex a = a.v
   let param a = a.t
   let color a = a.c
   let mod_vertex f a = { a with v = (f a.v) }
   let mod_param f a = { a with t = (f a.t) }
   let mod_color f a = { a with c = (f a.c) }
-         
+                    
   let v v t c = { v = v; t = t; c = c; }
   (* let comp i = V3t.i.(i) *)
   let x a = a.v
@@ -30,36 +35,26 @@ module Step = struct
   let of_tuple (v', t, c) = v v' t c
   let to_tuple a = (a.v, a.t, a.c)
 
-  let of_spherical sv = ignore
-  let to_spherical a = ignore
+  let of_spherical _sv = ignore
+  let to_spherical _a = ignore
 
-  let of_v2 a ~z = ignore
-  let of_v4 a = ignore
+  let of_v2 _a ~_z = ignore
+  let of_v4 _a = ignore
 
   let neg a = v (V2.neg a.v) (V2.neg a.t) (V4.neg a.c)
   let add a b = v (V2.add a.v b.v) (V2.add a.t b.t) (V4.add a.c b.c)
   let sub a b = v (V2.sub a.v b.v) (V2.sub a.t b.t) (V4.sub a.c b.c)
 end
 
-(* type step = v2 * v2 * v4 [@@deriving sexp] *)
-
-                         
-                         (* val add : step -> step -> step              *)
-
-(* let add (t,v,c) (t',v',c') =
- *   (add t t', add v v', add c c') *)
-
 module Winding = struct
-  type t = Step.t list
-
-  let spiral2 a = Huma.zip (Huma.rotatel a)
-  (* Let spiral3 a = let ts = rotatel a in zip3... *)
-  let as_edges = spiral2
-  let as_vertices a = List.map (fun s -> Step.vertex s) a
-  let as_lines a = let vs = as_vertices a in Huma.zip vs (Huma.rotatel vs)
-
-  (* let map_edges f a = f `zipWith` w $ rotatel w... *)
-  (* let is_convex a = is_circle_inside (center_of a, 0) a *)
+  module Make(S: Step) = struct
+    type t = S.t list
+    let spiral2 a = Util.zip (Util.rotatel a)
+    let as_edges = spiral2
+    let as_vertices a = List.map (fun s -> S.vertex s) a
+    let as_lines a =
+      let vs = as_vertices a in Util.zip vs (Util.rotatel vs)
+  end
 end
 
 let test_w = [Step.v (V2.v 1. 1.) (V2.v 0. 0.) (V4.zero);

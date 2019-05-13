@@ -1,4 +1,4 @@
 (library
  (name nova)
- (modules nova)
- (libraries JsOfOCairo))
+ (modules nova util geom)
+ (libraries JsOfOCairo gg))

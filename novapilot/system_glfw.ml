@@ -58,27 +58,30 @@ let update {window;_} =
      || (GLFW.windowShouldClose ~window) then false
   else true
 
-let loop sys f =
-  let rec inner lastTime =
-    let now = GLFW.getTime () in
-    let tick = now -. lastTime in
-    if update sys then begin
-        Render.prepareCanvas sys.canvas;
-
-        Gl.clear_color 1. 0.5 1. 1.;
-        Gl.clear Gl.color_buffer_bit;
-
-        f sys.context tick;
-        Render.uploadCanvas sys.canvas; (* only needed if changed. *)
-        Render.renderCanvas sys.canvas;
-        GLFW.swapBuffers ~window:sys.window;
-        inner now
-      end
-    else
-      ()
-  in
-  inner (GLFW.getTime());
-  shutdown sys
-
 let getKey {window;_} key = GLFW.getKey ~window ~key
 
+module Make(G: Nova.Game) = struct
+  let run title =
+    let sys = init 320 240 title in
+    let rec inner lastTime g =
+      let now = GLFW.getTime () in
+      let tick = now -. lastTime in
+      if update sys then begin
+          Render.prepareCanvas sys.canvas;
+          
+          Gl.clear_color 1. 0.5 1. 1.;
+          Gl.clear Gl.color_buffer_bit;
+          
+          G.render g;
+          Render.uploadCanvas sys.canvas; (* only needed if changed. *)
+          Render.renderCanvas sys.canvas;
+          GLFW.swapBuffers ~window:sys.window;
+          inner now (G.step g tick)
+        end
+      else
+        ()
+    in
+    inner (GLFW.getTime()) (G.start ());
+    shutdown sys
+end
+                                      

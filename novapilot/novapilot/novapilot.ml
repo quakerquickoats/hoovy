@@ -19,5 +19,17 @@ type actor = {
 
 type player = actor
 type bullet = actor
+
+type t = {
+    test:int;
+  }
             
-let () = ()
+let start () =
+  {test=1}
+
+let cleanup _ = ()
+
+let step g _t = g
+let render _ = ()
+
+                 

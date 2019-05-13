@@ -6,11 +6,13 @@ B /home/lyndon/.opam/default/lib/js_of_ocaml
 B /home/lyndon/.opam/default/lib/ocaml
 B /home/lyndon/.opam/default/lib/uchar
 B ../_build/default/nova/.nova.objs/byte
+B ../_build/default/novapilot/.novapilot.objs/byte
 S /home/lyndon/.opam/default/lib/JsOfOCairo
 S /home/lyndon/.opam/default/lib/bytes
 S /home/lyndon/.opam/default/lib/gg
 S /home/lyndon/.opam/default/lib/js_of_ocaml
 S /home/lyndon/.opam/default/lib/ocaml
 S /home/lyndon/.opam/default/lib/uchar
+S ../nova
 S .
-FLG -open Nova__ -w @a-4-29-40-41-42-44-45-48-58-59-60-40 -strict-sequence -strict-formats -short-paths -keep-locs
+FLG -w @a-4-29-40-41-42-44-45-48-58-59-60-40 -strict-sequence -strict-formats -short-paths -keep-locs
