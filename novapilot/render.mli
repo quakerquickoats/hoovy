@@ -7,13 +7,16 @@
  *   | Framebuffer of
  *       {id:int} *)
 
-val initFrame : int -> int -> unit
+type image
+val getSurface: image -> Cairo.Surface.t  (* temp *)
 
-val createShader : unit -> int
-(* val createLayer : int -> int -> Cairo.Surface.t -> resource
- * val updateLayer : resource -> Cairo.Surface.t -> unit *)
-val createLayer : int -> int -> Cairo.Surface.t -> int
-val updateLayer : int -> int -> int -> Cairo.Surface.t -> unit
+val createShaders: unit -> int
+
+val createCanvas: int -> int -> image
+val uploadCanvas: image -> unit
+val prepareCanvas: image -> unit
+val renderCanvas: image -> unit
+                             
     
       
                                               

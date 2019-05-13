@@ -1,0 +1,4 @@
+(library
+ (name nova)
+ (modules nova)
+ (libraries JsOfOCairo))

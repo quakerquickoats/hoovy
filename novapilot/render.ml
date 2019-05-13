@@ -17,7 +17,7 @@ let get_int =
  *     (Image {id;_}) -> set_int (Gl.delete_textures 1) id
  *   | (Framebuffer {id;_}) -> set_int (Gl.delete_framebuffers 1) id *)
    
-let createShader () =
+let createShaders () =
   let p = Gl.create_program () in
   let cs p x str = begin
       let sh = Gl.create_shader x in
@@ -46,36 +46,48 @@ let createShader () =
   Gl.use_program p;
   p
 
-let createLayer w h image =
+  type image = {
+    id: int;
+    width: int;
+    height: int;
+    surface: Cairo.Surface.t;
+  }
+
+let getSurface {surface;_} = surface
+             
+let createCanvas w h =
+  let surface = Cairo.Image.(create ARGB32 ~w ~h) in
   let vao = get_int (Gl.gen_vertex_arrays 1) in
   Gl.bind_vertex_array vao;
-  let tex = get_int (Gl.gen_textures 1) in
-  Gl.bind_texture Gl.texture_2d tex;
+  let id = get_int (Gl.gen_textures 1) in
+  Gl.bind_texture Gl.texture_2d id;
   Gl.(tex_parameteri texture_2d texture_max_level 0);
   Gl.(tex_parameteri texture_2d texture_min_filter linear);
   Gl.(tex_parameteri texture_2d texture_mag_filter linear);
   Gl.pixel_storei Gl.unpack_alignment 1;
   Gl.(tex_image2d texture_2d 0 rgba w h 0 rgba
-        unsigned_byte (`Data (Cairo.Image.get_data8 image)));
+        unsigned_byte (`Data (Cairo.Image.get_data8 surface)));
   (* Image {id= tex; width= w; height= h} *)
-  tex
+  {id;width=w;height=h;surface}
 
-let updateLayer id width height image =
-  Cairo.Surface.flush image;
+let uploadCanvas {id;width;height;surface} =
+  Cairo.Surface.flush surface;
   Gl.(bind_texture texture_2d id);
   Gl.(tex_sub_image2d texture_2d 0 0 0 width height rgba
-        unsigned_byte (`Data (Cairo.Image.get_data8 image)))
+        unsigned_byte (`Data (Cairo.Image.get_data8 surface)))
 
-let initFrame w h =
+let renderCanvas {id;_} =
+  Gl.(bind_texture texture_2d id);
+  Gl.draw_arrays Gl.triangle_strip 0 4
+  
+let prepareCanvas {width;height;_} =
   Gl.(disable depth_test);
   Gl.(enable blend);
   Gl.(blend_func src_alpha one_minus_src_alpha);
   (*Gl.(enable texture_2d);*)
-  Gl.viewport 0 0 w h;
-  Gl.clear_color 1. 0.5 1. 1.;
-  Gl.clear Gl.color_buffer_bit;
+  Gl.viewport 0 0 width height;
   Gl.draw_arrays Gl.triangle_strip 0 4
-
+    
 (* 
    GL Stuff 
 

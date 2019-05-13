@@ -1,0 +1,4 @@
+(library
+ (name gamelike)
+ (modules gamelike)
+ (libraries nova))

@@ -1,14 +1,16 @@
 #+TITLE: Gamelike
 
+* Ideas
 what is it?
 
 The Wanderer.... Wayfarer
-
 Shiren...
 
 Start Expedition ?
 Hire Help ?
 
+* Gameplay
+top view.
 
 
 

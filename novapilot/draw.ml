@@ -6,7 +6,6 @@
 module Make(C: JsOfOCairo.S) = struct
   let text c s =
     C.set_font_size c 22.;
-    C.move_to c 22. 22.;
     (* 
        agh ! monospace is just [][][][] blocks.
        dejavu is completely reversed from RtoL.
@@ -24,16 +23,20 @@ module Make(C: JsOfOCairo.S) = struct
     C.arc c 50. 50. ~r:40. ~a1:0. ~a2:5.;
     C.stroke c;
     C.set_source_rgb c 1. 1. 1.;
+    C.move_to c 200. 200.;
     text c "תיבףלא";
     C.restore c
 
-  let layer c =
-    C.save c;
+  let clear c =
     (* clear the layer *)
     C.set_source_rgba c 0. 0. 0. 0.;
     C.set_operator c C.SOURCE;
     C.paint c;
-    C.set_operator c C.OVER;
+    C.set_operator c C.OVER
+
+  let withState c f =
+    C.save c;
+    f ();
     C.restore c
 end
 
@@ -59,3 +62,13 @@ type layer = {x:int;
   external getTime : unit -> float = "NV_GetTime" [@@noalloc]
   external shutdown : unit -> unit = "NV_Shutdown" [@@noalloc]
  *)
+
+               
+
+(* let () = begin
+  let module Nova = Nova.Make(CairoMock) in
+  let ctx = CairoMock.create () in
+  Nova.draw ctx;
+  assert (CairoMock.calls ctx = ["save"; "arc 50.00 50.00 ~r:40.00 ~a1:0.00 ~a2:5.00"; "stroke"; "restore"])
+end
+*)
