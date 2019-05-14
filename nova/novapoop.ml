@@ -50,7 +50,7 @@ module Gear = struct
       layer: int;
       flags: string;
 
-      (* perform: Performance.t; *)
+      perform: Performance.t option;
       travel: v3;
       winding: Geom.Winding.t;
       trans: Performance.mutator list;
@@ -59,7 +59,7 @@ module Gear = struct
   let create () =
     {layer = 0;
      flags = "";
-     (* perform = Visual (Default Default); *)
+     perform = None; (* Visual (Default Default); *)
      travel = V3.zero;
      winding = Geom.Winding.empty;
      trans = [];
@@ -71,27 +71,34 @@ end
 (**********************************************)
 
 module Scene = struct
-  type t (* actors *)
+  type t = {g: Gear.t list}
 end
                  
 (**********************************************)
 
-module Engine = struct
-  type t = {
-      gears: Gear.t list;
-      (* actors: Actor.t list; *)
-    }
-
-  let create = {gears=[]}
-end
-
 module type Conductor = sig
   type t
-  val engine: Engine.t
-  val initialState: unit -> t
+  (* val engine: Engine.t *)
+  val initialState: t
   val step: t -> float -> t
   val render: t -> unit
   val cleanup: t -> unit
 end
 
-                      
+module Engine = struct
+  type t = {
+      lastTime: float;
+      gears: Gear.t list;
+      (* actors: Actor.t list; *)
+    }
+
+  let initialState = {lastTime=0.;gears=[]}
+
+  let create now = {lastTime=now;gears=[]}
+  let step e now =
+    let _tick = now -. e.lastTime in
+    {lastTime=now;gears=e.gears}
+  let render _e = ()
+  let cleanup _e = ()
+
+end

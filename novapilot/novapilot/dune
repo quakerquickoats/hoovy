@@ -1,4 +1,0 @@
-(library
- (name novapilot)
- (modules novapilot)
- (libraries nova JsOfOCairo gg))

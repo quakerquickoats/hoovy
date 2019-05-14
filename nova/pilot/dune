@@ -1,0 +1,4 @@
+(executable
+ (name pilot_cli)
+ (modules pilot_cli pilot)
+ (libraries nova_cli))

@@ -1,19 +1,37 @@
 #+TITLE: Gamelike
 
+what is it? 'mindcrafting'
+
+.... is 'GAMELIKE' the name of the engine ... ?
+
 * Ideas
-what is it?
 
 The Wanderer.... Wayfarer
 Shiren...
+FF:Tactics
+RagnarokOnline
+EtrianOdyssey
+Disgaea
 
-Start Expedition ?
-Hire Help ?
+* Theme
+Sci fi and desert.
+Time travelling?
+teleport between "actors" and play different roles.
+
+* Role Playing
+Start in active city,
+many choices and realms.
+** Dungeon master?
+** Game Master (GM)
+
+* Home Base
+** Start Expedition ?
+** Hire Help ?
 
 * Gameplay
 top view.
-
-
-
+boss battles.
+screen zoom in/out
 
 
 

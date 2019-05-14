@@ -1,4 +1,0 @@
-(library
- (name nova)
- (c_library_flags -lGL -lglfw)
- (c_names nova-glfw nova-util))

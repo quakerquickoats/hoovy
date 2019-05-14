@@ -1,5 +1,5 @@
 (*
-  Novapilot
+  Gamelike
   (c) 2019 Lyndon Tremblay
  *)
 
@@ -46,7 +46,8 @@ let init width height title =
   let _ = Render.createShaders () in
   let canvas = Render.createCanvas w h in
   let context = Cairo.create (Render.getSurface canvas) in
-  {width=w;height=h;window;canvas;context;engine=Nova.Engine.create}
+  let engine = Nova.Engine.create (GLFW.getTime()) in
+  {width=w;height=h;window;canvas;context;engine}
  
 let shutdown {window;canvas;_} =
   Cairo.PNG.write (Render.getSurface canvas) "last_picture.png";
@@ -61,6 +62,36 @@ let update {window;_} =
 
 let getKey {window;_} key = GLFW.getKey ~window ~key
 
+(* let run title engine =
+ *   let sys = init 320 240 title engine in
+ *   
+ *   shutdown sys *)
+                          
+module Conductor(G: Nova.Engine.Conductor) = struct
+  let run title =
+    let sys = init 320 240 title in
+    let rec loop e g =
+      let now = GLFW.getTime() in
+      if update sys then begin
+          Render.prepareCanvas sys.canvas;
+            
+          Gl.clear_color 1. 0.5 1. 1.;
+          Gl.clear Gl.color_buffer_bit;
+          
+          Render.uploadCanvas sys.canvas; (* only needed if changed. *)
+          Render.renderCanvas sys.canvas;
+          GLFW.swapBuffers ~window:sys.window;
+
+          loop (Nova.Engine.step e now) (G.step g 0.)
+        end
+      else
+        G.cleanup g
+    in
+    loop sys.engine G.initialState;
+    shutdown sys
+end
+
+                                    (*
 module Engine = struct
   module Make(G: Nova.Conductor) = struct
     let run title =
@@ -91,3 +122,4 @@ module Engine = struct
   end
 end
                                       
+                                     *)
