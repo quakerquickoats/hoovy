@@ -66,7 +66,9 @@ let getKey {window;_} key = GLFW.getKey ~window ~key
  *   let sys = init 320 240 title engine in
  *   
  *   shutdown sys *)
-                          
+
+module Draw = Draw.Make(Cairo)
+            
 module Conductor(G: Nova.Engine.Conductor) = struct
   let run title =
     let sys = init 320 240 title in
@@ -77,7 +79,18 @@ module Conductor(G: Nova.Engine.Conductor) = struct
             
           Gl.clear_color 1. 0.5 1. 1.;
           Gl.clear Gl.color_buffer_bit;
-          
+
+          (* let t = 1.0 in *)
+          Draw.withState sys.context (fun c ->
+              Draw.clear c;
+              Cairo.set_source_rgb c 0. 1. 1.;
+              Cairo.set_font_size c 22.;
+              Cairo.move_to c 144. 144.;
+            (* Draw.text c (string_of_float (1. /. t)); *)
+              Draw.text c "[ 👽 ]";
+            );
+          Draw.testArc sys.context;
+
           Render.uploadCanvas sys.canvas; (* only needed if changed. *)
           Render.renderCanvas sys.canvas;
           GLFW.swapBuffers ~window:sys.window;

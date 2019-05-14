@@ -1,11 +1,11 @@
 (library
  (name nova)
- (modules draw util math geom engine testballs)
+ (modules util math geom engine testballs)
  (libraries JsOfOCairo gg))
 
 (library
  (name nova_cli)
- (modules system_glfw render)
+ (modules system_glfw render draw)
  (libraries nova JsOfOCairo cairo2 tgls.tgl3 glfw-ocaml))
 
 (library

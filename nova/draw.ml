@@ -36,7 +36,7 @@ module Make(C: JsOfOCairo.S) = struct
 
   let withState c f =
     C.save c;
-    f ();
+    f c;
     C.restore c
 
 end

@@ -44,7 +44,7 @@ type t = {
  *       Draw.testArc c
  *     ) *)
 
-let initialState () =
+let initialState =
   {test=1}
 
 let cleanup _ = ()
