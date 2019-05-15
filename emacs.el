@@ -9,9 +9,9 @@
 ;;; 
 
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
-;;(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 ;;(add-to-list 'package-archives '("elpa" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+;;(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 ;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/))"))
 
 (defun packages ()
@@ -35,6 +35,13 @@
 	      (when (string-match "Firefox" exwm-class-name)
 		(exwm-workspace-rename-buffer exwm-title))))
   )
+
+;;;
+;;; Treemacs
+;;;
+
+;; (add-to-list 'load-path "~/src/treemacs/src/elisp")
+;; (require 'treemacs)
 
 ;;;
 ;;; Files

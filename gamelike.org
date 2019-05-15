@@ -19,12 +19,13 @@ Time travelling?
 teleport between "actors" and play different roles.
 
 * Role Playing
-Start in active city,
-many choices and realms.
+Start in active city, many choices and realms.
+** Home Base!
+** Party System
+- like Milandra(SFC)
 ** Dungeon master?
 ** Game Master (GM)
 
-* Home Base
 ** Start Expedition ?
 ** Hire Help ?
 
@@ -33,6 +34,6 @@ top view.
 boss battles.
 screen zoom in/out
 
+2d layers of maps: can travel up/down which changes display.
 
-
-
+Chess Movements!
