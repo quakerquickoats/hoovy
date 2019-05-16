@@ -17,7 +17,7 @@ module Make(C: JsOfOCairo.S) = struct
      *)
     (* C.select_font_face c "dejavu"; *)
     C.show_text c s
-  
+    
   let testArc c =
     C.save c;
     C.arc c 50. 50. ~r:40. ~a1:0. ~a2:5.;

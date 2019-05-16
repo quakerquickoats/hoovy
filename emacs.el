@@ -11,7 +11,7 @@
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 ;;(add-to-list 'package-archives '("elpa" . "http://elpa.gnu.org/packages/"))
-;;(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 ;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/))"))
 
 (defun packages ()
@@ -162,39 +162,39 @@
    an error"
   (car (ignore-errors (apply 'process-lines (split-string cmd)))))
 
-(let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
-  (when (and opam-share (file-directory-p opam-share))
-    ;; Register Merlin
-    (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
-    (autoload 'merlin-mode "merlin" nil t nil)
-    ;; Automatically start it in OCaml buffers
-    (add-hook 'tuareg-mode-hook 'merlin-mode t)
-    (add-hook 'caml-mode-hook 'merlin-mode t)
-    (add-hook 'tuareg-mode-hook 'utop-minor-mode t)
-    ;; Use opam switch to lookup ocamlmerlin binary
-    (setq merlin-command 'opam)))
+;; (let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
+;;   (when (and opam-share (file-directory-p opam-share))
+;;     ;; Register Merlin
+;;     (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+;;     (autoload 'merlin-mode "merlin" nil t nil)
+;;     ;; Automatically start it in OCaml buffers
+;;     (add-hook 'tuareg-mode-hook 'merlin-mode t)
+;;     (add-hook 'caml-mode-hook 'merlin-mode t)
+;;     (add-hook 'tuareg-mode-hook 'utop-minor-mode t)
+;;     ;; Use opam switch to lookup ocamlmerlin binary
+;;     (setq merlin-command 'opam)))
 
-(let* ((refmt-bin (or (shell-cmd "refmt ----where")
-                      (shell-cmd "which refmt")))
-       (merlin-bin (or (shell-cmd "ocamlmerlin ----where")
-                       (shell-cmd "which ocamlmerlin")))
-       (merlin-base-dir (when merlin-bin
-                          (replace-regexp-in-string "bin/ocamlmerlin$" "" merlin-bin))))
-  ;; Add npm merlin.el to the emacs load path and tell emacs where to find ocamlmerlin
-  (when merlin-bin
-    (add-to-list 'load-path (concat merlin-base-dir "share/emacs/site-lisp/"))
-    (setq merlin-command merlin-bin))
+;; (let* ((refmt-bin (or (shell-cmd "refmt --where")
+;;                       (shell-cmd "which refmt")))
+;;        (merlin-bin (or (shell-cmd "ocamlmerlin --where")
+;;                        (shell-cmd "which ocamlmerlin")))
+;;        (merlin-base-dir (when merlin-bin
+;;                           (replace-regexp-in-string "bin/ocamlmerlin$" "" merlin-bin))))
+;;   ;; Add npm merlin.el to the emacs load path and tell emacs where to find ocamlmerlin
+;;   (when merlin-bin
+;;     (add-to-list 'load-path (concat merlin-base-dir "share/emacs/site-lisp/"))
+;;     (setq merlin-command merlin-bin))
 
-  (when refmt-bin
-    (setq refmt-command refmt-bin)))
+;;   (when refmt-bin
+;;     (setq refmt-command refmt-bin)))
 
-(when (require 'reason-mode nil :noerror)
-  (require 'merlin)
-  (add-hook 'reason-mode-hook (lambda ()
-                                (add-hook 'before-save-hook 'refmt-before-save)
-                                (merlin-mode)))
+;; (when (require 'reason-mode nil :noerror)
+;;   (require 'merlin)
+;;   (add-hook 'reason-mode-hook (lambda ()
+;;                                 (add-hook 'before-save-hook 'refmt-before-save)
+;;                                 (merlin-mode)))
 
-  (setq merlin-ac-setup t))
+;;   (setq merlin-ac-setup t))
 
 (require 'merlin-eldoc)
 (add-hook 'tuareg-mode-hook 'merlin-eldoc-setup)

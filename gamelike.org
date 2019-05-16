@@ -2,10 +2,35 @@
 
 what is it? 'mindcrafting'
 
-.... is 'GAMELIKE' the name of the engine ... ?
-
 * Ideas
+ - different worlds or planets (rick&morty shwifty style)
+ - What if you can be.... an ITEM ?? or an NPC?
+ - .... or a map? a set of monsters ???
+ - have a butler somewhere somehow, as pet or service or character ??
+** Wanderman
+ trying to find the wandering one,
+ who has been alive forever and is immortal.
+ A homeless wanderer with no posessions.
+    - Alignment varies by play
+ - cursed to wander forever
+ - lost love
+ - appears and disappears, have to lure him and chase him
+ - wanderman has two sides, each like both rick and morty.
+** The Force
+- can 'move' the mind (actor) into another body (action).
+- can move into items, objects, pixels.
+** Special Characters
+*** Spirit of Phenomena, Spirit of Nature, Spirit of Life and Death
+    - Neutral alignment
+    - Appears in deer form during the day
+    - Appears in formless spirit during the night
+*** Spirit of Entropy (RNG)
+*** Mara
+    - Strong Chaotic alignment
+*** Buddha
+    - Strong Lawful alignment
 
+* Inspiration
 The Wanderer.... Wayfarer
 Shiren...
 FF:Tactics
@@ -17,17 +42,658 @@ Disgaea
 Sci fi and desert.
 Time travelling?
 teleport between "actors" and play different roles.
-
 * Role Playing
 Start in active city, many choices and realms.
 ** Home Base!
-** Party System
-- like Milandra(SFC)
 ** Dungeon master?
 ** Game Master (GM)
-
 ** Start Expedition ?
 ** Hire Help ?
+* -------------------
+* System
+** --Research--
+*** DOS Filenames?
+   - 8 letters basename, 3 letters extension = 11
+   - 2x11 = 22
+*** Crystal
+  DATA = crystal, frozen, ice
+  CODE = .., burning, fire
+  snowflakes, diamonds, salt
+  metal, rock, ceramic
+*** Wikipedia
+  "The 7 crystal systems consist of 32 crystal classes (corresponding to the
+   32 crystallographic point groups) as shown in the following table:"
+  https://en.wikipedia.org/wiki/Crystal_system#In_four-dimensional_space
+  23 (minus one?) crystal spaces in 4F, each having 10 values
+  (4 edge length + 6 interaxial angles), sefirot
+  23rd (or 1st) letter must be the Space.
+  230 space groups (231?) ie. 22 letters x 21 letters = 462 (eliminate mirrors, 231)
+
+*** E8 (Simulation theory lattice)
+ gosset polytope (8D) has 240 vertices
+
+ 613 commandments
+ 248 limbs  (101 left + 101 right, 46 middle (half of 23))
+ 365 days in solar year (SHNE + 10) (tendons?)
+
+ abraham (ABREM) = 248
+** Genesis
+ - day 1: divide chaos with order, create light and darkness
+ - day 2: divide waters with firmament, create above and below
+ - day 3: divide land with vegetation, create fruit and seed
+ - day 4: divide light and dark with luminary, create time and space
+ - day 5: divide old/far from new/close with life+death, creates birth and decay
+ - day 6: divide other and self with mind/soul, creates self
+ - day 7: chill* System
+ - there are 10 'numbers'
+ - there are 3 alignments
+ - there are 7 elements
+ - and 12 dispositions or temperments.
+
+ - for a total of 32 'bits'.
+ :ALL-LETTERS:
+|    |   | Mother | [[Elements]] | [[Tribes]] |
+|----+---+--------+----------+--------|
+| 1  | ? |        |          |        |
+| 2  | ? |        |          |        |
+| 3  | ? |        |          |        |
+| 4  | ? |        |          |        |
+| 5  | ? |        |          |        |
+| 6  | ? |        |          |        |
+| 7  | ? |        |          |        |
+| 8  | ? |        |          |        |
+| 9  | ? |        |          |        |
+| 10 | ? |        |          |        |
+| א  |   | Robot  |          |        |
+| ב  |   |        | [[Dark]]     |        |
+| ג  |   |        | [[Earth]]    |        |
+| ד  |   |        | [[Water]]    |        |
+| ה  |   |        |          | ?      |
+| ו  |   |        |          | ?      |
+| ז  |   |        |          | ?      |
+| ח  |   |        |          | ?      |
+| ט  |   |        |          | ?      |
+| י  |   |        |          | ?      |
+| כ  |   |        | [[Fire]]     |        |
+| ל  |   |        |          | ?      |
+| מ  |   | Female |          |        |
+| נ  |   |        |          | ?      |
+| ס  |   |        |          | ?      |
+| ע  |   |        |          | ?      |
+| פ  |   |        | [[Air]]      |        |
+| צ  |   |        |          | ?      |
+| ק  |   |        |          | ?      |
+| ר  |   |        | [[Space]]    |        |
+| ש  |   | Male   |          |        |
+| ת  |   |        | [[Light]]    |        |
+ :END:
+
+** Numbers (10 Heavenly/Celestial <<Stems>>)
+    :AS-SEFIROT:
+ | Num | Left  | Middle | Right | Body          |
+ |-----+-------+--------+-------+---------------|
+ | (0) |       | כתר    |       | Skull         |
+ |   1 |       |        | חכמה  | Right brain   |
+ |   2 | בינה  |        |       | Left brain    |
+ |   3 |       | דעת    |       | Central brain |
+ |   4 |       |        | חסד   | Right arm     |
+ |   5 | גבורה |        |       | Left arm      |
+ |   6 |       | תפארת  |       | Torso         |
+ |   7 |       |        | נצח   | Right leg     |
+ |   8 | הוד   |        |       | Left leg      |
+ |   9 |       | יסוד   |       | Sex organ     |
+ |  10 |       | מלכות  |       | Mouth         |
+    :END:
+    :CHINESE-HEBREW:
+|    | Sephirot |      |       |        |
+|----+----------+------+-------+--------|
+|  1 | חכמה     | yang | \     |        |
+|    |          |      | wood  | east   |
+|  2 | בינה     | yin  | /     |        |
+|  3 | דעת      | yang | \     |        |
+|    |          |      | fire  | south  |
+|  4 | חסד      | yin  | /     |        |
+|  5 | גבורה    | yang | \     |        |
+|    |          |      | earth | middle |
+|  6 | תפארת    | yin  | /     |        |
+|  7 | נצח      | yang | \     |        |
+|    |          |      | metal | west   |
+|  8 | הוד      | yin  | /     |        |
+|  9 | יסוד     | yang | \     |        |
+|    |          |      | water | north  |
+| 10 | מלכות    | yin  | /     |        |
+    :END:
+** Alignments (3 <<Mothers>>)
+ - there are 3 alignments.
+
+ also these three need to be automatically determined
+   - Male
+   - Robot/NPC/computer/AI
+   - Female
+*** other idea
+ automatically determined.
+   - Karma(chaotic)
+   - Dharma(lawful)
+
+** Classes (7 <<Doubles>>)
+ - there are 7 elements.
+ ? dagesh(dot) is on/off depending on yang/yin, male/female??
+
+ | Letter | Class |
+ |--------+-------|
+ | ב      | Dark  |
+ | ד      | Earth |
+ | ג      | Water |
+ | כ      | Fire  |
+ | פ      | Air   |
+ | ר      | Space |
+ | ת      | Light |
+
+ :WESTERN:
+ | Num | Class     | Word | Weakness | Biomenvironment | Weekday |
+ |-----+-----------+------+----------+-----------------+---------|
+ |   7 | <<Dark>>  | חשך  | light    | hell            | ?       |
+ |   6 | <<Earth>> | ארץ  | spirit   | caves,buildings | ?       |
+ |   5 | <<Water>> | מים  | wind     | islands,forest  | ?       |
+ |   4 | <<Fire>>  | יש   | fire     | desert,mountain | ?       |
+ |   3 | <<Air>>   | רוה  | water    | sky             | ?       |
+ |   2 | <<Space>> | נשמה | earth    | space? spirits? | ?       |
+ |   1 | <<Light>> | אור  | dark     | heaven          | ?       |
+ - Spirit/Void/Mind is the same.
+ - Earth is materialist.
+ - element.weakness is element reversed, except fire.
+ :END:
+ :CHAKRA:
+ | Chakra       | Sephirot  | Color  |
+ |--------------+-----------+--------|
+ | Crown        | בתר,דעת   | Purple |
+ | 3rd Eye      | חכמה,בינה | Blue   |
+ | Throat       | חסד,גבורה | Cyan   |
+ | Heart        | תפארת     | Green  |
+ | Solar Plexus | נצח,הוד   | Yellow |
+ | Sacral       | יסוד      | Orange |
+ | Root         | מלכות     | Red    |
+ :END:
+
+** Tribes (12 Earthly <<Branches>>)
+ - 12 months as zodiac,
+ - hours (x2) of a day and a night.
+ - cycle of 12 years for 
+ - 12 Earthly Branches, 12 Heavenly Stems
+ - 12 * 5 = 60 to combine element and tribe.
+   so every 60 "year" is a new cycle. 
+
+https://en.wikipedia.org/wiki/Sexagenary_cycle
+
+    :CHINESE:
+| Num | Zodiac  | Deg | Hours     | Season          | Polarity | Element |
+|-----+---------+-----+-----------+-----------------+----------+---------|
+|   1 | Rat     |   0 | 11pm..1am | Winter          | yin      | Water   |
+|   2 | Ox      |  30 | 1am..3am  | Winter(Ice)     | yin      | Earth   |
+|   3 | Tiger   |  60 | 3am..5am  | Spring(Corner)  | yang     | Wood    |
+|   4 | Rabbit  |  90 | 5am..7am  | Spring(Apricot) | yin      | Wood    |
+|   5 | Dragon  | 120 | 7am..9am  | Spring(Peach)   | yang     | Earth   |
+|   6 | Snake   | 150 | 9am..11am | Summer          | yang     | Fire    |
+|   7 | Horse   | 180 | 11am..1pm | Summer(Grenade) | yin      | Fire    |
+|   8 | Goat    | 210 | 1pm..3pm  | Summer(Lotus)   | yin      | Earth   |
+|   9 | Monkey  | 240 | 3pm..5pm  | Autumn(Orchid)  | yang     | Metal   |
+|  10 | Rooster | 270 | 5pm..7pm  | Autumn          | yin      | Metal   |
+|  11 | Dog     | 300 | 7pm..9pm  | Autumn          | yang     | Earth   |
+|  12 | Pig     | 330 | 9pm..11pm | Winter(dew)     | yang     | Water   |
+
+ Months:
+
+| Num(Lunar Month) | Zodiac  | Element | Season | Weekday |
+|------------------+---------+---------+--------+---------|
+|                1 | Tiger   | \       |        | Satur   |
+|                2 | Rabbit  | Wood    | Spring | Fri     |
+|                3 | Dragon  | /       |        | Tues    |
+|                4 | Snake   | \       |        | Fri     |
+|                5 | Horse   | Fire    | Summer | Wednes  |
+|                6 | Goat    | /       |        | Mon     |
+|                7 | Monkey  | \       |        | Sun     |
+|                8 | Rooster | Metal   | Autumn | Wednes  |
+|                9 | Dog     | /       |        | Fri     |
+|               10 | Pig     | \       |        | Tues    |
+|               11 | Rat     | Water   | Winter | Thurs   |
+|               12 | Ox      | /       |        | Satur   |
+
+| Order | Ming           | Order | Ming             |
+|-------+----------------+-------+------------------|
+|     1 | Sea metal      |    31 | Sand metal       |
+|     2 |                |    32 |                  |
+|     3 | Furnace fire   |    33 | Forest fire      |
+|     4 |                |    34 |                  |
+|     5 | Forest wood    |    35 | Meadow wood      |
+|     6 |                |    36 |                  |
+|     7 | Road earth     |    37 | Adobe earth      |
+|     8 |                |    38 |                  |
+|     9 | Sword metal    |    39 | Precious metal   |
+|    10 |                |    40 |                  |
+|    11 | Volcanic fire  |    41 | Lamp fire        |
+|    12 |                |    42 |                  |
+|    13 | Cave water     |    43 | Sky water        |
+|    14 |                |    44 |                  |
+|    15 | Fortress earth |    45 | Highway earth    |
+|    16 |                |    46 |                  |
+|    17 | Wax metal      |    47 | Jewellery metal  |
+|    18 |                |    48 |                  |
+|    19 | Willow wood    |    49 | Mulberry wood    |
+|    20 |                |    50 |                  |
+|    21 | Stream water   |    51 | Rapids water     |
+|    22 |                |    52 |                  |
+|    23 | Rooftile earth |    53 | Desert earth     |
+|    24 |                |    54 |                  |
+|    25 | Lightning fire |    55 | Sun fire         |
+|    26 |                |    56 |                  |
+|    27 | Conifers wood  |    57 | Pomegranate wood |
+|    28 |                |    58 |                  |
+|    29 | River water    |    59 | Ocean water      |
+|    30 |                |    60 |                  |
+
+| Element | A       | B        | C         | D      | E        | F       |
+|---------+---------+----------+-----------+--------+----------+---------|
+| Metal   | Sea     | Sword    | Wax       | Sand   | Precious | Jewel   |
+| Fire    | Furnace | Volcanic | Lightning | Forest | Lamp     | Sun     |
+| Wood    | Forest  | Willow   | Conifers  | Meadow | Mulberry | Granade |
+| Earth   | Road    | Fortress | Rooftile  | Adobe  | Highway  | Desert  |
+| Water   | Cave    | Stream   | River     | Sky    | Rapids   | Ocean   |
+
+ ?? what are those 6, ABCDEF? Partzuf?
+
+    :END:
+    :HEBREW:
+    | Name     | Letter | Model |
+    |----------+--------+-------|
+    | Reuben   |        |       |
+    | Simeon   |        |       |
+    | Levi     |        |       |
+    | Judah    |        |       |
+    | Dan      |        |       |
+    | Naphtali |        |       |
+    | Gad      |        |       |
+    | Asher    |        |       |
+    | Issachar |        |       |
+    | Zebulun  |        |       |
+    | Joseph   |        |       |
+    | Benjamin |        |       |
+
+    | Leah     | Bilhah   | Zilpah | Rachel   |
+    |----------+----------+--------+----------|
+    | Reuben   |          |        |          |
+    | Simeon   |          |        |          |
+    | Levi     |          |        |          |
+    | Judah    |          |        |          |
+    |          | Dan      |        |          |
+    |          | Naphtali |        |          |
+    |          |          | Gad    |          |
+    |          |          | Asher  |          |
+    | Issachar |          |        |          |
+    | Zebulun  |          |        |          |
+    |          |          |        | Joseph   |
+    |          |          |        | Benjamin |
+    :END:
+
+:DEGREES:
+| Num | Degree |
+|-----+--------|
+|   1 |      0 |
+|   2 |     15 |
+|   3 |     30 |
+|   4 |     45 |
+|   5 |        |
+|   6 |        |
+|   7 |        |
+|   8 |        |
+|   9 |        |
+|  10 |        |
+|  11 |        |
+|  12 |        |
+|  13 |        |
+|  14 |        |
+|  15 |        |
+|  16 |        |
+|  17 |        |
+|  18 |        |
+|  19 |        |
+|  20 |        |
+|  21 |        |
+|  22 |        |
+|  23 |        |
+|  24 |        |
+:END:
+
+** The 60
+
+** Elements (5 Vowels <<Finals>>)
+| Name  | Planet  | Direction | Colour | [[Partzuf]]                             |
+|-------+---------+-----------+--------+-------------------------------------|
+| Metal | Venus   | West      | White  | Atik Yomin(keter),Arich Anpin(daat) |
+| Wood  | Jupiter | East      | Green  | Abba                                |
+| Water | Mercury | North     | Black  | Amma                                |
+| Fire  | Mars    | South     | Red    | Zeir Anpin                          |
+| Earth | Saturn  | Center    | Yellow | Nukvah                              |
+
+| Letter | Class  |   |
+|--------+--------+---|
+| ך      | double |   |
+| ם      | mother |   |
+| ן      | single |   |
+| ץ      | single |   |
+| ף      | double |   |
+
+** Seasons/Worlds (4 <<Sphere>>s?)
+
+| Name      | Center |   |
+|-----------+--------+---|
+| Divinity  | כתר    |   |
+| Spiritual | דעת    |   |
+| Emotional | תפארת  |   |
+| Physical  | יסוד   |   |
+
+| Name   |   |
+|--------+---|
+| Winter |   |
+| Spring |   |
+| Summer |   |
+| Autumn |   |
+
+Hare Krsna Hare Krsna
+Krsna Krsna Hare Hare
+Hare Rama Hare Rama
+Rama Rama Hare Hare
+
+4 + 4 + 8 = 16
+
+1 2 1 2
+2 2 1 1
+1 3 1 3
+3 3 1 1
+
+OXOX
+XXOO
+OYOY
+YYOO
+
+* Character
+ - character has alignment(mother), element(double), job(single)
+** Attributes
+ | Name | Use                 | Note |
+ |------+---------------------+------|
+ | STR  | Physical ATK and HP |      |
+ | AGI  |                     |      |
+ | LUK  |                     |      |
+ | INT  | Fromless ATK and SP |      |
+ | VIT  |                     |      |
+ | DEX  |                     |      |
+
+** Classes
+ - Starting class 1 is 'novice' or 'adventurer' or unnamed.
+ - there are 7 other classes (2..8)
+
+| Class         | Element   | Native Region   | Yang Class | Yang 2      | Yin Class  | Yin 2     |
+|---------------+-----------+-----------------+------------+-------------+------------+-----------|
+| rebel/vagrant | Dark      | underground     | Rogue      | Outlaw      | Assassin   | Ninja     |
+| hunter        | Earth     | caravan         | Salesman?? | Businessman | Captain    | Pirate    |
+| merchant      | Water     | boats&ships     | Ranger     | Hunter      | Trapper    | Geomancer |
+| artisan       | Fire      | camps           | Cook       | Chef        | Blacksmith | Alchemist |
+| fighter       | Wind      | airship         | Soldier    | Warrior     | Guard      | Mercenary |
+| scholar       | Void/Mind | city            | Magician   | Sorceror    | Linguist?? | Hacker    |
+| monk          | Light     | temple & palace | Priest     | Prophet     | Guru       | Master    |
+
+1, outlaw gathers and steals for merchant,
+2, merchant sells to hunter,
+3, artisan cooks and makes from hunter,
+4, fighter eats and equips from artisan,
+5, scholar paints and sings from fighter,
+6, monk reflects on scholar,
+7, monk gives to outlaw.
+
+and so the cycle.
+
+** Jobs
+ - there are 12 jobs.
+ ? Starting job is "novice" or "adventurer"
+ ? Player can select a profession later in game,
+   to specialise in weapons and skills and game outcome.
+
+? hacker =)
+? in progress.
+
+| Name           | Branch |
+|----------------+--------|
+| Hacker         |        |
+| Martial Artist |        |
+| Musician       |        |
+| Astrologer     |        |
+| Scribe         |        |
+| Strategist     |        |
+| Herbalist      |        |
+| Geomancer?     |        |
+|                |        |
+
+*** Unsure
+|          | Job       | Letter |
+|----------+-----------+--------|
+|          |           |        |
+| theif    |           | hey    |
+|          | assassin  | waw    |
+|          |           |        |
+| merchant |           | zayin  |
+|          |           | xet    |
+|          |           |        |
+| hunter   |           | tet    |
+|          |           | yod    |
+|          |           |        |
+| chef     | scholar   | lamed  |
+|          | scribe    | nun    |
+|          |           |        |
+| artist   |           | samekh |
+|          |           | ayin   |
+|          |           |        |
+| monk     | righteous | tzadi  |
+|          | priest    | qof    |
+|          |           |        |
+
+*** Old
+- Monk has no jobs.
+
+ | Job       | Tag | Element | Equip Weapon | Item Weapon | Bonuses      |
+ |-----------+-----+---------+--------------+-------------+--------------|
+ | Ninja     | N   | Metal   | Sword        | Knife       | AGI+5 STR+10 |
+ | Magician  | M   | Earth   | Staff        | Gem         | DEX+5 INT+10 |
+ | Hunter    | H   | Wood    | Bow          | Trap        | LUK+5 DEX+10 |
+ | Alchemist | A   | Fire    | Gun          | Tool        | INT+5 LUX+10 |
+ | Monk/Sage | *   | Void    | N/A          | N/A         | STR+5 AGI+10 |
+
+** Alternative classes and jobs
+ (defparameter *disposition*
+   '(wanderer
+     volunteer
+     scribe
+     soldier
+     hunter
+     artisan))
+
+ (defparameter *jobs*
+   '(chef
+     monk
+     sage
+     fighter
+     archer
+     craftsman))
+
+ (defparameter *second-jobs*
+   '(alchemist
+     priest
+     wizard
+     samurai    ; swordsman
+     shaman     ; woodsman
+     blacksmith))
+
+** Status Effects
+
+ | Type      | Effect                                       | Note | Duration |
+ |-----------+----------------------------------------------+------+----------|
+ | Poison    | Loss of HP at each turn                      |      | 20 turns |
+ | Mute      | Cannot use skills                            |      | 20 turns |
+ | Confused  | Walk and Attack direction are random         |      | 20 turns |
+ | Paralyze  | Automatic 'Wait' action taken                |      | 20 turns |
+ | Blindness | Lose map, item, char location. Gain hearing. |      | ?        |
+
+** Moods
+ (defparameter *personalities*
+   '(angry depressed sketchy aloof asleep frantic hostile calm flaming))
+ (defparameter *statuses*
+   '(normal confused fast slow stunned asleep beserk))
+
+
+ # items
+
+* Items
+ - can throw and equip all items.
+ - Item actions listed here are 1 turn.
+** Actions
+ + An item has a chance to break if it is thrown and hits an actor.
+ + Two items cannot be on the same part of floor.
+
+ | Action  | Effect                                    | State                |
+ |---------+-------------------------------------------+----------------------|
+ | Throw   | /Throw the item in the facing directionl/ |                      |
+ | Drop    | /Put item on the ground/                  | if no item on ground |
+ | Explain | /Display description screen for item/     |                      |
+
+** Properties
+   - Items share some common properties
+
+
+| Property       | Use                              | Type                  |
+|----------------+----------------------------------+-----------------------|
+| amount/charges | /How many charges left in item/  | pos_integer           |
+| status         | /The status of the item/         | blessed,cursed,normal |
+| cost           | /The full price in zeny at .../  | uinteger              |
+| charge_cost    | /The price for each item charge/ | uinteger              |
+| weight         | /The weight of the item/         | uinteger              |
+|                |                                  |                       |
+
+** Status
+*** cursed
+    Cannot be taken off if worn.
+    Cannot be used unless already equipped.
+*** blessed
+    Extra damage.
+    Does not become destroyed when used, but has a change to become unblessed when used
+
+** Consumables
+*** Herbs
+    - Herbs can be eaten or thrown to an actor to cause the effect.
+    - Eating a herb replenishes 5% fullness.
+
+ | Name                | Effect           | Note |
+ |---------------------+------------------+------|
+ | Weak Healing Herb   | Replenish 6% HP  |      |
+ | Healing Herb        | Replenish 12% HP |      |
+ | Strong Healing Herb | Replenish 24% HP |      |
+
+*** Food
+    - Food is used to replenish SP and sometimes HP.
+
+ | Name       | Effect        | Note                        |
+ |------------+---------------+-----------------------------|
+ | Cherry     | 5% SP         | Stacking item (cherry[ 3 ]) |
+ | Strawberry | 5% SP         | Stacking                    |
+ | Grape      | 5% SP         | Stacking                    |
+ | Apple      | 25% SP        |                             |
+ | Orange     | 50% SP        |                             |
+ | Lemon      | 50% SP        |                             |
+ | Peach      | 50% SP        |                             |
+ | Banana     | 25% SP 25% HP | Changes to 'Banana Peel'    |
+ | Avocado    | 25% SP 25% HP |                             |
+ | Coconut    | 25% SP 25% HP |                             |
+ | Mango      | 50% SP 25% HP |                             |
+
+*** Potions
+    [[/val/potion2.svg]]
+    - Potion can be mixed
+
+ | Name         | Effect                                    | Note                           |
+ |--------------+-------------------------------------------+--------------------------------|
+ | Empty Bottle | None                                      | Can be used to collect liquids |
+ | Alcohol      | Confusion and Provoke state when consumed |                                |
+ | Water        | None                                      |                                |
+ | Poison       | Poison effect                             |                                |
+
+** Bags
+ - Used for holding other items except bags.
+
+ | Action   | Effect                             | State                |
+ |----------+------------------------------------+----------------------|
+ | Contents | /Look inside, show inventory menu/ |                      |
+ | Put In   | /Request an item to be entered/    | when there are slots |
+
+** Scrolls
+ - Scrolls are single-charge items
+
+ | Name            | Effect                                         | Note              |
+ |-----------------+------------------------------------------------+-------------------|
+ | Teleport Scroll | Warp user to random unoccupied location of map |                   |
+ | Blank Scroll    | Takes the effect of what is written            | Write Name action |
+ |                 |                                                |                   |
+
+** Staffs
+ - Holds charges. Swing to fire a charge in direction of facing.
+ - A staff can be thrown for the effect if it hits, even when there are no charges.
+
+ | Name           | Effect                                           | Note          |
+ |----------------+--------------------------------------------------+---------------|
+ | Transfer Staff | Swap places with the actor the shot hits, if any |               |
+ | n/a            | A fire element shot for MATK*1.25                | Fire element  |
+ | n/a            | A water element shot for MATK*1.25               | Water element |
+
+** Equipment
+*** Weapons
+ Can be equipped to left or right hand.
+ - bow
+ - staff/spear/bo
+ - sword
+ - knife/dagger
+ - fists/knuckle
+*** Armor
+    Can be equipped to left or right hand.
+*** Accessories
+    Can be equipped to one of two accessory slots.
+    - Hats
+    - Armbands
+    - Rings
+    - Necklace
+    - Shoes
+*** Ammunition
+ Arrows, knives, rocks, traps
+*** Collectables
+ - figures
+ - cards
+ - Books
+ - discs
+*** Consumables
+ - Food (health, stamina, stats)
+ - Scrolls (skills, stats)
+ - Medicines/Potions/Drugs (drunk, speed, pain)
+ - Ammo (arrows, bullets, darts)
+ - Tools (oil, fuel, powders, etc)
+
+* Party System
+  like Milandra(SFC)
+* Quest System
+* Battle
+** Attack
+   One turn uses two hands. Two swords is two attacks, Two shields is two defends.
+   Sword then shield is attack then defend, shield then sword is defend then attack.
+
+   Damage = (Item VAL * Dest STR) / Target DEF
+
+** Defense
+
+   Damage = (Item VAL * Source STR) / Dest DEF
 
 * Gameplay
 top view.
@@ -37,3 +703,184 @@ screen zoom in/out
 2d layers of maps: can travel up/down which changes display.
 
 Chess Movements!
+
+two-handed and one-handed ?
+  only sheilds for one handed or no handed ?
+
+atk speed, atk power
+
+ - his potions come in vials to throw or to use on himself
+ - he collects item in the bag he carries
+- throws bombs!!
+
+** skills
+ fire, ice, heal, etc.
+
+** equipment screen
+ can equip:
+ - body
+ - head
+ - feet
+ - accessory 1
+ - accessory 2
+ - weapon
+ - skill
+
+** status screen
+ xp, gold, time, monster count.
+ stats are distributed manually among these:
+
+ DEX (attack, defense)
+ AGI (dodge, luck)
+ CON (hp, mp)
+ WIS (Matk, Mdef)
+
+ both equipment and manual stats affect these:
+ Attack, Defense, Dodge, luck, Mdef, Matk, health points, magic points, crit.
+
+* Maps
+** Market
+   - Buy items.
+   - Sell items.
+   - Tag items.
+   - Untag items.
+   - Retrieve tagged items.
+** Storage
+   - Holds up to 613 items, organized by type.
+   - Give item
+   - Take item
+   - Give all items** Dungeons
+  - Dungeons are like entering a portal to a parallel realm or dream world.
+** Factory
+   - Upgrade items.
+   - Combine items.
+   - Deconstruct items into materials.
+   - Construct items from materials.
+** Fortune Teller (better name)
+    - Skills.
+    - Jobs.
+
+** Landmarks
+ - save station
+ - shops
+ - populated areas
+ - unexplored/dangerous areas
+
+** Alternative
+  (defparameter *map-tiles*
+    '(floor damage water wall stairs exit warp pit))
+
+  (defparameter *land*
+    '(field desert mountain forest temple cave city))
+
+  (defparameter *shops*
+    '(armor weapon medicine material fabric service tool))
+
+** Types of area
+  dungeon entrance.
+  save room.
+  boss room.
+  empty room.
+  monster room.
+  secret room.
+  trap room.
+  treasure room.
+** Realms/Zones
+- Snow and Ice (water, mem)
+- Underground Caves (earth, aleph)
+- Floating Continents (sky, shin)
+
+* World
+** Axis Mundi
+   "Every Microcosm, every inhabited region, has a Centre;
+   that is to say, a place that is sacred above all."
+   where all 7 continents  connect.
+
+   - top branches is heaven
+   - middle is man
+   - bottom roots is earth
+*** Humble Town
+    The hub town of the world which beginning players start,
+    and where existing players respawn.
+*** Humble Dungeon
+    - The place where a beginning player will start to learn the game
+    - Existing players can return here to gain some levels on respawn.
+
+*** Tree of Life
+*** Garden of Eden
+*** Mount Zion
+*** Sheol/Gehinnom/Gehenna
+** Continents (7 Countries)
+ - each (element,number) relates directly to character.class
+ ? antarctica: penguins ?
+
+ Sorted by smallest to biggest,
+ | Element | name        | Style           | loc        | inspiration | Size |
+ |---------+-------------+-----------------+------------+-------------+------|
+ | [[Dark]]    |             | prison,factory  | bottom     | Australia   |    1 |
+ | [[Earth]]   |             | castle,fortress | down       | Europe      |    2 |
+ | [[Water]]   | [[Axis Mundi]]  |                 | center     | Antarctica  |    3 |
+ | [[Fire]]    |             | desert          | out,around | S. America  |    4 |
+ | [[Wind]]    | sky         |                 | up         | N. America  |    5 |
+ | [[Spirit]]  | heaven/mind | space tech      | in,toward? | Africa      |    6 |
+ | [[Light]]   |             |                 | top        | Asia        |    7 |
+
+ Sizes:
+ | Continent         | Pop.% | City        | Land % |   |
+ |-------------------+-------+-------------+--------+---|
+ | Antarctica        |   0.0 | McMurdo     |    9.2 |   |
+ | Australia/Oceania |   0.5 | Sydney      |    5.9 |   |
+ | S.America         |   5.7 | Sao Paulo   |   12.0 |   |
+ | N.America         |   7.8 | Mexico City |   16.5 |   |
+ | Europe            |   9.9 | Moscow      |    6.8 |   |
+ | Africa            |  16.3 | Lagos       |   20.4 |   |
+ | Asia              |  60.0 | Shanghai    |   29.5 |   |
+ ? Antarctica (Dark) has least people. Should it be 'Light'(One)?
+ ? Asia (Light) has over 60% population! Should it be 'Dark'?
+
+ Heights and Depths:
+ | Continent  | Highest                | Lowest                    |
+ |------------+------------------------+---------------------------|
+ | Asia       | Everest (8,848m)       | Dead Sea (-427m)          |
+ | S.America  | Aconcagua (6,960m)     | Laguna del Carbon (-105m) |
+ | N.America  | Denali (6,198m)        | Death Valley (-86m)       |
+ | Africa     | Kilimanjaro (5,895m)   | Lake Assal (-155m)        |
+ | Europe     | Elbrus (18,510m)       | Caspian Sea (-28m)        |
+ | Antarctica | Vinson Massif (4,892m) | Deep Lake (-50m)          |
+ | Australia  | Puncak Jaya (4,884m)   | Lake Eyre (-15m)          |
+** __Old Idea
+*** The Middle Areas
+**** Field of Patience
+     - Movement
+     - 3 floors
+**** Circle Cave
+     - Stillness
+     - 3 floors
+**** Revolving Tower
+     - Movement
+     - 5 floors
+**** Castle of the In-Between
+     - Stillness
+     - 5 floors
+     - Completion opens Heaven areas and Hell areas
+
+*** Heaven Continent Areas
+**** Lake of Reflections
+**** Cave of Harmony
+**** Field of Compassion and Equanimity
+**** Joy and Happiness Plateau
+     - Buddha resides here.
+
+*** Hell Continent Areas
+**** Nightmare Island
+     The entrance to Hell.
+**** Sea of Tears
+**** Labyrinth of Delirium
+**** Maze of Horrors
+**** Tower of Lost Souls
+     - Mara resides here.
+
+* -------------------
+* Git repo / cryptocurrency
+ - use cryptocurrency style algorithm for valuable items and unique monster.
+https://github.com/mirage/irmin

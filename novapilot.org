@@ -20,14 +20,12 @@ nova*pilot*!
 * Game Engine
 ** Libraries
 - language is: Objective-CAML
-- libraries are: raylib? glfw, nanovg
-- user interface: nulkear
+- libraries are: glfw, cairo, opengl/webgl
 - audio: Csound
 - editor is: emacs
 ** Targets
 - Local native
 - Web Canvas
-- OpenGL?
 ** Porting from HS-Nova (Haskell)
 - finish porting the "game/system" modules.
 ** Graphics
@@ -103,7 +101,7 @@ S-expression; or raw OCaml type constructors.
   it also works with metal and can make some special parts for upgrades and progress.
 
 ** The Pilot
-*** STORY
+*** STORY(old)
   he travels alone in space until the federation sends him a message but they haven't met
     until his help is requested by them. they know of him from his mercenary name, The Whistler.
     they had a hard time to track him down and find him. nova notices the message in a public place
@@ -143,10 +141,6 @@ S-expression; or raw OCaml type constructors.
  - now is in a life of peaceful living and music and helping
    those who he encounters in his passive/reactive travels
 *** Weapons
-  two-handed and one-handed ?
-    only sheilds for one handed or no handed ?
-
-  atk speed, atk power
  - starting gun is default pistol-like single shot arm cannon
  - mid way through game upgrade is rapid fire machine-style shooting with shells.
    this weapon is rapid but overheats.
@@ -155,9 +149,6 @@ S-expression; or raw OCaml type constructors.
  - actually a railgun, it shoots for 1 second and has 1 second delay. pushback for
    samus prevents her from movement. so it is a precise weapon like sniper.
 *** Actions
- - he throws bombs.
- - his potions come in vials to throw or to use on himself
- - he collects item in the bag he carries
  - E-tank
  - missile tank
  - electric whip/grapple ?
@@ -172,30 +163,6 @@ S-expression; or raw OCaml type constructors.
   - screen can turn and rotate left and right, and zoom
   - gravity weapons that attract samus to it because of the suit, gravity suit can
       overcome it
-
-*** skills
-  fire, ice, heal, etc.
-
-*** equipment screen
-  can equip:
-  - body
-  - head
-  - feet
-  - accessory 1
-  - accessory 2
-  - weapon
-  - skill
-*** status screen
-  xp, gold, time, monster count.
-  stats are distributed manually among these:
-
-  DEX (attack, defense)
-  AGI (dodge, luck)
-  CON (hp, mp)
-  WIS (Matk, Mdef)
-
-  both equipment and manual stats affect these:
-  Attack, Defense, Dodge, luck, Mdef, Matk, health points, magic points, crit.
 
 * Game World
 ** Atmosphere

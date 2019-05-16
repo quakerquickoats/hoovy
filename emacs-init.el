@@ -14,7 +14,7 @@
  '(ansi-color-names-vector
    ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1" "#e1e1e0"])
  '(blink-cursor-mode nil)
- '(c-basic-offset 4 t)
+ '(c-basic-offset 4)
  '(custom-enabled-themes '(tango-dark))
  '(custom-unlispify-menu-entries t)
  '(default-input-method "hebrew")
@@ -288,13 +288,14 @@
  '(erc-save-queries-on-quit t)
  '(erc-server-flood-margin 1)
  '(erlang-indent-level 4)
+ '(font-lock-maximum-decoration t)
  '(hoovy-root "~/hoovy/")
  '(menu-bar-mode nil)
  '(merlin-command "ocamlmerlin")
  '(org-attach-store-link-p 'attached)
  '(org-babel-load-languages '((emacs-lisp . t) (shell . t) (lisp . t)))
  '(package-selected-packages
-   '(treemacs treemacs-icons-dired treemacs-magit company-erlang indium merlin-eldoc company-lsp company-restclient company-shell elisp-def suggest xml-rpc google-translate dune ac-slime helpful rmsbolt erc-hl-nicks web-server edts auto-complete reason-mode quelpa package-build expand-region persistent-scratch hyperbole charmap circe flycheck flycheck-ocaml flyspell-popup merlin tuareg utop webpaste helm helm-dash helm-emms helm-org-rifle helm-package helm-proc emms github-browse-file github-clone sx memory-usage es-lib svg-clock htmlize simple-httpd websocket dictionary "bbdb" ediprolog which-key ggtags common-lisp-snippets el-autoyas yasnippet snoopy hackernews elfeed eyebrowse hierarchy projectile rainbow-blocks rainbow-delimiters esxml exwm rainbow-mode emacsql csound-mode haskell-emacs haskell-emacs-base haskell-emacs-text haskell-mode erlang swift-mode racer rust-mode slime slime-company))
+   '(treemacs treemacs-icons-dired treemacs-magit company-erlang indium merlin-eldoc company-lsp company-restclient company-shell elisp-def suggest xml-rpc google-translate dune ac-slime helpful rmsbolt erc-hl-nicks web-server edts auto-complete reason-mode quelpa package-build expand-region persistent-scratch hyperbole charmap circe flycheck flycheck-ocaml flyspell-popup merlin utop webpaste helm helm-dash helm-emms helm-org-rifle helm-package helm-proc emms github-browse-file github-clone sx memory-usage es-lib svg-clock htmlize simple-httpd websocket dictionary "bbdb" ediprolog which-key ggtags common-lisp-snippets el-autoyas yasnippet snoopy hackernews elfeed eyebrowse hierarchy projectile rainbow-blocks rainbow-delimiters esxml exwm rainbow-mode emacsql csound-mode haskell-emacs haskell-emacs-base haskell-emacs-text haskell-mode erlang swift-mode racer rust-mode slime slime-company))
  '(persistent-scratch-autosave-interval 3000)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
@@ -302,7 +303,11 @@
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(tooltip-mode nil)
- '(treemacs-show-hidden-files nil))
+ '(treemacs-show-hidden-files nil)
+ '(treemacs-silent-refresh nil)
+ '(treemacs-width 30)
+ '(tuareg-font-lock-symbols nil)
+ '(tuareg-prettify-symbols-full t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
