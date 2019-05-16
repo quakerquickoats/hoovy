@@ -65,6 +65,7 @@ let getKey {window;_} key = GLFW.getKey ~window ~key
 
 module Draw = Draw.Make(Cairo)
 
+
 let drawTest ctx tick =
   Draw.withState ctx (fun c ->
       Draw.clear c;
@@ -79,7 +80,7 @@ let drawTest ctx tick =
 
 let run title create step =
   let sys = init 320 240 title in
-  let rec loop {window;canvas;_} e =
+  let rec loop {window;canvas;context;_} e =
     if update sys then begin
         (* let now = GLFW.getTime () in
          * let tick = now -. lastTime in *)
@@ -88,8 +89,10 @@ let run title create step =
         Gl.clear_color 1. 0.5 1. 1.;
         Gl.clear Gl.color_buffer_bit;
 
-        drawTest sys.context 0.004;(* tick; *)
-
+        (* List.iter (Draw.gear context) e.gears
+         * drawTest sys.context 0.004;(\* tick; *\) *)
+        List.iter (Draw.gear context) [1;2;3];
+          
         (* only needed if changed. *)
         Render.uploadCanvas canvas;
           

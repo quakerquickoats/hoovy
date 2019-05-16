@@ -39,6 +39,13 @@ module Make(C: JsOfOCairo.S) = struct
     f c;
     C.restore c
 
+  let gear c _g =
+    C.save c;
+    C.set_source_rgba c 0. 0.5 1. 1.;
+    C.move_to c 20. 300.;
+    C.set_font_size c 32.;
+    C.show_text c "Gear";
+    C.restore c;
 end
 
 (*

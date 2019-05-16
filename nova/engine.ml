@@ -68,40 +68,53 @@ end
 (**********************************************)
 
 module Scene = struct
-  type t = {g: Gear.t list}
+  type kind = Start | End | Named of string
+                    
+  type t = {
+      gears: Gear.t list
+    }
+
+  let empty = {gears=[]}
+  let getGears s = s.gears
 end
                  
 (**********************************************)
 
 module type Game = sig
   type t
-  (* val engine: Engine.t *)
-  val initialState: t
-  val step: t -> float -> t
-  val render: t -> unit
-  val cleanup: t -> unit
+  val create: unit -> t
+  val start: Scene.t
+  val step: Scene.t -> float -> Scene.t
+  val stop: t -> unit
 end
 
 (**********************************************)
 
 module Make(G: Game) = struct
   type t = {
+      game: G.t;
       lastTime: float;
       gears: Gear.t list;
-      (* actors: Actor.t list; *)
+      (* models: Model.t list; *)
     }
 
   let create now =
-    (* let e = {lastTime=now;gears=[]} in
-     * fun tick -> (G.step e tick) *)
-    {lastTime=now;gears=[]}
+    {game=G.create ();
+     lastTime=now;
+     gears=[]}
   
   let step e now =
     let _tick = now -. e.lastTime in
-    {lastTime=now;gears=e.gears}
+    {game=e.game;lastTime=now;gears=e.gears}
+      (* scene=G.step e.scene tick} *)
 end
 
+(* type t = {
+ *     game: Game.t;
+ *     lastTime: float;
+ *     scene: Scene.t;
+ *     gears: Gear.t list;
+ *     (\* models: Model.t list; *\)
+ *   } *)
 
-
-                                           
-
+           

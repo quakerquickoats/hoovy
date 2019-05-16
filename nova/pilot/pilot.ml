@@ -32,24 +32,9 @@ type t = {
     test: int;
   }
 
-       (* let () =
- *   System.run "Novapilot" (fun c t ->
- *       Draw.withState c (fun () ->
- *           Draw.clear c;
- *           Cairo.set_source_rgb c 0. 1. 1.;
- *           Cairo.set_font_size c 22.;
- *           Cairo.move_to c 144. 144.;
- *           Draw.text c (string_of_float (1. /. t));
- *         );
- *       Draw.testArc c
- *     ) *)
-
-let initialState =
-  {test=1}
-
-let cleanup _ = ()
-
+let create () = {test=1}
+       
+let start = Nova.Engine.Scene.empty
 let step g _t = g
-let render _ = ()
-
+let stop _ = ()
                  
