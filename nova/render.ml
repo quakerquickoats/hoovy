@@ -87,6 +87,7 @@ let prepareCanvas {width;height;_} =
   (*Gl.(enable texture_2d);*)
   Gl.viewport 0 0 width height;
   Gl.draw_arrays Gl.triangle_strip 0 4
+
     
 (* 
    GL Stuff 

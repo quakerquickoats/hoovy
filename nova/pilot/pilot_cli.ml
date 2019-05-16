@@ -5,6 +5,6 @@
 
 (* module Draw = Draw.Make(Cairo) *)
 
-module Game = Nova_cli.System_glfw.Conductor(Pilot)
-let () = Game.run "Novapilot"
+module System = Nova_cli.System_glfw.Make(Pilot)
+let () = System.run "Novapilot"
 

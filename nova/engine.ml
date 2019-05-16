@@ -2,8 +2,9 @@
   Nova
   (c) 2019 Lyndon Tremblay
  *)
-open Gg
 
+open Gg
+   
 module Performance = struct
   type mutator = Static
                | Many of mutator list | AtCenterDo of mutator
@@ -89,7 +90,7 @@ type t = {
     (* actors: Actor.t list; *)
   }
 
-let initialState = {lastTime=0.;gears=[]}
+(* let initialState = {lastTime=0.;gears=[]} *)
 
 let create now = {lastTime=now;gears=[]}
 let step e now =
@@ -98,4 +99,11 @@ let step e now =
 let render _e = ()
 let cleanup _e = ()
 
+
+module Make(S: Conductor) = struct
+end
+
+
+
+                                           
 
