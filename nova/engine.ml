@@ -73,7 +73,7 @@ end
                  
 (**********************************************)
 
-module type Conductor = sig
+module type Game = sig
   type t
   (* val engine: Engine.t *)
   val initialState: t
@@ -83,24 +83,22 @@ module type Conductor = sig
 end
 
 (**********************************************)
-                      
-type t = {
-    lastTime: float;
-    gears: Gear.t list;
-    (* actors: Actor.t list; *)
-  }
 
-(* let initialState = {lastTime=0.;gears=[]} *)
+module Make(G: Game) = struct
+  type t = {
+      lastTime: float;
+      gears: Gear.t list;
+      (* actors: Actor.t list; *)
+    }
 
-let create now = {lastTime=now;gears=[]}
-let step e now =
-  let _tick = now -. e.lastTime in
-  {lastTime=now;gears=e.gears}
-let render _e = ()
-let cleanup _e = ()
-
-
-module Make(S: Conductor) = struct
+  let create now =
+    (* let e = {lastTime=now;gears=[]} in
+     * fun tick -> (G.step e tick) *)
+    {lastTime=now;gears=[]}
+  
+  let step e now =
+    let _tick = now -. e.lastTime in
+    {lastTime=now;gears=e.gears}
 end
 
 

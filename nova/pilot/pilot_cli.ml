@@ -5,6 +5,12 @@
 
 (* module Draw = Draw.Make(Cairo) *)
 
-module System = Nova_cli.System_glfw.Make(Pilot)
-let () = System.run "Novapilot"
+module System = Nova_cli.System_glfw
+(* .Make(Pilot) *)
+module Engine = Nova.Engine.Make(Pilot)
+              
+let () =
+  System.run "Novapilot"
+           Engine.create
+           Engine.step
 

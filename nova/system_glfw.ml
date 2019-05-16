@@ -77,32 +77,57 @@ let drawTest ctx tick =
     );
   Draw.testArc ctx
 
-module Make(G: Nova.Engine.Conductor) = struct
-  let run title =
-    let g = G.initialState in
-    let sys = init 320 240 title in
-    let rec loop {window;canvas;_} g lastTime =
-      if update sys then begin
-          let now = GLFW.getTime () in
-          let tick = now -. lastTime in
-          Render.prepareCanvas canvas;
+let run title create step =
+  let sys = init 320 240 title in
+  let rec loop {window;canvas;_} e =
+    if update sys then begin
+        (* let now = GLFW.getTime () in
+         * let tick = now -. lastTime in *)
+        Render.prepareCanvas canvas;
           
-          Gl.clear_color 1. 0.5 1. 1.;
-          Gl.clear Gl.color_buffer_bit;
+        Gl.clear_color 1. 0.5 1. 1.;
+        Gl.clear Gl.color_buffer_bit;
 
-          drawTest sys.context tick;
+        drawTest sys.context 0.004;(* tick; *)
 
-          (* only needed if changed. *)
-          Render.uploadCanvas canvas;
+        (* only needed if changed. *)
+        Render.uploadCanvas canvas;
           
-          Render.renderCanvas canvas;
-          GLFW.swapBuffers ~window;
-          loop sys (G.step g tick) now
-        end
-      else
-        G.cleanup g
-    in
-    loop sys g (GLFW.getTime());
-    shutdown sys
-end
+        Render.renderCanvas canvas;
+        GLFW.swapBuffers ~window;
+        loop sys (step e (GLFW.getTime()))
+      end
+  in
+  loop sys (create (GLFW.getTime()));
+  shutdown sys
+
+  
+(* module Make(E: Nova.Engine.S) = struct
+ *   let run title =
+ *     let e = E.initialState in
+ *     let sys = init 320 240 title in
+ *     let rec loop {window;canvas;_} e lastTime =
+ *       if update sys then begin
+ *           let now = GLFW.getTime () in
+ *           let tick = now -. lastTime in
+ *           Render.prepareCanvas canvas;
+ *           
+ *           Gl.clear_color 1. 0.5 1. 1.;
+ *           Gl.clear Gl.color_buffer_bit;
+ * 
+ *           drawTest sys.context tick;
+ * 
+ *           (\* only needed if changed. *\)
+ *           Render.uploadCanvas canvas;
+ *           
+ *           Render.renderCanvas canvas;
+ *           GLFW.swapBuffers ~window;
+ *           loop sys (E.step e tick) now
+ *         end
+ *       else
+ *         E.cleanup e
+ *     in
+ *     loop sys e (GLFW.getTime());
+ *     shutdown sys
+ * end *)
 
