@@ -76,7 +76,9 @@ let endFrame {canvas;window;_} =
 
 module Draw = Draw.Make(Cairo)
 let renderFrame {context;_} model =
-  List.iter (Draw.gear context) model
+  Draw.clear context;
+  List.iter (Draw.part context) model
+
     
 (*******************************************)
 

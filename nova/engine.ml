@@ -42,7 +42,7 @@ module type Gear = sig
   val cleanup: t -> unit
 end
 
-module Part : Gear = struct
+module Part2 : Gear = struct
   type t = {
       layer: int;
       flags: string;
@@ -63,6 +63,16 @@ module Part : Gear = struct
     }
   let step t = t
   let cleanup _ = ()
+end
+
+module Part = struct
+  type t = {
+      number: float;
+      origin: v2;
+    }
+  let create t v = {number=t; origin=v}
+  let origin p = p.origin
+  let number p = p.number
 end
             
 (**********************************************)
@@ -86,7 +96,8 @@ end
 module type Game = sig
   type t
   val create: unit -> t
-  val step: Scene.t -> float -> Scene.t
+  val model: t -> model -> model
+  val step: t -> float -> t
   val stop: t -> unit
 end
 
@@ -101,14 +112,16 @@ module Make(G: Game) = struct
     }
 
   let create now =
-    {game=G.create ();
+    {game=G.create();
      lastTime=now;
      model=[]}
-  
+    
   let step e now =
-    let _tick = now -. e.lastTime in
-    {game=e.game;lastTime=now;model=e.model}
-      (* scene=G.step e.scene tick} *)
+    let tick = now -. e.lastTime in
+    let g = G.step e.game tick in
+    {game=g;
+     lastTime=now;
+     model=G.model g e.model}
 
   let getModel e = e.model
 end
