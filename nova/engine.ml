@@ -42,7 +42,7 @@ module type Gear = sig
   val cleanup: t -> unit
 end
 
-module Gear = struct
+module Part : Gear = struct
   type t = {
       layer: int;
       flags: string;
@@ -67,23 +67,25 @@ end
             
 (**********************************************)
 
-module Scene = struct
-  type kind = Start | End | Named of string
-                    
-  type t = {
-      gears: Gear.t list
-    }
-
-  let empty = {gears=[]}
-  let getGears s = s.gears
-end
+type model = Part.t list
+                   
+(* module Model = struct
+ *   type t = {
+ *       parts: Part.t list
+ *     }
+ * 
+ *   let empty = {parts=[]}
+ * end *)
                  
 (**********************************************)
 
+module Scene = struct
+  type t
+end
+             
 module type Game = sig
   type t
   val create: unit -> t
-  val start: Scene.t
   val step: Scene.t -> float -> Scene.t
   val stop: t -> unit
 end
@@ -94,19 +96,21 @@ module Make(G: Game) = struct
   type t = {
       game: G.t;
       lastTime: float;
-      gears: Gear.t list;
+      model: model;
       (* models: Model.t list; *)
     }
 
   let create now =
     {game=G.create ();
      lastTime=now;
-     gears=[]}
+     model=[]}
   
   let step e now =
     let _tick = now -. e.lastTime in
-    {game=e.game;lastTime=now;gears=e.gears}
+    {game=e.game;lastTime=now;model=e.model}
       (* scene=G.step e.scene tick} *)
+
+  let getModel e = e.model
 end
 
 (* type t = {

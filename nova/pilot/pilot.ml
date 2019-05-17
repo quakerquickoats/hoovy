@@ -34,7 +34,6 @@ type t = {
 
 let create () = {test=1}
        
-let start = Nova.Engine.Scene.empty
 let step g _t = g
 let stop _ = ()
                  

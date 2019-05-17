@@ -53,56 +53,70 @@ let shutdown {window;canvas;_} =
   GLFW.destroyWindow ~window;
   GLFW.terminate ()
   
-let update {window;_} =
+let pollEvents {window;_} =
   GLFW.pollEvents ();
   if (GLFW.getKey ~window ~key:GLFW.Escape)
      || (GLFW.windowShouldClose ~window) then false
   else true
 
 let getKey {window;_} key = GLFW.getKey ~window ~key
+let getTime () = GLFW.getTime()
+let getContext {context;_} = context
 
-(*******************************************)
+let beginFrame {canvas;_} =
+  Render.prepareCanvas canvas;
+  Gl.clear_color 1. 0.5 1. 1.;
+  Gl.clear Gl.color_buffer_bit
+
+let endFrame {canvas;window;_} =
+  (* only needed if changed. *)
+  Render.uploadCanvas canvas;
+  Render.renderCanvas canvas;
+  GLFW.swapBuffers ~window
 
 module Draw = Draw.Make(Cairo)
+let renderFrame {context;_} model =
+  List.iter (Draw.gear context) model
+    
+(*******************************************)
 
+(* module Draw = Draw.Make(Cairo)
+ * 
+ * let drawTest ctx tick =
+ *   Draw.withState ctx (fun c ->
+ *       Draw.clear c;
+ *       Cairo.set_source_rgb c 0. 1. 1.;
+ *       Cairo.set_font_size c 22.;
+ *       Cairo.move_to c 144. 144.;
+ *       Draw.text c (string_of_float (1. /. tick));
+ *       
+ *       Draw.text c "[ 👽 ]";
+ *     );
+ *   Draw.testArc ctx *)
 
-let drawTest ctx tick =
-  Draw.withState ctx (fun c ->
-      Draw.clear c;
-      Cairo.set_source_rgb c 0. 1. 1.;
-      Cairo.set_font_size c 22.;
-      Cairo.move_to c 144. 144.;
-      Draw.text c (string_of_float (1. /. tick));
-      
-      Draw.text c "[ 👽 ]";
-    );
-  Draw.testArc ctx
-
-let run title create step =
-  let sys = init 320 240 title in
-  let rec loop {window;canvas;context;_} e =
-    if update sys then begin
-        (* let now = GLFW.getTime () in
-         * let tick = now -. lastTime in *)
-        Render.prepareCanvas canvas;
-          
-        Gl.clear_color 1. 0.5 1. 1.;
-        Gl.clear Gl.color_buffer_bit;
-
-        (* List.iter (Draw.gear context) e.gears
-         * drawTest sys.context 0.004;(\* tick; *\) *)
-        List.iter (Draw.gear context) [1;2;3];
-          
-        (* only needed if changed. *)
-        Render.uploadCanvas canvas;
-          
-        Render.renderCanvas canvas;
-        GLFW.swapBuffers ~window;
-        loop sys (step e (GLFW.getTime()))
-      end
-  in
-  loop sys (create (GLFW.getTime()));
-  shutdown sys
+(* let run title create step =
+ *   let sys = init 320 240 title in
+ *   let rec loop {window;canvas;context;_} e =
+ *     if update sys then begin
+ *         (\* let now = GLFW.getTime () in
+ *          * let tick = now -. lastTime in *\)
+ *         Render.prepareCanvas canvas;
+ *         Gl.clear_color 1. 0.5 1. 1.;
+ *         Gl.clear Gl.color_buffer_bit;
+ * 
+ *         (\* List.iter (Draw.gear context) e.gears
+ *          * drawTest sys.context 0.004;(\\* tick; *\\) *\)
+ *         List.iter (Draw.gear context) [1;2;3];
+ *         (\* only needed if changed. *\)
+ *         Render.uploadCanvas canvas;
+ *           
+ *         Render.renderCanvas canvas;
+ *         GLFW.swapBuffers ~window;
+ *         loop sys (step e (GLFW.getTime()))
+ *       end
+ *   in
+ *   loop sys (create (GLFW.getTime()));
+ *   shutdown sys *)
 
   
 (* module Make(E: Nova.Engine.S) = struct
