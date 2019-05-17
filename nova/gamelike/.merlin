@@ -1,5 +1,6 @@
 EXCLUDE_QUERY_DIR
 B /home/lyndon/.opam/default/lib/JsOfOCairo
+B /home/lyndon/.opam/default/lib/base/caml
 B /home/lyndon/.opam/default/lib/bytes
 B /home/lyndon/.opam/default/lib/cairo2
 B /home/lyndon/.opam/default/lib/ctypes
@@ -9,12 +10,16 @@ B /home/lyndon/.opam/default/lib/integers
 B /home/lyndon/.opam/default/lib/js_of_ocaml
 B /home/lyndon/.opam/default/lib/ocaml
 B /home/lyndon/.opam/default/lib/ocaml/threads
+B /home/lyndon/.opam/default/lib/parsexp
+B /home/lyndon/.opam/default/lib/sexplib
+B /home/lyndon/.opam/default/lib/sexplib0
 B /home/lyndon/.opam/default/lib/tgls
 B /home/lyndon/.opam/default/lib/uchar
 B ../_build/default/.nova.objs/byte
 B ../_build/default/.nova_cli.objs/byte
 B ../_build/default/gamelike/.gamelike_cli.eobjs/byte
 S /home/lyndon/.opam/default/lib/JsOfOCairo
+S /home/lyndon/.opam/default/lib/base/caml
 S /home/lyndon/.opam/default/lib/bytes
 S /home/lyndon/.opam/default/lib/cairo2
 S /home/lyndon/.opam/default/lib/ctypes
@@ -24,6 +29,9 @@ S /home/lyndon/.opam/default/lib/integers
 S /home/lyndon/.opam/default/lib/js_of_ocaml
 S /home/lyndon/.opam/default/lib/ocaml
 S /home/lyndon/.opam/default/lib/ocaml/threads
+S /home/lyndon/.opam/default/lib/parsexp
+S /home/lyndon/.opam/default/lib/sexplib
+S /home/lyndon/.opam/default/lib/sexplib0
 S /home/lyndon/.opam/default/lib/tgls
 S /home/lyndon/.opam/default/lib/uchar
 S ..

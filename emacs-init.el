@@ -322,7 +322,7 @@
  '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
  '(font-lock-function-name-face ((t (:foreground "#c8c"))))
  '(font-lock-keyword-face ((t (:foreground "green"))))
- '(font-lock-preprocessor-face ((t (:foreground "orange"))))
+ '(font-lock-preprocessor-face ((t (:foreground "darkgreen"))))
  '(font-lock-string-face ((t (:foreground "#fff"))))
  '(font-lock-type-face ((t (:foreground "#99d790"))))
  '(font-lock-variable-name-face ((t (:foreground "#88f"))))

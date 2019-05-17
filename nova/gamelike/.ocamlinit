@@ -1,0 +1,4 @@
+#mod_use "mob.ml";;
+#mod_use "item.ml";;
+#mod_use "actor.ml";;
+#mod_use "gamelike.ml";;

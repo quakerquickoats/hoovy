@@ -62,8 +62,9 @@ let defaultConfig () =
 
 let create () =
   let {seed;playerName} = defaultConfig() in
+  let p = Actor.createPlayer playerName in
   {seed;
-   player=Actor.createPlayer playerName;
+   player=p;
    test=1}
 
 let model _g m =

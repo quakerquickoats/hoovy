@@ -3,31 +3,6 @@
   (c) 2019 Lyndon Tremblay
  *)
 
-(*
-% strength, speed
-% wisdom, ego
-% intellect, size
- *)
-type mobType = Mammal | Zombie | Undead | Robot
-               | Machine | Reptile
-
-type stat = Strength | Dexterity | Agility
-            | Wisdom | Luck
-
-
-(* rearrange this. *)
-
-type element =
-  Earth (* strength *)
-| Water (* Dex *)
-| Fire (* Agi *)
-| Wind (* Int *)
-| Spirit (* Luck *)
-
-(*
-equipSlots:- [head,body,arms,leftHand,rightHand,
-  face,legs,feet,back].
- *)
 
 (*
 	FirstNames = [job,david,moshe,abraham,jacob,isaac],
@@ -37,17 +12,27 @@ equipSlots:- [head,body,arms,leftHand,rightHand,
 
 type stats = {
     level: int;
+    element: Mob.element option;
     hp: int;
     sp: int;
     xp: int;
     str: int;
-    agi: int;
     dex: int;
+    agi: int;
     wis: int;
     luk: int;
-  }
+  } [@@deriving sexp]
+
+(* rearrange this. *)
+(* let statForElement e s = match e with
+ *   | Earth -> s.str
+ *   | Water -> s.dex
+ *   | Fire -> s.agi
+ *   | Air -> s.wis
+ *   | Spirit -> s.luk *)
 
 let defaultStats = {level=1;
+                    element=None;
                     hp=10;
                     sp=1;
                     xp=0;
@@ -69,7 +54,7 @@ type t = {
     body: equip;
     leftHand: equip; rightHand: equip;
     legs: equip; feet: equip;
-  }
+  } [@@deriving sexp]
 
 let create () =
   {name=None;
