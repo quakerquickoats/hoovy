@@ -41,6 +41,9 @@ module Make(C: JsOfOCairo.S) = struct
     f c;
     C.restore c
 
+  (* let lineRect c {x;y;w;h} =
+   *   C.move_to *)
+
   let moveTo c v =
     C.move_to c (V2.x v) (V2.y v)
     
@@ -58,6 +61,9 @@ end
   let module Nova = Nova.Make(CairoMock) in
   let ctx = CairoMock.create () in
   Nova.draw ctx;
-  assert (CairoMock.calls ctx = ["save"; "arc 50.00 50.00 ~r:40.00 ~a1:0.00 ~a2:5.00"; "stroke"; "restore"])
+  assert (CairoMock.calls ctx =
+    ["save";
+     "arc 50.00 50.00 ~r:40.00 ~a1:0.00 ~a2:5.00";
+     "stroke"; "restore"])
 end
 *)

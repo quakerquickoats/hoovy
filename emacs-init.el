@@ -306,7 +306,7 @@
  '(treemacs-show-hidden-files nil)
  '(treemacs-silent-refresh nil)
  '(treemacs-width 30)
- '(tuareg-font-lock-symbols nil)
+ '(tuareg-font-lock-symbols t)
  '(tuareg-prettify-symbols-full t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

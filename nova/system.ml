@@ -23,7 +23,7 @@ module Make(S: S) = struct
   let run title game =
     let sys = S.init 320 240 title in
     (* let module Game = (val game : Engine.Game) in *)
-    let module E = Engine.Make(val game : Engine.Game) in
+    let module E = Engine.Make(val game:Engine.Game) in
     let rec loop sys e =
       if S.pollEvents sys then begin
           S.beginFrame sys;
@@ -34,6 +34,11 @@ module Make(S: S) = struct
     in
     loop sys (E.create (S.getTime()));
     S.shutdown sys
+
+  let runHeadless _title game =
+    let module E = Engine.Make(val game:Engine.Game) in
+    let _g = E.create 0. in
+    ()
 end
 
 (*

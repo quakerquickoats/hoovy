@@ -43,14 +43,33 @@ resourceFolders(actors,actions,assets,
 (*********************************)
 
 type t = {
+    seed: int;
+    player: Actor.t;
     test: int;
   }
 
-let initialState =
-  {test=1}
+type config = {
+    seed: int;
+    playerName: string;
+  }
+let defaultConfig () =
+  Random.self_init();
+  let seed = Random.bits() in
+  Printf.printf "seed: %i\n" seed;
+  Random.init(seed);  (* generally 9 digits. *)
+  {seed;
+   playerName="huma"}
 
-let cleanup _ = ()
+let create () =
+  let {seed;playerName} = defaultConfig() in
+  {seed;
+   player=Actor.createPlayer playerName;
+   test=1}
+
+let model _g m =
+  m
 
 let step g _t = g
-let render _ = ()
+
+let stop _ = ()
 

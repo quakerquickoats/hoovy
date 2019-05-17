@@ -2,6 +2,30 @@
   Nova
   (c) 2019 Lyndon Tremblay
  *)
+
+type scalar = float
+type v2 = scalar*scalar
+type v3 = scalar*scalar*scalar
+type v4 = scalar*scalar*scalar*scalar
+
+module type Vector = sig
+  type t
+  val zero: t
+end
+        
+module Vertex(S : Vector) = struct end
+        
+type step = {
+    v:v2;
+    p:v2;
+    color:v4;
+    (* x y u v r g b a *)
+  }
+
+type winding = step list
+   
+(*******************************************)
+
 open Gg
 
 module type Step = sig

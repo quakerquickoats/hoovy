@@ -95,6 +95,8 @@ end
              
 module type Game = sig
   type t
+  type config
+  val defaultConfig: unit -> config
   val create: unit -> t
   val model: t -> model -> model
   val step: t -> float -> t
@@ -112,7 +114,7 @@ module Make(G: Game) = struct
     }
 
   let create now =
-    {game=G.create();
+    {game=G.create ();
      lastTime=now;
      model=[]}
     

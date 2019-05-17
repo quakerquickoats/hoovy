@@ -1,4 +1,5 @@
 (executable
  (name gamelike_cli)
- (modules gamelike_cli gamelike)
+ (modules gamelike_cli gamelike
+          actor item)
  (libraries nova_cli))

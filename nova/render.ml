@@ -65,16 +65,18 @@ let createCanvas w h =
   Gl.(tex_parameteri texture_2d texture_min_filter linear);
   Gl.(tex_parameteri texture_2d texture_mag_filter linear);
   Gl.pixel_storei Gl.unpack_alignment 1;
-  Gl.(tex_image2d texture_2d 0 rgba w h 0 rgba
-        unsigned_byte (`Data (Cairo.Image.get_data8 surface)));
+  Gl.(tex_image2d texture_2d 0 rgba
+        w h 0 rgba unsigned_byte
+        (`Data (Cairo.Image.get_data8 surface)));
   (* Image {id= tex; width= w; height= h} *)
   {id;width=w;height=h;surface}
 
 let uploadCanvas {id;width;height;surface} =
   Cairo.Surface.flush surface;
   Gl.(bind_texture texture_2d id);
-  Gl.(tex_sub_image2d texture_2d 0 0 0 width height rgba
-        unsigned_byte (`Data (Cairo.Image.get_data8 surface)))
+  Gl.(tex_sub_image2d texture_2d 0 0 0
+        width height rgba unsigned_byte
+        (`Data (Cairo.Image.get_data8 surface)))
 
 let renderCanvas {id;_} =
   Gl.(bind_texture texture_2d id);

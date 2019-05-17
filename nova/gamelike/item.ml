@@ -18,4 +18,5 @@ type t = {
     cost: int;
   }
 
-
+(* let randomOfKind k = function
+ *   | Equip ->  *)

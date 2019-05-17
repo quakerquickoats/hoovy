@@ -4,11 +4,8 @@
  *)
 
 
-module System = Nova_cli.System_glfw.Conductor(Gamelike)
+module System = Nova.System.Make(Nova_cli.System_glfw)
 
 let () =
-  let _ = Nova.Math.East in
-  Nova.Testballs.fart ();
-  print_string "Gamelike";
-  print_newline ()
-    
+  (module Gamelike:Nova.Engine.Game) |>
+    System.runHeadless "Gamelike"

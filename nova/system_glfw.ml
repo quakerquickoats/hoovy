@@ -42,6 +42,8 @@ let init width height title =
   (* need to return actual window size.
      EXWM does full screen by default. *)
   let w,h = GLFW.getWindowSize ~window in
+  (* print_string "canvas size: ";
+     print_int sz; print_newline() *)
   let _ = Render.createShaders () in
   let canvas = Render.createCanvas w h in
   let context = Cairo.create (Render.getSurface canvas) in
