@@ -3,8 +3,6 @@
   (c) 2019 Lyndon Tremblay
  *)
 
-open Gg
-
 module Make(C: JsOfOCairo.S) = struct
   let text c s =
     C.set_font_size c 22.;
@@ -44,8 +42,8 @@ module Make(C: JsOfOCairo.S) = struct
   (* let lineRect c {x;y;w;h} =
    *   C.move_to *)
 
-  let moveTo c v =
-    C.move_to c (V2.x v) (V2.y v)
+  let moveTo c (x,y) =
+    C.move_to c x y
     
   let part c p =
     C.save c;

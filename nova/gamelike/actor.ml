@@ -70,8 +70,8 @@ let randomInventory p =
   p.inventory
 let equipRandomly p =
   p
-let randomStats p =
-  p.stats
+let randomStats _p =
+  defaultStats
   
 let createPlayer name =
   let c = create() in

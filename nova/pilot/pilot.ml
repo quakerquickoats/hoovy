@@ -3,7 +3,6 @@
   (c) 2019 Lyndon Tremblay
  *)
 
-open Gg
 (* open Nova *)
 
 (* module Level : Nova.Gearbox = struct
@@ -28,20 +27,47 @@ open Gg
    * type player = actor
    * type bullet = actor *)
 
-type t = {
-    test: int;
-    poop: float;
+type player = {
+    score: int;
+    lives: int;
+    bombs: int;
   }
 
-let create () = {test=1;poop=0.}
+let defaultPlayer = {score=0;
+                     lives=3;
+                     bombs=3}
+   
+(**********************************************)
+   
+type t = {
+    frames: int;
+    tick: float;
+    player: player;
+    enemies: Enemy.t list;
+    bullets: Bullet.t list;
+    paths: Nova.Geom.winding list;
+  }
 
-let step g _tick = {test=g.test + 1; poop=_tick}
+type config = {name: string}
+let defaultConfig () = {name="Player"}
+       
+let create () = {frames=0;
+                 tick=0.;
+                 player=defaultPlayer;
+                 enemies=[];
+                 bullets=[]}
+
+let step g tick =
+  let enemies = List.map (Enemy.move tick) g.enemies in
+  {g with frames=g.frames + 1;
+          tick;
+  enemies}
               
 let model g _m =
-  [Nova.Engine.Part.create g.poop (V2.v 20. 20.);
-   Nova.Engine.Part.create (1. /. g.poop) (V2.v 100. 100.);
-   Nova.Engine.Part.create (float_of_int g.test)
-     (V2.v 100. 200.)]
+  [Nova.Engine.Part.create g.tick (20., 20.);
+   Nova.Engine.Part.create (1. /. g.tick) (100., 100.);
+   Nova.Engine.Part.create (float_of_int g.frames)
+     (100., 200.)]
 
 let stop _ = ()
                  

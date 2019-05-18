@@ -3,8 +3,6 @@
   (c) 2019 Lyndon Tremblay
  *)
 
-open Gg
-   
 module Performance = struct
   type mutator = Static
                | Many of mutator list | AtCenterDo of mutator
@@ -48,7 +46,7 @@ module Part2 : Gear = struct
       flags: string;
 
       perform: Performance.t option;
-      travel: v3;
+      travel: Geom.v3;
       winding: Geom.Winding.t;
       trans: Performance.mutator list;
     }
@@ -57,7 +55,7 @@ module Part2 : Gear = struct
     {layer = 0;
      flags = "";
      perform = None; (* Visual (Default Default); *)
-     travel = V3.zero;
+     travel = Geom.zero3;
      winding = Geom.Winding.empty;
      trans = [];
     }
@@ -68,7 +66,7 @@ end
 module Part = struct
   type t = {
       number: float;
-      origin: v2;
+      origin: Geom.v2;
     }
   let create t v = {number=t; origin=v}
   let origin p = p.origin
