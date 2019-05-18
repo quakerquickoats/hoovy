@@ -14,11 +14,11 @@ let init w h title =
   {width=w;height=h}
 
 let pollEvents _sys =
-  Raylib.windowShouldClose()
+  not (Raylib.windowShouldClose())
 
 let beginFrame _sys =
-  Raylib.beginDrawing()
-  (* Raylib.clearBackground `White *)
+  Raylib.beginDrawing();
+  Raylib.clearBackground (Raylib.makeColor ('\255', '\000', '\000', '\255'))
 
 let endFrame _sys =
   Raylib.endDrawing()
