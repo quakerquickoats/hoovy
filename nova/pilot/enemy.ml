@@ -13,7 +13,7 @@ type t = {
     (* this could just be a circle. *)
     size: size;
     angle: float;
-    path: Winding.t;
+    path: winding;
   }
 
 let move t e =

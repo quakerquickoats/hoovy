@@ -19,7 +19,7 @@ module type Pattern = sig
 end
 
 module Make (P:Pattern) = struct
-  let shoot num =
+  let shoot _num =
     [{kind=NormalShot;
       pos=(0.,0.);
       vel=(0.,0.);

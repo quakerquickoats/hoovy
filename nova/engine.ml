@@ -47,7 +47,7 @@ module Part2 : Gear = struct
 
       perform: Performance.t option;
       travel: Geom.v3;
-      winding: Geom.Winding.t;
+      winding: Geom.winding;
       trans: Performance.mutator list;
     }
 
@@ -56,7 +56,7 @@ module Part2 : Gear = struct
      flags = "";
      perform = None; (* Visual (Default Default); *)
      travel = Geom.zero3;
-     winding = Geom.Winding.empty;
+     winding = [];
      trans = [];
     }
   let step t = t

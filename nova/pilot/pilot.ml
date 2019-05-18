@@ -45,7 +45,7 @@ type t = {
     player: player;
     enemies: Enemy.t list;
     bullets: Bullet.t list;
-    paths: Nova.Geom.winding list;
+    (* paths: Nova.Geom.winding list; *)
   }
 
 type config = {name: string}

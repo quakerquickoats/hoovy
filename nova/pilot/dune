@@ -1,4 +1,9 @@
+; (executable
+;  (name pilot_cli)
+;  (modules pilot_cli pilot bullet enemy)
+;  (libraries nova_cli))
+
 (executable
- (name pilot_cli)
- (modules pilot_cli pilot bullet enemy)
- (libraries nova_cli))
+ (name pilot_cli2)
+ (modules pilot_cli2 pilot bullet enemy)
+ (libraries nova_cli2))
