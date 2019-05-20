@@ -18,7 +18,8 @@ let pollEvents _sys =
 
 let beginFrame _sys =
   Raylib.beginDrawing();
-  Raylib.clearBackground (Raylib.makeColor ('\255', '\000', '\000', '\255'))
+  Raylib.clearBackground
+    (Raylib.makeColor ('\255', '\000', '\000', '\255'))
 
 let endFrame _sys =
   Raylib.endDrawing()
@@ -29,5 +30,5 @@ let shutdown _sys =
 let getTime =
   Raylib.getTime
 
-let renderFrame _sys _m =
-  ()
+let renderFrame _sys m =
+  List.iter Model.render m

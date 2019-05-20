@@ -61,13 +61,15 @@ let step g tick =
   let enemies = List.map (Enemy.move tick) g.enemies in
   {g with frames=g.frames + 1;
           tick;
-  enemies}
+          enemies}
               
 let model g _m =
-  [Nova.Engine.Part.create g.tick (20., 20.);
-   Nova.Engine.Part.create (1. /. g.tick) (100., 100.);
-   Nova.Engine.Part.create (float_of_int g.frames)
-     (100., 200.)]
+  List.map Enemy.model g.enemies
+  @
+    [Nova.Model.Part.create g.tick (20., 20.);
+      Nova.Model.Part.create (1. /. g.tick) (100., 100.);
+      Nova.Model.Part.create (float_of_int g.frames)
+        (100., 200.)]
 
 let stop _ = ()
                  

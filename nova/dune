@@ -1,6 +1,6 @@
 (library
  (name nova)
- (modules util math geom engine system))
+ (modules util math geom model engine system))
 
 ; (library
 ;  (name nova_cli)

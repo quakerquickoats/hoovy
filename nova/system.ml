@@ -16,12 +16,12 @@ module type S = sig
 
   val beginFrame: t -> unit
   val endFrame: t -> unit
-  val renderFrame: t -> Engine.model -> unit
+  val renderFrame: t -> Model.t -> unit
 end
 
 module Make(S: S) = struct
   let run title game =
-    let sys = S.init 320 240 title in
+    let sys = S.init 512 512 title in
     (* let module Game = (val game : Engine.Game) in *)
     let module E = Engine.Make(val game:Engine.Game) in
     let rec loop sys e =

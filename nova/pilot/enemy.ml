@@ -4,6 +4,7 @@
  *)
 
 open Nova.Geom
+open Nova.Model
    
 type size = Small | Medium | Large
   
@@ -18,6 +19,9 @@ type t = {
 
 let move t e =
   {e with lifeTime=(e.lifeTime +. t)}
+
+let model e =
+  {Part.number=22.; origin=e.pos}
        
 module type Conductor = sig
   type t
