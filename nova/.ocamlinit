@@ -1,4 +1,7 @@
 #use "topfind";;
+#thread;;
 #require "ctypes";;
 #require "ctypes.foreign";;
 #require "ctypes.stubs";;
+#require "core.top";;
+#require "core.syntax";;
