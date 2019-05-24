@@ -1,22 +1,26 @@
 (library
  (name nova)
- (modules util math geom model engine system))
+ (modules util math geom model engine system model))
 
 ; (library
 ;  (name nova_cli)
 ;  (modules system_glfw render draw)
 ;  (libraries nova JsOfOCairo cairo2 tgls.tgl3 glfw-ocaml))
 
+; (library
+;  (name nova_web)
+;  (modules system_html5)
+;  (libraries nova JsOfOCairo js_of_ocaml-lwt))
+
 (library
  (name nova_cli2)
  (modules system_raylib raylib)
  (c_library_flags (-lraylib))
+ (c_names _stub)
  (libraries nova ctypes ctypes.foreign))
 
-(library
- (name nova_web)
- (modules system_html5)
- (libraries nova JsOfOCairo js_of_ocaml-lwt))
-
-
-
+; (executable
+;  (name       novatop)
+;  (libraries  compiler-libs.toplevel)
+;  (link_flags (-linkall))
+;  (modes      byte))

@@ -1,11 +1,11 @@
 open Foreign
 open Ctypes
 
-let em_callback_func = void @-> returning void
-let emscriptenSetMainLoop =
-  foreign "emscripten_set_main_loop"
-    (funptr em_callback_func @->
-       int @-> int @-> returning void)
+(* let em_callback_func = void @-> returning void
+ * let emscriptenSetMainLoop =
+ *   foreign "emscripten_set_main_loop"
+ *     (funptr em_callback_func @->
+ *        int @-> int @-> returning void) *)
    
 (**********************)
 (* Some basic Defines *)

@@ -13,7 +13,7 @@ module Part = struct
   let number p = p.number
 end
 
-type part = Point of v2
+type part = Point of Geom.v2
           | Line of Geom.line
           | Circle of Geom.circle
           | Winding of Geom.winding

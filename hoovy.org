@@ -2,6 +2,11 @@
 
 /Welcome/
 
+* RIGHT NOW
+** TODO finish up all of the browser tabs.
+** TODO create new gmail account.
+** TODO Move back to github.
+
 * Subjective-C
 
 Lisping of C like how Objective-C does Smalltalking of C.
