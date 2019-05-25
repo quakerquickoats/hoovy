@@ -5,8 +5,7 @@ B /home/lyndon/.opam/default/lib/integers
 B /home/lyndon/.opam/default/lib/ocaml
 B /home/lyndon/.opam/default/lib/ocaml/threads
 B ../_build/default/.nova.objs/byte
-B ../_build/default/.nova_cli2.objs/byte
-B ../_build/default/pilot/.pilot_cli2.eobjs/byte
+B ../_build/default/pilot/.pilot.eobjs/byte
 S /home/lyndon/.opam/default/lib/bytes
 S /home/lyndon/.opam/default/lib/ctypes
 S /home/lyndon/.opam/default/lib/integers
