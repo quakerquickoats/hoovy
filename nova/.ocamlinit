@@ -1,7 +1,25 @@
+(* -*- tuareg -*- *)
+
+(* Ensure that we're in the root of the project.
+   This is helpful for editor integration where
+   the cwd might not be the root of the project. *)
+let root =
+  let rec search path =
+    match Sys.file_exists (path ^ "/.ocamlinit") with
+    | false -> search (Filename.dirname path)
+    | true -> path
+  in search (Sys.getcwd ())
+in Sys.chdir root;;
+(* above is adapted from
+https://github.com/mads-hartmann/ocaml-utop-emacs-example/blob/master/.ocamlinit *)
+
+(* Sys.interactive := false;; *)
 #use "topfind";;
+(* Sys.interactive := true;; *)
 #thread;;
 #require "ctypes";;
 #require "ctypes.foreign";;
 #require "ctypes.stubs";;
-#require "core.top";;
-#require "core.syntax";;
+(* #require "core.top";;
+ * #require "core.syntax";; *)
+#directory "_build";;

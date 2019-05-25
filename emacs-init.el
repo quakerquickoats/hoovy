@@ -350,7 +350,8 @@
  '(slime-highlight-edits-face ((t (:background "#222"))))
  '(tuareg-font-lock-governing-face ((t (:foreground "green"))))
  '(tuareg-font-lock-module-face ((t (:inherit font-lock-type-face))))
- '(tuareg-font-lock-operator-face ((t (:foreground "yellow")))))
+ '(tuareg-font-lock-operator-face ((t (:foreground "yellow"))))
+ '(utop-stderr ((t (:foreground "#faa"))) t))
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line

@@ -149,7 +149,7 @@
 
 ;;;;;;;; utop stuff ;;;;;;;
 (when (require 'utop nil :noerror)
-  (setq utop-command "opam config exec -- rtop -emacs")
+  (setq utop-command "opam config exec -- utop -emacs")
   (add-hook 'reason-mode-hook #'utop-minor-mode) ;; can be included in the hook above as well
   )
 

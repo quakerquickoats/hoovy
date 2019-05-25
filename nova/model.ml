@@ -30,3 +30,5 @@ type t = Part.t list
 
 (* let render m = function
  *   | Point ->  *)
+
+let render _m = ()
