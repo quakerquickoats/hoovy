@@ -4,10 +4,6 @@
 ;  (libraries nova_web))
 
 (executable
-<<<<<<< HEAD
  (name pilot_cli)
-=======
- (name pilot)
->>>>>>> 9bada0d1f9d367c66199989e19cde7e2b68e7fd1
  (modules pilot_cli pilot bullet enemy)
  (libraries nova))
