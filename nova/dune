@@ -18,11 +18,11 @@
 (executable
  (name novatop)
  (modules novatop)
- (libraries utop
+ (libraries utop findlib.dynload
             ctypes ctypes.foreign ctypes.stubs
-            nova
-            )
+            nova)
  (modes byte))
 
 ;  (libraries  compiler-libs.toplevel)
 ;  (link_flags (-linkall))
+
