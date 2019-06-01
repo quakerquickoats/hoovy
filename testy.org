@@ -1,0 +1,252 @@
+
+* Common Lisp
+#+BEGIN_SRC common-lisp
+(declaim (optimize (speed 3) (debug 0) (safety 0)))
+
+(ql:quickload '(rtg-math game-math))
+(ql:quickload :gamebox-math)
+
+
+(declaim (inline rtg-math))
+(defun rtg-math (n)
+  (loop with vec0 = (v4:make 1.0 2.0 3.0 1.0)
+        with vec1 = (v4:make 1.0 2.0 3.0 1.0)
+        repeat n
+        do (v4-n:+ vec0 vec1)
+        finally (return vec0)))
+
+(time (rtg-math 100000000))
+;; Evaluation took:
+;;   1.077 seconds of real time
+;;   1.076846 seconds of total run time (1.076794 user, 0.000052 system)
+;;   100.00% CPU
+;;   3,225,354,949 processor cycles
+;;   0 bytes consed
+
+(defun game-math (n)
+  (loop with vec0 = (game-math:vec4 1 2 3 1)
+        with vec1 = (game-math:vec4 1 2 3 1)
+        repeat n
+        do (game-math:+ vec0 vec1 vec0)
+        finally (return vec0)))
+  
+(time (game-math 100000000))
+;; Evaluation took:
+;;   3.853 seconds of real time
+;;   3.851116 seconds of total run time (3.851116 user, 0.000000 system)
+;;   99.95% CPU
+;;   11,528,869,542 processor cycles
+;;   0 bytes consed
+  
+(defun game-math2 (n)
+  (loop with vec0 of-type (game-math:vec4) = (game-math:vec4 1 2 3 1)
+        with vec1 of-type (game-math:vec4) = (game-math:vec4 1 1 1 1)
+        repeat n
+        do (game-math:+ vec0 vec1 vec0)
+        finally (return vec0)))
+
+(time (game-math2 100000000))
+;; Evaluation took:
+;;   4.034 seconds of real time
+;;   3.743113 seconds of total run time (3.743113 user, 0.000000 system)
+;;   92.79% CPU
+;;   12,071,159,931 processor cycles
+;;   0 bytes consed
+
+(defun vec4-make (x y z w)
+  `(,x . (,y . (,z . ,w))))
+
+(defun vec4-addr (a b)
+  (let ((x (+ (car a) (car b)))
+        (y (+ (cadr a) (cadr b)))
+        (z (+ (caddr a) (caddr b)))
+        (w (+ (cdddr a) (cdddr b))))
+    (vec4-make x y z w)))
+
+(defun vec4-add (a b)
+  ((+ (car a) (car b)) .
+   ((+ (cadr a) (cadr b)) .
+    ((+ (caddr a) (caddr b)) .
+     (+ (cdddr a) (cdddr b))))))
+
+(defun test-math (n)
+  (loop with vec0 = (vec4-make 1.0 2.0 3.0 1.0)
+        with vec1 = (vec4-make 1.0 2.0 3.0 1.0)
+        repeat n
+        do (vec4-addr vec0 vec1)
+        finally (return vec0)))
+  
+(time (test-math 100000000))
+;; Evaluation took:
+;;   13.440 seconds of real time
+;;   10.106884 seconds of total run time (9.812113 user, 0.294771 system)
+;;   [ Run times consist of 1.340 seconds GC time, and 8.767 seconds non-GC time. ]
+;;   75.20% CPU
+;;   40,217,780,280 processor cycles
+;;   1,550 page faults
+;;   4,799,986,704 bytes consed
+  
+(declaim (inline gamebox-math))
+(defun gamebox-math (n)
+  (loop with vec0 = (v4:make 1.0 2.0 3.0 1.0)
+        with vec1 = (v4:make 1.0 2.0 3.0 1.0)
+        repeat n
+        do (v4:+ vec0 vec0 vec1)     ;; ECL can't find "v4:+!"
+        finally (return vec0)))
+
+(time (gamebox-math 100000000))
+;; Evaluation took:
+;;   0.505 seconds of real time
+;;   0.505180 seconds of total run time (0.505180 user, 0.000000 system)
+;;   100.00% CPU
+;;   1,512,428,360 processor cycles
+;;   0 bytes consed
+#+END_SRC
+
+* C version
+#+BEGIN_SRC c
+void vec4_add (float* a, float* b, float *c)
+{
+    c[0]=a[0]+b[0];
+    c[1]=a[1]+b[1];
+    c[2]=a[2]+b[2];
+    c[3]=a[3]+b[3];
+}
+
+int main ()
+{
+    float vec0[4] = {1,2,3,4};
+    float vec1[4] = {1,2,3,4};
+    volatile float result[4];
+    
+    for (int i=0 ; i<100000000 ; i++) {
+        float t[4];
+        vec4_add(vec0, vec1, t);
+        result[0] = t[0];
+        result[1] = t[1];
+        result[2] = t[2];
+        result[3] = t[3];
+    }
+
+    printf("%f,%f,%f,%f\n", result[0], result[1], result[2], result[3]);
+    
+    return 0;
+}
+
+// gcc -o testy testy.c -O3 -funroll-loops
+// time ./testy 
+// 0.038 secs
+
+#+END_SRC
+
+* Julia version
+
+#+BEGIN_SRC julia
+
+using Distributed
+
+
+function test(n)
+    vec0 = [1. 2. 3. 4.]
+    vec1 = [1. 2. 3. 4.]
+    for i = 1:n
+        vec0 .+ vec1
+    end
+end
+
+
+function test2(n)
+    function vec4_add(a,b)
+        a[1]+b[1],
+        a[2]+b[2],
+        a[3]+b[3],
+        a[4]+b[4]
+    end
+
+    vec0 = 1., 2., 3., 4.
+    vec1 = 1., 2., 3., 4.
+    for i = 1:n
+        vec4_add(vec0, vec1)
+        #vec0 + vec1
+    end
+end
+
+# julia> include("testy.jl")
+#
+# julia> @time test(100000000)
+# 12.142959 seconds (100.59 M allocations: 10.460 GiB, 8.54% gc time)
+#
+# julia> @time test2(100000000)
+# 0.011847 seconds (22.99 k allocations: 1.246 MiB)
+
+
+#+END_SRC
+
+* OCaml version
+
+#+BEGIN_SRC ocaml
+let time f =
+  let t = Unix.gettimeofday () in
+  let res = f () in
+  Printf.printf "Execution time: %f secondsn"
+                (Unix.gettimeofday () -. t);
+  res
+
+let vec4_make x y z w = x,y,z,w
+let vec4_add (x1,y1,z1,w1) (x2,y2,z2,w2) =
+  vec4_make (x1 +. x2) (y1 +. y2) (z1 +. z2) (w1 +. w2)
+
+let test_math n =
+  let vec0 = vec4_make 1.0 2.0 3.0 1.0 in
+  let vec1 = vec4_make 1. 2. 3. 4. in
+  for i = 1 to n do
+    ignore(vec4_add vec0 vec1);
+  done
+
+type vec4 = {x:float;
+             y:float;
+             z:float;
+             w:float}
+
+let vec4_addr
+      {x=x1;y=y1;z=z1;w=w1}
+      {x=x2;y=y2;z=z2;w=w2} =
+  {x=(x1+.x2);y=(y1+.y2);z=(z1+.z2);w=(w1+.w2)}
+          
+let test_math2 n =
+  let vec0 = {x=1.;y=2.;z=3.;w=4.} in
+  let vec1 = {x=1.;y=2.;z=3.;w=4.} in
+  for i = 1 to n do
+    ignore(vec4_addr vec0 vec1);
+  done
+
+open Gg
+
+let test_math3 n =
+  let vec0 = V4.v 1. 2. 3. 4. in
+  let vec1 = V4.v 1. 2. 3. 4. in
+  for i = 1 to n do
+    ignore(V4.add vec0 vec1);
+  done
+
+let () = time (fun () -> test_math3 100000000)
+
+
+let () = time (fun () -> test_math 100000000)
+
+let () = time (fun () -> test_math2 100000000)
+
+let () = time (fun () -> test_math3 100000000)
+
+(*
+
+ocamlfind ocamlopt -o dsaf gg.cmxa testy.ml -unboxed-types -O3 -nodynlink -package gg -linkpkg
+
+test1: Execution time: 5.184976 seconds
+
+test2: Execution time: 1.474275 seconds
+
+test3: Execution time: 1.490338 seconds
+
+*)
+#+END_SRC
