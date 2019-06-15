@@ -195,5 +195,21 @@ Apple = nil
 ((1 +) 2)  ;; =>
 ()
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;NSArray *myArray = @[ object1, object2, object3 ];
+;;NSDictionary *myDictionary1 = @{ @"key" : someObject };
+;;NSDictionary *myDictionary2 = @{ key1: object1, key2: object2 };
+;;NSNumber *myNumber = @(myInt);
+;;NSNumber *mySumNumber = @(2+3);
+;;NSNumber *myBoolNumber = @YES;
+;;NSNumber *myIntegerNumber = @8
 
+;;id object1 = someArray[0];
+;;id object2 = someDictionary[@"key"];
+;;someMutableArray[0] = object3;
+;;someMutableDictionary[@"key"] = object4
+                                        
+                                        

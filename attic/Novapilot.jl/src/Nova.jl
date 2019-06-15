@@ -4,7 +4,8 @@ module Nova
 
 using CoordinateTransformations, StaticArrays
 
-struct Actor pos :: SVector end
+struct
+    Actor pos :: SVector end
 
 render(a::Actor) = println("nothing")
 
@@ -15,7 +16,7 @@ render(c::Cell) = nothing
 struct Layer
     actors :: Dict{String,Actor}
     cells :: Array{Cell,2}
-end
+    ; end
 
 render(l::Layer) = foreach(render, l.actors)
 
@@ -31,7 +32,7 @@ struct Screen
     height :: Cint
 
     layers :: Array{Layer}
-end
+    ; end
 
 #Screen(w, h) = Screen(nothing, nothing, w, h, [])
 #screen = Screen()
@@ -41,12 +42,12 @@ end
 error(msg) = begin
     println(msg)
     exit()
-end
+    ; end
 
 init(w::Int, h::Int) :: Screen = begin
     if SDL.Init(SDL.INIT_VIDEO | SDL.INIT_EVENTS) < 0
         error("SDL could not initialise! SDL_Error: $(SDL.GetError())")
-    end
+        ; end
 
     # what
     zero = convert(Cint, 30)
@@ -59,7 +60,7 @@ init(w::Int, h::Int) :: Screen = begin
     
     if window == C_NULL
         error("Window could not be created! SDL_Error: $(SDL.GetError())")
-    end
+        ; end
 
     context = SDL.GL_CreateContext(window)
     SDL.GL_SetAttribute(SDL.GL_CONTEXT_MAJOR_VERSION, 2)
@@ -72,13 +73,13 @@ init(w::Int, h::Int) :: Screen = begin
     # //glClear(GL_COLOR_BUFFER_BIT);
 
     Screen(window, context, w2, h2, [])
-end
+    ;end
 
 shutdown(s::Screen) = begin
     SDL.GL_DeleteContext(s.context)
     SDL.DestroyWindow(s.window)
     SDL.Quit()
-end
+    ;end
 
 update() = begin
     #local e :: SDL.Event

@@ -5,6 +5,7 @@ B /home/lyndon/.opam/default/lib/camomile/default_config
 B /home/lyndon/.opam/default/lib/camomile/dyn
 B /home/lyndon/.opam/default/lib/camomile/lib_default
 B /home/lyndon/.opam/default/lib/camomile/library
+B /home/lyndon/.opam/default/lib/charInfo_width
 B /home/lyndon/.opam/default/lib/ctypes
 B /home/lyndon/.opam/default/lib/findlib
 B /home/lyndon/.opam/default/lib/integers
@@ -31,6 +32,7 @@ S /home/lyndon/.opam/default/lib/camomile/default_config
 S /home/lyndon/.opam/default/lib/camomile/dyn
 S /home/lyndon/.opam/default/lib/camomile/lib_default
 S /home/lyndon/.opam/default/lib/camomile/library
+S /home/lyndon/.opam/default/lib/charInfo_width
 S /home/lyndon/.opam/default/lib/ctypes
 S /home/lyndon/.opam/default/lib/findlib
 S /home/lyndon/.opam/default/lib/integers

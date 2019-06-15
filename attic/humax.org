@@ -2,95 +2,89 @@
 
 HumaX.
 
-* Game dev
+* Dev
 ** Libraries
 https://opengameart.org
 http://soundimage.org/
 https://libregamewiki.org/Main_Page
+http://raylib.com ?
 
 * Humacs Editor (HMX).
 
 Game development and animation and music production tools
 with virtual computer
+** Applications
+*** Code Editor
+ - uses SWANK and SLIME for now.
+*** Map Editor
+ - sprites are maps
+ - maps contain cells of maps
+ - which contain maps of cells, recursively.
+ - allow linking of objects to other maps at /depths/using/paths
+*** Wave Editor
+ - audio editor
+ - music plots
+ - sound effects
+ - animation ?
+*** Model Editor
+ - polygons
+ - curves
+ - instancing and paths
+ - parts and pieces
+*** Animation editor
+ - hmmm
+** Programming Language
+ AL programming language.
+ A variant of emacs lisp.
+ or HL.
+ Derive from ParenScript... ?
+*** basic unit: atom
+*** object: number
+*** object: list
+*** object: person
+**** memory
+**** mailbox
+**** actions
+**** passions
+*** object: computer
+*** Cell
 
 * Nova Computer (NVC)
- Experimental Idea - generate specs!
-*** Terminal
-**** Display
-  512x512 1bit (262144 pixels, 32kb)
-
-  0,0 is lower left
-  511,511 is top right
-
-  8x8 tiles, 64x64 max tiles (or 8x16??)
- 
-**** Parts
-  sound > sample
-					 > function
-  image > pixel
-
-**** Characters
-  8x16 8bit (1024 bytes)
-
-  coordinates can be specified as char:
-  101 - 3264
-  or fine coords:
-  1,1 - 32,64
-
-**** Processor
-  locally executes instruction codes. (lisp vm)
-
-**** Input
- text stream I/O.
-
-*** Programming
-  - encryption or some smarts to prevent game progress hacking
-**** lisp 
-;; atom - aleph
-;; eq - ayin
-;; cons - waw
-;; car - yod
-;; cdr - hey
-;; defun - ??
-
-*** Session
-  persistent user sessions
-*** Memory Tree Filesystem
- - shared symbols organized as a list of lists.
- - symbols can be remote pointers (message passing).
- - namespaces (branches) can be associated to and resolved from physical or virtual places.
- - real NVC files are virtual. but virtual NVC files are real files...
-
-*** Network
-  - clients use HTTP, JSON API, or Swank.
-
-
-
-- [[nova.org][Nova]] Game engine, written in Objective Caml.
-- [[gamelike.org][Gamelike]] Roguelike game inspired by Ragnarok Online and Shiren: The Wanderer.
-- [[novapilot.org][Novapilot]] 2D game inspired by Bangai-O, Built in level editor.
-- [[monsterpiece.org][Monsterpiece]] 2D game inspired by Mario Bros and Smash Bros and Metroid and Castlevania. Single-room monster breed/fight/collect maze platform action.
-
-
-
-* Specs
-** Overview
-- Main processor unit. MPU
+- generate specs!!
+- Main list processor unit. LPU
 - Physics displacement processor (PDP)
 - Math oprocessor unit. MPU.
+** Display
+monochrome
+512x512 (262144/0x40000 pixels)
 
+1bit? 256kb
+2bit? 512kb
+4bit? 1024kb
+
+3bit color... 0-7.
+black, five shades of a color, white, alpha bit.
+or with palette, 8 entries - 3 built-in, 5 custom.
+
+
+0,0 is lower left
+511,511 is top right
+
+8x8 tiles, 64x64 max tiles (or 8x16??)
+ 
 ** CPU
 Common Lisp
 32-bit Processor
-22 letters
+10 numbers, 22 letters
+locally executes instruction codes. (lisp vm)
 ** Graphics Pipeline
 - Polygons
 - 8x8 tiles
 - 'shaders'
 - Access to pixel framebuffer
 - layers (5? 10?)
-- 8mb raster memory
-- 8mb texture memory
+- 8mb raster memory?
+- 8mb texture memory?
 - remote screens?
 ** Cartridge
 - memory mapped objects and functions
@@ -102,55 +96,51 @@ Common Lisp
 - save as .PNG and .HUV?
 ** Audio Processor
 - 10 channels, 5 sfx 5 music
-** Networking
- - network display?
- - connect SWANK to edit code.
 ** Gamepad
 - 4 directions
 - analog x/y -ff..+ff
 - 4 buttons, 2 shoulder
-* Operating System
-hOS?
-** File System
+* Operating System (hOS?)
+- persistent user sessions
+** Programming
+ - encryption or some smarts to prevent game progress hacking
+*** lisp 
+;; atom - aleph
+;; eq - ayin
+;; cons - waw
+;; car - yod
+;; cdr - hey
+;; defun - ??
+** Networking
+ - clients use HTTP, JSON API, or Swank.
+ - network display?
+ - connect SWANK to edit code.
+** Memory Tree Filesystem
 - is recursive
-* Applications
-** Code Editor
-- uses SWANK and SLIME for now.
-** Map Editor
-- sprites are maps
-- maps contain cells of maps
-- which contain maps of cells, recursively.
-- allow linking of objects to other maps at /depths/using/paths
-** Wave Editor
-- audio editor
-- music plots
-- sound effects
-- animation ?
-** Model Editor
-- polygons
-- curves
-- instancing and paths
-- parts and pieces
-** Animation editor
-- hmmm
-* Programming Language
-AL programming language.
-A variant of emacs lisp.
-or HL.
-Derive from ParenScript... ?
-** basic unit: atom
-** object: number
-** object: list
-** object: person
-*** memory
-*** mailbox
-*** actions
-*** passions
-** object: computer
-*** 
+- shared symbols organized as a list of lists.
+- symbols can be remote pointers (message passing).
+- namespaces (branches) can be associated to and resolved from physical or virtual places.
+- real NVC files are virtual. but virtual NVC files are real files...
+** Terminal
+*** Parts
+ sound > sample
+					> function
+ image > pixel
 
-** Cell
+*** Characters
+ 8x16 8bit (1024 bytes)
 
+ coordinates can be specified as char:
+   101 - 3264
+ or float:
+   xx.yy
+ or fine coords:
+   1,1 - 32,64
+
+ built-in ascii +extended, with hebrew characters
+
+*** Input
+text stream I/O.
 * Factory
 2 dimensions of layers and layers and scale of scale.
 everything can be inspected, edited, modified, fixed, broken.
@@ -167,7 +157,6 @@ also we can download and share blueprints.
 ** Scaffolding
 ** Engines
 
-
 * Game
 - uses your filesystem for inventory storage. big files, small files...
   for eg: potion = 1024kb 
@@ -176,3 +165,10 @@ also we can download and share blueprints.
 - network protocol for languages
 
 - character generated with random levels and status and items and history.
+
+- [[nova.org][Nova]] Game engine, written in Objective Caml.
+- [[gamelike.org][Gamelike]] Roguelike game inspired by Ragnarok Online and Shiren: The Wanderer.
+- [[novapilot.org][Novapilot]] 2D game inspired by Bangai-O, Built in level editor.
+- [[monsterpiece.org][Monsterpiece]] 2D game inspired by Mario Bros and Smash Bros and Metroid and Castlevania. Single-room monster breed/fight/collect maze platform action.
+
+

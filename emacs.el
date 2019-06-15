@@ -196,6 +196,8 @@
 
 ;;   (setq merlin-ac-setup t))
 
+(require 'tuareg)
+(setq tuareg-highlight-all-operators t)
 (require 'merlin-eldoc)
 (add-hook 'tuareg-mode-hook 'merlin-eldoc-setup)
 (add-hook 'reason-mode-hook 'merlin-eldoc-setup)
@@ -329,6 +331,12 @@
 ;; (macrolet ((fn (&body body)
 ;; 	       `(lambda (_) (print ,@body " ----"))))
 ;;   (mapc fn '(1 2 3 4)))
+
+(font-lock-add-keywords
+ 'scheme-mode
+ '(("\\<\\sw+:\\>" . 'font-lock-builtin-face)
+   ("\\<#!\\sw+\\>" . 'font-lock-type-face))
+ t)
 
 (let ((modes-to-hook '(emacs-lisp-mode-hook
 		       eval-expression-minibuffer-setup-hook

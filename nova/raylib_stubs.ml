@@ -19,13 +19,10 @@ module Bindings (F : Cstubs.FOREIGN) = struct
   let toggleFullscreen = foreign_void "ToggleFullscreen"
   (* let setWindowIcon = F.foreign "SetWindowIcon" (image @-> returning void) *)
   let setWindowTitle = F.foreign "SetWindowTitle" (string @-> returning void)
-  let setWindowPosition = F.foreign "SetWindowPosition"
-                            (int @-> int @-> returning void)
+  let setWindowPosition = F.foreign "SetWindowPosition" (int @-> int @-> returning void)
   let setWindowMonitor = F.foreign "SetWindowMonitor" (int @-> returning void)
-  let setWindowMinSize = F.foreign "SetWindowMinSize"
-                           (int @-> int @-> returning void)
-  let setWindowSize = F.foreign "SetWindowSize"
-                        (int @-> int @-> returning void)
+  let setWindowMinSize = F.foreign "SetWindowMinSize" (int @-> int @-> returning void)
+  let setWindowSize = F.foreign "SetWindowSize" (int @-> int @-> returning void)
   let getScreenWidth = F.foreign "GetScreenWidth" (void @-> returning int)
   let getScreenHeight = F.foreign "GetScreenHeight" (void @-> returning int)
 

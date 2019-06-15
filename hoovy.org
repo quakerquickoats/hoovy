@@ -5,7 +5,7 @@
 * RIGHT NOW
 ** TODO finish up all of the browser tabs.
 ** TODO create new gmail account.
-** TODO Move back to github.
+** DONE Move back to github.
 
 * Subjective-C
 
