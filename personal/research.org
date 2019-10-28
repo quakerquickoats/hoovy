@@ -1,0 +1,232 @@
+#+TITLE: Human Technology Research
+
+* --- Systems ---
+* Creation
+  | Stage | Element  |         |                              |
+  |-------+----------+---------+------------------------------|
+  |     1 | -spirit- | עין סוף |                              |
+  |     2 | Air      | רוח     | make letters                 |
+  |     3 | Water    | מים     | make wall/tablet/table       |
+  |     4 | Fire     | יש      | make throne                  |
+  |     5 | Earth    | ארץ     | looked above, sealed height  |
+  |     6 |          | יהו     | looked below, sealed deep    |
+  |     7 |          | יוה     | looked forward, sealed east  |
+  |     8 |          | היו     | looked backward, sealed west |
+  |     9 |          | ויה     | looked right, sealed south   |
+  |    10 |          | והי     | looked left, sealed north    |
+
+  Water makes Earth
+  Fire makes Heaven
+  Air makes between.
+
+  So, 6 basic elements? Include the original and have 7.
+
+  | sfr |             |
+  |-----+-------------|
+  |   1 | -spirit of- |
+  |   2 | air         |
+  |   3 | water       |
+  |   4 | fire        |
+  |   5 | height      |
+  |   6 | depth       |
+  |   7 | east        |
+  |   8 | west        |
+  |   9 | north       |
+  |  10 | south       |
+
+** Sphere
+puts 231 modes on sphere,
+rotating forward for implied good,
+retrograde then evil intents.
+
+* Man
+  Man starts at alef, like dante;
+  descends into Hell (12 branches),
+  rearrives to Center (world tree) --
+  ascends to Heaven (10 stems) by means of 'Elastic Tension'.
+  (like a wind up --- answers the question "why do we suffer?" in order to build momentum and torque.)
+* Gender
+male : Alef-Mem-Shin
+female : Alef-Shin-Mem
+* Letters
+** 3 Mother Letters (שלש אמח אותיות)
+   [ספר יצירה]
+   3 kinds of sefer.
+
+   As 3 dimensions of cube:
+   | Ltr | sefer        | Axis | Sound           | ???   | Body        | Elem  | Season |
+   |-----+--------------+------+-----------------+-------+-------------+-------+--------|
+   | ש   | Text/Book    | Y    | Sibilant 'hiss' | Man   | Head        | Fire  | Summer |
+   |     |              |      |                 |       |             |       |        |
+   | א   | Story/Speech | Z    | Aspirate 'airy' | Time  | Torso/Chest | Air   | Rainy  |
+   |     |              |      |                 |       |             |       |        |
+   | מ   | Count/Number | X    | Mute            | World | Rest/Belly  | Water | Winter |
+
+   "ALEF, dragon, is like to a king on his throne,
+    MEM, sphere, like a king traveling in his country;
+    SHIN, heart, like a king at war."
+
+   |           | Male          | Female        |
+   |-----------+---------------+---------------|
+   | Alef/Air  | alef-mem-shin | alef-shin-mem |
+   | Mem/Water | mem-alef-shin | mem-shin-alef |
+   | Shin/Fire | shin-alef-mem | shin-mem-alef |
+
+** 7 Double Letters
+   As 7 placements on cube:
+
+*** TODO check positive/negative orders!! and the rest!
+
+   | Ltr | Direction | Body | positive           | negative          |
+   |-----+-----------+------+--------------------+-------------------|
+   | ב   | above     |      | life               | death             |
+   | ג   | below     |      | peace              | war/strife        |
+   | ד   | east      |      | riches/wealth      | poverty           |
+   | כ   | west      |      | wisdom             | folly,ignorance   |
+   | פ   | north     |      | beauty,repute      | deform,disrepute  |
+   | ר   | south     |      | fertility,fruitful | sterility         |
+   | ת   | center    |      | power,lordship     | slavery,servitude |
+
+   orifices:
+     two eyes,
+     two ears,
+     two nostrils,
+     one mouth.
+
+   days of week.
+   planets.
+   heavens.
+
+** 12 Elemental Letters
+   As edges of cube:
+   | Ltr | Direction | Body |
+   |-----+-----------+------|
+   | ה   | NE        |      |
+   | ו   | SE        |      |
+   | ז   | above E   |      |
+   | ח   | below E   |      |
+   | ט   | above N   |      |
+   | י   | below N   |      |
+   | ל   | NW        |      |
+   | נ   | SW        |      |
+   | ס   | above W   |      |
+   | ע   | below W   |      |
+   | צ   | above S   |      |
+   | ק   | below S   |      |
+
+   12 leaders of man:
+     left hand,
+     right hand,
+     left foot,
+     right foot,
+     kidneys,
+     gall,
+     intestines,
+     stomach,
+     liver
+     pancreas,
+     spleen.
+** 5 Types of Things
+   Speech:
+   | Place         | Accent | Letters |
+   |---------------+--------+---------|
+   | tip of tongue | throat |         |
+   | tip of tongue | lips   |         |
+   | middle tongue |        |         |
+   | tip of tongue |        |         |
+   | flat tongue   | teeth  |         |
+
+   |        |          |
+   |--------+----------|
+   | throat | gutteral |
+   | palat  | palatels |
+   | tongue | linguals |
+   | teeth  | dentals  |
+   | lips   | labial   |
+
+* Geometry
+** Platonic Solids
+ | Element  | Name             | Faces | Edges | Vertices   |
+ |----------+------------------+-------+-------+------------|
+ | Fire     | Tetrahedron      |     4 |     6 | 4          |
+ | Earth    | Hexahedron(Cube) |     6 |    12 | 8          |
+ | Air      | Octahedron       |     8 |    12 | 6 (2x3)    |
+ | Universe | Dodecahedron     |    12 |    30 | 20 (8+4x3) |
+ | Water    | Icosahedron      |    20 |    30 | 12 (4x3)   |
+
+** Cube
+   - 1 hidden vertex
+   - 2 ??
+   - 3 visible faces *
+   - 3 dimensions *
+   - 3 inner edges
+   - 4 ??
+   - 5 ??
+   - 6 total faces
+   - 6 visible edges
+   - 6 directions
+   - 7 visible vertices *
+   - 8 total vertices
+   - 9 total visible edges (6out + 3mid)
+   - 10 ??
+   - 11 "[[Nets]]"
+   - 12 total edges *
+
+*** The 11 <<Nets>> of a Cube
+
+ 1.
+ |   | x |
+ |   | x |
+ | x | x |
+ | x |   |
+ | x |   |
+
+ 2.
+ | x | x |   |
+ |   | x |   |
+ |   | x | x |
+ |   | x |   |
+
+ 3.
+ |   | x |   |
+ | x | x | x |
+ |   | x |   |
+ |   | x |   |
+
+ 4.
+ | x | x | x |
+ |   | x |   |
+ |   | x |   |
+ |   | x |   |
+
+ 5.
+ | x | x |   |
+ |   | x | x |
+ |   | x |   |
+ |   | x |   |
+
+ 6.
+ | x | x |   |
+ |   | x |   |
+ |   | x |   |
+ |   | x | x |
+
+ 7.
+ ??
+
+* --- External ---
+* Quotes
+This is the oldest law in biology - Die the hero or live long enough
+to see yourself become the villain.
+
+“Sometimes your joy is the source of your smile,
+but sometimes your smile can be the source of your joy.”
+– Thich Nhat Hanh
+
+* Qabalah
+http://koshertorah.com  (and mental kung fu)
+http://www.hope-of-israel.org/tetragram.html
+http://www.sacred-texts.com/eso/sta/sta29.htm
+http://sapphiremagendavid.blogspot.com/
+[10 commandments]
+http://kabbalahsecrets.com/?page_id=1944

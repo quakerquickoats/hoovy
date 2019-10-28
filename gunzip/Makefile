@@ -5,6 +5,7 @@ all: $(TARGET)
 	@
 
 $(TARGET): $(SOURCES)
-	swipl-ld -o $@ $<
+	swipl-ld -o $@ $< -lraylib
+
 
 
