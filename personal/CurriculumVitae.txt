@@ -1,0 +1,164 @@
+Lyndon Tremblay
+quakerquickoats@gmail.com
+
+Peterborough, Ontario
+
+
+==== Work Experience ====
+
+	I have been programming, communicating and conversing with the computer
+	in several languages and software environments for 25 years. For engineering tasks,
+	scientific tasks, and many other fields. Notably, without details:
+
+	QLogics 2002-2006 - Victoria, BC and Remote Contract
+	"Website designer, programmer, remote and local admin" for Brent Welke
+		-Development, migration, deployment of web sites
+		-Server side programming, administration, metrics and database management
+
+	IMVU 2006 - Remote Contract
+	"Programmer" for Don J Carson
+		-Write tools to convert common 3D model file formats to proprietary format,
+		-for 3D networked social chat, using Python and C++, Blender, Google SketchUp,
+		 custom programs and tools
+
+	Bioinformatics (artificial ear drum) 1998 - Victoria, BC
+	"Programmer and Engineer" for Mary McFarland
+		-Develop proprietary revision-based backup software in C for Linux and Windows NT
+
+	(unnamed) 1999 - Remote Contract
+	"Programmer and Mentor"
+		-Assist conversion of 3D model plugin source code for converting
+		 Unreal engine models with 3D Studio Max
+
+	Lingo Systems 2000-2001 - Vancouver, BC
+	"Programmer or Engineer" for Yonas Jongkind
+		-Develop Linux and Mac distributed network file system kernel drivers in C,
+		-Write client viewer interface to custom object database with Java and Web,
+		-Port several Windows programs and tools and build system to Autoconf
+		-Aid design and testing of custom in-house programming language and compiler suite
+
+	(unnamed) 2005 - Remote Contract
+	"Programmer and Mentor"
+		-Extend Microsoft Debugger public source code,
+		 for remote debugging capability and user authentication with C# and VB.NET
+		-Teach and conduct contractor in applicable technology and application deployment
+
+	(unnamed) 2010 - Remote Contract
+	"Programming Mentor" for Benjamin Dell
+		-Review, debug and test code,
+		 for social networking application (Twitter,Facebook) for iPad
+
+	(unnamed) 2010 - Remote Contract
+	"Programming Mentor" for Doug Franklin
+		-Develop Quiz application for iPhone, iPod touch, iPad
+		-Guide and teach programming and development
+
+	(unnamed) 2007 - Remote Contract
+	"Engineer and Programming technician" for University in Ontario
+		-Assist development of advanced and optimizing compiler for the IBM CELL architecture, Haskell
+
+	(unnamed) 2005 - Remote Contract
+	"Writing Assistant" for Yen-Ju Chen, professor at a university in Ontario
+		-Write and proof read technology proposal documents for using Squeak Smalltalk to implement
+		 cross-platform and inuitively parallel and multicore development environment
+
+	Open Source, Free Software Foundation, and Public Domain 1996-2010, 2014-2017
+	"Freelance Programmer and Manager and Mentor and Designer",
+	for various institudions and groups in all languages listed in the last section of this document
+	-Bug fixes, patches, and custom changes for GNUstep, Blender, Emacs, GDB, Haskell, KDE
+	-Teaching programming, Project management, work and development habits to many
+	-Create several cross-platform extendable Realtime 3D game engines in various languages,
+	  applying several advanced graphics techniques, development styles, and technologies
+	-Create and maintain several level editors, map editors, and other game development tools
+	-Sound synth editor, 2d and 3d Animation viewer
+	-Physics simulator, Texture mapping editor, Procedural Terrain generator
+	-Embedded compiler work, Language transformation and optimization
+	-Code review, project management, website administrator for various groups and projects
+	-Multitudes of plugins and modifications and patches and custom changes to existing code
+
+==== Education ====
+
+	Self taught:
+
+	~~ General ~~
+	⁃	Some Calculus and Algebra.
+	⁃	Category Theory and Set Theory
+	⁃	Physics Simulation
+	⁃	Geometry; CSG, BSP
+	⁃	Trigonometry
+	⁃	Discrete Math
+	⁃	Software Engineering and Architecture.
+	⁃	Saturated exposure to many fields of Sciences and Technologies
+	⁃	Evolving Networks and systems, Machine Learning concepts.
+
+	~~ Technical ~~
+	⁃	Most Computer Sciences.
+	⁃	3D/2D Graphics Pipeline - rendering, rasterizing, generation,
+              post processing, shading, simulating, OpenGL, Vulkan, etc.
+	⁃	Sound Synthesis and Music Composition
+	⁃	Artificial Intelligence, Deep Learning, Neural Networks
+	⁃	Domain Specific Languages
+	⁃	Development Environment development and maintenance
+
+	~~ Other Interests ~~
+	⁃	Psychology and Social Dynamics
+	⁃	Various Religion and world history.
+	⁃	Linguistics.
+	⁃	Japanese fluency: reading and writing, speaking and listening
+    -   Hebrew and Arabic: read and write, some conversation.
+	⁃	Ability in French speaking and listening and reading and writing.
+	⁃	Limited ability in Korean reading and writing, speaking and listening
+	⁃	Some ability in Tibetan and Sanskrit reading and writing
+
+==== Verbose Computer Skill List ====
+
+	From here all entries listed in order of proficiency:
+
+	-- System Software --
+	Extensive knowledge in all areas of using:
+    -     Emacs
+    -     Bash, GNU toolchain, Visual Studio
+    -     Web Technologies and various modern stacks.
+	⁃	  Mac OS X since 2000
+	⁃	  iOS since 2009
+	⁃	  Linux since 1994
+	⁃	  Windows 3.1 to Windows 10
+	⁃	  All major flavours of UNIX and BSD
+	⁃	  OPENSTEP, Solaris, Amiga, QNX
+    -     Kernel drivers for Linux, and Mac OSX.
+
+	--  Programming Languages --
+	Highly fluent in:
+	⁃	  C (GCC, Clang, MSVC)
+	⁃	  Objective-C (GCC, Clang)
+	⁃	  JavaScript
+	⁃	  Objective Caml
+	⁃	  Haskell
+	⁃	  Lisp (Common Lisp, Emacs Lisp)
+	⁃	  Scheme (Gambit-C, Guile, Racket, Bigloo, Chez)
+	⁃	  Smalltalk (Squeak, Pharo, ST/X, VisualWorks)
+	⁃	  Python
+	⁃	  C++ (GCC, MSVC)
+	⁃	  Erlang
+	⁃	  Java (Sun, MS, Google)
+	⁃	  F#, C#, Visual Basic.NET, ASP.NET
+    Some fluency in:
+    -     Clojure
+    -     Prolog
+	⁃	  Ruby
+
+	-- Other Languages --
+	Fluent in:
+	⁃	  Makefile, Autotools (autoconf, automake, configure, …)
+	⁃	  SVG, CSS 3, HTML 5
+    Some fluency in:
+	⁃	  Shell script and windows batch files, AppleScript
+	⁃	  ARM and Intel Assembly
+	⁃	  Anything else.
+
+	-- Other Systems Programming --
+    -     Networking client/server and distributed subsystems and clustering.
+	⁃	  iPhone, iPod Touch, iPad
+	⁃	  Gameboy Advance, Gamecube, Nintendo DS.
+	⁃	  Wii
+	⁃	  Some Playstation 2 and 3
