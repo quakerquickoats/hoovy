@@ -134,6 +134,19 @@
               tab-width 4
               indent-tabs-mode nil)
 
+
+(defun shell-cmd (cmd)
+  "Returns the stdout output of a shell command or nil if the command returned
+   an error"
+  (car (ignore-errors (apply 'process-lines (split-string cmd)))))
+
+;;----------------------------------------------------------------------------
+;; OCaml/Reason setup
+;;----------------------------------------------------------------------------
+
+(add-to-list 'load-path
+             "~/.opam/4.09.0/share/emacs/site-lisp/")
+
 ;;(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 ;; ;; Add the opam lisp dir to the emacs load path
 ;; (add-to-list 'load-path
@@ -152,15 +165,6 @@
   (setq utop-command "opam config exec -- utop -emacs")
   (add-hook 'reason-mode-hook #'utop-minor-mode) ;; can be included in the hook above as well
   )
-
-;;----------------------------------------------------------------------------
-;; Reason setup
-;;----------------------------------------------------------------------------
-
-(defun shell-cmd (cmd)
-  "Returns the stdout output of a shell command or nil if the command returned
-   an error"
-  (car (ignore-errors (apply 'process-lines (split-string cmd)))))
 
 (let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var"
                                                      "share")))))

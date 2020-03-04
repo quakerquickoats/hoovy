@@ -34,6 +34,7 @@ nova*pilot*!
 - draw, lift pen, stroke, path, bitops, et
 - polygon windings?
 - map tiles aka FF:T and RO and FF:CC.
+- mandala textures/tiles
 
 ** Audio synthesis
 - lots of drum patterns

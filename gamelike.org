@@ -3,6 +3,7 @@
 what is it? 'mindcrafting'
 
 * Ideas
+ - Time travelling?
  - different worlds or planets (rick&morty shwifty style)
  - What if you can be.... an ITEM ?? or an NPC?
  - .... or a map? a set of monsters ???
@@ -16,7 +17,8 @@ what is it? 'mindcrafting'
  - lost love
  - appears and disappears, have to lure him and chase him
  - wanderman has two sides, each like both rick and morty.
-** The Force
+** Soul/The Force
+- teleport between "actors" and play different roles.
 - can 'move' the mind (actor) into another body (action).
 - can move into items, objects, pixels.
 ** Special Characters
@@ -38,10 +40,16 @@ RagnarokOnline
 EtrianOdyssey
 Disgaea
 
+Ninja Turtles
+Star Fox
+Another World
+really old terminator game
+Quake
+
 * Theme
-Sci fi and desert.
-Time travelling?
-teleport between "actors" and play different roles.
+Sci fi and desert. Those two worlds. scifi might be virtual.
+Egyptian? Tibetan/Buddhist? Hindu?
+shinto? kami, earn magokoro..
 * Role Playing
 Start in active city, many choices and realms.
 ** Home Base!
@@ -739,6 +747,7 @@ atk speed, atk power
  Attack, Defense, Dodge, luck, Mdef, Matk, health points, magic points, crit.
 
 * Maps
+mandalas
 ** Market
    - Buy items.
    - Sell items.
@@ -791,9 +800,15 @@ atk speed, atk power
 - Floating Continents (sky, shin)
 
 * World
+two worlds.
+four faces...
+** Cosmic Ocean
+** Mount Meru/Sinai, Sumeru
+- four faces
 ** Axis Mundi
    "Every Microcosm, every inhabited region, has a Centre;
    that is to say, a place that is sacred above all."
+
    where all 7 continents  connect.
 
    - top branches is heaven
