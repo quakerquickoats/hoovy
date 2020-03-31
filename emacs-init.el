@@ -295,7 +295,7 @@
  '(org-attach-store-link-p 'attached)
  '(org-babel-load-languages '((emacs-lisp . t) (shell . t) (lisp . t)))
  '(package-selected-packages
-   '(guix elnode julia-mode julia-repl julia-shell tuareg geiser keyfreq trident-mode treemacs treemacs-icons-dired treemacs-magit company-erlang indium merlin-eldoc company-lsp company-restclient company-shell elisp-def suggest xml-rpc google-translate dune ac-slime helpful rmsbolt erc-hl-nicks web-server edts auto-complete reason-mode quelpa package-build expand-region persistent-scratch hyperbole charmap circe flycheck flycheck-ocaml flyspell-popup merlin utop webpaste helm helm-dash helm-emms helm-org-rifle helm-package helm-proc emms github-browse-file github-clone sx memory-usage es-lib svg-clock htmlize simple-httpd websocket dictionary "bbdb" ediprolog which-key ggtags common-lisp-snippets el-autoyas yasnippet snoopy hackernews elfeed eyebrowse hierarchy projectile rainbow-blocks rainbow-delimiters esxml exwm rainbow-mode emacsql csound-mode haskell-emacs haskell-emacs-base haskell-emacs-text haskell-mode erlang swift-mode racer rust-mode slime slime-company))
+   '(ob-prolog guix elnode julia-mode julia-repl julia-shell tuareg geiser keyfreq trident-mode treemacs treemacs-icons-dired treemacs-magit company-erlang indium merlin-eldoc company-lsp company-restclient company-shell elisp-def suggest xml-rpc google-translate dune ac-slime helpful rmsbolt erc-hl-nicks web-server edts auto-complete reason-mode quelpa package-build expand-region persistent-scratch hyperbole charmap circe flycheck flycheck-ocaml flyspell-popup merlin utop webpaste helm helm-dash helm-emms helm-org-rifle helm-package helm-proc emms github-browse-file github-clone sx memory-usage es-lib svg-clock htmlize simple-httpd websocket dictionary "bbdb" ediprolog which-key ggtags common-lisp-snippets el-autoyas yasnippet snoopy hackernews elfeed eyebrowse hierarchy projectile rainbow-blocks rainbow-delimiters esxml exwm rainbow-mode emacsql csound-mode haskell-emacs haskell-emacs-base haskell-emacs-text haskell-mode erlang swift-mode racer rust-mode slime slime-company))
  '(persistent-scratch-autosave-interval 3000)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
@@ -307,7 +307,7 @@
  '(treemacs-silent-refresh nil)
  '(treemacs-width 30)
  '(tuareg-font-lock-symbols t)
- '(tuareg-highlight-all-operators t)
+ '(tuareg-highlight-all-operators t t)
  '(tuareg-prettify-symbols-full t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -323,7 +323,7 @@
  '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
  '(font-lock-function-name-face ((t (:foreground "#c8c"))))
  '(font-lock-keyword-face ((t (:foreground "green"))))
- '(font-lock-preprocessor-face ((t (:foreground "darkgreen"))))
+ '(font-lock-preprocessor-face ((t (:foreground "yellow"))))
  '(font-lock-string-face ((t (:foreground "#fff"))))
  '(font-lock-type-face ((t (:foreground "#99d790"))))
  '(font-lock-variable-name-face ((t (:foreground "#88f"))))

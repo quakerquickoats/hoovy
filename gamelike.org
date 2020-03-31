@@ -425,6 +425,7 @@ YYOO
 
 * Character
  - character has alignment(mother), element(double), job(single)
+** character generator.
 ** Attributes
  | Name | Use                 | Note |
  |------+---------------------+------|

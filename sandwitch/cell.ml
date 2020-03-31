@@ -1,5 +1,7 @@
 open Bigarray
 
+let x = Array3.create int c_layout 32 32 32
+      
 (*
   ooo oXo ooo
   ooo ooo ooo
@@ -24,6 +26,7 @@ module Cell = struct
 end
 
 
+          
        
 
        
