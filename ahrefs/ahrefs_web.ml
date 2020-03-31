@@ -1,6 +1,7 @@
 
 (* [incomplete]
-   template for example expansion using HTTP for web browser UI. *)
+   template for example expansion using HTTP for web browser UI. 
+*)
 
 open Lwt
 open Cohttp
