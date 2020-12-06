@@ -348,7 +348,7 @@
  '(rainbow-delimiters-depth-9-face ((t (:inherit rainbow-delimiters-base-face :foreground "#f0d"))))
  '(region ((t (:background "#333333"))))
  '(secondary-selection ((t (:background "#203960"))))
- '(slime-highlight-edits-face ((t (:background "#224"))))
+ '(slime-highlight-edits-face ((t (:background "#223"))))
  '(tuareg-font-lock-governing-face ((t (:foreground "green"))))
  '(tuareg-font-lock-module-face ((t (:inherit font-lock-type-face))))
  '(tuareg-font-lock-operator-face ((t (:foreground "yellow"))))
