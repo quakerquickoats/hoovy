@@ -10,7 +10,7 @@
 
 (defun main-loop ()
   (with-window (640 480 "Nova")
-    (set-window-position 100 100)  ;; does not work??
+    (set-window-position 100 100)  ;; does not work?? in exwm. C-c C-t C-f to unfloat/dock
     (set-target-fps 60)
     (loop
       (if (window-should-close) (return))

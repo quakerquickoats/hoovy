@@ -8,8 +8,9 @@
   :version "0.1.0"
   :depends-on (:cl-raylib :cl-opengl)
   :serial t
-  :components ((:cl-file "package")
+  :components ( ;;; could use :cl-file here for ".cl" file extension.
+               (:file "package")
                ;; core
-               (:cl-file "system")
-               (:cl-file "nova")
+               (:file "system")
+               (:file "nova")
                 ))

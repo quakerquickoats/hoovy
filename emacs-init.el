@@ -318,7 +318,7 @@
  '(erc-input-face ((t (:foreground "#f9f"))))
  '(erc-my-nick-face ((t (:foreground "#f9f" :weight bold))))
  '(font-lock-builtin-face ((t (:foreground "#88a"))))
- '(font-lock-comment-face ((t (:foreground "#666"))))
+ '(font-lock-comment-face ((t (:foreground "#676"))))
  '(font-lock-constant-face ((t (:foreground "#8ff"))))
  '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))
  '(font-lock-function-name-face ((t (:foreground "#c8c"))))
