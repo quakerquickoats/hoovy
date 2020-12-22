@@ -36,6 +36,13 @@
 		(exwm-workspace-rename-buffer exwm-title))))
   )
 
+(defun kill_firefox ()
+  "Kill all running firefox processes."
+  (interactive)
+  (call-process-shell-command "killall firefox"))
+
+(global-set-key (kbd "M-p") 'kill_firefox)
+
 ;;;
 ;;; Treemacs
 ;;;

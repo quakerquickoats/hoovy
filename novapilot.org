@@ -226,3 +226,75 @@ S-expression; or raw OCaml type constructors.
  - Celeste
  - Textorcist
  - ..?
+
+* ------------  old monsterpiece
+
+Dharma in a game.
+Turn based RPG (roguelike)
+
+* World
+** Theme
+- Arabian desert.
+- Samurai!
+- Robots.
+- Camels.
+- wind, sand
+- lots of empty space and large distance
+- cities are cramped clausterphobic labyrinths
+** World Tree (Axis Mundi)
+** Tower of Babel
+** Train
+- there is a train that goes around.
+  a spiritual one and otherwise
+** Ark?
+** Hub Town (Zion?)
+- central place near world tree. 
+* Interface
+ - right to left for Hebrew and Arabic.
+* Mapping
+  - make your own maps. which influences the RNG/procgen.
+* Marketplaces
+ - carrying
+ - buying and selling
+ - many shops sorted by type by streets.
+** Cooking
+ - combinations
+ - al-kemia (alchemy)
+* Gameplay
+ - turn based.
+ - rooms are single screens (can fit vector anywhere)
+ - mouse and keyboard
+ - four buttons: attack, jump, special, defend.
+** Screen
+ - screen rotates for player always facing either N or E. (inshallah)
+ - there is a map on the top right.
+ - Map shows current position, save points, boss rooms.
+ - Item screen shows your items.
+* --- Technical/Internal ---
+* Model
+  - world is one (invert) sphere
+  - space/heaven is in the very center.
+  - water is surrounding on the very outsides.
+  - earth is built into this. can dig.
+  - gravity pushes out from the center.
+  - water surface can expand or shrink
+  - moving closer to center shrinks object due to vacuum.
+  - can never reach center (black hole?)
+  - orbiting luminaries for navigation and discovery.
+* Cubes
+  - cubes with curvepaths cutting into them? ie.
+    CSG the paths from the tiles, one for each of the six faces.
+  - using subdivided surfaces (subsurf) using corners as weight points.
+  - this is easy for mass physics and thunks of any size and resolution.
+  - great for distances, rendering, and so on.
+* Music
+  - arabic/hebrew
+  - arabic trap
+* Graphics
+  - vector (SVG)
+* Adventure Maker
+* Decision Tree
+** Consequences
+* Character Generator
+  - generate random stats
+

@@ -1,72 +1,61 @@
 #+TITLE: MonsterPeace
 
 
-Dharma in a game.
-Turn based RPG (roguelike)
+Fighting Game Roguelike
 
-* World
-** Theme
-- Arabian desert.
-- Samurai!
-- Robots.
-- Camels.
-- wind, sand
-- lots of empty space and large distance
-- cities are cramped clausterphobic labyrinths
-** World Tree (Axis Mundi)
-** Tower of Babel
-** Train
-- there is a train that goes around.
-  a spiritual one and otherwise
-** Ark?
-** Hub Town (Zion?)
-- central place near world tree. 
-* Interface
- - right to left for Hebrew and Arabic.
-* Mapping
-  - make your own maps. which influences the RNG/procgen.
-* Marketplaces
- - carrying
- - buying and selling
- - many shops sorted by type by streets.
-** Cooking
- - combinations
- - al-kemia (alchemy)
-* Gameplay
- - turn based.
- - rooms are single screens (can fit vector anywhere)
- - mouse and keyboard
- - four buttons: attack, jump, special, defend.
-** Screen
- - screen rotates for player always facing either N or E. (inshallah)
- - there is a map on the top right.
- - Map shows current position, save points, boss rooms.
- - Item screen shows your items.
-* --- Technical/Internal ---
-* Model
-  - world is one (invert) sphere
-  - space/heaven is in the very center.
-  - water is surrounding on the very outsides.
-  - earth is built into this. can dig.
-  - gravity pushes out from the center.
-  - water surface can expand or shrink
-  - moving closer to center shrinks object due to vacuum.
-  - can never reach center (black hole?)
-  - orbiting luminaries for navigation and discovery.
-* Cubes
-  - cubes with curvepaths cutting into them? ie.
-    CSG the paths from the tiles, one for each of the six faces.
-  - using subdivided surfaces (subsurf) using corners as weight points.
-  - this is easy for mass physics and thunks of any size and resolution.
-  - great for distances, rendering, and so on.
-* Music
-  - arabic/hebrew
-  - arabic trap
-* Graphics
-  - vector (SVG)
-* Adventure Maker
-* Decision Tree
-** Consequences
-* Character Generator
-  - generate random stats
+- generated monsters/characters
+- generated stages
+- generated items
+- turn-based (with timeouts?)
+- percussive music
 
+* Quotes
+
+** Guilty Gear Xrd
+http://www.ggxrd.com/Motomura_Junya_GuiltyGearXrd.pdf
+
+What made the difference?In my opinion, it was figuring out this one thing.
+
+The X factor is the Artist’s Intention.
+
+All the techniques we used are actually nothing new.
+No new hardware or software innovation was involved.
+Technically, the art style could have been done Years ago.
+What made the difference, was the notion that the Artist’s Intention was the X factor.
+A workflow, which let the Artist’s intention carry through, Right to the Final Result, 
+was the core of our accomplishment.
+
+** Core-A Gaming
+https://www.youtube.com/watch?v=eeYrO_rIraQ
+
+Geometry...
+
+When you are playing with pressure strings on attack and defense,
+You're flexing your ability to look for patterns in a statistics
+and probability set.
+
+Fighting games are competitive speed math.
+
+** Super Smash Bros Melee
+https://liamcruz.medium.com/roguelikes-and-fighting-games-beating-the-system-6817262b186a
+
+Variety comes from the player to player interactions, and improvement happens
+in the player rather than the character. Smash, more than any other fighting game,
+is a sandbox. It’s expressive in a way other fighting games can’t be. Techniques are
+difficult to learn, and even more difficult to implement against a human opponent.
+The tools of the character never change,
+just your ability to recognize them and execute them.
+
+..... 
+
+Although you can only express it in-game, the improvement feels separate from the game.
+
+Most single player games cannot capture this feeling.
+That’s not to say that there is no skill growth in other games
+(there’s an entire speedrunning community dedicated to it),
+but fighting games are fairly unique in the sense that player growth is practically
+the only factor in progression.
+
+.....
+
+[Nethack] is just a fighting game you play against the developers.

@@ -2,37 +2,12 @@
 
 /Welcome/
 
-* RIGHT NOW
-** TODO finish up all of the browser tabs.
-** TODO create new gmail account.
-** DONE Move back to github.
-
-* Subjective-C
-
-Lisping of C like how Objective-C does Smalltalking of C.
-
-check out [[file:experiment.al]]
-
-- program is 'data' and 'code'.
-- subtractive programming
-- begin with infinite program; not empty program.
-- cut away at the abyss
-- evaluates both in and out; right and left trees (to/from trunk)
-
-
-** operations and structures
-- boolean operations
-- binary ops: AND(record conjunction), OR(variant disjunction)
-- symbolic trees using said OPS
-
-
 * --- Development ---
 * Tasks
-** Today Tasks
-*** DONE research Objective-Caml. decide.
-*** TODO otherwise, choose a scheme. or BiwaScheme ?
-*** TODO guile for gamelike
-*** TODO ocaml for novapilot
+** Immediate Tasks
+** Current Tasks
+*** TODO finish up all of the browser tabs.
+
 ** Dev Tasks
 *** TODO customize EXWM properly.
 **** Hoovy Welcome as starting page
@@ -47,11 +22,11 @@ check out [[file:experiment.al]]
 *** TODO merge humaweb and nova-cl
 ** Game Tasks
 *** TODO Make NOVA library that supports, ECL, Emacs, Guile, Prolog, ML, JS
-*** DONE Create the "NOVA" engine (C) 
-*** TODO finish porting HS-Nova to nova-c
+*** DONE Start the "NOVA" engine (C) 
+*** TODO [maybe] finish porting HS-Nova to nova-c
 *** TODO start emacs sprite editor?
 ** System Tasks
-*** TODO disable lightdm
+*** DONE disable lightdm
 *** TODO somehow get a feature for ERC to cycle through buffers that have recent activity
 *** TODO clean up usage of .emacs (-> hoovy/emacs-init.el) and what it loads (-> hoovy/emacs.el)
 * Maintenance Commands

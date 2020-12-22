@@ -1,0 +1,135 @@
+#+TITLE: Hoovy Studio Nova Project
+
+/Nova Project/
+
+* Subjective-C
+
+Lisping of C like how Objective-C does Smalltalking of C.
+
+check out [[file:experiment.al]]
+
+- program is 'data' and 'code'.
+- subtractive programming
+- begin with infinite program; not empty program.
+- cut away at the abyss
+- evaluates both in and out; right and left trees (to/from trunk)
+     - possibly roots and branches for in and out.
+
+** operations and structures
+- boolean operations
+- binary ops: AND(record conjunction), OR(variant disjunction)
+- symbolic trees using said OPS
+
+
+
+
+* System A
+
+   modeled after Gamecube/Wii
+
+Database -> Geometry -> Texture -> Render
+
+** Display List
+
+** Step
+   n == dimensions: generally 2 or 3.
+
+vertex : scalar[n]
+texcoord : scalar[n]
+color : scalar[4]
+
+-- do we need normals ?
+
+** Winding
+nvtx : int
+vertices : Vertex[n]
+
+** Resource
+type R r' = String | R r'
+   that is,
+Either (string fileName, Resource r)
+
+** Part
+   can be - Empty, Procedural, Synthesizer, Mutator, Textured, Model, Image, Sound.
+proc : Resource Procedural
+winding : Winding
+
+** Mutator
+
+Static
+
+Many : [Mutator]
+AtCenterDo Mutator
+AutoCurve int
+AutoIncurve int
+OpenFan     -- these two use TriangleFan instead of Polygon
+ClosedFan
+
+Multiply v2
+Add v2
+MultiplyStep Step
+AddStep Step
+CenterRotate scalar
+RotateAround v2 scalar
+
+LightHead scalar scalar
+LightTail scalar scalar
+FlipX
+FlipY
+FlipZ?
+FlipU
+FlipV
+Invert
+RotateStepsL
+RotateStepsR
+
+-- generators
+Star scalar
+NinjaStar scalar
+
+-- editor
+AppendStep step
+SnapToGrid scalar
+
+** 'Procedural'
+   method to render.
+Default,
+Gradient direction,
+Textured t,
+Model m,
+Image i
+
+   for Editor:
+EditNote string,
+ResPreview string,
+ResMaking string,    -- during creating of part.
+Wired,
+WireColored,
+Bounds,
+TravelKnot,
+StepVecs f  -- scalar
+
+** Performance
+type PerfStep a' = Transform Mutator | Render a'
+type Process a' = [PerfStep a']
+
+   either one of:
+Visual : Process Procedural
+Ethereal : Process Mutator
+Aural : Process Synthesizer
+
+** World / Dynamics / Collision
+
+type Hull = WindingHull Winding | CircleHull Circle | PointHull v2 | LineHull line
+
+val isCollide : Hull -> Hull -> bool
+
+* System B
+
+modeled after PLATO
+
+orange and black pixels
+
+ xy char: 101 - 3264, line 1 char 1 - line 32 char 64
+ xy fine: 0,0 lower left - 511,511 top right
+
