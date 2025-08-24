@@ -3,7 +3,9 @@ BUILD=_build
 NOVATOP=$(BUILD)/novatop
 NOVATOP_STUB=$(BUILD)/novatop_stub
 
-RAYLIB=/usr/ocal/lib/libraylib.so
+#RAYLIB=/usr/ocal/lib/libraylib.so
+#RAYLIB=`ocamlfind query raylib`/libraylib.so
+RAYLIB=/Users/lyndon/.opam/5.3.0/lib/raylib/raylib.a
 
 all: $(NOVATOP)
 

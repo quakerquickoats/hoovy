@@ -1,0 +1,4 @@
+created(1753761915.766718).
+assert(item({name:"Sword",gold:1})).
+assert(item(item{gold:10,name:"Sword @"})).
+assert(item(item{hello:3, nothing:"Okay"})).

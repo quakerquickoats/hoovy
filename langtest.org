@@ -1,0 +1,35 @@
+-starticle-
+
+
+HP - health points, energy
+
+Software - mental conditioning
+
+Hardware - body
+{
+    Left Side
+    Right Side
+    Middle
+    Limb[4]
+    {
+        Digit[5]
+    }
+}
+Also
+{
+    Part[5] {Head, LeftUpper, RightUpper, LeftLower, RightLower}
+    -or-
+    Part[5] {Middle, Top[2], Bottom[2]}
+}
+
+
+* Dualities
+
+Front/Back
+Left/Right
+Up/Down
+In[side]/Out[side]
+
+{Begin|Start}/End
+
+
