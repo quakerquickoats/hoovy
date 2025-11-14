@@ -13,7 +13,7 @@ LDFLAGS=-lraylib
 all: $(TARGET)
 	@
 
-#################
+##################
 
 $(TARGET): $(OBJECTS)
 	$(GCC) -shared $(CFLAGS) -o $@ $< $(LDFLAGS)
