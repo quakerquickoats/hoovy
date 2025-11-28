@@ -27,28 +27,20 @@ game_edit_t edit =
 
 void KeyMove (Vector2 *v, float scale)
 {
-    if (IsKeyPressed(KEY_A))
-        v->x -= 1*scale;
-    else if (IsKeyPressed(KEY_D))
-        v->x += 1*scale;
-    if (IsKeyPressed(KEY_W))
-        v->y -= 1*scale;
-    else if (IsKeyPressed(KEY_S))
-        v->y += 1*scale;
+    if      (IsKeyPressed(KEY_A)) v->x -= 1*scale;
+    else if (IsKeyPressed(KEY_D)) v->x += 1*scale;
+    if      (IsKeyPressed(KEY_W)) v->y -= 1*scale;
+    else if (IsKeyPressed(KEY_S)) v->y += 1*scale;
 }
 
 void Edit ()
 {
     KeyMove(&edit.cursor, 1);
     //dupe
-    if (IsKeyDown(KEY_LEFT))
-        game.camera.target.x -= 3;
-    if (IsKeyDown(KEY_RIGHT))
-        game.camera.target.x += 3;
-    if (IsKeyDown(KEY_UP))
-        game.camera.target.y -= 3;
-    if (IsKeyDown(KEY_DOWN))
-        game.camera.target.y += 3;
+    if (IsKeyDown(KEY_LEFT))  game.camera.target.x -= 3;
+    if (IsKeyDown(KEY_RIGHT)) game.camera.target.x += 3;
+    if (IsKeyDown(KEY_UP))    game.camera.target.y -= 3;
+    if (IsKeyDown(KEY_DOWN))  game.camera.target.y += 3;
     
     if (edit.winding && edit.winding->nsteps > 1)
     {
