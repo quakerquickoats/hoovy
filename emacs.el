@@ -77,7 +77,7 @@
 
 (defun hoovy-insert-date ()
   (interactive)
-  (insert (format-time-string "%Y-%m-%d")))
+  (insert (format-time-string "%Y-%m-%d %H:%M:%S")))
 
 ;;;
 ;;; ERC
