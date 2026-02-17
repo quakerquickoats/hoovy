@@ -6,6 +6,7 @@
 ;;;;;
 ;;;;;;;;;;;;;
 
+(add-to-list 'exec-path "/usr/local/bin")
 (add-to-list 'exec-path "/usr/local/opt/llvm/bin")
 
 (setq-default indent-tabs-mode nil)
@@ -16,6 +17,19 @@
 
 (windmove-default-keybindings)
 (ido-mode)
+
+;;;;; hebrew (macOS)
+
+(set-fontset-font t 'hebrew "New Peninim MT 24")
+
+;;======================
+;;
+;; BrightScript
+;;
+;;======================
+
+(require 'brightscript-mode)
+(add-to-list 'auto-mode-alist '("\\.brs\\'" . brightscript-mode))
 
 ;;;;;;;;;;;;
 ;;;;;
@@ -111,9 +125,11 @@
      ("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
  '(package-selected-packages
-   '(haskell-mode markdown-mode merlin nethack paredit slime
-                  smalltalk-mode snoopy sweeprolog treemacs
-                  treemacs-all-the-icons treemacs-magit treesit-auto))
+
+   '(brightscript-mode haskell-mode markdown-mode merlin nethack paredit
+                       slime smalltalk-mode snoopy sweeprolog treemacs
+                       treemacs-all-the-icons treemacs-magit
+                       treesit-auto))
  '(tool-bar-mode nil)
  '(tuareg-highlight-all-operators t t))
 (custom-set-faces
