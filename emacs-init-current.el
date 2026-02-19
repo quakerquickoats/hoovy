@@ -125,9 +125,9 @@
      ("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
  '(package-selected-packages
-
-   '(brightscript-mode haskell-mode markdown-mode merlin nethack paredit
-                       slime smalltalk-mode snoopy sweeprolog treemacs
+   '(brightscript-mode geiser geiser-gambit haskell-mode markdown-mode
+                       merlin nethack paredit slime smalltalk-mode
+                       snoopy sweeprolog treemacs
                        treemacs-all-the-icons treemacs-magit
                        treesit-auto))
  '(tool-bar-mode nil)
