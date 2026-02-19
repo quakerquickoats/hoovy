@@ -30,6 +30,7 @@
 
 (require 'brightscript-mode)
 (add-to-list 'auto-mode-alist '("\\.brs\\'" . brightscript-mode))
+(setq brightscript-mode-indent-offset 4)
 
 ;;;;;;;;;;;;
 ;;;;;
@@ -116,7 +117,7 @@
  '(ansi-color-names-vector
    ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf"
     "#eeeeec"])
- '(c-basic-offset 4)
+ '(c-basic-offset 4 t)
  '(custom-enabled-themes '(manoj-dark))
  '(fringe-mode 0 nil (fringe))
  '(package-archives
@@ -125,10 +126,11 @@
      ("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
  '(package-selected-packages
-   '(brightscript-mode haskell-mode markdown-mode merlin nethack paredit
-                       slime smalltalk-mode snoopy sweeprolog treemacs
+   '(brightscript-mode geiser geiser-gambit haskell-mode markdown-mode
+                       merlin nethack paredit slime smalltalk-mode
+                       snoopy sweeprolog treemacs
                        treemacs-all-the-icons treemacs-magit
-                       treesit-auto))
+                       treesit-auto ultra-scroll))
  '(tool-bar-mode nil)
  '(tuareg-highlight-all-operators t t))
 (custom-set-faces

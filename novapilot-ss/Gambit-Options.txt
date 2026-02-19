@@ -1,0 +1,3 @@
+also, install GNU GCC.
+
+./configure --enable-single-host --enable-march=native --enable-dynamic-clib --enable-smp --enable-multiple-threaded-vms --enable-trust-c-tco
