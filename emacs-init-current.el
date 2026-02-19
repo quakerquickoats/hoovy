@@ -30,6 +30,7 @@
 
 (require 'brightscript-mode)
 (add-to-list 'auto-mode-alist '("\\.brs\\'" . brightscript-mode))
+(setq brightscript-mode-indent-offset 4)
 
 ;;;;;;;;;;;;
 ;;;;;
@@ -129,7 +130,7 @@
                        merlin nethack paredit slime smalltalk-mode
                        snoopy sweeprolog treemacs
                        treemacs-all-the-icons treemacs-magit
-                       treesit-auto))
+                       treesit-auto ultra-scroll))
  '(tool-bar-mode nil)
  '(tuareg-highlight-all-operators t t))
 (custom-set-faces
