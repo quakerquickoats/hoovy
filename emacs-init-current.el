@@ -20,7 +20,7 @@
 
 ;;;;; hebrew (macOS)
 
-(set-fontset-font t 'hebrew "New Peninim MT 24")
+;;(set-fontset-font t 'hebrew "New Peninim MT 24")
 
 ;;======================
 ;;
@@ -120,15 +120,16 @@
  '(c-basic-offset 4 t)
  '(custom-enabled-themes '(manoj-dark))
  '(fringe-mode 0 nil (fringe))
+ '(idris-interpreter-path "idris2")
  '(package-archives
    '(("melpa" . "https://melpa.org/packages/")
      ("stable melpa" . "https://stable.melpa.org/packages/")
      ("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
  '(package-selected-packages
-   '(brightscript-mode geiser geiser-gambit haskell-mode markdown-mode
-                       merlin nethack paredit slime smalltalk-mode
-                       snoopy sweeprolog treemacs
+   '(brightscript-mode flycheck geiser geiser-gambit haskell-mode
+                       idris-mode markdown-mode merlin nethack paredit
+                       smalltalk-mode snoopy sweeprolog treemacs
                        treemacs-all-the-icons treemacs-magit
                        treesit-auto ultra-scroll))
  '(tool-bar-mode nil)
