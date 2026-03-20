@@ -2,8 +2,15 @@ TARGETS = novapilot
 
 OBJECTS = util.o winding.o object.o novapilot.o
 
-#CC=gcc
-#CC=clang
+# CHEZ
+
+
+# GAMBIT
+
+#$ export GAMBIT_GSC_BACKEND=clang
+# or pass -cc to gsc
+
+
 CFLAGS=-Wall -g -fPIC -ggdb -I/usr/local/include
 LDFLAGS=-L/usr/local/lib -lraylib
 

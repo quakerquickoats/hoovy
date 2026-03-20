@@ -1,6 +1,6 @@
 also, install GNU GCC.
 
-./configure --enable-single-host --enable-march=native --enable-dynamic-clib --enable-trust-c-tco
+./configure --enable-single-host --enable-march=native --enable-dynamic-clib --enable-trust-c-tco --enable-rtlib-debug
 
 
 # this breaks the building at 'make modules' 

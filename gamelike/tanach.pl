@@ -122,6 +122,18 @@ base_val('ן', 50, 700). % Final Nun
 base_val('ף', 80, 800). % Final Pe
 base_val('ץ', 90, 900). % Final Tsadi
 
+% Niqqud (Vowels) - Traditional values (e.g., used by some Kabbalists)
+niqqud_val('ַ', 1).   % Patah (1)
+niqqud_val('ָ', 2).   % Qamets (2)
+niqqud_val('ֵ', 3).   % Tsere (3)
+niqqud_val('ֶ', 4).   % Segol (4)
+niqqud_val('ִ', 5).   % Hiriq (5)
+niqqud_val('ֹ', 6).   % Holam (6)
+niqqud_val('ֻ', 7).   % Qubuts (7)
+niqqud_val('ּ', 8).   % Dagesh (8)
+niqqud_val('ְ', 9).   % Sheva (9)
+niqqud_val('ֻ', 10).  % Shuruq (often treated as 10 or Vov+Dagesh)
+
 % calculate_gematria(+Text, +Mode, -Total)
 calculate_gematria(Text, Mode, Total) :-
     atom_chars(Text, Chars),
