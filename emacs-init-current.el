@@ -20,7 +20,7 @@
 
 ;;;;; hebrew (macOS)
 
-(set-fontset-font t 'hebrew "New Peninim MT 24")
+;;(set-fontset-font t 'hebrew "New Peninim MT 24")
 
 ;;======================
 ;;
@@ -117,20 +117,21 @@
  '(ansi-color-names-vector
    ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf"
     "#eeeeec"])
- '(c-basic-offset 4 t)
+ '(c-basic-offset 4)
  '(custom-enabled-themes '(manoj-dark))
  '(fringe-mode 0 nil (fringe))
+ '(idris-interpreter-path "idris2")
  '(package-archives
    '(("melpa" . "https://melpa.org/packages/")
      ("stable melpa" . "https://stable.melpa.org/packages/")
      ("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
  '(package-selected-packages
-   '(brightscript-mode geiser geiser-gambit haskell-mode markdown-mode
-                       merlin nethack paredit slime smalltalk-mode
-                       snoopy sweeprolog treemacs
-                       treemacs-all-the-icons treemacs-magit
-                       treesit-auto ultra-scroll))
+   '(brightscript-mode flycheck geiser geiser-chez geiser-gambit
+                       haskell-mode idris-mode markdown-mode merlin
+                       nethack paredit smalltalk-mode snoopy
+                       sweeprolog treemacs treemacs-all-the-icons
+                       treemacs-magit treesit-auto ultra-scroll))
  '(tool-bar-mode nil)
  '(tuareg-highlight-all-operators t t))
 (custom-set-faces
@@ -139,6 +140,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :extend nil :stipple nil :background "#222" :foreground "WhiteSmoke" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 120 :width normal :foundry "nil" :family "Menlo"))))
+ '(font-lock-builtin-face ((t (:foreground "lightgreen"))))
  '(font-lock-comment-delimiter-face ((t (:foreground "#999"))))
  '(font-lock-comment-face ((t (:foreground "#999" :slant oblique))))
  '(font-lock-function-name-face ((t (:foreground "#aaaaff" :weight bold))))
