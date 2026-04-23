@@ -1,0 +1,38 @@
+🚀 Developer Workflow Contribs
+
+    slime-c-p-c (Compound-Prefix-Completion): Completes names like m-v-b to multiple-value-bind.
+    slime-fuzzy : Enables a "fuzzy" completion window that suggests matches based on partial strings.
+    slime-autodoc : Shows function arguments in the minibuffer as you type or move the cursor.
+    slime-enclosing-context : Highlights or displays the current function/block your cursor is inside.
+    slime-fontifying-fu : Adds extra syntax highlighting for Common Lisp-specific constructs.
+
+🔍 Inspection & Debugging
+
+    slime-fancy-inspector : Replaces the basic inspector with a visual, clickable interface for objects.
+    slime-presentations : Links REPL output to the actual Lisp objects so you can re-use or inspect them easily.
+    slime-scratch : Adds a *slime-scratch* buffer for quickly evaluating "throwaway" code.
+    slime-references : Adds clickable cross-references (like "find callers") to the source code.
+    slime-xref-browser : Provides a hierarchical tree view for cross-referencing function calls.
+
+📦 System & File Management
+
+    slime-asdf : Allows you to load, recompile, and test entire ASDF systems directly from Emacs.
+    slime-banner : Displays a customizable "Welcome" message when you start SLIME.
+    slime-tramp : Essential for using SLIME with remote Lisp processes over SSH (using TRAMP).
+    slime-mdot-fu : Enhances "Find Definition" (M-.) to work more reliably in complex projects.
+
+⌨️ Interface & REPL Enhancements
+
+    slime-repl : The standard, full-featured Read-Eval-Print Loop.
+    slime-mrepl : Adds the ability to open multiple, independent REPL buffers simultaneously.
+    slime-indentation : Provides smarter, Lisp-aware indentation that respects custom macros.
+    slime-highlight-edits : Visually marks code that has been modified but not yet compiled/sent to Lisp.
+
+(setq slime-contribs '(slime-fancy
+                       slime-asdf
+                       slime-banner
+                       slime-indentation
+                       slime-mrepl
+                       slime-scratch
+                       slime-highlight-edits))
+(slime-setup)

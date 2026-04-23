@@ -8,6 +8,12 @@ letter "Y" -- humasect logo center?
 
 PLOY! scheme, guile, sly, cunning, craft.. shrew, wile(s).
 
+
+* PLATO
+
+--Engine ??
+
+
 * ?Grenadier Blue?
 
 --adventure platformer, metroidvania

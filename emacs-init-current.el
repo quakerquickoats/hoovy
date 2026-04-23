@@ -18,6 +18,14 @@
 (windmove-default-keybindings)
 (ido-mode)
 
+(setq package-install-upgrade-built-in t)
+
+;; ORG
+;;
+
+(setq org-roam-directory "~/hoovy/org-roam")
+(org-roam-db-autosync-mode)
+
 ;;;;; hebrew (macOS)
 
 ;;(set-fontset-font t 'hebrew "New Peninim MT 24")
@@ -86,9 +94,26 @@
 ;;;;;
 ;;;;;;;;;;
 
-(setq inferior-lisp-program "/usr/local/bin/sbcl")
+(require 'snoopy)
+(add-hook 'lisp-mode-hook 'snoopy-mode)
+(add-hook 'emacs-lisp-mode-hook 'snoopy-mode)
+(add-hook 'lisp-interaction-mode-hook 'snoopy-mode)
+(add-hook 'slime-repl-mode-hook 'snoopy-mode)
+
+(setq inferior-lisp-program "/opt/local/bin/sbcl")
 ;; https://github.com/informatimago/emacs/blob/master/slime-rpc.el
-(require 'slime)
+(require 'slime-autoloads)
+
+(setq slime-contribs '(slime-fancy
+                       slime-asdf
+                       slime-banner
+                       slime-indentation
+                       slime-mrepl
+                       slime-scratch
+                       slime-highlight-edits))
+;;(slime-setup '(slime-fancy))
+(slime-setup)
+
 
 (setf slime-enable-evaluate-in-emacs t)
 
@@ -117,7 +142,7 @@
  '(ansi-color-names-vector
    ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf"
     "#eeeeec"])
- '(c-basic-offset 4)
+ '(c-basic-offset 4 t)
  '(custom-enabled-themes '(manoj-dark))
  '(fringe-mode 0 nil (fringe))
  '(idris-interpreter-path "idris2")
@@ -127,11 +152,16 @@
      ("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
  '(package-selected-packages
-   '(brightscript-mode flycheck geiser geiser-chez geiser-gambit
-                       haskell-mode idris-mode markdown-mode merlin
-                       nethack paredit smalltalk-mode snoopy
-                       sweeprolog treemacs treemacs-all-the-icons
-                       treemacs-magit treesit-auto ultra-scroll))
+   '(brightscript-mode closql editorconfig eglot emacsql erc faceup
+                       flycheck flymake geiser geiser-chez
+                       geiser-gambit haskell-mode idris-mode jsonrpc
+                       markdown-mode merlin nethack org org-roam
+                       org-roam-timeline org-roam-ui paredit peg
+                       project smalltalk-mode snoopy sweeprolog
+                       timeout track-changes tramp transient treemacs
+                       treemacs-all-the-icons treemacs-magit
+                       treesit-auto tuareg ultra-scroll verilog-mode
+                       which-key))
  '(tool-bar-mode nil)
  '(tuareg-highlight-all-operators t t))
 (custom-set-faces

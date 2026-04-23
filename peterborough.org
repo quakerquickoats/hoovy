@@ -1,0 +1,69 @@
+* Roguelike game
+
+name? Peterborough... Pissburg?
+Platoland
+Potatoberg
+Plateuworld
+hmm variations...
+
+
+Do stuff. Living the life. all the fun, quirks;
+Letterkenny as roguelike, Peterborough ON
+(Oshawa and toronto and Cobourg etc count.)
+
+Find name..!
+
+* Classes
+- alcoholic
+- crackhead
+- junkie
+- injector
+- smoker
+- conspiracist
+- stoner
+- shelter kid
+- tenter
+- disable
+
+* Objectives
+** Tasks
+
+*** Money
+- collect empties
+*** Experience
+- talk
+- walk
+- explore
+  
+** Missions
+
+*** Learn Qabalah
+*** Meditate
+*** Level up
+
+* City
+Downtown
+** Churches
+** Food Banks
+** Police Station
+** Bus station
+** Small mall, Big mall
+** Rivers,Bridges
+
+* Locations
+
+They have hours, days of week, etc.
+
+** beer stores
+** food banks
+** shelters
+** rooming houses
+** laundry
+** butt spots, empty spots
+** little libraries
+
+* Enemies / conflict
+** Weather
+** Pedestrians
+** Traffic
+** Police
