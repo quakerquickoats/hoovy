@@ -1,0 +1,4 @@
+(executable
+ (name qblahtry)
+ 
+ (libraries lwt cohttp-lwt-unix))

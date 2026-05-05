@@ -63,6 +63,13 @@
 ;;;;;
 ;;;;;;;;;;;
 
+(add-hook 'prog-mode-hook 'highlight-operators-mode)
+
+(require 'tuareg)
+;;(add-to-list 'tuareg-prettify-symbols-basic-alist '("->" . ?K))
+
+(add-hook 'tuareg-mode-hook 'utop-minor-mode)
+
 (setq tuareg-highlight-all-operators t)
 (setq tuareg-prettify-symbols-full t)
 (add-hook 'tuareg-mode-hook
@@ -145,7 +152,10 @@
  '(c-basic-offset 4 t)
  '(custom-enabled-themes '(manoj-dark))
  '(fringe-mode 0 nil (fringe))
+ '(highlight-operators-regexp "[!%&*+,./()=<>:-?|~^-]")
  '(idris-interpreter-path "idris2")
+ '(nethack-program "/Users/humasect/bin/nethack")
+ '(nethack-version "5.0.0")
  '(package-archives
    '(("melpa" . "https://melpa.org/packages/")
      ("stable melpa" . "https://stable.melpa.org/packages/")
@@ -154,16 +164,17 @@
  '(package-selected-packages
    '(brightscript-mode closql editorconfig eglot emacsql erc faceup
                        flycheck flymake geiser geiser-chez
-                       geiser-gambit haskell-mode idris-mode jsonrpc
-                       markdown-mode merlin nethack org org-roam
-                       org-roam-timeline org-roam-ui paredit peg
-                       project smalltalk-mode snoopy sweeprolog
-                       timeout track-changes tramp transient treemacs
-                       treemacs-all-the-icons treemacs-magit
-                       treesit-auto tuareg ultra-scroll verilog-mode
-                       which-key))
+                       geiser-gambit haskell-mode highlight-operators
+                       idris-mode jsonrpc markdown-mode merlin nethack
+                       org org-roam org-roam-timeline org-roam-ui
+                       paredit peg project smalltalk-mode snoopy
+                       sweeprolog timeout track-changes tramp
+                       transient treemacs treemacs-all-the-icons
+                       treemacs-magit treesit-auto ultra-scroll
+                       verilog-mode which-key))
  '(tool-bar-mode nil)
- '(tuareg-highlight-all-operators t t))
+ '(tuareg-highlight-all-operators t)
+ '(utop-command "utop -emacs"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -179,6 +190,7 @@
  '(font-lock-string-face ((t (:foreground "cyan1"))))
  '(font-lock-type-face ((t (:foreground "SteelBlue1"))))
  '(font-lock-variable-name-face ((t (:foreground "#aaf"))))
+ '(highlight-operators-face ((t (:inherit tuareg-font-lock-operator-face))))
  '(sweeprolog-head-built-in ((t (:background "Brown" :weight bold))))
  '(tuareg-font-lock-governing-face ((t (:foreground "green"))))
  '(tuareg-font-lock-operator-face ((t (:foreground "yellow")))))
